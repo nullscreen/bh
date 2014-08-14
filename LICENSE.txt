@@ -1,4 +1,4 @@
-Copyright (c) 2014 claudiob
+Copyright (c) 2014 Fullscreen, Inc.
 
 MIT License
 
