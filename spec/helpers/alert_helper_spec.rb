@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'spec_helper'
 require 'bh/helpers/alert_helper'
 require 'bh/helpers/url_helper'

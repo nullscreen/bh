@@ -4,6 +4,15 @@ Bh - Bootstrap Helpers
 Bh provides a set of powerful helpers that streamlines the use of
 [Bootstrap components](http://getbootstrap.com/components) in Rails views.
 
+The **full documentation** is available at [rubydoc.info](http://rubydoc.info/github/Fullscreen/bh/master/frames).
+
+[![Build Status](http://img.shields.io/travis/Fullscreen/bh/master.svg)](https://travis-ci.org/Fullscreen/bh)
+[![Coverage Status](http://img.shields.io/coveralls/Fullscreen/bh/master.svg)](https://coveralls.io/r/Fullscreen/bh)
+[![Dependency Status](http://img.shields.io/gemnasium/Fullscreen/bh.svg)](https://gemnasium.com/Fullscreen/bh)
+[![Code Climate](http://img.shields.io/codeclimate/github/Fullscreen/bh.svg)](https://codeclimate.com/github/Fullscreen/bh)
+[![Online docs](http://img.shields.io/badge/docs-✓-green.svg)](http://rubydoc.info/github/Fullscreen/bh/master/frames)
+[![Gem Version](http://img.shields.io/gem/v/bh.svg)](http://rubygems.org/gems/bh)
+
 Bootstrap is a great framework, but requires to write many lines of HTML code
 even for simple components.
 For instance, you need to write the following HTML to show a _dismissible alert_:
@@ -51,7 +60,7 @@ The `alert_box` helper
 ======================
 
 To include [Boostrap alert boxes](http://getbootstrap.com/components/#alerts)
-in your Rails views, you can use the [alert_box](#doc) helper.
+in your Rails views, you can use the [alert_box](http://rubydoc.info/github/Fullscreen/bh/master/Bh/AlertHelper) helper.
 Here are some examples.
 
 Basic alerts
