@@ -1,7 +1,7 @@
 Bh - Bootstrap Helpers
 ======================
 
-Bh provides a set of powerful helpers that streamlines the use of
+Bh provides a set of helpers that streamlines the use of
 [Bootstrap components](http://getbootstrap.com/components) in Rails views.
 
 The **full documentation** is available at [rubydoc.info](http://rubydoc.info/github/Fullscreen/bh/master/frames).
@@ -31,7 +31,7 @@ Writing this for every _dismissible alert_ in a web site is cumbersome,
 repetitive, and prone to errors.
 
 Bh offers a solution to this problem by means of a set of helper methods.
-The example above can be with just one line of code:
+The example above can be rewritten with just one line of code:
 
 ```erb
 <%= alert_box 'You accepted the Terms of service.', dismissible: true %>
@@ -187,7 +187,8 @@ Bh needs your support!
 
 If you find that a method is missing, fork the project, add the missing code,
 write the appropriate tests, then submit a pull request, and it will gladly
-be merged! If you need an inspiration, look at the TODO.md file.
+be merged! If you need an inspiration, look at the
+[TODO](https://github.com/Fullscreen/bh/blob/master/TODO.md).
 
 To run the tests, simply type `rspec` on the command line.
 
