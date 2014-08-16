@@ -209,7 +209,7 @@ over HTTP scheme:
 ```
 
 GlyphiconHelper
-=========
+===============
 
 To display [glyphicons](http://getbootstrap.com/components/#glyphicons),
 you can use the
@@ -231,6 +231,115 @@ will generate the HTML to render an "ok" icon with the "Approved" title:
 
 ![glyphicon](https://cloud.githubusercontent.com/assets/7408595/3941608/64219c82-2537-11e4-8e86-27d4a62b1c06.png)
 
+
+PanelHelper
+===========
+
+To include [Boostrap panels](http://getbootstrap.com/components/#panels)
+in your Rails views, you can use the
+[panel](http://rubydoc.info/github/Fullscreen/bh/master/Bh/PanelHelper) helper.
+Here are some examples.
+
+Basic panel
+-----------
+
+```erb
+<%= panel body: 'You accepted the Terms of service.' %>
+```
+
+will generate the HTML to render a basic panel:
+
+```html
+<div class="panel panel-default">
+  <div class="panel-body">You accepted the Terms of service.</div>
+</div>
+```
+![panel-basic](https://cloud.githubusercontent.com/assets/7408595/3941817/da52bd6c-2543-11e4-87ae-eb1c7ed9df68.png)
+
+Panel with heading
+------------------
+
+```erb
+<%= panel body: 'You accepted the Terms of service.', heading: 'Congratulations' %>
+```
+
+will generate the HTML to render a panel with a heading:
+
+```html
+<div class="panel panel-default">
+  <div class="panel-heading">Congratulations</div>
+  <div class="panel-body">You accepted the Terms of service.</div>
+</div>
+```
+
+![panel-heading](https://cloud.githubusercontent.com/assets/7408595/3941820/da58db3e-2543-11e4-811f-f7da4ffce77d.png)
+
+Panel with title
+------------------
+
+```erb
+<%= panel body: 'You accepted the Terms of service.', title: 'Congratulations' %>
+```
+
+will generate the HTML to render a panel with a title:
+
+```html
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Congratulations</h3>
+  </div>
+  <div class="panel-body">You accepted the Terms of service.</div>
+</div>
+```
+
+![panel-title](https://cloud.githubusercontent.com/assets/7408595/3941816/da52b894-2543-11e4-99b8-4b6ffd47c167.png)
+
+Contextual panel
+-----------------
+
+```erb
+<%= panel body: 'You accepted the Terms of service.', title: 'Congratulations', context: :success %>
+```
+
+will generate the HTML to render a "success" panel (green background):
+
+```html
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Congratulations</h3>
+  </div>
+  <div class="panel-body">You accepted the Terms of service.</div>
+</div>
+```
+
+Available contexts are `:default` (default), `:primary`, `:success`, `:info`,
+`:warning` and `:danger`.
+
+![panel-context](https://cloud.githubusercontent.com/assets/7408595/3941818/da562ba0-2543-11e4-87ce-54e143538219.png)
+
+Complex panels
+--------------
+
+```erb
+<%= panel do %>
+  <div class='panel-body'>You accepted the Terms of service. <%= glyphicon :ok %></div>
+  <div class='panel-footer'><h4>Thanks</h4></div>
+<% end %>
+```
+
+will generate the HTML to render a panel with HTML body and footer:
+
+```html
+<div class="panel panel-default">
+  <div class="panel-body">
+    You accepted the Terms of service.
+    <span class="glyphicon glyphicon-ok"></span>
+  </div>
+  <div class="panel-footer"><h4>Thanks</h4></div>
+</div>
+```
+
+![panel-complex](https://cloud.githubusercontent.com/assets/7408595/3941819/da569586-2543-11e4-8640-3f0a72077aca.png)
 
 How to release new versions
 ===========================
