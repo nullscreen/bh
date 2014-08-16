@@ -208,6 +208,30 @@ over HTTP scheme:
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
 ```
 
+GlyphiconHelper
+=========
+
+To display [glyphicons](http://getbootstrap.com/components/#glyphicons),
+you can use the
+[glyphicon](http://rubydoc.info/github/Fullscreen/bh/master/Bh/GlyphiconHelper) helper.
+Here are some examples.
+
+Display the "zoom in" icon
+--------------------------
+
+```erb
+<%= glyphicon :ok, title: 'Approved' %>
+```
+
+will generate the HTML to render an "ok" icon with the "Approved" title:
+
+```html
+<span class="glyphicon glyphicon-ok" title="Approved"></span>
+```
+
+![glyphicon](https://cloud.githubusercontent.com/assets/7408595/3941608/64219c82-2537-11e4-8e86-27d4a62b1c06.png)
+
+
 How to release new versions
 ===========================
 
