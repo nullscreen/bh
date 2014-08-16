@@ -5,6 +5,7 @@ module Bh
   # @see http://getbootstrap.com/components/#glyphicons
   module GlyphiconHelper
     include ActionView::Helpers::TagHelper # for content_tag
+
     # Returns an HTML block tag that follows the Bootstrap documentation
     # on how to display *glyphicons*.
     # @return [String] an HTML block tag for a glyphicon.

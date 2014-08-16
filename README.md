@@ -341,6 +341,82 @@ will generate the HTML to render a panel with HTML body and footer:
 
 ![panel-complex](https://cloud.githubusercontent.com/assets/7408595/3941819/da569586-2543-11e4-8640-3f0a72077aca.png)
 
+
+PanelRowHelper
+==============
+
+To include a row of [Boostrap panels](http://getbootstrap.com/components/#panels)
+in your Rails views, you can use the
+[panel_row](http://rubydoc.info/github/Fullscreen/bh/master/Bh/PanelRowHelper) helper.
+Here are some examples.
+
+Basic row of panels
+-------------------
+
+```erb
+<%= panel_row column_class: 'col-sm-4' do %>
+  <%= panel body: 'Panel #1' %>
+  <%= panel body: 'Panel #2' %>
+  <%= panel body: 'Panel #3' %>
+<% end %>
+```
+
+will generate the HTML to render a row of three basic panels:
+
+```html
+<div class="row">
+  <div class="col-sm-4">
+    <div class="panel panel-default"><div class="panel-body">Panel #1</div></div>
+  </div>
+  <div class="col-sm-4">
+    <div class="panel panel-default"><div class="panel-body">Panel #2</div></div>
+  </div>
+  <div class="col-sm-4">
+    <div class="panel panel-default"><div class="panel-body">Panel #3</div></div>
+  </div>
+</div>
+```
+
+![panel-row-basic](https://cloud.githubusercontent.com/assets/7408595/3942060/48967f30-2552-11e4-8b9c-a647d1569d5c.png)
+
+Complex row of panels
+---------------------
+
+```erb
+<%= panel_row column_class: 'col-sm-4' do %>
+  <%= panel title: 'User', context: :info do %>
+    <div class='panel-body'><%= glyphicon :user %> John Smith</div>
+  <% end %>
+  <%= panel title: 'Phone' do %>
+    <div class='panel-body'><%= glyphicon :earphone %> 323-555-5555</div>
+  <% end %>
+  <%= panel title: 'City' do %>
+    <div class='panel-body'><%= glyphicon :record %> Los Angeles, CA</div>
+  <% end %>
+<% end %>
+```
+
+will generate the HTML to render a row of three panels with title and HTML body:
+
+```html
+<div class="row">
+  <div class="col-sm-4"><div class="panel panel-info">
+    <div class="panel-heading"><h3 class="panel-title">User</h3></div>
+    <div class="panel-body"><span class="glyphicon glyphicon-user"></span> John Smith</div>
+  </div></div>
+  <div class="col-sm-4"><div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">Phone</h3></div>
+    <div class="panel-body"><span class="glyphicon glyphicon-earphone"></span> 323-555-5555</div>
+  </div></div>
+  <div class="col-sm-4"><div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">City</h3></div>
+    <div class="panel-body"><span class="glyphicon glyphicon-record"></span> Los Angeles, CA</div>
+  </div></div>
+</div>
+```
+
+![panel-row-complex](https://cloud.githubusercontent.com/assets/7408595/3942061/489d1bc4-2552-11e4-9b00-d724b7c2c908.png)
+
 How to release new versions
 ===========================
 

@@ -5,6 +5,7 @@ module Bh
     include ActionView::Helpers::TagHelper # for content_tag
     include ActionView::Context # for capture
     include ActionView::Helpers::OutputSafetyHelper # for safe_join
+
     # Returns an HTML block tag that follows the Bootstrap documentation
     # on how to display *alert boxes*.
     # Alert boxes provide contextual feedback messages for typical user
