@@ -7,6 +7,7 @@ module Bh
     include ActionView::Helpers::TagHelper # for content_tag
     include ActionView::Context # for capture
     include ActionView::Helpers::OutputSafetyHelper # for safe_join
+
     # Returns an HTML block tag that follows the Bootstrap documentation
     # on how to display *panels*.
     #
@@ -51,7 +52,7 @@ module Bh
     def panel_string(content = nil, options = {})
       content = prepend_optional_body_to content, options
       content = prepend_optional_heading_to content, options
-      panel = content_tag :div, content, class: panel_class(options[:context])
+      content_tag :div, content, class: panel_class(options[:context])
     end
 
     def panel_class(context = nil)

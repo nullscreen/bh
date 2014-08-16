@@ -8,6 +8,7 @@ For more information about changelogs, check
 
 ## 0.0.4 - unreleased
 
+* [FEATURE] Add `panel_row`
 * [FEATURE] Add `panel`
 * [FEATURE] Add `glyphicon`
 
