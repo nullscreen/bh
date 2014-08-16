@@ -46,7 +46,7 @@ How to install
 
 Bh is meant to be included in Rails apps by adding this line to the Gemfile:
 
-    gem 'bh', '~> 0.0.2'
+    gem 'bh', '~> 0.0.3'
 
 Since the gem follows [Semantic Versioning](http://semver.org),
 indicating the full version in your Gemfile (~> *major*.*minor*.*patch*)
@@ -56,8 +56,8 @@ and a new version of Bh is released.
 Adding 'bh' to your Gemfile is all you need!
 From now on, you will be able to use any of the following Bh helpers in your Rails views.
 
-The `alert_box` helper
-======================
+AlertHelper
+===========
 
 To include [Boostrap alert boxes](http://getbootstrap.com/components/#alerts)
 in your Rails views, you can use the [alert_box](http://rubydoc.info/github/Fullscreen/bh/master/Bh/AlertHelper) helper.
@@ -164,6 +164,49 @@ highlighted text and appropriately styled links:
 
 ![alert-complex](https://cloud.githubusercontent.com/assets/7408595/3936903/7c1b70f0-24a7-11e4-95ee-11f6920ddd4d.png)
 
+CdnHelper
+=========
+
+To load the CSS and JS files of Bootstrap from
+[BootstrapCDN](http://getbootstrap.com/getting-started/#download), you can use
+the [bootstrap_css](http://rubydoc.info/github/Fullscreen/bh/master/Bh/CdnHelper),
+[bootstrap_theme_css](http://rubydoc.info/github/Fullscreen/bh/master/Bh/CdnHelper) and
+[bootstrap_js](http://rubydoc.info/github/Fullscreen/bh/master/Bh/CdnHelper) helpers.
+Here are some examples.
+
+Load the latest Bootstrap assets
+--------------------------------
+
+```erb
+<%= stylesheet_link_tag bootstrap_css, bootstrap_theme_css, :application %>
+<%= javascript_include_tag bootstrap_js, :application %>
+```
+
+will generate the HTML to load the latest versions of Bootstrap CSS, Bootstrap
+Theme CSS and Bootstrap JS from MaxCDN, before your application assets:
+
+```html
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/assets/application.css" media="screen" rel="stylesheet" type="text/css" />
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/assets/application.js" type="text/javascript"></script>
+```
+
+Load a specific version of a Bootstrap asset
+--------------------------------------------
+
+```erb
+<%= stylesheet_link_tag bootstrap_css(version: '3.1.0', minified: false, scheme: :http) %>
+```
+
+will generate the HTML to load the non-minified 3.1.0 versions of Bootstrap CSS
+over HTTP scheme:
+
+```html
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
+```
 
 How to release new versions
 ===========================

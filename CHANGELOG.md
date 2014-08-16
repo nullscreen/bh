@@ -6,6 +6,10 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 0.0.3 - 2014-08-15
+
+* [FEATURE] Add `bootstrap_css`, `bootstrap_theme_css` and `bootstrap_js`
+
 ## 0.0.2 - 2014-08-15
 
 * [FEATURE] Add `alert_box` helper
