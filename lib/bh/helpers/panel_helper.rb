@@ -25,9 +25,9 @@ module Bh
     # @param [String] content_or_options_with_block the content to display in
     #   the panel.
     # @param [Hash] options the display options for the panel.
-    # @option options [#to_s] :context the contextual alternative to apply to
-    #   the panel depending on its importance. Can be :default, :primary,
-    #   :success, :info, :warning  or :danger. Defaults to :default.
+    # @option options [#to_s] :context (:default) the contextual alternative to
+    #   apply to the panel depending on its importance. Can be :default,
+    #   :primary, :success, :info, :warning  or :danger.
     # @option options [#to_s] :body if present, the panel will include the
     #   provided text wrapped in a 'panel-body' block, for proper padding
     # @see http://getbootstrap.com/components/#panels-basic
