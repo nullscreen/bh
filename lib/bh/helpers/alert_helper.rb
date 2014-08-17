@@ -26,11 +26,11 @@ module Bh
     # @param [String] message_or_options_with_block the message to display in
     #   the alert.
     # @param [Hash] options the options for the alert box.
-    # @option options [Boolean] :dismissible whether to display an '×' to the
-    #   right of the alert than can be clicked to dismiss the alert.
-    # @option options [#to_s] :context the contextual alternative to apply to
-    #   the alert depending on its importance. Can be :success, :info,
-    #   :warning  or :danger. Defaults to :info.
+    # @option options [Boolean] :dismissible (false) whether to display an '×'
+    #   to the right of the alert than can be clicked to dismiss the alert.
+    # @option options [#to_s] :context (:info) the contextual alternative to
+    #   apply to the alert depending on its importance. Can be :success, :info,
+    #   :warning  or :danger.
     # @option options [#to_s] :priority if the alert box is used to show a
     #   Rails flash message, the priority of the message. Can be :alert
     #   or :notice.

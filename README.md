@@ -46,7 +46,7 @@ How to install
 
 Bh is meant to be included in Rails apps by adding this line to the Gemfile:
 
-    gem 'bh', '~> 0.0.3'
+    gem 'bh', '~> 0.0.4'
 
 Since the gem follows [Semantic Versioning](http://semver.org),
 indicating the full version in your Gemfile (~> *major*.*minor*.*patch*)
@@ -416,6 +416,80 @@ will generate the HTML to render a row of three panels with title and HTML body:
 ```
 
 ![panel-row-complex](https://cloud.githubusercontent.com/assets/7408595/3942061/489d1bc4-2552-11e4-9b00-d724b7c2c908.png)
+
+ModalHelper
+===========
+
+To include [Boostrap modals](http://getbootstrap.com/javascript/#modals)
+in your Rails views, you can use the
+[modal](http://rubydoc.info/github/Fullscreen/bh/master/Bh/ModalHelper) helper.
+Here are some examples.
+
+Basic modal
+-----------
+
+```erb
+<%= modal title: 'Terms of service', body: 'Do what you want!' %>
+```
+
+will generate the HTML to render a button that toggles a model when clicked:
+
+```html
+<button class="btn btn-default" data-toggle="modal" data-target="#modal-8684506463">
+  Terms of service
+</button>
+<div class="modal fade" id="modal-8684506463" tabindex="-1" role="dialog" aria-labelledby="label-modal-8684506463" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title" id="label-modal-8684506463">Terms of service</h4>
+      </div>
+      <div class="modal-body">Do what you want!</div>
+    </div>
+  </div>
+</div>
+```
+
+![modal-basic](https://cloud.githubusercontent.com/assets/7408595/3943921/b471d3c2-25d8-11e4-9b40-d8bab38ba572.png)
+
+Complex modal
+-------------
+
+```erb
+<%= modal title: 'Terms of service', size: :small, button: {caption: 'Continue', size: :large, context: :info} do %>
+  Please accept the Terms of service.
+  <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
+<% end %>
+```
+
+will generate the HTML to render a large, "info" button (blue background) with
+the caption "Continue" that toggles a small modal with a title and HTML content:
+
+```html
+<button class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-8022670096">
+  Continue
+</button>
+<div class="modal fade in" id="modal-8022670096" tabindex="-1" role="dialog" aria-labelledby="label-modal-8022670096" aria-hidden="false" style="display: block;">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title" id="label-modal-8022670096">Terms of service</h4>
+      </div>
+      Please accept the Terms of service.
+      <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
+    </div>
+  </div>
+</div>
+```
+
+![modal-complex](https://cloud.githubusercontent.com/assets/7408595/3943922/b47620a8-25d8-11e4-9e0c-803d8a104bff.png)
+
 
 How to release new versions
 ===========================
