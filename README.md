@@ -33,7 +33,7 @@ repetitive, and prone to errors.
 Bh offers a solution to this problem by means of a set of helper methods.
 The example above can be rewritten with just one line of code:
 
-```erb
+```rhtml
 <%= alert_box 'You accepted the Terms of service.', dismissible: true %>
 ```
 
@@ -53,7 +53,7 @@ indicating the full version in your Gemfile (~> *major*.*minor*.*patch*)
 guarantees that your project won’t occur in any error when you `bundle update`
 and a new version of Bh is released.
 
-Adding 'bh' to your Gemfile is all you need!
+Adding `bh` to your Gemfile is all you need!
 From now on, you will be able to use any of the following Bh helpers in your Rails views.
 
 AlertHelper
@@ -66,11 +66,11 @@ Here are some examples.
 Basic alerts
 ------------
 
-```erb
+```rhtml
 <%= alert_box 'You accepted the Terms of service.' %>
 ```
 
-will generate the HTML to render an "info" alert:
+will generate the HTML to render an *info* alert:
 
 ```html
 <div class="alert alert-info" role="alert">You accepted the Terms of service.</div>
@@ -81,11 +81,11 @@ will generate the HTML to render an "info" alert:
 Dismissible alerts
 ------------------
 
-```erb
+```rhtml
 <%= alert_box 'You accepted the Terms of service.', dismissible: true %>
 ```
 
-will generate the HTML to render an alert with an '×' to close it:
+will generate the HTML to render an alert with an `×` to close it:
 
 ```html
 <div class="alert alert-info" role="alert">
@@ -101,11 +101,11 @@ will generate the HTML to render an alert with an '×' to close it:
 Contextual alerts
 -----------------
 
-```erb
+```rhtml
 <%= alert_box 'You accepted the Terms of service.', context: :success %>
 ```
 
-will generate the HTML to render a "success" alert (green background):
+will generate the HTML to render a *success* alert (green background):
 
 ```html
 <div class="alert alert-success" role="alert">You accepted the Terms of service.</div>
@@ -122,11 +122,11 @@ Since a common use of alert boxes in Rails applications is to display
 [flash messages](http://api.rubyonrails.org/classes/ActionDispatch/Flash/FlashHash.html),
 the `alert_box` helper accepts the priority of the flash message as an option.
 
-```erb
+```rhtml
 <%= alert_box 'You accepted the Terms of service.', priority: :notice %>
 ```
 
-will generate the HTML to render a dismissible "success" alert (green background):
+will generate the HTML to render a dismissible *success* alert (green background):
 
 ```html
 <div class="alert alert-success" role="alert">
@@ -144,13 +144,13 @@ Available priorities are `:alert`, `:notice`.
 Complex alerts
 --------------
 
-```erb
+```rhtml
 <%= alert_box context: :success, dismissible: true do %>
   <strong>Thanks!</strong> You accepted the <%= link_to 'Terms of service', '/terms' %>.
 <% end %>
 ```
 
-will generate the HTML to render a dismissible "success" alert that includes
+will generate the HTML to render a dismissible *success* alert that includes
 highlighted text and appropriately styled links:
 
 ```html
@@ -177,7 +177,7 @@ Here are some examples.
 Load the latest Bootstrap assets
 --------------------------------
 
-```erb
+```rhtml
 <%= stylesheet_link_tag bootstrap_css, bootstrap_theme_css, :application %>
 <%= javascript_include_tag bootstrap_js, :application %>
 ```
@@ -197,7 +197,7 @@ Theme CSS and Bootstrap JS from MaxCDN, before your application assets:
 Load a specific version of a Bootstrap asset
 --------------------------------------------
 
-```erb
+```rhtml
 <%= stylesheet_link_tag bootstrap_css(version: '3.1.0', minified: false, scheme: :http) %>
 ```
 
@@ -219,7 +219,7 @@ Here are some examples.
 Display the "zoom in" icon
 --------------------------
 
-```erb
+```rhtml
 <%= glyphicon :ok, title: 'Approved' %>
 ```
 
@@ -231,6 +231,7 @@ will generate the HTML to render an "ok" icon with the "Approved" title:
 
 ![glyphicon](https://cloud.githubusercontent.com/assets/7408595/3941608/64219c82-2537-11e4-8e86-27d4a62b1c06.png)
 
+Available glyphicons are listed in [Boostrap documentation](http://getbootstrap.com/components/#glyphicons).
 
 PanelHelper
 ===========
@@ -243,7 +244,7 @@ Here are some examples.
 Basic panel
 -----------
 
-```erb
+```rhtml
 <%= panel body: 'You accepted the Terms of service.' %>
 ```
 
@@ -259,7 +260,7 @@ will generate the HTML to render a basic panel:
 Panel with heading
 ------------------
 
-```erb
+```rhtml
 <%= panel body: 'You accepted the Terms of service.', heading: 'Congratulations' %>
 ```
 
@@ -277,7 +278,7 @@ will generate the HTML to render a panel with a heading:
 Panel with title
 ------------------
 
-```erb
+```rhtml
 <%= panel body: 'You accepted the Terms of service.', title: 'Congratulations' %>
 ```
 
@@ -297,11 +298,11 @@ will generate the HTML to render a panel with a title:
 Contextual panel
 -----------------
 
-```erb
+```rhtml
 <%= panel body: 'You accepted the Terms of service.', title: 'Congratulations', context: :success %>
 ```
 
-will generate the HTML to render a "success" panel (green background):
+will generate the HTML to render a *success* panel (green background):
 
 ```html
 <div class="panel panel-success">
@@ -320,7 +321,7 @@ Available contexts are `:default` (default), `:primary`, `:success`, `:info`,
 Complex panels
 --------------
 
-```erb
+```rhtml
 <%= panel do %>
   <div class='panel-body'>You accepted the Terms of service. <%= glyphicon :ok %></div>
   <div class='panel-footer'><h4>Thanks</h4></div>
@@ -353,7 +354,7 @@ Here are some examples.
 Basic row of panels
 -------------------
 
-```erb
+```rhtml
 <%= panel_row column_class: 'col-sm-4' do %>
   <%= panel body: 'Panel #1' %>
   <%= panel body: 'Panel #2' %>
@@ -382,7 +383,7 @@ will generate the HTML to render a row of three basic panels:
 Complex row of panels
 ---------------------
 
-```erb
+```rhtml
 <%= panel_row column_class: 'col-sm-4' do %>
   <%= panel title: 'User', context: :info do %>
     <div class='panel-body'><%= glyphicon :user %> John Smith</div>
@@ -428,7 +429,7 @@ Here are some examples.
 Basic modal
 -----------
 
-```erb
+```rhtml
 <%= modal title: 'Terms of service', body: 'Do what you want!' %>
 ```
 
@@ -458,14 +459,14 @@ will generate the HTML to render a button that toggles a model when clicked:
 Complex modal
 -------------
 
-```erb
+```rhtml
 <%= modal title: 'Terms of service', size: :small, button: {caption: 'Continue', size: :large, context: :info} do %>
   Please accept the Terms of service.
   <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
 <% end %>
 ```
 
-will generate the HTML to render a large, "info" button (blue background) with
+will generate the HTML to render a large, *info* button (blue background) with
 the caption "Continue" that toggles a small modal with a title and HTML content:
 
 ```html
