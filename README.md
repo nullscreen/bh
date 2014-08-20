@@ -491,6 +491,21 @@ the caption "Continue" that toggles a small modal with a title and HTML content:
 
 ![modal-complex](https://cloud.githubusercontent.com/assets/7408595/3943922/b47620a8-25d8-11e4-9e0c-803d8a104bff.png)
 
+FormForHelper
+=============
+
+To include [Boostrap forms](http://getbootstrap.com/css/#forms)
+in your Rails views, you can use the
+[form_for](http://rubydoc.info/github/Fullscreen/bh/master/Bh/FormForHelper)
+helper.
+
+By default, Bh does not override the `form_for` method provided by [ActionView](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_for).
+To apply Bootstrap classes and attributes, you **must** set the `:layout` option to
+
+* `:basic`, in order to get a [Basic form](http://getbootstrap.com/css/#forms-example)
+* `:horizontal`, in order to get a [Horizontal form](http://getbootstrap.com/css/#forms-horizontal)
+* `:inline`, in order to get an [Inline form](http://getbootstrap.com/css/#forms-inline)
+
 
 How to release new versions
 ===========================

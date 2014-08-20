@@ -1,5 +1,6 @@
 require 'bh/helpers/alert_helper'
 require 'bh/helpers/cdn_helper'
+require 'bh/helpers/form_for_helper'
 require 'bh/helpers/glyphicon_helper'
 require 'bh/helpers/modal_helper'
 require 'bh/helpers/panel_helper'
@@ -11,6 +12,7 @@ module Bh
     initializer 'bh.add_helpers' do
       ActionView::Base.send :include, AlertHelper
       ActionView::Base.send :include, CdnHelper
+      ActionView::Base.send :include, FormForHelper
       ActionView::Base.send :include, GlyphiconHelper
       ActionView::Base.send :include, ModalHelper
       ActionView::Base.send :include, PanelHelper
