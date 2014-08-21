@@ -22,6 +22,10 @@ module Bh
         inline_label ? right_aligned_container(&block) : yield
       end
 
+      def radio_button_container(&block)
+        right_aligned_container(&block)
+      end
+
       def right_aligned_container(&block)
         content_tag :div, class: 'form-group' do
           content_tag :div, class: 'col-sm-offset-3 col-sm-9', &block

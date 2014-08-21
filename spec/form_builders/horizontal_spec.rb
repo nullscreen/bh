@@ -51,4 +51,12 @@ describe Bh::FormBuilders::Horizontal do
       end
     end
   end
+
+  describe 'radio_button' do
+    let(:block) { Proc.new {|f| f.radio_button :gender, 'F'} }
+
+    specify 'applies HTML fit the radio button in a horizontal Bootstrap form' do
+      expect(form).to include 'div class="col-sm-offset-3 col-sm-9"'
+    end
+  end
 end

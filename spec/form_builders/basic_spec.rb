@@ -124,4 +124,27 @@ describe Bh::FormBuilders::Basic do
       end
     end
   end
+
+  describe 'radio_button' do
+    let(:block) { Proc.new {|f| f.radio_button :gender, 'F', attrs} }
+    let(:attrs) { {} }
+
+    specify 'adds a radio button with the label to the form' do
+      expect(form).to include '<div class="radio"><label><input'
+    end
+
+    context 'given a label option' do
+      let(:attrs) { {label: 'Female'} }
+
+      specify 'uses the provided value as the <label>' do
+        expect(form).to include '> Female</label>'
+      end
+    end
+
+    context 'not given a label option' do
+      specify 'uses the value as the <label>' do
+        expect(form).to include '> F</label>'
+      end
+    end
+  end
 end

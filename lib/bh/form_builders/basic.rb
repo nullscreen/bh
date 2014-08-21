@@ -47,14 +47,18 @@ module Bh
         field = super method, options, checked_value, unchecked_value = '0'
         check_box_container(inline_label) do
           if inline_label
-            content_tag :div, class: 'checkbox' do
-              content_tag :label, safe_join([field, label].compact, ' ')
-            end
+            field_then_label(field, label, class: 'checkbox')
           else
-            content_tag :div, class: 'form-group' do
-              safe_join [label, field_container { field }].compact
-            end
+            label_then_field(label) { field }
           end
+        end
+      end
+
+      def radio_button(method, tag_value, options = {})
+        label = options.delete(:label) || tag_value
+        field = super method, tag_value, options
+        radio_button_container do
+          field_then_label field, label, class: 'radio'
         end
       end
 
@@ -65,10 +69,18 @@ module Bh
         options[:placeholder] ||= method.to_s.humanize
 
         label = label(*[method, options.delete(:label), label_options].compact)
-        field = field_container(&block)
+        label_then_field label, &block
+      end
 
+      def label_then_field(label, &block)
         content_tag :div, class: 'form-group' do
-          safe_join [label, field].compact
+          safe_join [label, field_container(&block)].compact
+        end
+      end
+
+      def field_then_label(field, label, options = {})
+        content_tag :div, options do
+          content_tag :label, safe_join([field, label].compact, ' ')
         end
       end
 
@@ -84,6 +96,10 @@ module Bh
       end
 
       def check_box_container(inline_label)
+        yield
+      end
+
+      def radio_button_container
         yield
       end
 
