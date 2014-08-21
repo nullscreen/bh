@@ -11,6 +11,8 @@ module Bh
 
       field_helpers.each do |form_field|
         define_method form_field do |method, options = {}|
+          append_class! options, 'form-control'
+          options[:placeholder] ||= method.to_s.humanize
           field(method, options) { super method, options }
         end unless %w(label hidden_field range_field).include?(form_field.to_s)
       end
@@ -62,12 +64,16 @@ module Bh
         end
       end
 
+      def select(method, choices = nil, options = {}, html_options = {}, &block)
+        append_class! html_options, 'form-control'
+        field method, options do
+          super method, choices, options, html_options, &block
+        end
+      end
+
     private
 
       def field(method, options = {}, &block)
-        append_class! options, 'form-control'
-        options[:placeholder] ||= method.to_s.humanize
-
         label = label(*[method, options.delete(:label), label_options].compact)
         label_then_field label, &block
       end

@@ -1,6 +1,7 @@
 require 'spec_helper'
 require 'bh/helpers/form_for_helper'
 include Bh::FormForHelper
+include ActionView::Helpers::FormOptionsHelper
 
 describe Bh::FormBuilders::Basic do
   let(:protect_against_forgery?) { false }
@@ -144,6 +145,30 @@ describe Bh::FormBuilders::Basic do
     context 'not given a label option' do
       specify 'uses the value as the <label>' do
         expect(form).to include '> F</label>'
+      end
+    end
+  end
+
+  describe 'select' do
+    let(:block) { Proc.new {|f| f.select :gender, choices, attrs} }
+    let(:choices) { [['Female', 'F'], ['Male', 'M']] }
+    let(:attrs) { {include_blank: true} }
+
+    specify 'adds a drop-down with the label to the form' do
+      expect(form).to include '<div class="form-group"><label'
+    end
+
+    context 'given a label option' do
+      let(:attrs) { {label: 'Your gender'} }
+
+      specify 'uses the provided value as the <label>' do
+        expect(form).to include '>Your gender</label>'
+      end
+    end
+
+    context 'not given a label option' do
+      specify 'uses the value as the <label>' do
+        expect(form).to include '>Gender</label>'
       end
     end
   end
