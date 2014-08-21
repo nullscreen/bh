@@ -506,6 +506,33 @@ To apply Bootstrap classes and attributes, you **must** set the `:layout` option
 * `:horizontal`, in order to get a [Horizontal form](http://getbootstrap.com/css/#forms-horizontal)
 * `:inline`, in order to get an [Inline form](http://getbootstrap.com/css/#forms-inline)
 
+Basic form
+-----------
+
+```rhtml
+<%= form_for user, layout: :basic do |f| %>
+  <%= f.text_field :company %>
+<% end %>
+```
+
+Horizontal form
+---------------
+
+```rhtml
+<%= form_for user, layout: :horizontal do |f| %>
+  <%= f.text_field :company %>
+<% end %>
+```
+
+Inline form
+-----------
+
+```rhtml
+<%= form_for user, layout: :inline do |f| %>
+  <%= f.text_field :company %>
+<% end %>
+```
+
 
 How to release new versions
 ===========================
