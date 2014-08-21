@@ -33,6 +33,11 @@ module Bh
         submit_container { super value, options }
       end
 
+      def legend(value)
+        content_tag :div, class: 'form-group' do
+          legend_container { content_tag :legend, value }
+        end
+      end
 
     private
 
@@ -56,6 +61,10 @@ module Bh
       end
 
       def submit_container
+        yield
+      end
+
+      def legend_container
         yield
       end
 

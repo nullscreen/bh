@@ -19,6 +19,10 @@ module Bh
           content_tag :div, class: 'col-sm-offset-3 col-sm-9', &block
         end
       end
+      
+      def legend_container(&block)
+        content_tag :div, class: 'col-sm-12', &block
+      end
     end
   end
 end

@@ -84,4 +84,12 @@ describe Bh::FormBuilders::Basic do
       expect(form).to include 'input class="btn btn-info"'
     end
   end
+
+  describe 'legend' do
+    let(:block) { Proc.new {|f| f.legend 'Basic info'} }
+
+    specify 'adds a <legend> to the form' do
+      expect(form).to include '<div class="form-group"><legend>Basic info</legend></div>'
+    end
+  end
 end

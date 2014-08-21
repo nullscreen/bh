@@ -25,4 +25,12 @@ describe Bh::FormBuilders::Horizontal do
       expect(form).to include 'div class="col-sm-offset-3 col-sm-9"'
     end
   end
+
+  describe 'legend' do
+    let(:block) { Proc.new {|f| f.legend 'Basic info'} }
+
+    specify 'applies HTML fit the legend in a horizontal Bootstrap form' do
+      expect(form).to include 'div class="col-sm-12"'
+    end
+  end
 end
