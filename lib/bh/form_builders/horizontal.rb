@@ -18,8 +18,8 @@ module Bh
         right_aligned_container(&block)
       end
 
-      def check_box_container(&block)
-        right_aligned_container(&block)
+      def check_box_container(inline_label, &block)
+        inline_label ? right_aligned_container(&block) : yield
       end
 
       def right_aligned_container(&block)
@@ -27,7 +27,7 @@ module Bh
           content_tag :div, class: 'col-sm-offset-3 col-sm-9', &block
         end
       end
-      
+
       def legend_container(&block)
         content_tag :div, class: 'col-sm-12', &block
       end

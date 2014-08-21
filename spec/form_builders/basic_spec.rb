@@ -114,5 +114,14 @@ describe Bh::FormBuilders::Basic do
         expect(form).to include '> Terms</label>'
       end
     end
+
+    context 'given a false inline_label option' do
+      let(:attrs) { {inline_label: false} }
+
+      specify 'prints the label on a separate line' do
+        expect(form).to include 'div class="form-group"><label>'
+        expect(form).to include 'input class="form-control checkbox"'
+      end
+    end
   end
 end

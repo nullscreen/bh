@@ -34,11 +34,21 @@ describe Bh::FormBuilders::Horizontal do
     end
   end
 
-  describe 'check_Box' do
-    let(:block) { Proc.new {|f| f.check_box :terms} }
+  describe 'check_box' do
+    let(:block) { Proc.new {|f| f.check_box :terms, attrs} }
+    let(:attrs) { {} }
 
     specify 'applies HTML fit the check box in a horizontal Bootstrap form' do
       expect(form).to include 'div class="col-sm-offset-3 col-sm-9"'
+    end
+
+    context 'given a false inline_label option' do
+      let(:attrs) { {inline_label: false} }
+
+      specify 'prints the label on a separate column' do
+        expect(form).to include 'div class="form-group"><label class="col-sm-3 control-label">'
+        expect(form).to include 'div class="col-sm-9"'
+      end
     end
   end
 end

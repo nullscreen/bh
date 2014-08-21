@@ -40,11 +40,20 @@ module Bh
       end
 
       def check_box(method, options = {}, checked_value = '1', unchecked_value = '0')
-        label_content = options.delete(:label) || method.to_s.humanize
-        check_box_container do
-          field = super method, options, checked_value, unchecked_value = '0'
-          content_tag :div, class: 'checkbox' do
-            content_tag :label, safe_join([field, label_content].compact, ' ')
+        inline_label = options.delete(:inline_label) { true }
+        label = options.delete(:label) || method.to_s.humanize
+        label = content_tag :label, label, label_options unless inline_label
+        append_class! options, 'form-control checkbox' unless inline_label
+        field = super method, options, checked_value, unchecked_value = '0'
+        check_box_container(inline_label) do
+          if inline_label
+            content_tag :div, class: 'checkbox' do
+              content_tag :label, safe_join([field, label].compact, ' ')
+            end
+          else
+            content_tag :div, class: 'form-group' do
+              safe_join [label, field_container { field }].compact
+            end
           end
         end
       end
@@ -74,7 +83,7 @@ module Bh
         yield
       end
 
-      def check_box_container
+      def check_box_container(inline_label)
         yield
       end
 
