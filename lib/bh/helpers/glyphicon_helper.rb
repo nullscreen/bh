@@ -16,9 +16,16 @@ module Bh
     # @example Display the "zoom out" glyphicon
     #   glyphicon 'zoom-out'
     def glyphicon(name = nil, options = {})
-      glyphicon_class = "glyphicon-#{name.to_s.gsub '_', '-'}" if name
-      klass = ['glyphicon', glyphicon_class].compact.join ' '
-      content_tag :span, nil, options.merge(class: klass)
+      append_class! options, 'glyphicon'
+      append_class! options, "glyphicon-#{name.to_s.gsub '_', '-'}" if name
+      content_tag :span, nil, options
+    end
+
+  private
+
+    def append_class!(hash, new_class)
+      existing_class = hash[:class]
+      hash[:class] = [existing_class, new_class].compact.join ' '
     end
   end
 end

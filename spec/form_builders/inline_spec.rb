@@ -1,11 +1,12 @@
 require 'spec_helper'
 require 'bh/helpers/form_for_helper'
+require 'bh/form_builders/inline'
 include Bh::FormForHelper
 
 describe Bh::FormBuilders::Inline do
   let(:protect_against_forgery?) { false }
   attr_accessor :output_buffer
-  let(:form) { form_for :object, layout: :inline, url: '/', &block }
+  let(:form) { form_for :object, builder: Bh::FormBuilders::Inline, url: '/', &block }
   before { I18n.enforce_available_locales = true }
 
   describe 'text_field' do

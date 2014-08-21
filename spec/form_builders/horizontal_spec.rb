@@ -1,11 +1,12 @@
 require 'spec_helper'
 require 'bh/helpers/form_for_helper'
+require 'bh/form_builders/horizontal'
 include Bh::FormForHelper
 
 describe Bh::FormBuilders::Horizontal do
   let(:protect_against_forgery?) { false }
   attr_accessor :output_buffer
-  let(:form) { form_for :object, layout: :horizontal, url: '/', &block }
+  let(:form) { form_for :object, builder: Bh::FormBuilders::Horizontal, url: '/', &block }
   before { I18n.enforce_available_locales = true }
 
   describe 'text_field' do

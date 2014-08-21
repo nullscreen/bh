@@ -2,6 +2,7 @@ require 'action_view'
 require 'bh/form_builders/basic'
 require 'bh/form_builders/horizontal'
 require 'bh/form_builders/inline'
+require 'bh/form_builders/form_builder'
 
 module Bh
   module FormForHelper
@@ -18,15 +19,7 @@ module Bh
       options[:html] ||= {}
       options[:html].merge! role: 'form'
       append_class! options[:html], class_for(options[:layout])
-      options.merge! builder: builder_for(options[:layout])
-    end
-
-    def builder_for(layout)
-      case layout.to_s
-        when 'inline' then FormBuilders::Inline
-        when 'horizontal' then FormBuilders::Horizontal
-        else FormBuilders::Basic
-      end
+      options.merge! builder: FormBuilder
     end
 
     def class_for(layout)

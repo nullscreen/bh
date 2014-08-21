@@ -1,12 +1,13 @@
 require 'spec_helper'
 require 'bh/helpers/form_for_helper'
+require 'bh/form_builders/basic'
 include Bh::FormForHelper
 include ActionView::Helpers::FormOptionsHelper
 
 describe Bh::FormBuilders::Basic do
   let(:protect_against_forgery?) { false }
   attr_accessor :output_buffer
-  let(:form) { form_for :user, layout: :basic, url: '/', &block }
+  let(:form) { form_for :user, builder: Bh::FormBuilders::Basic, url: '/', &block }
   before { I18n.enforce_available_locales = true }
 
   def self.field_helpers_to_test
