@@ -76,4 +76,12 @@ describe Bh::FormBuilders::Basic do
       it { expect(form).to include '<div class="panel-heading">Address</div>' }
     end
   end
+
+  describe 'submit' do
+    let(:block) { Proc.new {|f| f.submit 'Go!', context: :info} }
+
+    specify 'applies the :context class to the submit button' do
+      expect(form).to include 'input class="btn btn-info"'
+    end
+  end
 end

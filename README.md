@@ -512,27 +512,24 @@ Basic form
 ```rhtml
 <%= form_for user, layout: :basic do |f| %>
   <%= f.fieldset 'Basic Info' do %>
-    <%= f.text_field :company %>
+    <%= f.text_field :name %>
+    <%= f.text_field :age %>
   <% end %>
-  <%= f.fields_for :address do |address_f| %>
-    <%= address_f.text_field :street %>
-  <% end %>
+  <%= f.submit %>
 <% end %>
 ```
+
 
 Horizontal form
 ---------------
 
 ```rhtml
 <%= form_for user, layout: :horizontal do |f| %>
-  <%= f.fieldset 'Basic Info' do %>
-    <%= f.text_field :company %>
-    <%= f.text_area :notes, label: 'Comments' %>
-  <% end %>
   <%= f.fields_for :address do |address_f| %>
-    <%= address_f.text_field :street %>
-    <%= address_f.number_field :number %>
+    <%= address_f.text_field :street, label: 'Street/Road' %>
+    <%= address_f.text_area :notes, cols: 2 %>
   <% end %>
+  <%= f.submit 'Send', class: 'pull-right' %>
 <% end %>
 ```
 
@@ -541,12 +538,9 @@ Inline form
 
 ```rhtml
 <%= form_for user, layout: :inline do |f| %>
-  <%= f.fieldset 'Basic Info' do %>
-    <%= f.text_field :company %>
-  <% end %>
-  <%= f.fields_for :address do |address_f| %>
-    <%= address_f.text_field :street %>
-  <% end %>
+  <%= f.email_field :email %>
+  <%= f.password_field :password %>
+  <%= f.submit 'Login', context: :success %>
 <% end %>
 ```
 

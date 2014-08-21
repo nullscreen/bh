@@ -17,4 +17,12 @@ describe Bh::FormBuilders::Horizontal do
       expect(form).to include 'div class="col-sm-9"><input'
     end
   end
+
+  describe 'submit' do
+    let(:block) { Proc.new {|f| f.submit 'Go!', context: :info} }
+
+    specify 'applies HTML fit the submit button in a horizontal Bootstrap form' do
+      expect(form).to include 'div class="col-sm-offset-3 col-sm-9"'
+    end
+  end
 end

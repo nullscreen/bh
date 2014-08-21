@@ -27,6 +27,13 @@ module Bh
         end
       end
 
+      def submit(value=nil, options={})
+        context = options.delete(:context) || 'primary'
+        append_class! options, "btn btn-#{context}"
+        submit_container { super value, options }
+      end
+
+
     private
 
       def field(method, options = {}, &block)
@@ -45,6 +52,10 @@ module Bh
       end
 
       def field_container
+        yield
+      end
+
+      def submit_container
         yield
       end
 

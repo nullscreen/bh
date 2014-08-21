@@ -13,6 +13,12 @@ module Bh
       def field_container(&block)
         content_tag :div, class: 'col-sm-9', &block
       end
+
+      def submit_container(&block)
+        content_tag :div, class: 'form-group' do
+          content_tag :div, class: 'col-sm-offset-3 col-sm-9', &block
+        end
+      end
     end
   end
 end
