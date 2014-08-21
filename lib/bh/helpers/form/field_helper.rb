@@ -2,16 +2,17 @@ require 'bh/helpers/glyphicon_helper'
 
 module Bh
   module Form
-    module TextFieldHelper
+    module FieldHelper
       include GlyphiconHelper # for glyphicon
 
-      def text_field(method, options = {})
-        errors = object.errors.get method if object
+      def field(method, field_type, options = {}, &block)
+        errors = (object.errors.get method if object) || {}
         label = label_for method, errors, options
         append_class! options, 'form-control'
         options[:placeholder] ||= method.to_s.humanize
-        field = field_container { field_tags super(method, options), errors }
-        label_and_field_container safe_join([label, field].compact), errors
+        field = field_container { field_tags errors, field_type, &block }
+        label_and_field = safe_join [label, field].compact
+        label_and_field_container label_and_field, field_type, errors
       end
 
     private
@@ -24,10 +25,10 @@ module Bh
         end
       end
 
-      def field_tags(input_tag, errors)
-        tags = [input_tag]
-        tags << error_icon_tag if errors.present? && show_error_icon?
-        tags << error_help_tag(errors) if errors.present? && show_error_help?
+      def field_tags(errors, field_type, &block)
+        tags = [@template.capture(&block)]
+        tags << error_icon_tag if errors.any? && show_error_icon?(field_type)
+        tags << error_help_tag(errors) if errors.any? && show_error_help?
         safe_join tags
       end
 
@@ -50,21 +51,22 @@ module Bh
         klass << 'sr-only' if inline_form?
         klass << 'col-sm-3' if horizontal_form?
         klass << 'control-label' if horizontal_form?
-        klass << 'control-label' if basic_form? && errors.present?
+        klass << 'control-label' if basic_form? && errors.any?
         {class: klass.join(' ')} if klass.any?
       end
 
-      def label_and_field_container(label_and_field, errors)
+      def label_and_field_container(label_and_field, field_type, errors)
         klass = ['form-group']
-        if errors.present?
-          klass << 'has-error' if errors.present?
-          klass << 'has-feedback' if show_error_icon?
+        if errors.any?
+          klass << 'has-error'
+          klass << 'has-feedback' if show_error_icon?(field_type)
         end
         content_tag :div, label_and_field, class: klass.join(' ')
       end
 
-      def show_error_icon?
-        @options.fetch(:errors, {}).fetch(:icons, true)
+      def show_error_icon?(field_type)
+        has_arrows = [:number_field].include? field_type
+        @options.fetch(:errors, {}).fetch(:icons, true) && !has_arrows
       end
 
       def show_error_help?
