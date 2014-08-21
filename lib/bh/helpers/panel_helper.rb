@@ -36,6 +36,7 @@ module Bh
     # @option options [#to_s] :title if present, the panel will include a
     #   heading with the provided text wrapped in a 'panel-title' block, for
     #   proper title styling and link coloring.
+    # @option options [#to_s] :tag (:div) the HTML tag to wrap the panel in.
     # @see http://getbootstrap.com/components/#panels-heading
     def panel(content_or_options_with_block = nil, options = nil, &block)
       if block_given?
@@ -52,7 +53,8 @@ module Bh
     def panel_string(content = nil, options = {})
       content = prepend_optional_body_to content, options
       content = prepend_optional_heading_to content, options
-      content_tag :div, content, class: panel_class(options[:context])
+      tag = options.fetch :tag, :div
+      content_tag tag, content, class: panel_class(options[:context])
     end
 
     def panel_class(context = nil)

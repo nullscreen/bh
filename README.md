@@ -322,22 +322,22 @@ Complex panels
 --------------
 
 ```rhtml
-<%= panel do %>
+<%= panel tag: :aside do %>
   <div class='panel-body'>You accepted the Terms of service. <%= glyphicon :ok %></div>
   <div class='panel-footer'><h4>Thanks</h4></div>
 <% end %>
 ```
 
-will generate the HTML to render a panel with HTML body and footer:
+will generate the HTML to render an aside panel with HTML body and footer:
 
 ```html
-<div class="panel panel-default">
+<aside class="panel panel-default">
   <div class="panel-body">
     You accepted the Terms of service.
     <span class="glyphicon glyphicon-ok"></span>
   </div>
   <div class="panel-footer"><h4>Thanks</h4></div>
-</div>
+</aside>
 ```
 
 ![panel-complex](https://cloud.githubusercontent.com/assets/7408595/3941819/da569586-2543-11e4-8640-3f0a72077aca.png)
