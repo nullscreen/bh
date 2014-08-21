@@ -92,4 +92,27 @@ describe Bh::FormBuilders::Basic do
       expect(form).to include '<div class="form-group"><legend>Basic info</legend></div>'
     end
   end
+
+  describe 'check_box' do
+    let(:block) { Proc.new {|f| f.check_box :terms, attrs} }
+    let(:attrs) { {} }
+
+    specify 'adds a check box with the label to the form' do
+      expect(form).to include '<div class="checkbox"><label>'
+    end
+
+    context 'given a label option' do
+      let(:attrs) { {label: 'Accept terms'} }
+
+      specify 'uses the provided value as the <label>' do
+        expect(form).to include '> Accept terms</label>'
+      end
+    end
+
+    context 'not given a label option' do
+      specify 'uses the humanized version of the method as the <label>' do
+        expect(form).to include '> Terms</label>'
+      end
+    end
+  end
 end

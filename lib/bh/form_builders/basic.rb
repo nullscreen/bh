@@ -39,6 +39,16 @@ module Bh
         end
       end
 
+      def check_box(method, options = {}, checked_value = '1', unchecked_value = '0')
+        label_content = options.delete(:label) || method.to_s.humanize
+        check_box_container do
+          field = super method, options, checked_value, unchecked_value = '0'
+          content_tag :div, class: 'checkbox' do
+            content_tag :label, safe_join([field, label_content].compact, ' ')
+          end
+        end
+      end
+
     private
 
       def field(method, options = {}, &block)
@@ -61,6 +71,10 @@ module Bh
       end
 
       def submit_container
+        yield
+      end
+
+      def check_box_container
         yield
       end
 

@@ -540,6 +540,7 @@ Inline form
 <%= form_for user, layout: :inline do |f| %>
   <%= f.email_field :email %>
   <%= f.password_field :password %>
+  <%= f.check_box :remember_me %>
   <%= f.submit 'Login', context: :success %>
 <% end %>
 ```

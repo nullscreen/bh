@@ -33,4 +33,12 @@ describe Bh::FormBuilders::Horizontal do
       expect(form).to include 'div class="col-sm-12"'
     end
   end
+
+  describe 'check_Box' do
+    let(:block) { Proc.new {|f| f.check_box :terms} }
+
+    specify 'applies HTML fit the check box in a horizontal Bootstrap form' do
+      expect(form).to include 'div class="col-sm-offset-3 col-sm-9"'
+    end
+  end
 end
