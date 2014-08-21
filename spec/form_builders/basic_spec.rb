@@ -172,4 +172,40 @@ describe Bh::FormBuilders::Basic do
       end
     end
   end
+
+  describe 'static_control' do
+    context 'given text content' do
+      let(:block) { Proc.new {|f| f.static_control 'user@example.com', attrs} }
+      let(:attrs) { {} }
+
+      specify 'adds a paragraph to the form' do
+        expect(form).to include '<div class="form-group"><p class="form-control-static">'
+      end
+
+      context 'given a label option' do
+        let(:attrs) { {label: 'Email'} }
+
+        specify 'uses the provided value as the <label>' do
+          expect(form).to include '<label>Email</label>'
+        end
+      end
+    end
+
+    context 'given a block' do
+      let(:block) { Proc.new {|f| f.static_control(attrs) { 'user@example.com' }} }
+      let(:attrs) { {} }
+
+      specify 'adds a paragraph to the form' do
+        expect(form).to include '<div class="form-group"><p class="form-control-static">'
+      end
+
+      context 'given a label option' do
+        let(:attrs) { {label: 'Email'} }
+
+        specify 'uses the provided value as the <label>' do
+          expect(form).to include '<label>Email</label>'
+        end
+      end
+    end
+  end
 end

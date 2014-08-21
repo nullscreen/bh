@@ -10,8 +10,9 @@ module Bh
         {class: 'col-sm-3 control-label'}
       end
 
-      def field_container(&block)
-        content_tag :div, class: 'col-sm-9', &block
+      def field_container(offset = false, &block)
+        klass = [('col-sm-offset-3' if offset), 'col-sm-9'].compact.join ' '
+        content_tag :div, class: klass, &block
       end
 
       def submit_container(&block)
@@ -27,9 +28,7 @@ module Bh
       end
 
       def right_aligned_container(&block)
-        content_tag :div, class: 'form-group' do
-          content_tag :div, class: 'col-sm-offset-3 col-sm-9', &block
-        end
+        content_tag :div, field_container(true, &block), class: 'form-group'
       end
 
       def legend_container(&block)

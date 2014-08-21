@@ -71,6 +71,17 @@ module Bh
         end
       end
 
+      def static_control(text_or_options_with_block = nil, options = {}, &block)
+        text, label = if block_given?
+          [@template.capture(&block), text_or_options_with_block[:label]]
+        else
+          [text_or_options_with_block, options[:label]]
+        end
+        label = content_tag :label, label, label_options if label
+        field = content_tag :p, text, class: 'form-control-static'
+        label_then_field(label) { field }
+      end
+
     private
 
       def field(method, options = {}, &block)
@@ -80,7 +91,7 @@ module Bh
 
       def label_then_field(label, &block)
         content_tag :div, class: 'form-group' do
-          safe_join [label, field_container(&block)].compact
+          safe_join [label, field_container(label.nil?, &block)].compact
         end
       end
 
@@ -93,7 +104,7 @@ module Bh
       def label_options
       end
 
-      def field_container
+      def field_container(offset)
         yield
       end
 
