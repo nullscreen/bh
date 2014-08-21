@@ -53,4 +53,17 @@ describe Bh::FormBuilders::Basic do
       expect(form).not_to include 'panel-heading'
     end
   end
+
+  describe 'fields_for' do
+    let(:block) { Proc.new {|f| f.fields_for :address, &address_block} }
+    let(:address_block) { Proc.new {|f| f.text_field :city} }
+
+    specify 'adds a <fieldset> that looks like a Bootstrap panel' do
+      expect(form).to include 'fieldset class="panel panel-default">'
+    end
+
+    context 'adds a title in the panel heading' do
+      it { expect(form).to include '<div class="panel-heading">Address</div>' }
+    end
+  end
 end

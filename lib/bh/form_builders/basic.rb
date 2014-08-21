@@ -27,6 +27,12 @@ module Bh
         panel options
       end
 
+      def fields_for(record_object = nil, fields_options = {}, &block)
+        fieldset record_object.to_s.humanize do
+          super record_object, fields_options, &block
+        end
+      end
+
     private
 
       def label_options

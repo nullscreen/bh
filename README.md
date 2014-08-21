@@ -514,6 +514,9 @@ Basic form
   <%= f.fieldset 'Basic Info' do %>
     <%= f.text_field :company %>
   <% end %>
+  <%= f.fields_for :address do |address_f| %>
+    <%= address_f.text_field :street %>
+  <% end %>
 <% end %>
 ```
 
@@ -525,6 +528,9 @@ Horizontal form
   <%= f.fieldset 'Basic Info' do %>
     <%= f.text_field :company %>
   <% end %>
+  <%= f.fields_for :address do |address_f| %>
+    <%= address_f.text_field :street %>
+  <% end %>
 <% end %>
 ```
 
@@ -535,6 +541,9 @@ Inline form
 <%= form_for user, layout: :inline do |f| %>
   <%= f.fieldset 'Basic Info' do %>
     <%= f.text_field :company %>
+  <% end %>
+  <%= f.fields_for :address do |address_f| %>
+    <%= address_f.text_field :street %>
   <% end %>
 <% end %>
 ```
