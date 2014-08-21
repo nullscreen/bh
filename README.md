@@ -511,7 +511,9 @@ Basic form
 
 ```rhtml
 <%= form_for user, layout: :basic do |f| %>
-  <%= f.text_field :company %>
+  <%= f.fieldset 'Basic Info' do %>
+    <%= f.text_field :company %>
+  <% end %>
 <% end %>
 ```
 
@@ -520,7 +522,9 @@ Horizontal form
 
 ```rhtml
 <%= form_for user, layout: :horizontal do |f| %>
-  <%= f.text_field :company %>
+  <%= f.fieldset 'Basic Info' do %>
+    <%= f.text_field :company %>
+  <% end %>
 <% end %>
 ```
 
@@ -529,7 +533,9 @@ Inline form
 
 ```rhtml
 <%= form_for user, layout: :inline do |f| %>
-  <%= f.text_field :company %>
+  <%= f.fieldset 'Basic Info' do %>
+    <%= f.text_field :company %>
+  <% end %>
 <% end %>
 ```
 

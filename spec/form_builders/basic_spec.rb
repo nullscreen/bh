@@ -35,4 +35,22 @@ describe Bh::FormBuilders::Basic do
       it { expect(form).to include 'Given name</label>' }
     end
   end
+
+  describe 'fieldset' do
+    let(:block) { Proc.new {|f| f.fieldset title, &Proc.new {}} }
+    let(:title) { nil }
+
+    specify 'adds a <fieldset> that looks like a Bootstrap panel' do
+      expect(form).to include 'fieldset class="panel panel-default">'
+    end
+
+    context 'given a title, adds the title in the panel heading' do
+      let(:title) { 'Info' }
+      it { expect(form).to include '<div class="panel-heading">Info</div>' }
+    end
+
+    specify 'not given a title, does not add a panel heading' do
+      expect(form).not_to include 'panel-heading'
+    end
+  end
 end

@@ -1,4 +1,5 @@
 require 'action_view'
+require 'bh/helpers/panel_helper'
 
 module Bh
   module FormBuilders
@@ -6,6 +7,7 @@ module Bh
       include ActionView::Helpers::TagHelper # for content_tag
       include ActionView::Context # for capture
       include ActionView::Helpers::OutputSafetyHelper # for safe_join
+      include Bh::PanelHelper # for panel
 
       def text_field(method, options = {})
         append_class! options, 'form-control'
@@ -17,6 +19,12 @@ module Bh
         content_tag :div, class: 'form-group' do
           safe_join [label, field].compact
         end
+      end
+
+      def fieldset(title = nil, &block)
+        options = {tag: :fieldset, body: @template.capture(&block)}
+        options[:heading] = title if title
+        panel options
       end
 
     private
