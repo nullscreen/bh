@@ -1,12 +1,8 @@
-require 'action_view'
 require 'bh/helpers/glyphicon_helper'
 
 module Bh
   module Form
     module TextFieldHelper
-      include ActionView::Helpers::TagHelper # for content_tag
-      include ActionView::Context # for capture
-      include ActionView::Helpers::OutputSafetyHelper # for safe_join
       include GlyphiconHelper # for glyphicon
 
       def text_field(method, options = {})
@@ -85,11 +81,6 @@ module Bh
 
       def basic_form?
         !inline_form? && !horizontal_form?
-      end
-
-      def append_class!(hash, new_class)
-        existing_class = hash[:class]
-        hash[:class] = [existing_class, new_class].compact.uniq.join ' '
       end
     end
   end

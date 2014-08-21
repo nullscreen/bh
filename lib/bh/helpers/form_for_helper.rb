@@ -1,4 +1,4 @@
-require 'action_view'
+require 'bh/helpers/base_helper'
 require 'bh/form_builders/basic'
 require 'bh/form_builders/horizontal'
 require 'bh/form_builders/inline'
@@ -6,6 +6,7 @@ require 'bh/form_builders/form_builder'
 
 module Bh
   module FormForHelper
+    include BaseHelper
     include ActionView::Helpers::FormHelper # for form_for
 
     def form_for(record, options = {}, &block)
@@ -27,11 +28,6 @@ module Bh
         when 'inline' then 'form-inline'
         when 'horizontal' then 'form-horizontal'
       end
-    end
-
-    def append_class!(hash, new_class)
-      existing_class = hash[:class]
-      hash[:class] = [existing_class, new_class].compact.join ' '
     end
   end
 end

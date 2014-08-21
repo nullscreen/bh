@@ -1,12 +1,10 @@
-require 'action_view'
+require 'bh/helpers/base_helper'
 
 module Bh
   # Provides methods to include panels.
   # @see http://getbootstrap.com/components/#panels
   module PanelHelper
-    include ActionView::Helpers::TagHelper # for content_tag
-    include ActionView::Context # for capture
-    include ActionView::Helpers::OutputSafetyHelper # for safe_join
+    include BaseHelper
 
     # Returns an HTML block tag that follows the Bootstrap documentation
     # on how to display *panels*.

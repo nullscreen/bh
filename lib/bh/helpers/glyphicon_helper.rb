@@ -1,10 +1,10 @@
-require 'action_view'
+require 'bh/helpers/base_helper'
 
 module Bh
   # Provides methods to include Glyphicons.
   # @see http://getbootstrap.com/components/#glyphicons
   module GlyphiconHelper
-    include ActionView::Helpers::TagHelper # for content_tag
+    include BaseHelper
 
     # Returns an HTML block tag that follows the Bootstrap documentation
     # on how to display *glyphicons*.
@@ -19,13 +19,6 @@ module Bh
       append_class! options, 'glyphicon'
       append_class! options, "glyphicon-#{name.to_s.gsub '_', '-'}" if name
       content_tag :span, nil, options
-    end
-
-  private
-
-    def append_class!(hash, new_class)
-      existing_class = hash[:class]
-      hash[:class] = [existing_class, new_class].compact.join ' '
     end
   end
 end
