@@ -527,9 +527,11 @@ Horizontal form
 <%= form_for user, layout: :horizontal do |f| %>
   <%= f.fieldset 'Basic Info' do %>
     <%= f.text_field :company %>
+    <%= f.text_area :notes, label: 'Comments' %>
   <% end %>
   <%= f.fields_for :address do |address_f| %>
     <%= address_f.text_field :street %>
+    <%= address_f.number_field :number %>
   <% end %>
 <% end %>
 ```

@@ -9,16 +9,10 @@ module Bh
       include ActionView::Helpers::OutputSafetyHelper # for safe_join
       include Bh::PanelHelper # for panel
 
-      def text_field(method, options = {})
-        append_class! options, 'form-control'
-        options[:placeholder] ||= method.to_s.humanize
-
-        label = label(*[method, options[:label], label_options].compact)
-        field = field_container { super method, options }
-
-        content_tag :div, class: 'form-group' do
-          safe_join [label, field].compact
-        end
+      field_helpers.each do |form_field|
+        define_method form_field do |method, options = {}|
+          field(method, options) { super method, options }
+        end unless %w(label hidden_field range_field).include?(form_field.to_s)
       end
 
       def fieldset(title = nil, &block)
@@ -34,6 +28,18 @@ module Bh
       end
 
     private
+
+      def field(method, options = {}, &block)
+        append_class! options, 'form-control'
+        options[:placeholder] ||= method.to_s.humanize
+
+        label = label(*[method, options.delete(:label), label_options].compact)
+        field = field_container(&block)
+
+        content_tag :div, class: 'form-group' do
+          safe_join [label, field].compact
+        end
+      end
 
       def label_options
       end

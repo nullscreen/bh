@@ -8,31 +8,41 @@ describe Bh::FormBuilders::Basic do
   let(:form) { form_for :user, layout: :basic, url: '/', &block }
   before { I18n.enforce_available_locales = true }
 
-  describe 'text_field' do
-    let(:block) { Proc.new {|f| f.text_field :first_name, options} }
-    let(:options) { {} }
-
-    specify 'applies HTML fit the text field in a basic Bootstrap form' do
-      expect(form).to include 'div class="form-group"'
-      expect(form).to include 'input class="form-control"'
+  def self.field_helpers_to_test
+    types = %w(email file number password phone search telephone text url)
+    if ActionView::VERSION::STRING >= '4.0.0'
+      types.concat %w(color date datetime datetime_local month time week)
     end
+    types.map{|type| "#{type}_field"} << "text_area"
+  end
 
-    specify 'not given a placeholder, automatically generates one' do
-      expect(form).to include 'placeholder="First name"'
-    end
+  field_helpers_to_test.each do |form_field|
+    describe form_field do
+      let(:block) { Proc.new {|f| f.send form_field, :first_name, options} }
+      let(:options) { {} }
 
-    context 'given a placeholder option, uses the provided one' do
-      let(:options) { {placeholder: 'Given name'} }
-      it { expect(form).to include 'placeholder="Given name"' }
-    end
+      specify 'applies HTML fit the text field in a basic Bootstrap form' do
+        expect(form).to include 'div class="form-group"'
+        expect(form).to match %r{(input|textarea) class="form-control"}
+      end
 
-    specify 'not given a label, automatically generates one' do
-      expect(form).to include 'First name</label>'
-    end
+      specify 'not given a placeholder, automatically generates one' do
+        expect(form).to include 'placeholder="First name"'
+      end
 
-    context 'given a label option, uses the provided one' do
-      let(:options) { {label: 'Given name'} }
-      it { expect(form).to include 'Given name</label>' }
+      context 'given a placeholder option, uses the provided one' do
+        let(:options) { {placeholder: 'Given name'} }
+        it { expect(form).to include 'placeholder="Given name"' }
+      end
+
+      specify 'not given a label, automatically generates one' do
+        expect(form).to include 'First name</label>'
+      end
+
+      context 'given a label option, uses the provided one' do
+        let(:options) { {label: 'Given name'} }
+        it { expect(form).to include 'Given name</label>' }
+      end
     end
   end
 
