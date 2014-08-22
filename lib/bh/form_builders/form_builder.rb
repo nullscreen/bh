@@ -2,6 +2,7 @@ require 'bh/helpers/form/check_box_helper'
 require 'bh/helpers/form/field_helper'
 require 'bh/helpers/form/fieldset_helper'
 require 'bh/helpers/form/fields_for_helper'
+require 'bh/helpers/form/legend_helper'
 require 'bh/helpers/form/radio_button_helper'
 require 'bh/helpers/form/select_helper'
 require 'bh/helpers/form/submit_helper'
@@ -12,6 +13,7 @@ module Bh
     include Form::FieldHelper
     include Form::FieldsetHelper
     include Form::FieldsForHelper
+    include Form::LegendHelper
     include Form::RadioButtonHelper
     include Form::SelectHelper
     include Form::SubmitHelper

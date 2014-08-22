@@ -34,7 +34,7 @@ module Bh
         safe_join tags
       end
 
-      def label_and_field_container(label_and_field, field_type, errors)
+      def label_and_field_container(label_and_field, field_type, errors = {})
         klass = ['form-group']
         if errors.any?
           klass << 'has-error'
@@ -45,7 +45,7 @@ module Bh
 
 
       def show_error_icon?(field_type)
-        hide = [:checkbox, :number_field, :radio_button, :select].include? field_type
+        hide = [:checkbox, :number_field, :radio_button, :select, :legend].include? field_type
         @options.fetch(:errors, {}).fetch(:icons, true) && !hide
       end
 
