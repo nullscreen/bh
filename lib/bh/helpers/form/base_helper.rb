@@ -67,7 +67,7 @@ module Bh
         end
       end
 
-      def label_options(errors)
+      def label_options(errors = {})
         klass = []
         klass << 'sr-only' if inline_form?
         klass << 'col-sm-3' if horizontal_form?

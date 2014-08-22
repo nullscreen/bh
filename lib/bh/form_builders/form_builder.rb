@@ -5,6 +5,7 @@ require 'bh/helpers/form/fields_for_helper'
 require 'bh/helpers/form/legend_helper'
 require 'bh/helpers/form/radio_button_helper'
 require 'bh/helpers/form/select_helper'
+require 'bh/helpers/form/static_control_helper'
 require 'bh/helpers/form/submit_helper'
 
 module Bh
@@ -16,6 +17,7 @@ module Bh
     include Form::LegendHelper
     include Form::RadioButtonHelper
     include Form::SelectHelper
+    include Form::StaticControlHelper
     include Form::SubmitHelper
 
     def self.non_textual_field_helpers
