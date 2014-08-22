@@ -7,7 +7,7 @@ module Bh
       include ActionView::Helpers::TagHelper # for content_tag
       include ActionView::Context # for capture
       include ActionView::Helpers::OutputSafetyHelper # for safe_join
-      include Bh::PanelHelper # for panel
+      include PanelHelper # for panel
 
       field_helpers.each do |form_field|
         define_method form_field do |method, options = {}|

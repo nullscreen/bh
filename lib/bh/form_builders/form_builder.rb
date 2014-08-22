@@ -1,13 +1,15 @@
-require 'bh/helpers/form/field_helper'
 require 'bh/helpers/form/check_box_helper'
+require 'bh/helpers/form/field_helper'
+require 'bh/helpers/form/fieldset_helper'
 require 'bh/helpers/form/radio_button_helper'
 require 'bh/helpers/form/select_helper'
 require 'bh/helpers/form/submit_helper'
 
 module Bh
   class FormBuilder < ActionView::Helpers::FormBuilder
-    include Form::FieldHelper
     include Form::CheckBoxHelper
+    include Form::FieldHelper
+    include Form::FieldsetHelper
     include Form::RadioButtonHelper
     include Form::SelectHelper
     include Form::SubmitHelper
