@@ -11,7 +11,7 @@ module Bh
         errors = (object.errors.get method if object) || {}
         label = label_for method, errors, options
         field = field_container(options) do
-          field_tags errors, field_type, &block
+          field_tags errors, field_type, options, &block
         end
         label_and_field = safe_join [label, field].compact
         label_and_field_container label_and_field, field_type, errors
@@ -27,28 +27,46 @@ module Bh
         end
       end
 
-      def field_tags(errors, field_type, &block)
-        tags = [@template.capture(&block)]
-        tags << error_icon_tag if errors.any? && show_error_icon?(field_type)
+      def field_tags(errors, field_type, options = {}, &block)
+        prefix, suffix = options.delete(:prefix), options.delete(:suffix)
+        field = @template.capture(&block)
+        tags = [field_in_group(field, prefix, suffix)]
+        tags << error_icon_tag if show_error_icon?(field_type, errors, suffix)
         tags << error_help_tag(errors) if errors.any? && show_error_help?
         safe_join tags
       end
 
+      def field_in_group(field, prefix, suffix)
+        input_group_container(prefix || suffix) do
+          safe_join [input_addon(prefix), field, input_addon(suffix)].compact
+        end
+      end
+
+      def input_addon(addon)
+        content_tag :span, addon, class: 'input-group-addon' if addon
+      end
+
+      def input_group_container(has_addons, &block)
+        if has_addons
+          content_tag :div, class: 'input-group', &block
+        else
+          yield
+        end
+      end
+
       def label_and_field_container(label_and_field, field_type, errors = {})
         klass = ['form-group']
-        if errors.any?
-          klass << 'has-error'
-          klass << 'has-feedback' if show_error_icon?(field_type)
-        end
+        klass << 'has-error' if errors.any?
+        klass << 'has-feedback' if show_error_icon?(field_type, errors)
         content_tag :div, label_and_field, class: klass.join(' ')
       end
 
 
-      def show_error_icon?(field_type)
-        hide = [:checkbox, :number_field, :radio_button, :select, :legend].include? field_type
-        @options.fetch(:errors, {}).fetch(:icons, true) && !hide
+      def show_error_icon?(field_type, errors, suffix = nil)
+        no_icon = %w(checkbox number_field radio_button select legend)
+        hide = no_icon.include?(field_type.to_s)
+        errors.any? && @options.fetch(:errors, {}).fetch(:icons, true) && !hide && suffix.nil?
       end
-
 
       def error_icon_tag
         glyphicon :remove, class: 'form-control-feedback'

@@ -42,6 +42,20 @@ field_helpers_to_test.each do |form_field|
         it { expect(form).to include 'Given name</label>' }
       end
 
+      specify 'not given a prefix or suffix option, does not use an input group' do
+        expect(form).not_to include 'input-group'
+      end
+
+      context 'given a prefix option, prints the prefix before the field' do
+        let(:options) { {prefix: 'Mr.'} }
+        it { expect(form).to include '<div class="input-group"><span class="input-group-addon">Mr.</span><' }
+      end
+
+      context 'given a suffix option, prints the prefix after the field' do
+        let(:options) { {suffix: 'Jr'} }
+        it { expect(form).to match %r{<div class="input-group"><.+?><span class="input-group-addon">Jr</span></div>}m }
+      end
+
       specify 'not given an error, does not apply has-error to the form group' do
         expect(form).not_to include 'has-error'
       end
@@ -61,6 +75,11 @@ field_helpers_to_test.each do |form_field|
         context 'given an option to hide error icons, hides error icons' do
           let(:errors) { {icons: false} }
           it{ expect(form).not_to include 'has-feedback' }
+        end
+
+        context 'given the suffix option, hides error icons (or they would overlap)' do
+          let(:options) { {suffix: 'Jr'} }
+          it{ expect(form).not_to include 'form-control-feedback' }
         end
 
         context 'given an option to hide error messages, hides error messages' do
