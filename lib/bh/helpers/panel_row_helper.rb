@@ -1,4 +1,3 @@
-require 'action_view'
 require 'bh/helpers/panel_helper'
 
 module Bh
@@ -6,10 +5,7 @@ module Bh
   # @see http://getbootstrap.com/css/#grid
   # @see http://getbootstrap.com/components/#panels
   module PanelRowHelper
-    include ActionView::Helpers::TagHelper # for content_tag
-    include ActionView::Context # for capture
-    include ActionView::Helpers::OutputSafetyHelper # for safe_join
-    include Bh::PanelHelper # for panel
+    include PanelHelper # for panel
 
     # Returns an HTML block tag that follows the Bootstrap documentation
     # on how to display a *row*, passing column options to each panel in

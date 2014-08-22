@@ -46,7 +46,7 @@ How to install
 
 Bh is meant to be included in Rails apps by adding this line to the Gemfile:
 
-    gem 'bh', '~> 0.0.4'
+    gem 'bh', '~> 0.0.5'
 
 Since the gem follows [Semantic Versioning](http://semver.org),
 indicating the full version in your Gemfile (~> *major*.*minor*.*patch*)
@@ -322,22 +322,22 @@ Complex panels
 --------------
 
 ```rhtml
-<%= panel do %>
+<%= panel tag: :aside do %>
   <div class='panel-body'>You accepted the Terms of service. <%= glyphicon :ok %></div>
   <div class='panel-footer'><h4>Thanks</h4></div>
 <% end %>
 ```
 
-will generate the HTML to render a panel with HTML body and footer:
+will generate the HTML to render an aside panel with HTML body and footer:
 
 ```html
-<div class="panel panel-default">
+<aside class="panel panel-default">
   <div class="panel-body">
     You accepted the Terms of service.
     <span class="glyphicon glyphicon-ok"></span>
   </div>
   <div class="panel-footer"><h4>Thanks</h4></div>
-</div>
+</aside>
 ```
 
 ![panel-complex](https://cloud.githubusercontent.com/assets/7408595/3941819/da569586-2543-11e4-8640-3f0a72077aca.png)
@@ -490,6 +490,51 @@ the caption "Continue" that toggles a small modal with a title and HTML content:
 ```
 
 ![modal-complex](https://cloud.githubusercontent.com/assets/7408595/3943922/b47620a8-25d8-11e4-9e0c-803d8a104bff.png)
+
+FormForHelper
+=============
+
+To include [Boostrap forms](http://getbootstrap.com/css/#forms)
+in your Rails views, you can use the
+[form_for](http://rubydoc.info/github/Fullscreen/bh/master/Bh/FormForHelper)
+helper.
+
+By default, Bh does not override the `form_for` method provided by [ActionView](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_for).
+To apply Bootstrap classes and attributes, you **must** set the `:layout` option to
+
+* `:basic`, in order to get a [Basic form](http://getbootstrap.com/css/#forms-example)
+* `:horizontal`, in order to get a [Horizontal form](http://getbootstrap.com/css/#forms-horizontal)
+* `:inline`, in order to get an [Inline form](http://getbootstrap.com/css/#forms-inline)
+
+Here is how a form with a text field and a submit button looks like with each layout:
+
+```rhtml
+<%= form_for @user, layout: :basic do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+```
+
+![form-for-basic](https://cloud.githubusercontent.com/assets/7408595/4015592/30611478-2a2c-11e4-8e62-b60e2151ff12.png)
+
+
+```rhtml
+<%= form_for @user, layout: :horizontal do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+```
+
+![form-for-horizontal](https://cloud.githubusercontent.com/assets/7408595/4015593/30620ba8-2a2c-11e4-90c9-8340b5ddc113.png)
+
+```rhtml
+<%= form_for @user, layout: :inline do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+```
+
+![form-for-inline](https://cloud.githubusercontent.com/assets/7408595/4015591/30609b74-2a2c-11e4-989e-e509d72ed224.png)
 
 
 How to release new versions

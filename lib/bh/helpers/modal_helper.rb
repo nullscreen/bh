@@ -1,11 +1,10 @@
-require 'action_view'
+require 'bh/helpers/base_helper'
 
 module Bh
   # Provides methods to include modals.
   # @see http://getbootstrap.com/javascript/#modals
   module ModalHelper
-    include ActionView::Helpers, ActionView::Context
-
+    include BaseHelper
 
     # Returns an HTML block tag that follows the Bootstrap documentation
     # on how to display *modals*.

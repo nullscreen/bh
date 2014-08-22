@@ -1,10 +1,10 @@
-require 'action_view'
+require 'bh/helpers/base_helper'
 
 module Bh
   # Provides methods to include Glyphicons.
   # @see http://getbootstrap.com/components/#glyphicons
   module GlyphiconHelper
-    include ActionView::Helpers::TagHelper # for content_tag
+    include BaseHelper
 
     # Returns an HTML block tag that follows the Bootstrap documentation
     # on how to display *glyphicons*.
@@ -16,9 +16,9 @@ module Bh
     # @example Display the "zoom out" glyphicon
     #   glyphicon 'zoom-out'
     def glyphicon(name = nil, options = {})
-      glyphicon_class = "glyphicon-#{name.to_s.gsub '_', '-'}" if name
-      klass = ['glyphicon', glyphicon_class].compact.join ' '
-      content_tag :span, nil, options.merge(class: klass)
+      append_class! options, 'glyphicon'
+      append_class! options, "glyphicon-#{name.to_s.gsub '_', '-'}" if name
+      content_tag :span, nil, options
     end
   end
 end

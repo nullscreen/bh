@@ -86,4 +86,10 @@ describe 'panel' do
       expect(panel 'content').not_to include 'panel-heading'
     end
   end
+
+  describe 'with the :tag option' do
+    specify 'uses the specified tag rather than DIV' do
+      expect(panel 'content', tag: :aside).to include '<aside class="panel panel-default">'
+    end
+  end
 end
