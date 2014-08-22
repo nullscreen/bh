@@ -20,16 +20,19 @@ module Bh
     include Form::StaticControlHelper
     include Form::SubmitHelper
 
-    def self.non_textual_field_helpers
-      [:label, :hidden_field, :range_field, :check_box, :radio_button,
-       :select, :submit, :fields_for]
+    # @note: field_helpers are returned as symbols in ActionView 4 and as
+    #   strings in ActionView 3
+    def self.textual_field_helpers
+      non_textual_field_helpers = %w(label hidden_field range_field check_box
+        radio_button select submit fields_for label)
+      field_helpers.map(&:to_s) - non_textual_field_helpers
     end
 
     # Use the same template for all the textual field helpers such as
     # email_field, password_field, etc.
     # Exclude the ones that should not have additional styles.
     # Do not show error icons on number_field not to cover the sliders.
-    (field_helpers - non_textual_field_helpers).each do |field_type|
+    textual_field_helpers.each do |field_type|
       define_method field_type do |method, options = {}|
         field(method, field_type, options) { super method, options }
       end
