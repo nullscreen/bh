@@ -15,7 +15,12 @@ describe 'fields_for' do
     expect(form).to include 'fieldset class="panel panel-default">'
   end
 
-  specify 'generates a title in the panel heading from the field name' do
+  context 'given a title option, uses the provided title' do
+    let(:options) { {title: 'Your address'} }
+    it { expect(form).to include '<div class="panel-heading">Your address</div>' }
+  end
+
+  specify 'not given a title, generates one from the field name' do
     expect(form).to include '<div class="panel-heading">Address</div>'
   end
 
