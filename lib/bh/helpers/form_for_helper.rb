@@ -1,7 +1,4 @@
 require 'bh/helpers/base_helper'
-require 'bh/form_builders/basic'
-require 'bh/form_builders/horizontal'
-require 'bh/form_builders/inline'
 require 'bh/form_builders/form_builder'
 
 module Bh
