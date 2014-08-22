@@ -45,7 +45,7 @@ module Bh
 
 
       def show_error_icon?(field_type)
-        hide = [:checkbox, :number_field].include? field_type
+        hide = [:checkbox, :number_field, :radio_button].include? field_type
         @options.fetch(:errors, {}).fetch(:icons, true) && !hide
       end
 
@@ -74,6 +74,22 @@ module Bh
         klass << 'control-label' if horizontal_form?
         klass << 'control-label' if basic_form? && errors.any?
         {class: klass.join(' ')} if klass.any?
+      end
+
+      # Rails adds <div class='field_with_errors'> which messes up
+      # Bootstrap inline form unless the label is inserted within
+      # the div itself.
+      def label_and_field(container_class, method, options = {}, &block)
+        label_and_field = @template.capture(&block)
+        label = options.delete(:label)
+        if index = label_and_field =~ %r{</div>$}
+          label_and_field.insert index, " #{label}"
+        else
+          label_and_field.concat " #{label}"
+        end
+        content_tag :div, class: container_class do
+          content_tag :label, label_and_field
+        end
       end
 
       def show_error_help?
