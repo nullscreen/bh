@@ -45,7 +45,7 @@ module Bh
 
 
       def show_error_icon?(field_type)
-        hide = [:checkbox, :number_field, :radio_button].include? field_type
+        hide = [:checkbox, :number_field, :radio_button, :select].include? field_type
         @options.fetch(:errors, {}).fetch(:icons, true) && !hide
       end
 
