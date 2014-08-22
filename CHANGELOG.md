@@ -6,6 +6,10 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 0.0.5 - 2014-08-22
+
+* [FEATURE] Add `form_for` and form helpers for every type of field
+
 ## 0.0.4 - 2014-08-17
 
 * [FEATURE] Add `modal`

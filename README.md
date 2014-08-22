@@ -46,7 +46,7 @@ How to install
 
 Bh is meant to be included in Rails apps by adding this line to the Gemfile:
 
-    gem 'bh', '~> 0.0.4'
+    gem 'bh', '~> 0.0.5'
 
 Since the gem follows [Semantic Versioning](http://semver.org),
 indicating the full version in your Gemfile (~> *major*.*minor*.*patch*)
@@ -506,44 +506,35 @@ To apply Bootstrap classes and attributes, you **must** set the `:layout` option
 * `:horizontal`, in order to get a [Horizontal form](http://getbootstrap.com/css/#forms-horizontal)
 * `:inline`, in order to get an [Inline form](http://getbootstrap.com/css/#forms-inline)
 
-Basic form
------------
+Here is how a form with a text field and a submit button looks like with each layout:
 
 ```rhtml
-<%= form_for user, layout: :basic do |f| %>
-  <%= f.fieldset 'Basic Info' do %>
-    <%= f.text_field :name %>
-    <%= f.text_field :age %>
-  <% end %>
+<%= form_for @user, layout: :basic do |f| %>
+  <%= f.text_field :name %>
   <%= f.submit %>
 <% end %>
 ```
 
+![form-for-basic](https://cloud.githubusercontent.com/assets/7408595/4015592/30611478-2a2c-11e4-8e62-b60e2151ff12.png)
 
-Horizontal form
----------------
 
 ```rhtml
-<%= form_for user, layout: :horizontal do |f| %>
-  <%= f.fields_for :address do |address_f| %>
-    <%= address_f.text_field :street, label: 'Street/Road' %>
-    <%= address_f.text_area :notes, cols: 2 %>
-  <% end %>
-  <%= f.submit 'Send', class: 'pull-right' %>
+<%= form_for @user, layout: :horizontal do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
 <% end %>
 ```
 
-Inline form
------------
+![form-for-horizontal](https://cloud.githubusercontent.com/assets/7408595/4015593/30620ba8-2a2c-11e4-90c9-8340b5ddc113.png)
 
 ```rhtml
-<%= form_for user, layout: :inline do |f| %>
-  <%= f.email_field :email %>
-  <%= f.password_field :password %>
-  <%= f.check_box :remember_me %>
-  <%= f.submit 'Login', context: :success %>
+<%= form_for @user, layout: :inline do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
 <% end %>
 ```
+
+![form-for-inline](https://cloud.githubusercontent.com/assets/7408595/4015591/30609b74-2a2c-11e4-989e-e509d72ed224.png)
 
 
 How to release new versions
