@@ -46,7 +46,7 @@ How to install
 
 Bh is meant to be included in Rails apps by adding this line to the Gemfile:
 
-    gem 'bh', '~> 0.0.6'
+    gem 'bh', '~> 0.0.7'
 
 Since the gem follows [Semantic Versioning](http://semver.org),
 indicating the full version in your Gemfile (~> *major*.*minor*.*patch*)
@@ -276,7 +276,7 @@ will generate the HTML to render a panel with a heading:
 ![panel-heading](https://cloud.githubusercontent.com/assets/7408595/3941820/da58db3e-2543-11e4-811f-f7da4ffce77d.png)
 
 Panel with title
-------------------
+----------------
 
 ```rhtml
 <%= panel body: 'You accepted the Terms of service.', title: 'Congratulations' %>
@@ -296,7 +296,7 @@ will generate the HTML to render a panel with a title:
 ![panel-title](https://cloud.githubusercontent.com/assets/7408595/3941816/da52b894-2543-11e4-99b8-4b6ffd47c167.png)
 
 Contextual panel
------------------
+----------------
 
 ```rhtml
 <%= panel body: 'You accepted the Terms of service.', title: 'Congratulations', context: :success %>
@@ -535,6 +535,59 @@ Here is how a form with a text field and a submit button looks like with each la
 ```
 
 ![form-for-inline](https://cloud.githubusercontent.com/assets/7408595/4015591/30609b74-2a2c-11e4-989e-e509d72ed224.png)
+
+
+NavHelper
+===========
+
+To include [Boostrap navs](http://getbootstrap.com/components/#nav)
+in your Rails views, you can use the
+[nav](http://rubydoc.info/github/Fullscreen/bh/master/Bh/NavHelper) helper.
+Here are some examples.
+
+Justified tabs nav
+------------------
+
+```rhtml
+<%= nav layout: :justified do %>
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Profile', profile_path %>
+<% end %>
+```
+
+will generate the HTML to render a nav with two links (wrapped in the
+appropriate list items, as specified by Bootstrap documentation):
+
+```html
+<ul class="nav nav-tabs nav-justified" role="tablist">
+    <li class="active"><a href="/">Home</a></li>
+    <li><a href="/profile">Profile</a></li>
+</ul>
+```
+
+![nav-tabs](https://cloud.githubusercontent.com/assets/7408595/4038705/9dede620-2cba-11e4-9543-6384e8ac9ace.png)
+
+Stacked pills nav
+-----------------
+
+```rhtml
+<%= nav as: :pills, layout: :stacked do %>
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Profile', profile_path %>
+<% end %>
+
+```
+
+will generate the HTML to render a stacked *pills* nav:
+
+```html
+<ul class="nav nav-pills nav-stacked" role="tablist">
+  <li class="active"><a href="/">Home</a></li>
+  <li><a href="/profile">Profile</a></li>
+</ul>
+```
+
+![nav-pills](https://cloud.githubusercontent.com/assets/7408595/4038706/9df29ad0-2cba-11e4-83de-cd31b6659c78.png)
 
 
 How to release new versions

@@ -2,8 +2,6 @@ require 'action_view'
 
 module Bh
   module UrlHelper
-    include ActionView::Helpers::UrlHelper # for link_to
-
     # Overrides ActionView +link_to+ to be able to add the 'alert_link' class
     # to the link in case the link is inside of an alert.
     # @see http://getbootstrap.com/components/#alerts-links

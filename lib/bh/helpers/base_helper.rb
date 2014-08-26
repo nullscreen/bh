@@ -6,6 +6,7 @@ module Bh
     include ActionView::Context # for capture
     include ActionView::Helpers::OutputSafetyHelper # for safe_join
     include ActionView::Helpers::RenderingHelper # for render
+    include ActionView::Helpers::UrlHelper # for link_to
 
   private
 
