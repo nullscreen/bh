@@ -6,6 +6,10 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 0.0.7 - 2014-08-25
+
+* [FEATURE] Add `nav` helper
+
 ## 0.0.6 - 2014-08-22
 
 * [FEATURE] Add `:prefix`, `:suffix` options to form field helpers

@@ -3,6 +3,7 @@ require 'bh/helpers/cdn_helper'
 require 'bh/helpers/form_for_helper'
 require 'bh/helpers/glyphicon_helper'
 require 'bh/helpers/modal_helper'
+require 'bh/helpers/nav_helper'
 require 'bh/helpers/panel_helper'
 require 'bh/helpers/panel_row_helper'
 require 'bh/helpers/url_helper'
@@ -15,6 +16,7 @@ module Bh
       ActionView::Base.send :include, FormForHelper
       ActionView::Base.send :include, GlyphiconHelper
       ActionView::Base.send :include, ModalHelper
+      ActionView::Base.send :include, NavHelper
       ActionView::Base.send :include, PanelHelper
       ActionView::Base.send :include, PanelRowHelper
       ActionView::Base.send :include, UrlHelper
