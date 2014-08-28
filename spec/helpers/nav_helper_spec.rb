@@ -1,10 +1,11 @@
 # encoding: UTF-8
 
 require 'spec_helper'
-require 'action_dispatch'
 require 'bh/helpers/nav_helper'
+require 'bh/helpers/navbar_helper'
 
 include Bh::NavHelper
+include Bh::NavbarHelper
 
 describe 'nav' do
   let(:html) { nav options, &block }
@@ -43,19 +44,10 @@ describe 'nav' do
     end
   end
 
-  describe 'given a +link_to+ in the content' do
-    let(:block) { Proc.new { link_to 'Home', url} }
-    let(:url) { '/any-page' }
-    let(:request) { ActionDispatch::Request.new request_options }
-    let(:request_options) { {'REQUEST_METHOD' => 'GET'} }
-
-    specify 'surrounds the link in a list item' do
-      expect(html).to include '<li><a href="/any-page">Home</a></li>'
-    end
-
-    context 'sets the "active" class if the link points to the same page' do
-      let(:url) { '' }
-      it { expect(html).to include 'li class="active"' }
+  describe 'within a navbar' do
+    let(:html) { navbar { nav options, &block } }
+    specify 'applies roles and classes specific to navbar' do
+      expect(html).to include 'ul class="nav navbar-nav">'
     end
   end
 end

@@ -1,10 +1,11 @@
 # encoding: UTF-8
 
 require 'spec_helper'
+
 require 'bh/helpers/alert_helper'
-require 'bh/helpers/url_helper'
+require 'bh/helpers/link_to_helper'
 include Bh::AlertHelper
-include Bh::UrlHelper
+include Bh::LinkToHelper
 
 describe 'alert_box' do
   describe 'accepts as parameters:' do

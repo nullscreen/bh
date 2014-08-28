@@ -30,29 +30,22 @@ module Bh
     # @see http://getbootstrap.com/components/#nav
     def nav(options = {}, &block)
       @nav_link = true
-      nav = content_tag :ul, role: 'tablist', class: nav_class(options), &block
+      nav = content_tag :ul, nav_options(options), &block
       nav.tap{ @nav_link = false }
-    end
-
-    # Overrides ActionView +link_to+ to be able to surround the link in a
-    # '<li>' item in case the link is inside of a nav.
-    def link_to(*args, &block)
-      link = super *args, &block
-      @nav_link ? content_tag(:li, link, nav_list_item_options(*args)) : link
     end
 
   private
 
-    def nav_list_item_options(*args)
-      options = (block_given? ? args[0] : args[1]) || {}
-      {class: 'active'} if current_page? options
-    end
-
-    def nav_class(options = {})
+    def nav_options(options = {})
       append_class! options, 'nav'
-      append_class! options, "nav-#{options.fetch :as, 'tabs'}"
-      append_class! options, "nav-#{options[:layout]}" if options[:layout]
-      options[:class]
+      if @navbar_id
+        append_class! options, 'navbar-nav'
+      else
+        options[:role] = 'tablist'
+        append_class! options, "nav-#{options.fetch :as, 'tabs'}"
+        append_class! options, "nav-#{options[:layout]}" if options[:layout]
+      end
+      options.slice :role, :class
     end
   end
 end
