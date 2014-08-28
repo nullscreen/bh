@@ -1,7 +1,9 @@
-require 'action_view'
+require 'bh/helpers/base_helper'
 
 module Bh
   module LinkToHelper
+    include BaseHelper
+
     # Overrides ActionView +link_to+ to be able to add the 'alert-link' class
     # to the link in case the link is inside of an alert.
     # @see http://getbootstrap.com/components/#alerts-links
@@ -19,10 +21,7 @@ module Bh
   private
 
     def add_link_class!(new_class, *args, &block)
-      html_options = (block_given? ? args[1] : args[2]) || {}
-      append_class! html_options, new_class
-      block_given? ? args[1] = html_options : args[2] = html_options
-      args
+      append_class_as! :class, new_class, *args, &block
     end
 
     def nav_list_item_options(*args, &block)

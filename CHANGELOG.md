@@ -6,6 +6,11 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 0.0.8 - 2014-08-25
+
+* [FEATURE] Add `button_to` helper
+* [FEATURE] Add `navbar` helper
+
 ## 0.0.7 - 2014-08-25
 
 * [FEATURE] Add `nav` helper
