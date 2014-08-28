@@ -1,7 +1,6 @@
 # encoding: UTF-8
 
 require 'spec_helper'
-require 'action_dispatch'
 require 'bh/helpers/nav_helper'
 
 include Bh::NavHelper
@@ -40,22 +39,6 @@ describe 'nav' do
     context 'set to :stacked, shows a "stacked" nav' do
       let(:options) { {layout: :stacked} }
       it { expect(html).to include 'nav-stacked' }
-    end
-  end
-
-  describe 'given a +link_to+ in the content' do
-    let(:block) { Proc.new { link_to 'Home', url} }
-    let(:url) { '/any-page' }
-    let(:request) { ActionDispatch::Request.new request_options }
-    let(:request_options) { {'REQUEST_METHOD' => 'GET'} }
-
-    specify 'surrounds the link in a list item' do
-      expect(html).to include '<li><a href="/any-page">Home</a></li>'
-    end
-
-    context 'sets the "active" class if the link points to the same page' do
-      let(:url) { '' }
-      it { expect(html).to include 'li class="active"' }
     end
   end
 end

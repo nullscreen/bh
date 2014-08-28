@@ -34,19 +34,7 @@ module Bh
       nav.tap{ @nav_link = false }
     end
 
-    # Overrides ActionView +link_to+ to be able to surround the link in a
-    # '<li>' item in case the link is inside of a nav.
-    def link_to(*args, &block)
-      link = super *args, &block
-      @nav_link ? content_tag(:li, link, nav_list_item_options(*args)) : link
-    end
-
   private
-
-    def nav_list_item_options(*args)
-      options = (block_given? ? args[0] : args[1]) || {}
-      {class: 'active'} if current_page? options
-    end
 
     def nav_class(options = {})
       append_class! options, 'nav'
