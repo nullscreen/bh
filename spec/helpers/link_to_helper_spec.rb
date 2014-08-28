@@ -2,13 +2,14 @@ require 'spec_helper'
 require 'action_dispatch'
 
 require 'bh/helpers/alert_helper'
+require 'bh/helpers/link_to_helper'
 require 'bh/helpers/nav_helper'
 require 'bh/helpers/navbar_helper'
-require 'bh/helpers/url_helper'
+
 include Bh::AlertHelper
+include Bh::LinkToHelper
 include Bh::NavHelper
 include Bh::NavbarHelper
-include Bh::UrlHelper
 
 describe 'link_to' do
   let(:request) { ActionDispatch::Request.new request_options }

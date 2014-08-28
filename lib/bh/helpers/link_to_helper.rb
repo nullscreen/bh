@@ -1,7 +1,7 @@
 require 'action_view'
 
 module Bh
-  module UrlHelper
+  module LinkToHelper
     # Overrides ActionView +link_to+ to be able to add the 'alert-link' class
     # to the link in case the link is inside of an alert.
     # @see http://getbootstrap.com/components/#alerts-links
@@ -20,8 +20,7 @@ module Bh
 
     def add_link_class!(new_class, *args, &block)
       html_options = (block_given? ? args[1] : args[2]) || {}
-      klass = html_options[:class]
-      html_options[:class] = [klass, new_class].compact.join ' '
+      append_class! html_options, new_class
       block_given? ? args[1] = html_options : args[2] = html_options
       args
     end
