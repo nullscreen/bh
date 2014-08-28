@@ -3,9 +3,11 @@ require 'action_dispatch'
 
 require 'bh/helpers/alert_helper'
 require 'bh/helpers/nav_helper'
+require 'bh/helpers/navbar_helper'
 require 'bh/helpers/url_helper'
 include Bh::AlertHelper
 include Bh::NavHelper
+include Bh::NavbarHelper
 include Bh::UrlHelper
 
 describe 'link_to' do
@@ -22,6 +24,14 @@ describe 'link_to' do
 
     specify 'inside an alert, applies the "alert-link"' do
       expect(alert_box { link }).to include 'alert-link'
+    end
+
+    specify 'by default, does not apply the "navbar-brand" class' do
+      expect(link).not_to include 'navbar-brand'
+    end
+
+    specify 'inside the vertical part of a navbar, applies the "navbar-brand"' do
+      expect(navbar { vertical { link } }).to include 'navbar-brand'
     end
 
     specify 'by default, does not surround the link in a list item' do
@@ -55,6 +65,14 @@ describe 'link_to' do
 
     specify 'inside an alert, applies the "alert-link"' do
       expect(alert_box { link }).to include 'alert-link'
+    end
+
+    specify 'by default, does not apply the "navbar-brand" class' do
+      expect(link).not_to include 'navbar-brand'
+    end
+
+    specify 'inside the vertical part of a navbar, applies the "navbar-brand"' do
+      expect(navbar { vertical { link } }).to include 'navbar-brand'
     end
 
     specify 'by default, does not surround the link in a list item' do

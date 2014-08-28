@@ -30,17 +30,22 @@ module Bh
     # @see http://getbootstrap.com/components/#nav
     def nav(options = {}, &block)
       @nav_link = true
-      nav = content_tag :ul, role: 'tablist', class: nav_class(options), &block
+      nav = content_tag :ul, nav_options(options), &block
       nav.tap{ @nav_link = false }
     end
 
   private
 
-    def nav_class(options = {})
+    def nav_options(options = {})
       append_class! options, 'nav'
-      append_class! options, "nav-#{options.fetch :as, 'tabs'}"
-      append_class! options, "nav-#{options[:layout]}" if options[:layout]
-      options[:class]
+      if @navbar_id
+        append_class! options, 'navbar-nav'
+      else
+        options[:role] = 'tablist'
+        append_class! options, "nav-#{options.fetch :as, 'tabs'}"
+        append_class! options, "nav-#{options[:layout]}" if options[:layout]
+      end
+      options.slice :role, :class
     end
   end
 end

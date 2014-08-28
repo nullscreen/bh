@@ -2,8 +2,10 @@
 
 require 'spec_helper'
 require 'bh/helpers/nav_helper'
+require 'bh/helpers/navbar_helper'
 
 include Bh::NavHelper
+include Bh::NavbarHelper
 
 describe 'nav' do
   let(:html) { nav options, &block }
@@ -39,6 +41,13 @@ describe 'nav' do
     context 'set to :stacked, shows a "stacked" nav' do
       let(:options) { {layout: :stacked} }
       it { expect(html).to include 'nav-stacked' }
+    end
+  end
+
+  describe 'within a navbar' do
+    let(:html) { navbar { nav options, &block } }
+    specify 'applies roles and classes specific to navbar' do
+      expect(html).to include 'ul class="nav navbar-nav">'
     end
   end
 end
