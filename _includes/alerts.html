@@ -1,0 +1,80 @@
+<div class="bs-docs-section">
+  <h1 id="alerts" class="page-header">Alerts</h1>
+  <p class="lead">Use the <code>alert_box</code> helper to display Bootstrap-styled alert messages.</p>
+
+  <h3 id="basic-alerts">Basic alerts</h3>
+  <p>Use <code>alert_box</code> without options to to display a basic informational message. For instance:</p>
+  {% highlight rhtml %}
+<%= alert_box 'You accepted the Terms of service.' %>
+  {% endhighlight %}
+  <p>generates the following component (and HTML code):</p>
+    <div class="bs-example">
+      <div class="alert alert-info" role="alert">You accepted the Terms of service.</div>
+    </div>
+  {% highlight html %}
+<div class="alert alert-info" role="alert">You accepted the Terms of service.</div>
+  {% endhighlight %}
+
+  <h3 id="dismissible-alerts">Dismissible alerts</h3>
+  <p>Add <code>dismissible: true</code> to add a close button to the alert box. For instance:</p>
+  {% highlight rhtml %}
+<%= alert_box 'You accepted the Terms of service.', dismissible: true %>
+  {% endhighlight %}
+  <p>generates the following component (and HTML code):</p>
+    <div class="bs-example">
+      <div class="alert alert-info" role="alert">
+        <button class="close" data-dismiss="alert" type="button">
+          <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        You accepted the Terms of service.
+      </div>
+    </div>
+  {% highlight html %}
+<div class="alert alert-info" role="alert">
+  <button class="close" data-dismiss="alert" type="button">
+    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+  </button>
+  You accepted the Terms of service.
+</div>
+  {% endhighlight %}
+
+  <h3 id="contextual-alerts">Contextual alerts</h3>
+  <p>Set the <code>context</code> option to change the color (and semantic context) of the alert message.</p>
+  <p>Available contexts are <code>:success</code>, <code>:info</code> (default), <code>:warning</code> and <code>:danger</code>. For instance:</p>
+    {% highlight rhtml %}
+<%= alert_box 'You accepted the Terms of service.', context: :success %>
+    {% endhighlight %}
+    <p>displays a <em>success</em> alert message:</p>
+      <div class="bs-example">
+        <div class="alert alert-success" role="alert">You accepted the Terms of service.</div>
+      </div>
+    {% highlight html %}
+<div class="alert alert-success" role="alert">You accepted the Terms of service.</div>
+    {% endhighlight %}
+
+  <h3 id="complex-alerts">Complex alerts</h3>
+  <p>Combine multiple options and include HTML tags in the message as needed. For instance:</p>
+    {% highlight rhtml %}
+<%= alert_box context: :warning, dismissible: true do %>
+  <strong>Thanks!</strong> You accepted the <%= link_to 'Terms of service', '/terms' %>.
+<% end %>
+    {% endhighlight %}
+    <p>displays a dismissible <em>warning</em> alert message which includes appropriately styled links and highlighted text:</p>
+      <div class="bs-example">
+        <div class="alert alert-warning" role="alert">
+          <button class="close" data-dismiss="alert" type="button">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+          </button>
+          <strong>Thanks!</strong> You accepted the <a href="/terms" class="alert-link">Terms of service</a>.
+        </div>
+      </div>
+    {% highlight html %}
+<div class="alert alert-warning" role="alert">
+  <button class="close" data-dismiss="alert" type="button">
+    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+  </button>
+  <strong>Thanks!</strong> You accepted the <a href="/terms" class="alert-link">Terms of service</a>.
+</div>
+    {% endhighlight %}
+
+</div>
