@@ -1,4 +1,17 @@
 <div class="bs-docs-section">
   <h1 id="glyphicons" class="page-header">Glyphicons</h1>
-  <p class="lead">[Missing documentation]</p>
+  <p class="lead">Use the <code>glyphicon</code> helper to display glyphicons.</p>
+
+  <h3 id="basic-glyphicon">Basic example</h3>
+  {% highlight rhtml %}
+<%= glyphicon :ok, title: 'Approved' %>
+  {% endhighlight %}
+  <p>displays the <em>ok</em> glyphicon with the alternate title "Approved" (on hover):</p>
+    <div class="bs-example">
+      <span class="glyphicon glyphicon-ok" title="Approved"></span>
+    </div>
+  {% highlight html %}
+<span class="glyphicon glyphicon-ok" title="Approved"></span>
+  {% endhighlight %}
+
 </div>

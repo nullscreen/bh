@@ -1,4 +1,96 @@
 <div class="bs-docs-section">
   <h1 id="modals" class="page-header">Modals</h1>
-  <p class="lead">[Missing documentation]</p>
+  <p class="lead">Use the <code>modal</code> helper to display Bootstrap-styled modals.</p>
+
+  <h3 id="basic-modals">Basic modals</h3>
+  <p>Use <code>modal</code> with the <code>:body</code> option to display a button that toggles a model with the body when clicked. For instance:</p>
+  {% highlight rhtml %}
+<%= modal title: 'Show terms of service', body: 'Do what you want!' %>
+  {% endhighlight %}
+  <p>generates the following component (and HTML code):</p>
+    <div class="bs-example">
+      <button class="btn btn-default" data-toggle="modal" data-target="#modal-8684506463">
+        Show terms of service
+      </button>
+      <div class="modal fade" id="modal-8684506463" tabindex="-1" role="dialog" aria-labelledby="label-modal-8684506463" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+              </button>
+              <h4 class="modal-title" id="label-modal-8684506463">Show terms of service</h4>
+            </div>
+            <div class="modal-body">Do what you want!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% highlight html %}
+<button class="btn btn-default" data-toggle="modal" data-target="#modal-8684506463">
+  Show terms of service
+</button>
+<div class="modal fade" id="modal-8684506463" tabindex="-1" role="dialog" aria-labelledby="label-modal-8684506463" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title" id="label-modal-8684506463">Terms of service</h4>
+      </div>
+      <div class="modal-body">Do what you want!</div>
+    </div>
+  </div>
+</div>
+  {% endhighlight %}
+
+  <h3 id="complex-modals">Complex modals</h3>
+  <p>Combine multiple options and include an HTML block in the modal as needed. For instance:</p>
+    {% highlight rhtml %}
+<%= modal title: 'Terms of service', size: :small, button: {caption: 'Continue', size: :large, context: :info} do %>
+  Please accept the Terms of service.
+  <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
+<% end %>
+    {% endhighlight %}
+    <p>displays a large, <em>info</em> button (blue) with the caption "Continue" that toggles a small modal with a title and HTML content:</p>
+      <div class="bs-example">
+        <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-8022670096">
+          Continue
+        </button>
+        <div class="modal fade in" id="modal-8022670096" tabindex="-1" role="dialog" aria-labelledby="label-modal-8022670096" aria-hidden="false" style="display: none;">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                  <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="label-modal-8022670096">Terms of service</h4>
+              </div>
+              Please accept the Terms of service.
+              <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% highlight html %}
+  <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-8022670096">
+    Continue
+  </button>
+  <div class="modal fade in" id="modal-8022670096" tabindex="-1" role="dialog" aria-labelledby="label-modal-8022670096" aria-hidden="false" style="display: none;">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title" id="label-modal-8022670096">Terms of service</h4>
+        </div>
+        Please accept the Terms of service.
+        <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
+      </div>
+    </div>
+  </div>
+    {% endhighlight %}
+
 </div>
