@@ -1,4 +1,105 @@
 <div class="bs-docs-section">
   <h1 id="navs" class="page-header">Navs</h1>
-  <p class="lead">[Missing documentation]</p>
+  <p class="lead">Use the <code>nav</code> helper to display Bootstrap-styled navs.</p>
+
+  <h3 id="basic-navs">Basic navs</h3>
+  <p>Use <code>nav</code> without options to display the included links as a row of tabs. For instance:</p>
+  {% highlight rhtml %}
+<%= nav do %>
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Users', profile_path %>
+  <%= link_to 'Profile', profile_path %>
+<% end %>
+  {% endhighlight %}
+  <p>generates the following component (and HTML code):</p>
+    <div class="bs-example">
+      <ul class="nav nav-tabs" role="tablist">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/users">Users</a></li>
+          <li><a href="/profile">Profile</a></li>
+      </ul>
+    </div>
+  {% highlight html %}
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="/">Home</a></li>
+    <li><a href="/users">Users</a></li>
+    <li><a href="/profile">Profile</a></li>
+</ul>
+  {% endhighlight %}
+
+  <h3 id="justified-navs">Justified navs</h3>
+  <p>Use the <code>layout: :justified</code> option to make tabs occupy the entire width of their parent. For instance:</p>
+  {% highlight rhtml %}
+<%= nav layout: :justified do %>
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Users', profile_path %>
+  <%= link_to 'Profile', profile_path %>
+<% end %>
+  {% endhighlight %}
+  <p>generates the following component (and HTML code):</p>
+    <div class="bs-example">
+      <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/users">Users</a></li>
+          <li><a href="/profile">Profile</a></li>
+      </ul>
+    </div>
+  {% highlight html %}
+<ul class="nav nav-tabs nav-justified" role="tablist">
+    <li class="active"><a href="/">Home</a></li>
+    <li><a href="/users">Users</a></li>
+    <li><a href="/profile">Profile</a></li>
+</ul>
+  {% endhighlight %}
+
+  <h3 id="pills">Pills</h3>
+  <p>Use the <code>as: :pills</code> option to make tabs look like pills. For instance:</p>
+  {% highlight rhtml %}
+<%= nav as: :pills do %>
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Users', profile_path %>
+  <%= link_to 'Profile', profile_path %>
+<% end %>
+  {% endhighlight %}
+  <p>generates the following component (and HTML code):</p>
+    <div class="bs-example">
+      <ul class="nav nav-pills" role="tablist">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/users">Users</a></li>
+          <li><a href="/profile">Profile</a></li>
+      </ul>
+    </div>
+  {% highlight html %}
+<ul class="nav nav-pills" role="tablist">
+    <li class="active"><a href="/">Home</a></li>
+    <li><a href="/users">Users</a></li>
+    <li><a href="/profile">Profile</a></li>
+</ul>
+  {% endhighlight %}
+
+  <h3 id="stacked-pills">Stacked pills</h3>
+  <p>Use the <code>layout: :stacked</code> option to make pills vertically stacked. For instance:</p>
+  {% highlight rhtml %}
+<%= nav as: :pills, layout: :stacked do %>
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Users', profile_path %>
+  <%= link_to 'Profile', profile_path %>
+<% end %>
+  {% endhighlight %}
+  <p>generates the following component (and HTML code):</p>
+    <div class="bs-example">
+      <ul class="nav nav-pills nav-stacked" role="tablist">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/users">Users</a></li>
+          <li><a href="/profile">Profile</a></li>
+      </ul>
+    </div>
+  {% highlight html %}
+<ul class="nav nav-pills nav-stacked" role="tablist">
+    <li class="active"><a href="/">Home</a></li>
+    <li><a href="/users">Users</a></li>
+    <li><a href="/profile">Profile</a></li>
+</ul>
+  {% endhighlight %}
+
 </div>
