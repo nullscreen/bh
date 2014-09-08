@@ -59,7 +59,7 @@ From now on, you will be able to use any of the following Bh helpers in your Rai
 AlertHelper
 ===========
 
-To include [Boostrap alert boxes](http://getbootstrap.com/components/#alerts)
+To include [Bootstrap alert boxes](http://getbootstrap.com/components/#alerts)
 in your Rails views, you can use the [alert_box](http://rubydoc.info/github/Fullscreen/bh/master/Bh/AlertHelper) helper.
 Here are some examples.
 
@@ -231,12 +231,12 @@ will generate the HTML to render an "ok" icon with the "Approved" title:
 
 ![glyphicon](https://cloud.githubusercontent.com/assets/7408595/3941608/64219c82-2537-11e4-8e86-27d4a62b1c06.png)
 
-Available glyphicons are listed in [Boostrap documentation](http://getbootstrap.com/components/#glyphicons).
+Available glyphicons are listed in [Bootstrap documentation](http://getbootstrap.com/components/#glyphicons).
 
 PanelHelper
 ===========
 
-To include [Boostrap panels](http://getbootstrap.com/components/#panels)
+To include [Bootstrap panels](http://getbootstrap.com/components/#panels)
 in your Rails views, you can use the
 [panel](http://rubydoc.info/github/Fullscreen/bh/master/Bh/PanelHelper) helper.
 Here are some examples.
@@ -346,7 +346,7 @@ will generate the HTML to render an aside panel with HTML body and footer:
 PanelRowHelper
 ==============
 
-To include a row of [Boostrap panels](http://getbootstrap.com/components/#panels)
+To include a row of [Bootstrap panels](http://getbootstrap.com/components/#panels)
 in your Rails views, you can use the
 [panel_row](http://rubydoc.info/github/Fullscreen/bh/master/Bh/PanelRowHelper) helper.
 Here are some examples.
@@ -421,7 +421,7 @@ will generate the HTML to render a row of three panels with title and HTML body:
 ModalHelper
 ===========
 
-To include [Boostrap modals](http://getbootstrap.com/javascript/#modals)
+To include [Bootstrap modals](http://getbootstrap.com/javascript/#modals)
 in your Rails views, you can use the
 [modal](http://rubydoc.info/github/Fullscreen/bh/master/Bh/ModalHelper) helper.
 Here are some examples.
@@ -494,7 +494,7 @@ the caption "Continue" that toggles a small modal with a title and HTML content:
 FormForHelper
 =============
 
-To include [Boostrap forms](http://getbootstrap.com/css/#forms)
+To include [Bootstrap forms](http://getbootstrap.com/css/#forms)
 in your Rails views, you can use the
 [form_for](http://rubydoc.info/github/Fullscreen/bh/master/Bh/FormForHelper)
 helper.
@@ -540,7 +540,7 @@ Here is how a form with a text field and a submit button looks like with each la
 NavHelper
 ===========
 
-To include [Boostrap navs](http://getbootstrap.com/components/#nav)
+To include [Bootstrap navs](http://getbootstrap.com/components/#nav)
 in your Rails views, you can use the
 [nav](http://rubydoc.info/github/Fullscreen/bh/master/Bh/NavHelper) helper.
 Here are some examples.

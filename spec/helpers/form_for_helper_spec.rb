@@ -10,7 +10,7 @@ describe 'form_for' do
   describe 'without a :layout option' do
     let(:options) { {} }
 
-    specify 'does not apply Boostrap attributes to the form' do
+    specify 'does not apply Bootstrap attributes to the form' do
       expect(form).not_to include 'role="form"'
     end
   end
@@ -18,7 +18,7 @@ describe 'form_for' do
   describe 'with layout: :horizontal' do
     let(:options) { {layout: :horizontal} }
 
-    specify 'applies Boostrap attributes of an horizontal form' do
+    specify 'applies Bootstrap attributes of an horizontal form' do
       expect(form).to include 'role="form"'
       expect(form).to include 'class="form-horizontal"'
     end
@@ -27,7 +27,7 @@ describe 'form_for' do
   describe 'with layout: :inline' do
     let(:options) { {layout: :inline} }
 
-    specify 'applies Boostrap attributes of an inline form' do
+    specify 'applies Bootstrap attributes of an inline form' do
       expect(form).to include 'role="form"'
       expect(form).to include 'class="form-inline"'
     end
@@ -36,7 +36,7 @@ describe 'form_for' do
   describe 'with any other value for :layout' do
     let(:options) { {layout: :basic} }
 
-    specify 'applies Boostrap attributes of a basic form' do
+    specify 'applies Bootstrap attributes of a basic form' do
       expect(form).to include 'role="form"'
     end
   end
