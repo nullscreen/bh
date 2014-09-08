@@ -12,7 +12,7 @@ describe 'navbar' do
   let(:block) { Proc.new {} }
   let(:options) { {} }
 
-  specify 'applies Boostrap attributes to the navbar' do
+  specify 'applies Bootstrap attributes to the navbar' do
     expect(html).to match %r{<nav.+? role="navigation">}
   end
 
