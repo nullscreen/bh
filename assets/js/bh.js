@@ -18,6 +18,11 @@
       e.preventDefault()
     })
 
+    // Kill forms
+    $('.bs-docs-container form[action=#]').submit(function (e) {
+      e.preventDefault()
+    })
+
     // Sidenav affixing
     setTimeout(function () {
       var $sideBar = $('.bs-docs-sidebar')
