@@ -1,0 +1,73 @@
+<div class="bs-docs-section">
+  <h1 id="cdn" class="page-header">Bootstrap CDN</h1>
+  <p class="lead">Use the <code>bootstrap_css</code>, <code>bootstrap_theme_css</code> and <code>bootstrap_js</code> helpers
+    to load the main Bootstrap stylesheets and javascript files from <a href="http://www.bootstrapcdn.com">MaxCDN</a>.</p>
+
+  <h3 id="cdn-css">Bootstrap CSS file</h3>
+  <p>Use <code>bootstrap_css</code> without options to get the URL of the most up-to-date Bootstrap CSS file. For instance:</p>
+  {% highlight rhtml %}
+<%= stylesheet_link_tag bootstrap_css %>
+  {% endhighlight %}
+  <p>generates the following HTML code:</p>
+    <div class="bs-html"></div>
+  {% highlight html %}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+  {% endhighlight %}
+
+  <h3 id="cdn-older-css">Older versions</h3>
+  <p>Use the <code>:version</code> option to get the URL of a specific version of Bootstrap CSS. For instance:</p>
+  {% highlight rhtml %}
+<%= stylesheet_link_tag(bootstrap_css version: '3.1.0') %>
+  {% endhighlight %}
+  <p>generates the following HTML code:</p>
+    <div class="bs-html"></div>
+  {% highlight html %}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+  {% endhighlight %}
+
+  <h3 id="cdn-non-minified-css">Non-minified versions</h3>
+  <p>Use the <code>:minified</code> option to get the non-minified version of Bootstrap CSS. For instance:</p>
+  {% highlight rhtml %}
+<%= stylesheet_link_tag(bootstrap_css minified: false) %>
+  {% endhighlight %}
+  <p>generates the following HTML code:</p>
+    <div class="bs-html"></div>
+  {% highlight html %}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
+  {% endhighlight %}
+
+  <h3 id="cdn-fixed-scheme-css">Fixed-scheme URL</h3>
+  <p>Use the <code>:scheme</code> option to get either the HTTP or HTTPS version of the URL for Bootstrap CSS. For instance:</p>
+  {% highlight rhtml %}
+<%= stylesheet_link_tag(bootstrap_css scheme: :http) %>
+  {% endhighlight %}
+  <p>generates the following HTML code:</p>
+    <div class="bs-html"></div>
+  {% highlight html %}
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
+  {% endhighlight %}
+
+  <h3 id="cdn-theme-css">Bootstrap Theme CSS</h3>
+  <p>Use <code>bootstrap_theme_css</code> to get the URL of Bootstrap Theme CSS. Accepts the same options as <code>bootstrap_css</code>. For instance:</p>
+  {% highlight rhtml %}
+<%= stylesheet_link_tag(bootstrap_theme_css schema: 'https') %>
+  {% endhighlight %}
+  <p>generates the following HTML code:</p>
+    <div class="bs-html"></div>
+  {% highlight html %}
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" media="screen" rel="stylesheet" type="text/css" />
+  {% endhighlight %}
+
+  <h3 id="cdn-js">Bootstrap JS</h3>
+  <p>Use <code>bootstrap_js</code> to get the URL of the Bootstrap JS file. Accepts the same options as <code>bootstrap_css</code>. For instance:</p>
+  {% highlight rhtml %}
+<%= javascript_include_tag bootstrap_js(version: '3.1.0', minified: false) %>
+  {% endhighlight %}
+  <p>generates the following HTML code:</p>
+    <div class="bs-html"></div>
+  {% highlight html %}
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.js" type="text/javascript"></script>
+  {% endhighlight %}
+
+
+</div>
