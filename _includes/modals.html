@@ -48,8 +48,9 @@
   <h3 id="complex-modals">Complex modals</h3>
   <p>Combine multiple options and include an HTML block in the modal as needed. For instance:</p>
     {% highlight rhtml %}
-<%= modal title: 'Terms of service', size: :small, button: {caption: 'Continue', size: :large, context: :info} do %>
-  Please accept the Terms of service.
+<%= modal title: 'Terms of service', size: :small,
+          button: {caption: 'Continue', size: :large, context: :info} do %>
+  <div class="modal-body">Please accept the Terms of service.</div>
   <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
 <% end %>
     {% endhighlight %}
@@ -67,7 +68,7 @@
                 </button>
                 <h4 class="modal-title" id="label-modal-8022670096">Terms of service</h4>
               </div>
-              Please accept the Terms of service.
+              <div class="modal-body">Please accept the Terms of service.</div>
               <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
             </div>
           </div>
@@ -86,7 +87,7 @@
           </button>
           <h4 class="modal-title" id="label-modal-8022670096">Terms of service</h4>
         </div>
-        Please accept the Terms of service.
+        <div class="modal-body">Please accept the Terms of service.</div>
         <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
       </div>
     </div>

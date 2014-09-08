@@ -81,7 +81,10 @@
           localStorage.removeItem('previewTheme')
         }
       })
+
+      activateTheme();
     })();
+
 
     // Tooltip and popover demos
     $('.tooltip-demo').tooltip({
