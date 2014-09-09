@@ -1,16 +1,3 @@
-// NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
-// IT'S ALL JUST JUNK FOR OUR DOCS!
-// ++++++++++++++++++++++++++++++++++++++++++
-
-/*!
- * JavaScript for Bootstrap's docs (http://getbootstrap.com)
- * Copyright 2011-2014 Twitter, Inc.
- * Licensed under the Creative Commons Attribution 3.0 Unported License. For
- * details, see http://creativecommons.org/licenses/by/3.0/.
- */
-
-/* global ZeroClipboard */
-
 !function ($) {
   'use strict';
 
@@ -118,7 +105,7 @@
 
     // Config ZeroClipboard
     ZeroClipboard.config({
-      moviePath: '/assets/flash/ZeroClipboard.swf',
+      moviePath: 'assets/flash/ZeroClipboard.swf',
       hoverClass: 'btn-clipboard-hover'
     })
 
