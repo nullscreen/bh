@@ -1,21 +1,7 @@
-// NOTICE!! DO NOT USE ANY OF THIS JAVASCRIPT
-// IT'S ALL JUST JUNK FOR OUR DOCS!
-// ++++++++++++++++++++++++++++++++++++++++++
-
-/*!
- * JavaScript for Bootstrap's docs (http://getbootstrap.com)
- * Copyright 2011-2014 Twitter, Inc.
- * Licensed under the Creative Commons Attribution 3.0 Unported License. For
- * details, see http://creativecommons.org/licenses/by/3.0/.
- */
-
-/* global ZeroClipboard */
-
 !function ($) {
   'use strict';
 
   $(function () {
-
     // Scrollspy
     var $window = $(window)
     var $body   = $(document.body)
@@ -85,37 +71,41 @@
       activateTheme();
     })();
 
+    // navbar top toggler
+    ;(function () {
+      $('.bs-docs-navbar-top-toggle').click(function () {
+        var shown = $(this).text() == "Hide the navbar";
+        if(shown) {
+          $("body").animate({paddingTop: "0px"});
+          $('[data-navbar="top"]').hide('slow');
+          $(this).text('Show the navbar');
+        } else {
+          $("body").animate({paddingTop: "70px"});
+          $('[data-navbar="top"]').show('slow');
+          $(this).text('Hide the navbar');
+        }
+      })
+    })();
 
-    // Tooltip and popover demos
-    $('.tooltip-demo').tooltip({
-      selector: '[data-toggle="tooltip"]',
-      container: 'body'
-    })
-    $('.popover-demo').popover({
-      selector: '[data-toggle="popover"]',
-      container: 'body'
-    })
-
-    // Demos within modals
-    $('.tooltip-test').tooltip()
-    $('.popover-test').popover()
-
-    // Popover demos
-    $('.bs-docs-popover').popover()
-
-    // Button state demo
-    $('#loading-example-btn').click(function () {
-      var btn = $(this)
-      btn.button('loading')
-      setTimeout(function () {
-        btn.button('reset')
-      }, 3000)
-    })
-
+    // navbar bottom toggler
+    ;(function () {
+      $('.bs-docs-navbar-bottom-toggle').click(function () {
+        var shown = $(this).text() == "Hide the navbar";
+        if(shown) {
+          $("body").animate({paddingBottom: "0px"});
+          $('[data-navbar="bottom"]').hide('slow');
+          $(this).text('Show the navbar');
+        } else {
+          $("body").animate({paddingBottom: "100px"});
+          $('[data-navbar="bottom"]').show('slow');
+          $(this).text('Hide the navbar');
+        }
+      })
+    })();
 
     // Config ZeroClipboard
     ZeroClipboard.config({
-      moviePath: '/assets/flash/ZeroClipboard.swf',
+      moviePath: 'assets/flash/ZeroClipboard.swf',
       hoverClass: 'btn-clipboard-hover'
     })
 
@@ -165,7 +155,5 @@
         .tooltip('fixTitle')
         .tooltip('show')
     })
-
   })
-
 }(jQuery)

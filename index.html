@@ -1,6 +1,4 @@
 ---
-title: Bh &middot; Bootstrap helpers
-lead: "Include Bootstrap components in your ERB views with short, documented, tested helpers."
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -11,31 +9,15 @@ lead: "Include Bootstrap components in your ERB views with short, documented, te
     <meta name="description" content="Bh · Bootstrap Helpers for Ruby">
     <meta name="keywords" content="Bootstrap, Rails, ActionView, helpers, HTML, CSS, JS">
     <meta name="author" content="Claudio B.">
-
-    <title>{{ page.title }}</title>
-
-    <!-- Bootstrap core CSS -->
-    {% if site.github %}
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="data:text/css;charset=utf-8," data-href="dist/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
-    <link href="assets/css/docs.min.css" rel="stylesheet">
-    {% else %}
-    <link href="dist/css/bootstrap.css" rel="stylesheet">
-    <link href="data:text/css;charset=utf-8," data-href="dist/css/bootstrap-theme.css" rel="stylesheet" id="bs-theme-stylesheet">
-    <link href="assets/css/src/docs.css" rel="stylesheet">
-    <link href="assets/css/src/pygments-manni.css" rel="stylesheet">
-    {% endif %}
-
-    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="assets/js/ie-emulation-modes-warning.js"></script>
-
+    <title>Bh &middot; Bootstrap helpers</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="data:text/css;charset=utf-8," data-href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+    <link href="assets/css/bh.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <!-- Favicons -->
     <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
     <link rel="icon" href="favicon.ico">
   </head>
@@ -63,10 +45,9 @@ lead: "Include Bootstrap components in your ERB views with short, documented, te
       </div>
     </header>
 
-    <!-- Docs page layout -->
     <div class="bs-docs-header" id="content">
       <div class="container">
-        {{ page.lead }}
+        Include Bootstrap components in your ERB views with short, documented, tested helpers.
       </div>
     </div>
 
@@ -77,12 +58,13 @@ lead: "Include Bootstrap components in your ERB views with short, documented, te
           {% include alerts.html %}
           {% include panels.html %}
           {% include panel_rows.html %}
-          {% include glyphicons.html %}
           {% include modals.html %}
           {% include navs.html %}
           {% include navbars.html %}
           {% include forms.html %}
           {% include buttons.html %}
+          {% include links.html %}
+          {% include glyphicons.html %}
           {% include cdn.html %}
         </div>
         <div class="col-md-3">
@@ -98,63 +80,74 @@ lead: "Include Bootstrap components in your ERB views with short, documented, te
                 <a href="#alerts">Alerts</a>
                 <ul class="nav">
                   <li><a href="#basic-alerts">Basic example</a></li>
-                  <li><a href="#dismissible-alerts">Dismissible alerts</a></li>
-                  <li><a href="#contextual-alerts">Contexts</a></li>
-                  <li><a href="#complex-alerts">With HTML content</a></li>
+                  <li><a href="#dismissible-alerts">Dismissible</a></li>
+                  <li><a href="#contextual-alerts">Context</a></li>
+                  <li><a href="#complex-alerts">HTML content</a></li>
                 </ul>
               </li>
               <li>
                 <a href="#panels">Panels</a>
                 <ul class="nav">
-                  <li><a href="#basic-panels">Basic panels</a></li>
-                  <li><a href="#panels-with-heading">Panels with heading</a></li>
-                  <li><a href="#panels-with-title">Panels with title</a></li>
-                  <li><a href="#contextual-panels">Contextual panels</a></li>
-                  <li><a href="#complex-panels">Complex panels</a></li>
+                  <li><a href="#basic-panels">Basic example</a></li>
+                  <li><a href="#panels-with-heading">Heading</a></li>
+                  <li><a href="#panels-with-title">Title</a></li>
+                  <li><a href="#contextual-panels">Context</a></li>
+                  <li><a href="#complex-panels">HTML content</a></li>
                 </ul>
               </li>
               <li>
                 <a href="#panel_rows">Panel rows</a>
                 <ul class="nav">
-                  <li><a href="#basic-row-of-panels">Basic row of panels</a></li>
-                  <li><a href="#complex-row-of-panels">Complex row of panels</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#glyphicons">Glyphicons</a>
-                <ul class="nav">
-                  <li><a href="#basic-glyphicon">Basic example</a></li>
+                  <li><a href="#basic-row-of-panels">Basic example</a></li>
+                  <li><a href="#complex-row-of-panels">Advanced example</a></li>
                 </ul>
               </li>
               <li>
                 <a href="#modals">Modals</a>
                 <ul class="nav">
                   <li><a href="#modal-basic">Basic example</a></li>
-                  <li><a href="#modal-size">Sizes</a></li>
-                  <li><a href="#modal-context">Contexts</a></li>
-                  <li><a href="#modal-title">With title</a></li>
-                  <li><a href="#modal-caption">With button caption</a></li>
-                  <li><a href="#modal-button-size">With button size</a></li>
-                  <li><a href="#modal-html">With HTML content</a></li>
+                  <li><a href="#modal-size">Size</a></li>
+                  <li><a href="#modal-context">Context</a></li>
+                  <li><a href="#modal-title">Title</a></li>
+                  <li><a href="#modal-caption">Button caption</a></li>
+                  <li><a href="#modal-button-size">Button size</a></li>
+                  <li><a href="#modal-html">HTML content</a></li>
                 </ul>
               </li>
               <li>
                 <a href="#navs">Navs</a>
                 <ul class="nav">
-                  <li><a href="#basic-navs">Basic navs</a></li>
-                  <li><a href="#justified-navs">Justified navs</a></li>
+                  <li><a href="#basic-navs">Basic example</a></li>
+                  <li><a href="#justified-navs">Justified tabs</a></li>
                   <li><a href="#pills">Pills</a></li>
                   <li><a href="#stacked-pills">Stacked pills</a></li>
                 </ul>
               </li>
               <li>
                 <a href="#navbars">Navbars</a>
+                <ul class="nav">
+                  <li><a href="#navbar-basic">Basic navbars</a></li>
+                  <li><a href="#navbar-inverted">Inverted colors</a></li>
+                  <li><a href="#navbar-fluid">Fluid container</a></li>
+                  <li><a href="#navbar-static">Static</a></li>
+                  <li><a href="#navbar-top">Fixed to top</a></li>
+                  <li><a href="#navbar-bottom">Fixed to bottom</a></li>
+                </ul>
               </li>
               <li>
                 <a href="#forms">Forms</a>
               </li>
               <li>
                 <a href="#buttons">Buttons</a>
+              </li>
+              <li>
+                <a href="#links">Links</a>
+              </li>
+              <li>
+                <a href="#glyphicons">Glyphicons</a>
+                <ul class="nav">
+                  <li><a href="#basic-glyphicon">Basic example</a></li>
+                </ul>
               </li>
               <li>
                 <a href="#cdn">Bootstrap CDN</a>
@@ -199,17 +192,9 @@ lead: "Include Bootstrap components in your ERB views with short, documented, te
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    {% if site.github %}
-    <script src="dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/docs.min.js"></script>
-    {% else %}
-    <script src="dist/js/bootstrap.js"></script>
-    <script src="assets/js/vendor/holder.js"></script>
-    <script src="assets/js/vendor/ZeroClipboard.min.js"></script>
-    <script src="assets/js/src/application.js"></script>
-    {% endif %}
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/js/holder.js"></script>
+    <script src="assets/js/ZeroClipboard.min.js"></script>
+    <script src="assets/js/bh.js"></script>
   </body>
 </html>
