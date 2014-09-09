@@ -3,7 +3,7 @@
   <p class="lead">Use the <code>alert_box</code> helper to display Bootstrap-styled alert messages.</p>
 
   <h3 id="basic-alerts">Basic example</h3>
-  <p>Use <code>alert_box</code> without options to display a basic informational message. For instance:</p>
+  <p>Use <code>alert_box</code> without options to display a basic informational message.</p>
   {% highlight rhtml %}
 <%= alert_box 'You accepted the Terms of service.' %>
   {% endhighlight %}
@@ -16,7 +16,7 @@
   {% endhighlight %}
 
   <h3 id="dismissible-alerts">Dismissible alerts</h3>
-  <p>Add <code>dismissible: true</code> to add a close button to the alert box. For instance:</p>
+  <p>Add <code>dismissible: true</code> to add a close button to the alert box.</p>
   {% highlight rhtml %}
 <%= alert_box 'You accepted the Terms of service.', dismissible: true %>
   {% endhighlight %}
@@ -40,7 +40,7 @@
 
   <h3 id="contextual-alerts">Contexts</h3>
   <p>Set the <code>context</code> option to change the color (and semantic context) of the alert message.</p>
-  <p>Available contexts are <code>:success</code>, <code>:info</code> (default), <code>:warning</code> and <code>:danger</code>. For instance:</p>
+  <p>Available contexts are <code>:success</code>, <code>:info</code> (default), <code>:warning</code> and <code>:danger</code>.</p>
     {% highlight rhtml %}
 <%= alert_box 'You accepted the Terms of service.', context: :success %>
     {% endhighlight %}
@@ -53,7 +53,7 @@
     {% endhighlight %}
 
   <h3 id="complex-alerts">With HTML content</h3>
-  <p>Pass the alert content to <code>alert_box</code> as a block if you need to include HTML tags or a long text. For instance:</p>
+  <p>Pass the alert content to <code>alert_box</code> as a block if you need to include HTML tags or a long text.</p>
     {% highlight rhtml %}
 <%= alert_box context: :warning, dismissible: true do %>
   <strong>Thanks!</strong> You accepted the <%= link_to 'Terms of service', '/terms' %>.

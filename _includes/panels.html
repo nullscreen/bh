@@ -3,7 +3,7 @@
   <p class="lead">Use the <code>panel</code> helper to display Bootstrap-styled panels.</p>
 
   <h3 id="basic-panels">Basic panels</h3>
-  <p>Use <code>panel</code> without options to display a basic panel. For instance:</p>
+  <p>Use <code>panel</code> without options to display a basic panel. </p>
   {% highlight rhtml %}
 <%= panel body: 'You accepted the Terms of service.' %>
   {% endhighlight %}
@@ -20,7 +20,7 @@
   {% endhighlight %}
 
   <h3 id="panels-with-heading">Panels with heading</h3>
-  <p>Use the <code>:heading</code> options to display a heading above the panel. For instance:</p>
+  <p>Use the <code>:heading</code> options to display a heading above the panel. </p>
   {% highlight rhtml %}
 <%= panel body: 'You accepted the Terms of service.', heading: 'Congratulations' %>
   {% endhighlight %}
@@ -39,7 +39,7 @@
   {% endhighlight %}
 
   <h3 id="panels-with-title">Panels with title</h3>
-  <p>Use the <code>:title</code> options to display a title above the panel. For instance:</p>
+  <p>Use the <code>:title</code> options to display a title above the panel. </p>
   {% highlight rhtml %}
 <%= panel body: 'You accepted the Terms of service.', title: 'Congratulations' %>
   {% endhighlight %}
@@ -63,7 +63,7 @@
 
   <h3 id="contextual-panels">Contextual panels</h3>
   <p>Set the <code>context</code> option to change the color (and semantic context) of the panel.</p>
-  <p>Available contexts are <code>:default</code> (default), <code>:primary</code>, <code>:success</code>, <code>:info</code>, <code>:warning</code> and <code>:danger</code>. For instance:</p>
+  <p>Available contexts are <code>:default</code> (default), <code>:primary</code>, <code>:success</code>, <code>:info</code>, <code>:warning</code> and <code>:danger</code>. </p>
     {% highlight rhtml %}
 <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :success %>
     {% endhighlight %}
@@ -86,7 +86,7 @@
     {% endhighlight %}
 
   <h3 id="complex-panels">Complex panels</h3>
-  <p>Combine multiple options and include an HTML block in the panel as needed. For instance:</p>
+  <p>Combine multiple options and include an HTML block in the panel as needed. </p>
     {% highlight rhtml %}
 <%= panel tag: :aside do %>
   <div class='panel-body'>You accepted the Terms of service. <%= glyphicon :ok %></div>

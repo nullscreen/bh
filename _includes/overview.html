@@ -4,7 +4,7 @@
   <p class="lead">Combine the beauty of Bootstrap’s design and the expressiveness of Ruby to get the best of both worlds with the least amount of keystrokes.</p>
 
   <p>Bootstrap is a great framework, but requires you to write <mark>many lines of HTML code</mark> even for simple components.<br />
-  For instance, to show a dismissible alert, you need to write the following lines of HTML:</p>
+  For instance, here's the HTML you'd need to write to show a dismissible alert:</p>
     <div class="bs-html"></div>
     {% highlight html %}
 <div class="alert alert-info alert-dismissible" role="alert">
@@ -16,14 +16,14 @@
 </div>
   {% endhighlight %}
 
-  <p>Writing this for every dismissible alert in a web site is cumbersome, repetitive, and prone to errors.</p>
-  <p>Bh solves this problem by providing a set of Ruby helpers. With Bh, you can write the example above in <mark>just one line of code</mark>:</p>
+  <p>That's a lot to remember, and it clutters your views with boilerplate.</p>
+  <p>With Bh, you can achieve the same thing with <mark>just one line of code</mark>:</p>
   {% highlight rhtml %}
 <%= alert_box 'You accepted the Terms of service.', dismissible: true %>
   {% endhighlight %}
 
   <h3 id="overview-install">How to install</h3>
-  <p>Bh helpers can be used with Ruby on Rails, and with any other Ruby web framework that supports ERB templates.</p>
+  <p>You can use Bh with Rails or any Ruby web framework that supports ERB templates.</p>
   <p>Require the bh gem in the project’s Gemfile with <code>gem 'bh'</code>, and you are good to go!</p>
   <p>Bh does not overwrite any default helper or Bootstrap style, giving you the freedom to use <em>both</em> Bh helpers
     <em>and</em> the traditional way of writing Bootstrap components.</p>
