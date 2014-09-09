@@ -2,7 +2,7 @@
   <h1 id="alerts" class="page-header">Alerts</h1>
   <p class="lead">Use the <code>alert_box</code> helper to display Bootstrap-styled alert messages.</p>
 
-  <h3 id="basic-alerts">Basic example</h3>
+  <h3 id="basic-alerts">Basic alerts</h3>
   <p>Use <code>alert_box</code> without options to display a basic informational message.</p>
   {% highlight rhtml %}
 <%= alert_box 'You accepted the Terms of service.' %>
@@ -38,7 +38,7 @@
 </div>
   {% endhighlight %}
 
-  <h3 id="contextual-alerts">Contexts</h3>
+  <h3 id="contextual-alerts">Contextual alerts</h3>
   <p>Set the <code>context</code> option to change the color (and semantic context) of the alert message.</p>
   <p>Available contexts are <code>:success</code>, <code>:info</code> (default), <code>:warning</code> and <code>:danger</code>.</p>
     {% highlight rhtml %}
@@ -52,7 +52,7 @@
 <div class="alert alert-success" role="alert">You accepted the Terms of service.</div>
     {% endhighlight %}
 
-  <h3 id="complex-alerts">With HTML content</h3>
+  <h3 id="complex-alerts">Alerts with HTML content</h3>
   <p>Pass the alert content to <code>alert_box</code> as a block if you need to include HTML tags or a long text.</p>
     {% highlight rhtml %}
 <%= alert_box context: :warning, dismissible: true do %>
