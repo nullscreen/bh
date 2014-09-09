@@ -41,6 +41,16 @@ The example above can be rewritten with just one line of code:
 You can use only the ones you need and even mix-and-match the "standard way"
 of writing Bootstrap components (many HTML lines) with the "Bh way".
 
+A comprehensive guide to Bh helpers
+===================================
+
+All the helpers available in Bh are detailed on the [Bh homepage](http://fullscreen.github.io/bh):
+
+[![Bh homepage](https://cloud.githubusercontent.com/assets/7408595/4195282/5e823a9c-37bc-11e4-865d-bbc04aab38ec.png)](http://fullscreen.github.io/bh)
+
+Please proceed to [http://fullscreen.github.io/bh](http://fullscreen.github.io/bh) for more details and examples on how to use Bh.
+
+
 How to install
 ==============
 
@@ -54,17 +64,22 @@ guarantees that your project won’t occur in any error when you `bundle update`
 and a new version of Bh is released.
 
 Adding `bh` to your Gemfile is all you need!
-From now on, you will be able to use any of the following Bh helpers in your Rails views.
+From now on, you will be able to use any Bh helper in your ERB views.
 
-A comprehensive guide to Bh helpers
-===================================
+How to update
+=============
 
-All the helpers available in Bh are detailed on the [Bh homepage](http://fullscreen.github.io/bh):
+Whenever a new version is released, the [CHANGELOG file](https://github.com/claudiob/bh/blob/master/CHANGELOG.md)
+will include a description of what features have changed and how to upgrade
+your code, if necessary.
 
-[![Bh homepage](https://cloud.githubusercontent.com/assets/7408595/4195282/5e823a9c-37bc-11e4-865d-bbc04aab38ec.png)](http://fullscreen.github.io/bh)
+The full [history of Bh versions](https://gemnasium.com/gems/bh/versions) is also available.
 
-Please proceed to [http://fullscreen.github.io/bh](http://fullscreen.github.io/bh) for more details and examples on how to use Bh.
+To stay updated with the latest releases, to receive code examples,
+implementation details and announcements, please consider subscribing to the
+[Bh mailing list](http://eepurl.com/2Hwfb):
 
+[![Bh mailing list](https://cloud.githubusercontent.com/assets/7408595/4204475/b8f1d8fe-3837-11e4-8e2f-79b017f583e1.png)](http://eepurl.com/2Hwfb)
 
 How to release new versions
 ===========================
