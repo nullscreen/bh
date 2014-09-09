@@ -4,7 +4,7 @@
   <p class="lead">Combine the beauty of Bootstrap’s design and the expressiveness of Ruby to get the best of both worlds with the least amount of keystrokes.</p>
 
   <p>Bootstrap is a great framework, but requires you to write <mark>many lines of HTML code</mark> even for simple components.<br />
-  For instance, here's the HTML you'd need to write to show a dismissible alert:</p>
+  For instance, you need to write the following HTML to show a dismissible alert:</p>
     <div class="bs-html"></div>
     {% highlight html %}
 <div class="alert alert-info alert-dismissible" role="alert">
@@ -16,8 +16,8 @@
 </div>
   {% endhighlight %}
 
-  <p>That's a lot to remember, and it clutters your views with boilerplate.</p>
-  <p>With Bh, you can achieve the same thing with <mark>just one line of code</mark>:</p>
+  <p>Writing this for every dismissible alert in a web site is cumbersome, repetitive, and prone to errors.<br />
+  With Bh, you can achieve the same thing with <mark>just one line of code</mark>:</p>
   {% highlight rhtml %}
 <%= alert_box 'You accepted the Terms of service.', dismissible: true %>
   {% endhighlight %}

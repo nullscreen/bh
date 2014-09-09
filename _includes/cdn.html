@@ -4,7 +4,7 @@
     to load the main Bootstrap stylesheets and javascript files from <a href="http://www.bootstrapcdn.com">MaxCDN</a>.</p>
 
   <h3 id="cdn-css">Bootstrap CSS file</h3>
-  <p>Use <code>bootstrap_css</code> without options to get the URL of the most up-to-date Bootstrap CSS file. </p>
+  <p>Use <code>bootstrap_css</code> without options to get the URL of the most up-to-date Bootstrap CSS file.</p>
   {% highlight rhtml %}
 <%= stylesheet_link_tag bootstrap_css %>
   {% endhighlight %}
@@ -15,7 +15,7 @@
   {% endhighlight %}
 
   <h3 id="cdn-theme-css">Bootstrap Theme CSS</h3>
-  <p>Use <code>bootstrap_theme_css</code> without options to get the URL of the most up-to-date Bootstrap Theme CSS file. </p>
+  <p>Use <code>bootstrap_theme_css</code> without options to get the URL of the most up-to-date Bootstrap Theme CSS file.</p>
   {% highlight rhtml %}
 <%= stylesheet_link_tag bootstrap_theme_css %>
   {% endhighlight %}
@@ -26,7 +26,7 @@
   {% endhighlight %}
 
   <h3 id="cdn-js">Bootstrap JS</h3>
-  <p>Use <code>bootstrap_js</code> without options to get the URL of the most up-to-date Bootstrap JS file. </p>
+  <p>Use <code>bootstrap_js</code> without options to get the URL of the most up-to-date Bootstrap JS file.</p>
   {% highlight rhtml %}
 <%= javascript_include_tag bootstrap_js %>
   {% endhighlight %}
@@ -37,7 +37,7 @@
   {% endhighlight %}
 
   <h3 id="cdn-older">Older versions</h3>
-  <p>Use the <code>:version</code> option to get the URL of a specific version of an asset. </p>
+  <p>Use the <code>:version</code> option to get the URL of a specific version of an asset.</p>
   {% highlight rhtml %}
 <%= stylesheet_link_tag(bootstrap_css version: '3.1.0') %>
   {% endhighlight %}
@@ -48,7 +48,7 @@
   {% endhighlight %}
 
   <h3 id="cdn-non-minified">Non-minified</h3>
-  <p>Use the <code>:minified</code> option to get the non-minified version of an asset. </p>
+  <p>Use the <code>:minified</code> option to get the non-minified version of an asset.</p>
   {% highlight rhtml %}
 <%= javascript_include_tag bootstrap_js(minified: false) %>
   {% endhighlight %}
@@ -59,7 +59,7 @@
   {% endhighlight %}
 
   <h3 id="cdn-uri-scheme">URI scheme</h3>
-  <p>Use the <code>:scheme</code> option to get either the HTTP or HTTPS version of the URL for Bootstrap CSS. </p>
+  <p>Use the <code>:scheme</code> option to get either the HTTP or HTTPS version of the URL for Bootstrap CSS.</p>
   {% highlight rhtml %}
 <%= stylesheet_link_tag(bootstrap_theme_css schema: 'https') %>
   {% endhighlight %}
