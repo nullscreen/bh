@@ -41,21 +41,6 @@ The example above can be rewritten with just one line of code:
 You can use only the ones you need and even mix-and-match the "standard way"
 of writing Bootstrap components (many HTML lines) with the "Bh way".
 
-How to install
-==============
-
-Bh is meant to be included in Rails apps by adding this line to the Gemfile:
-
-    gem 'bh', '~> 0.0.8'
-
-Since the gem follows [Semantic Versioning](http://semver.org),
-indicating the full version in your Gemfile (~> *major*.*minor*.*patch*)
-guarantees that your project won’t occur in any error when you `bundle update`
-and a new version of Bh is released.
-
-Adding `bh` to your Gemfile is all you need!
-From now on, you will be able to use any of the following Bh helpers in your Rails views.
-
 A comprehensive guide to Bh helpers
 ===================================
 
@@ -65,6 +50,36 @@ All the helpers available in Bh are detailed on the [Bh homepage](http://fullscr
 
 Please proceed to [http://fullscreen.github.io/bh](http://fullscreen.github.io/bh) for more details and examples on how to use Bh.
 
+
+How to install
+==============
+
+Bh is meant to be included in Rails apps by adding this line to the Gemfile:
+
+    gem 'bh', '~> 1.0.0'
+
+Since the gem follows [Semantic Versioning](http://semver.org),
+indicating the full version in your Gemfile (~> *major*.*minor*.*patch*)
+guarantees that your project won’t occur in any error when you `bundle update`
+and a new version of Bh is released.
+
+Adding `bh` to your Gemfile is all you need!
+From now on, you will be able to use any Bh helper in your ERB views.
+
+How to update
+=============
+
+Whenever a new version is released, the [CHANGELOG file](https://github.com/claudiob/bh/blob/master/CHANGELOG.md)
+will include a description of what features have changed and how to upgrade
+your code, if necessary.
+
+The full [history of Bh versions](https://gemnasium.com/gems/bh/versions) is also available.
+
+To stay updated with the latest releases, to receive code examples,
+implementation details and announcements, please consider subscribing to the
+[Bh mailing list](http://eepurl.com/2Hwfb):
+
+[![Bh mailing list](https://cloud.githubusercontent.com/assets/7408595/4204475/b8f1d8fe-3837-11e4-8e2f-79b017f583e1.png)](http://eepurl.com/2Hwfb)
 
 How to release new versions
 ===========================
@@ -78,8 +93,8 @@ document the changes in CHANGELOG.md and README.md, bump the version, then run
     rake release
 
 Remember that the bh gem follows [Semantic Versioning](http://semver.org).
-Any new release that is fully backward-compatible should bump the *patch* version (0.0.x).
-Any new version that breaks compatibility should bump the *minor* version (0.x.0)
+Any new release that is fully backward-compatible should bump the *patch* version (1.0.x).
+Any new version that breaks compatibility should bump the *minor* version (1.x.0)
 
 How to contribute
 =================

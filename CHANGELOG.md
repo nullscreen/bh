@@ -6,6 +6,10 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 1.0.0 - 2014-09-09
+
+* No changes
+
 ## 0.0.8 - 2014-08-25
 
 * [FEATURE] Add `button_to` helper
