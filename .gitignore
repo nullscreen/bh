@@ -19,5 +19,6 @@ tmp
 *.so
 *.o
 *.a
+_site/
 spec/dummy
 mkmf.log
