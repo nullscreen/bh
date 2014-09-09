@@ -15,7 +15,6 @@
   'use strict';
 
   $(function () {
-
     // Scrollspy
     var $window = $(window)
     var $body   = $(document.body)
@@ -85,33 +84,37 @@
       activateTheme();
     })();
 
+    // navbar top toggler
+    ;(function () {
+      $('.bs-docs-navbar-top-toggle').click(function () {
+        var shown = $(this).text() == "Hide the navbar";
+        if(shown) {
+          $("body").animate({paddingTop: "0px"});
+          $('[data-navbar="top"]').hide('slow');
+          $(this).text('Show the navbar');
+        } else {
+          $("body").animate({paddingTop: "70px"});
+          $('[data-navbar="top"]').show('slow');
+          $(this).text('Hide the navbar');
+        }
+      })
+    })();
 
-    // Tooltip and popover demos
-    $('.tooltip-demo').tooltip({
-      selector: '[data-toggle="tooltip"]',
-      container: 'body'
-    })
-    $('.popover-demo').popover({
-      selector: '[data-toggle="popover"]',
-      container: 'body'
-    })
-
-    // Demos within modals
-    $('.tooltip-test').tooltip()
-    $('.popover-test').popover()
-
-    // Popover demos
-    $('.bs-docs-popover').popover()
-
-    // Button state demo
-    $('#loading-example-btn').click(function () {
-      var btn = $(this)
-      btn.button('loading')
-      setTimeout(function () {
-        btn.button('reset')
-      }, 3000)
-    })
-
+    // navbar bottom toggler
+    ;(function () {
+      $('.bs-docs-navbar-bottom-toggle').click(function () {
+        var shown = $(this).text() == "Hide the navbar";
+        if(shown) {
+          $("body").animate({paddingBottom: "0px"});
+          $('[data-navbar="bottom"]').hide('slow');
+          $(this).text('Show the navbar');
+        } else {
+          $("body").animate({paddingBottom: "100px"});
+          $('[data-navbar="bottom"]').show('slow');
+          $(this).text('Hide the navbar');
+        }
+      })
+    })();
 
     // Config ZeroClipboard
     ZeroClipboard.config({
@@ -165,7 +168,5 @@
         .tooltip('fixTitle')
         .tooltip('show')
     })
-
   })
-
 }(jQuery)
