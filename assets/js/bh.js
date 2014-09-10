@@ -72,8 +72,7 @@
           localStorage.removeItem('previewTheme')
         }
       })
-
-      activateTheme();
+      // activateTheme();
     })();
 
     // navbar top toggler
