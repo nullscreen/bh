@@ -57,10 +57,7 @@ Bh is meant to be included in Rails apps by adding this line to the Gemfile:
 
     gem 'bh', '~> 1.0.0'
 
-Since the gem follows [Semantic Versioning](http://semver.org),
-indicating the full version in your Gemfile (~> *major*.*minor*.*patch*)
-Bh guarantees that your project won’t break when you `bundle update`
-to a new version.
+Since the gem follows [Semantic Versioning](http://semver.org), indicating the full version number in your Gemfile (~> *major*.*minor*.*patch*) guarantees that your project won’t break when you `bundle update` to a new version.
 
 Adding `bh` to your Gemfile is all you need!
 From now on, you will be able to use any Bh helper in your ERB views.
