@@ -55,9 +55,11 @@ How to install
 
 Bh is meant to be included in Rails apps by adding this line to the Gemfile:
 
-    gem 'bh', '~> 1.0.0'
+    gem 'bh', '~> 1.0'
 
-Since the gem follows [Semantic Versioning](http://semver.org), indicating the full version number in your Gemfile (~> *major*.*minor*.*patch*) guarantees that your project won’t break when you `bundle update` to a new version.
+Since the gem follows [Semantic Versioning](http://semver.org), indicating the
+version number in your Gemfile in the *'~> major.minor'* format guarantees
+that your project won’t break when you `bundle update` to a new version.
 
 Adding `bh` to your Gemfile is all you need!
 From now on, you will be able to use any Bh helper in your ERB views.
@@ -89,8 +91,12 @@ document the changes in CHANGELOG.md and README.md, bump the version, then run
     rake release
 
 Remember that the bh gem follows [Semantic Versioning](http://semver.org).
-Any new release that is fully backward-compatible should bump the *patch* version (1.0.x).
-Any new version that breaks compatibility should bump the *minor* version (1.x.0)
+
+Any new release that makes backward-compatible bug fixes should bump the *patch* version (1.0.x).
+
+Any new release that adds backward-compatible features should bump the *minor* version (1.x.0).
+
+Any new version that breaks compatibility should bump the *major* version (2.0.0)
 
 How to contribute
 =================
