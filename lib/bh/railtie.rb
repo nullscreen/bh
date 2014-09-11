@@ -1,6 +1,7 @@
 require 'bh/helpers/alert_helper'
 require 'bh/helpers/button_to_helper'
 require 'bh/helpers/cdn_helper'
+require 'bh/helpers/font_awesome_helper'
 require 'bh/helpers/form_for_helper'
 require 'bh/helpers/glyphicon_helper'
 require 'bh/helpers/link_to_helper'
@@ -16,6 +17,7 @@ module Bh
       ActionView::Base.send :include, AlertHelper
       ActionView::Base.send :include, ButtonToHelper
       ActionView::Base.send :include, CdnHelper
+      ActionView::Base.send :include, FontAwesomeHelper
       ActionView::Base.send :include, FormForHelper
       ActionView::Base.send :include, GlyphiconHelper
       ActionView::Base.send :include, LinkToHelper
