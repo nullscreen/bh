@@ -13,7 +13,7 @@ The **full documentation** is available at [rubydoc.info](http://rubydoc.info/gi
 [![Online docs](http://img.shields.io/badge/docs-✓-green.svg)](http://rubydoc.info/github/Fullscreen/bh/master/frames)
 [![Gem Version](http://img.shields.io/gem/v/bh.svg)](http://rubygems.org/gems/bh)
 
-Bootstrap 3 is a great framework, but requires you to write many lines of HTML code
+Bootstrap 3 is a great framework, but requires many lines of HTML code
 even for simple components.
 For instance, you need to write the following HTML to show a _dismissible alert_:
 
@@ -27,7 +27,7 @@ For instance, you need to write the following HTML to show a _dismissible alert_
 </div>
 ```
 
-Writing this for every _dismissible alert_ in a web site is cumbersome,
+Writing this for every _dismissible alert_ is cumbersome,
 repetitive, and prone to errors.
 
 With Bh, you can achieve the same thing with just one line of code:
@@ -59,8 +59,8 @@ Bh is meant to be included in Rails apps by adding this line to the Gemfile:
 
 Since the gem follows [Semantic Versioning](http://semver.org),
 indicating the full version in your Gemfile (~> *major*.*minor*.*patch*)
-guarantees that your project won’t occur in any error when you `bundle update`
-and a new version of Bh is released.
+Bh guarantees that your project won’t break when you `bundle update`
+to a new version.
 
 Adding `bh` to your Gemfile is all you need!
 From now on, you will be able to use any Bh helper in your ERB views.
