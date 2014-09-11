@@ -13,7 +13,7 @@ The **full documentation** is available at [rubydoc.info](http://rubydoc.info/gi
 [![Online docs](http://img.shields.io/badge/docs-✓-green.svg)](http://rubydoc.info/github/Fullscreen/bh/master/frames)
 [![Gem Version](http://img.shields.io/gem/v/bh.svg)](http://rubygems.org/gems/bh)
 
-Bootstrap 3 is a great framework, but requires to write many lines of HTML code
+Bootstrap 3 is a great framework, but requires you to write many lines of HTML code
 even for simple components.
 For instance, you need to write the following HTML to show a _dismissible alert_:
 
@@ -36,7 +36,7 @@ With Bh, you can achieve the same thing with just one line of code:
 <%= alert_box 'You accepted the Terms of service.', dismissible: true %>
 ```
 
-`alert_box` is only of the helpers provided by Bh.
+`alert_box` is only one of the helpers provided by Bh.
 You can use the helpers you need and even mix-and-match the "standard way"
 of writing Bootstrap 3 components (many HTML lines) with the "Bh way".
 
