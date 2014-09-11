@@ -11,7 +11,7 @@ module Bh
     #
     # The message to display in the alert can either be passed as the first
     # parameter (in which case, the options are the second parameter), or as
-    # a block (in which case, the options are the first paramter).
+    # a block (in which case, the options are the first parameter).
     # @example An alert with a plain-text message passed as the first parameter.
     #   alert 'User updated successfully', dismissible: true
     # @example An alert with an HTML message passed as a block.
