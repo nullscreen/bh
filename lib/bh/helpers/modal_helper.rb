@@ -58,31 +58,14 @@ module Bh
     end
 
     def button_class(options = {})
-      context = case options[:context].to_s
-        when 'primary' then :primary
-        when 'success' then :success
-        when 'info' then :info
-        when 'warning' then :warning
-        when 'danger' then :danger
-        when 'link' then :link
-        else 'default'
-      end
-
-      size = case options[:size].to_s
-        when 'lg', 'large' then 'btn-lg'
-        when 'sm', 'small' then 'btn-sm'
-        when 'xs', 'extra_small' then 'btn-xs'
-      end
-
-      ['btn', "btn-#{context}", size].compact.join ' '
+      [
+        class_for_context('btn', options[:context]),
+        class_for_size('btn',    options[:size])
+      ].compact.join ' '
     end
 
     def dialog_class(size = nil)
-      size_class = case size.to_s
-        when 'lg', 'large' then 'modal-lg'
-        when 'sm', 'small' then 'modal-sm'
-      end
-      ['modal-dialog', size_class].compact.join ' '
+      ['modal-dialog', class_for_size('modal', size)].compact.join ' '
     end
 
     def modal_body(body = nil)

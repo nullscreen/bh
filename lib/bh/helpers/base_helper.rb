@@ -21,5 +21,28 @@ module Bh
       block_given? ? args[1] = html_options : args[2] = html_options
       args
     end
+
+    def class_for_context(prefix, context = nil)
+      context = case context.to_s
+        when 'primary' then :primary
+        when 'success' then :success
+        when 'info'    then :info
+        when 'warning' then :warning
+        when 'danger'  then :danger
+        when 'link'    then :link
+        else 'default'
+      end
+      "#{prefix} #{prefix}-#{context}"
+    end
+
+    def class_for_size(prefix, size = nil)
+      size = case size.to_s
+        when 'lg', 'large'       then 'lg'
+        when 'sm', 'small'       then 'sm'
+        when 'xs', 'extra_small' then 'xs'
+        else return ''
+      end      
+      "#{prefix}-#{size}"
+    end
   end
 end

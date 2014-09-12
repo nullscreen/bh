@@ -55,7 +55,7 @@ module Bh
         when 'danger', 'alert' then :danger
         else 'info'
       end
-      "alert alert-#{context}"
+      class_for_context('alert', context)
     end
 
     def add_dismiss_button_to(message)

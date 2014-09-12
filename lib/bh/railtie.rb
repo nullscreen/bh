@@ -3,6 +3,7 @@ require 'bh/helpers/button_to_helper'
 require 'bh/helpers/cdn_helper'
 require 'bh/helpers/form_for_helper'
 require 'bh/helpers/icon_helper'
+require 'bh/helpers/badge_helper'
 require 'bh/helpers/link_to_helper'
 require 'bh/helpers/modal_helper'
 require 'bh/helpers/nav_helper'
@@ -18,6 +19,7 @@ module Bh
       ActionView::Base.send :include, CdnHelper
       ActionView::Base.send :include, FormForHelper
       ActionView::Base.send :include, IconHelper
+      ActionView::Base.send :include, BadgeHelper
       ActionView::Base.send :include, LinkToHelper
       ActionView::Base.send :include, ModalHelper
       ActionView::Base.send :include, NavHelper
