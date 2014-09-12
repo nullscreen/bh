@@ -9,6 +9,7 @@ For more information about changelogs, check
 ## 1.1.0 - unreleased
 
 * [FEATURE] Add `icon` helper
+* [FEATURE] Add `font_awesome_css` helper
 
 ## 1.0.0 - 2014-09-09
 
