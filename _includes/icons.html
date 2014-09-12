@@ -1,0 +1,32 @@
+<div class="bs-docs-section">
+  <h1 id="icons" class="page-header">Icons</h1>
+  <p class="lead">Use the <code>icon</code> helper to display vector icons from different libraries.</p>
+
+  <h3 id="glyphicon-icon">Basic example</h3>
+  <p>Use <code>icon</code> without options to display any of the <a href="http://getbootstrap.com/components/#icons">200 icons</a> available in Bootstrap.</p>
+  {% highlight rhtml %}
+<%= icon :user %>
+  {% endhighlight %}
+  <p>displays the <em>User</em> icon from the Glyphicons library:</p>
+    <div class="bs-example">
+      <span class="glyphicon glyphicon-user"></span>
+    </div>
+  {% highlight html %}
+<span class="glyphicon glyphicon-user"></span>
+  {% endhighlight %}
+
+  <h3 id="font-awesome-icon">Font Awesome example</h3>
+  <p>Use <code>icon</code> with the <code>library: :font_awesome</code> option to display any of the <a href="http://fortawesome.github.io/Font-Awesome/icons">479 icons</a> available in Font Awesome.</p>
+  <p>Note: you must load Font Awesome CSS in order to see the icons. See <a href="#cdn-font-awesome-css">the <code>font_awesome_css</code> helper</a> for details.</p>
+  {% highlight rhtml %}
+<%= icon :user, library: :font_awesome %>
+  {% endhighlight %}
+  <p>displays the <em>User</em> icon from the Font Awesome library:</p>
+    <div class="bs-example">
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css" />
+      <span class="fa fa-user"></span>
+    </div>
+  {% highlight html %}
+<span class="fa fa-user"></span>
+  {% endhighlight %}
+</div>

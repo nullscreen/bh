@@ -1,7 +1,6 @@
 <div class="bs-docs-section">
   <h1 id="cdn" class="page-header">Bootstrap CDN</h1>
-  <p class="lead">Use the <code>bootstrap_css</code>, <code>bootstrap_theme_css</code> and <code>bootstrap_js</code> helpers
-    to load the main Bootstrap stylesheets and javascript files from <a href="http://www.bootstrapcdn.com">MaxCDN</a>.</p>
+  <p class="lead">Use the CDN helpers to load Bootstrap stylesheets and javascript files from <a href="http://www.bootstrapcdn.com">MaxCDN</a>.</p>
 
   <h3 id="cdn-css">Bootstrap CSS file</h3>
   <p>Use <code>bootstrap_css</code> without options to get the URL of the most up-to-date Bootstrap CSS file.</p>
@@ -23,6 +22,17 @@
     <div class="bs-html"></div>
   {% highlight html %}
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" media="screen" rel="stylesheet" type="text/css" />
+  {% endhighlight %}
+
+  <h3 id="cdn-font-awesome-css">Font Awesome CSS</h3>
+  <p>Use <code>font_awesome_css</code> without options to get the URL of the most up-to-date <a href="http://fortawesome.github.io/Font-Awesome">Font Awesome</a> CSS file.</p>
+  {% highlight rhtml %}
+<%= stylesheet_link_tag font_awesome_css %>
+  {% endhighlight %}
+  <p>generates the following HTML code:</p>
+    <div class="bs-html"></div>
+  {% highlight html %}
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css" />
   {% endhighlight %}
 
   <h3 id="cdn-js">Bootstrap JS</h3>
