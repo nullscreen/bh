@@ -1,0 +1,49 @@
+---
+layout: default
+---
+<!-- Edit the code below to see how code looks in a browser -->
+<!-- Note that only *a few* helpers are currently supported by Bh+Middleman,
+     so the use of this dummy file is currently limited to the helpers
+     listed below. The plan is to make all the helpers look in Middleman
+     in the future, as they do in Rails. -->
+<h1>Alerts</h1>
+
+<%= alert_box 'You accepted the Terms of service.', context: :success, dismissible: true %>
+
+<p>Alert boxes with HTML content currently not supported in Middleman.</p>
+
+<h1>Panels</h1>
+
+<%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :info %>
+
+<p>Panels with HTML content currently not supported in Middleman.</p>
+
+<h1>Panel rows</h1>
+
+<p>Panel rows currently not supported in Middleman.</p>
+
+<h1>Modals</h1>
+
+<p>Modals currently not supported in Middleman.</p>
+
+<h1>Navs</h1>
+
+<p>Navs currently not supported in Middleman.</p>
+
+<h1>Navbars</h1>
+
+<p>Navbars currently not supported in Middleman.</p>
+
+<h1>Forms</h1>
+
+<p>Forms currently not supported in Middleman.</p>
+
+<h1>Glyphicons</h1>
+
+<%= icon :zoom_in %>
+
+<h1>Icons</h1>
+
+<%= icon :heart %>
+<%= stylesheet_link_tag font_awesome_css %>
+<%= icon :heart, library: :font_awesome, class: 'fa-5x' %>
