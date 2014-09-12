@@ -6,6 +6,11 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 1.1.0 - unreleased
+
+* [FEATURE] Add `icon` helper
+* [FEATURE] Add `font_awesome_css` helper
+
 ## 1.0.0 - 2014-09-09
 
 * No changes
