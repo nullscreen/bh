@@ -56,15 +56,7 @@ module Bh
     end
 
     def panel_class(context = nil)
-      context = case context.to_s
-        when 'primary' then :primary
-        when 'success' then :success
-        when 'info' then :info
-        when 'warning' then :warning
-        when 'danger' then :danger
-        else 'default'
-      end
-      "panel panel-#{context}"
+      class_for_context('panel', context)
     end
 
     def prepend_optional_body_to(content, options = {})
