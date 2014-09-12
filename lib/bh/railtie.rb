@@ -10,6 +10,8 @@ require 'bh/helpers/nav_helper'
 require 'bh/helpers/navbar_helper'
 require 'bh/helpers/panel_helper'
 require 'bh/helpers/panel_row_helper'
+require 'bh/helpers/progress_helper'
+require 'bh/helpers/well_helper'
 
 module Bh
   class Railtie < Rails::Railtie
@@ -26,6 +28,8 @@ module Bh
       ActionView::Base.send :include, NavbarHelper
       ActionView::Base.send :include, PanelHelper
       ActionView::Base.send :include, PanelRowHelper
+      ActionView::Base.send :include, ProgressHelper
+      ActionView::Base.send :include, WellHelper
     end
 
     initializer 'bh.add_views' do |app|
