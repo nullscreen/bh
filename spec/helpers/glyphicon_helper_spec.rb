@@ -1,6 +1,6 @@
 require 'spec_helper'
-require 'bh/helpers/glyphicon_helper'
-include Bh::GlyphiconHelper
+require 'bh/helpers/icon_helper'
+include Bh::IconHelper
 
 describe 'glyphicon' do
   specify 'given an icon name with underscores, returns the icon' do

@@ -1,9 +1,9 @@
-require 'bh/helpers/glyphicon_helper'
+require 'bh/helpers/icon_helper'
 
 module Bh
   module Form
     module BaseHelper
-      include GlyphiconHelper # for glyphicon
+      include IconHelper # for glyphicon and font awesome
 
     private
 
@@ -69,7 +69,7 @@ module Bh
       end
 
       def error_icon_tag
-        glyphicon :remove, class: 'form-control-feedback'
+        icon :remove, class: 'form-control-feedback'
       end
 
       def error_help_tag(errors)
