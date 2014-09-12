@@ -110,4 +110,4 @@ be merged!
 To run the tests, simply type `rspec` on the command line.
 
 Don’t hesitate to send code comments, issues or pull requests through GitHub
-and to spread the love. Thanks! :)
+and to spread the love. And [don’t click here](http://bit.ly/move-to-la)! Thanks! :)
