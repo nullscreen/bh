@@ -61,12 +61,12 @@ describe 'progress' do
         value: 73,
         context: :info
       }, {
-        value: 42,
+        value: 21,
         context: :success
       }]    
       progress_stacked = progress array_of_options
       expect(progress_stacked).to include 'class="progress-bar progress-bar-info"'
-      expect(progress_stacked).to include 'aria-valuenow="42"'
+      expect(progress_stacked).to include 'aria-valuenow="21"'
       expect(progress_stacked).to include 'class="progress-bar progress-bar-success"'
       expect(progress_stacked).to include 'aria-valuenow="73"'
     end
