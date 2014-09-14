@@ -43,7 +43,11 @@ module Bh
       end
 
       def input_addon(addon)
-        content_tag :span, addon, class: 'input-group-addon' if addon
+        if addon && addon.include?('class="btn')
+          content_tag :span, addon, class: 'input-group-btn'
+        elsif addon
+          content_tag :span, addon, class: 'input-group-addon'
+        end
       end
 
       def input_group_container(has_addons, &block)
