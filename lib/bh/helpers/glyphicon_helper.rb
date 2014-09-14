@@ -1,10 +1,10 @@
-require 'bh/helpers/base_helper'
+require 'bh/helpers/icon_helper'
 
 module Bh
   # Provides methods to include Glyphicons.
   # @see http://getbootstrap.com/components/#glyphicons
   module GlyphiconHelper
-    include BaseHelper
+    include IconHelper
 
     # Returns an HTML block tag that follows the Bootstrap documentation
     # on how to display *glyphicons*.

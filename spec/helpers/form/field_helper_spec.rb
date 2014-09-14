@@ -3,7 +3,7 @@ require 'bh/helpers/form_for_helper'
 include Bh::FormForHelper
 
 def self.field_helpers_to_test
-  types = %w(email file number password phone search telephone text url)
+  types = %w(email number password phone search telephone text url)
   if defined?(ActionView::VERSION) # only defined in ActionView >=4
     # types.concat %w(color date datetime datetime_local month time week)
   end
@@ -92,24 +92,21 @@ field_helpers_to_test.each do |form_field|
     describe 'given a basic layout' do
       let(:layout) { :basic }
       specify 'applies form-group to the container, form-control to the input' do
-         field_control_class = form_field.eql?('file_field') ? '' : ' class="form-control"' # file_field should not have form-control class
-        expect(form).to match %r{<div class="form-group"><label.+?>Name</label><(input|textarea)#{field_control_class}}
+        expect(form).to match %r{<div class="form-group"><label.+?>Name</label><(input|textarea) class="form-control"}
       end
     end
 
     describe 'given a horizontal layout' do
       let(:layout) { :horizontal }
       specify 'applies form-group to the container, form-control to the input, col-sm-3.control-label to the label and col-sm-9 to the field container' do
-         field_control_class = form_field.eql?('file_field') ? '' : ' class="form-control"' # file_field should not have form-control class
-        expect(form).to match %r{<div class="form-group"><label class="col-sm-3 control-label".+?>Name</label><div class="col-sm-9"><(input|textarea)#{field_control_class}}
+        expect(form).to match %r{<div class="form-group"><label class="col-sm-3 control-label".+?>Name</label><div class="col-sm-9"><(input|textarea) class="form-control"}
       end
     end
 
     describe 'given an inline layout' do
       let(:layout) { :inline }
       specify 'applies form-group to the container, form-control to the input, sr-only to the label' do
-         field_control_class = form_field.eql?('file_field') ? '' : ' class="form-control"' # file_field should not have form-control class
-        expect(form).to match %r{<div class="form-group"><label class="sr-only".+?>Name</label><(input|textarea)#{field_control_class}}
+        expect(form).to match %r{<div class="form-group"><label class="sr-only".+?>Name</label><(input|textarea) class="form-control"}
       end
 
       context 'given an error' do

@@ -28,14 +28,6 @@ module Bh
       content_tag :span, nil, options
     end
 
-    # Returns an HTML block tag to display a Glyphicon icon.
-    # Accepts the same parameters as +icon+.
-    # @example Display the "zoom in" glyphicon
-    #   glyphicon :zoom_in
-    def glyphicon(name = nil, options = {})
-      icon name, options.merge(library: :glyphicons)
-    end
-
   private
 
     def library_prefix_for(name)
