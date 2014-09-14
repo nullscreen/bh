@@ -92,21 +92,24 @@ field_helpers_to_test.each do |form_field|
     describe 'given a basic layout' do
       let(:layout) { :basic }
       specify 'applies form-group to the container, form-control to the input' do
-        expect(form).to match %r{<div class="form-group"><label.+?>Name</label><(input|textarea) class="form-control"}
+         field_control_class = form_field.eql?('file_field') ? '' : ' class="form-control"' # file_field should not have form-control class
+        expect(form).to match %r{<div class="form-group"><label.+?>Name</label><(input|textarea)#{field_control_class}}
       end
     end
 
     describe 'given a horizontal layout' do
       let(:layout) { :horizontal }
       specify 'applies form-group to the container, form-control to the input, col-sm-3.control-label to the label and col-sm-9 to the field container' do
-        expect(form).to match %r{<div class="form-group"><label class="col-sm-3 control-label".+?>Name</label><div class="col-sm-9"><(input|textarea) class="form-control"}
+         field_control_class = form_field.eql?('file_field') ? '' : ' class="form-control"' # file_field should not have form-control class
+        expect(form).to match %r{<div class="form-group"><label class="col-sm-3 control-label".+?>Name</label><div class="col-sm-9"><(input|textarea)#{field_control_class}}
       end
     end
 
     describe 'given an inline layout' do
       let(:layout) { :inline }
       specify 'applies form-group to the container, form-control to the input, sr-only to the label' do
-        expect(form).to match %r{<div class="form-group"><label class="sr-only".+?>Name</label><(input|textarea) class="form-control"}
+         field_control_class = form_field.eql?('file_field') ? '' : ' class="form-control"' # file_field should not have form-control class
+        expect(form).to match %r{<div class="form-group"><label class="sr-only".+?>Name</label><(input|textarea)#{field_control_class}}
       end
 
       context 'given an error' do
