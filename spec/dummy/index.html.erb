@@ -9,6 +9,10 @@ layout: default
 <h1>Alerts</h1>
 
 <%= alert_box 'You accepted the Terms of service.', context: :success, dismissible: true %>
+<p>Alert with link (passed as a block)</p>
+<%= alert_box title: 'Thanks', context: :info, &Proc.new{link_to('Link', '#')} %>
+<p>Alert with link (passed as an argument)</p>
+<%= alert_box link_to('Link', '#'), title: 'Thanks', context: :info %>
 
 <p>Alert boxes with HTML content currently not supported in Middleman.</p>
 

@@ -12,9 +12,9 @@ module Bh
     # The message to display in the alert can either be passed as the first
     # parameter (in which case, the options are the second parameter), or as
     # a block (in which case, the options are the first parameter).
-    # @example An alert with a plain-text message passed as the first parameter.
+    # @example An alert with a plain-text message passed as the first parameter (if you want to pass HTML use a block).
     #   alert 'User updated successfully', dismissible: true
-    # @example An alert with an HTML message passed as a block.
+    # @example An alert with a HTML message passed as a block.
     #   alert_box dismissible: true do
     #     content_tag :strong, "User updated successfully"
     #   end
