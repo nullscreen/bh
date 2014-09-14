@@ -7,7 +7,7 @@ module Bh
 
       def field(method, field_type, options = {}, &block)
         options[:placeholder] ||= method.to_s.humanize
-        append_class! options, 'form-control'
+        append_class! options, 'form-control' unless field_type.eql?('file_field')
         base_field method, field_type, options, &block
       end
     end
