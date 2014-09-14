@@ -6,6 +6,11 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 1.0.1 - 2014-09-14
+
+* [BUGFIX] Remove `form-control` class from `file_field` (#20)
+* [BUGFIX] Allow `record_object` to be passed to `fields_for` (#22)
+
 ## 1.0.0 - 2014-09-09
 
 * No changes

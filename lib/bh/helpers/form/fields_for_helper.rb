@@ -7,7 +7,10 @@ module Bh
       include FieldsetHelper # for fieldset
 
       def fields_for(record_name, record_object = nil, fields_options = {}, &block)
-        fields_options, record_object = record_object, nil if record_object.is_a?(Hash) && record_object.extractable_options?
+        if record_object.is_a?(Hash) && record_object.extractable_options?
+          record_object, fields_options = nil, record_object
+        end
+
         fields_options[:layout] ||= @options[:layout]
         fields_options[:errors] ||= @options[:errors]
         title = fields_options.delete(:title) { record_name.to_s.humanize }
