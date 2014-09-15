@@ -40,7 +40,7 @@ With Bh, you can achieve the same thing with just one line of code:
 You can use the helpers you need and even mix-and-match the "standard way"
 of writing Bootstrap 3 components (many HTML lines) with the "Bh way".
 
-A comprehensive guide to Bh helpers
+A comprehensive guide to Bootstrap Helpers
 ===================================
 
 All the helpers available in Bh are detailed on the [Bh homepage](http://fullscreen.github.io/bh):
