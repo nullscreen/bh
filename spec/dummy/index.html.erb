@@ -9,6 +9,11 @@ layout: default
 <h1>Alerts</h1>
 
 <%= alert_box 'You accepted the Terms of service.', context: :success, dismissible: true %>
+<%= alert_box 'You accepted the Terms of service.', context: :info, dismissible: true %>
+<%= alert_box 'You accepted the Terms of service.', context: :warning, dismissible: true %>
+<%= alert_box 'You accepted the Terms of service.', context: :danger, dismissible: true %>
+<%= alert_box 'You accepted the Terms of service.', dismissible: true %>
+
 
 <p>Alert boxes with HTML content currently not supported in Middleman.</p>
 

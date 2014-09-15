@@ -21,5 +21,19 @@ module Bh
       block_given? ? args[1] = html_options : args[2] = html_options
       args
     end
+
+    def context_for(context = nil, options = {})
+      context = case context.to_s
+        when 'notice' then 'success'
+        when 'alert' then 'danger'
+        else context.to_s
+      end
+
+      if options.fetch(:valid, []).map(&:to_s).include? context
+        context
+      else
+        options.fetch :default, 'default'
+      end
+    end
   end
 end
