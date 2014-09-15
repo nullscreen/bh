@@ -56,14 +56,8 @@ module Bh
     end
 
     def panel_class(context = nil)
-      context = case context.to_s
-        when 'primary' then :primary
-        when 'success' then :success
-        when 'info' then :info
-        when 'warning' then :warning
-        when 'danger' then :danger
-        else 'default'
-      end
+      valid_contexts = %w(primary success info warning danger)
+      context = context_for context, valid: valid_contexts
       "panel panel-#{context}"
     end
 
