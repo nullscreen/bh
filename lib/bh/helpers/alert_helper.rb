@@ -49,12 +49,8 @@ module Bh
     end
 
     def alert_class(context = nil)
-      context = case context.to_s
-        when 'success', 'notice' then :success
-        when 'warning' then :warning
-        when 'danger', 'alert' then :danger
-        else 'info'
-      end
+      valid_contexts = %w(success info warning danger)
+      context = context_for context, default: 'info', valid: valid_contexts
       "alert alert-#{context}"
     end
 

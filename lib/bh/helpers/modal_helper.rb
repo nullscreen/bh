@@ -58,15 +58,8 @@ module Bh
     end
 
     def button_class(options = {})
-      context = case options[:context].to_s
-        when 'primary' then :primary
-        when 'success' then :success
-        when 'info' then :info
-        when 'warning' then :warning
-        when 'danger' then :danger
-        when 'link' then :link
-        else 'default'
-      end
+      valid_contexts = %w(primary success info warning danger link)
+      context = context_for options[:context], valid: valid_contexts
 
       size = case options[:size].to_s
         when 'lg', 'large' then 'btn-lg'
