@@ -7,7 +7,7 @@
   {% highlight rhtml %}
 <%= nav do %>
   <%= link_to 'Home', root_path %>
-  <%= link_to 'Users', profile_path %>
+  <%= link_to 'Users', users_path %>
   <%= link_to 'Profile', profile_path %>
 <% end %>
   {% endhighlight %}
@@ -32,7 +32,7 @@
   {% highlight rhtml %}
 <%= nav layout: :justified do %>
   <%= link_to 'Home', root_path %>
-  <%= link_to 'Users', profile_path %>
+  <%= link_to 'Users', users_path %>
   <%= link_to 'Profile', profile_path %>
 <% end %>
   {% endhighlight %}
@@ -57,7 +57,7 @@
   {% highlight rhtml %}
 <%= nav as: :pills do %>
   <%= link_to 'Home', root_path %>
-  <%= link_to 'Users', profile_path %>
+  <%= link_to 'Users', users_path %>
   <%= link_to 'Profile', profile_path %>
 <% end %>
   {% endhighlight %}
@@ -82,7 +82,7 @@
   {% highlight rhtml %}
 <%= nav as: :pills, layout: :stacked do %>
   <%= link_to 'Home', root_path %>
-  <%= link_to 'Users', profile_path %>
+  <%= link_to 'Users', users_path %>
   <%= link_to 'Profile', profile_path %>
 <% end %>
   {% endhighlight %}
