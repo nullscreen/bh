@@ -1,9 +1,9 @@
 <div class="<%= div_class %>">
-  <button class="dropdown-toggle <%= button_class %>" type="button" id="dropdown-<%= id %>" data-toggle="dropdown">
+  <button class="dropdown-toggle <%= button_class %>" type="button" id="label-<%= id %>" data-toggle="dropdown">
     <%= caption %>
     <span class="caret"></span>
   </button>
-  <ul class="<%= list_class %>" role="menu" aria-labelledby="dropdown-<%= id %>">
+  <ul class="<%= list_class %>" role="menu" aria-labelledby="label-<%= id %>">
     <%= yield %>
   </ul>
 </div>
