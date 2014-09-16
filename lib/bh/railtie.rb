@@ -1,6 +1,7 @@
 require 'bh/helpers/alert_helper'
 require 'bh/helpers/button_to_helper'
 require 'bh/helpers/cdn_helper'
+require 'bh/helpers/dropdown_helper'
 require 'bh/helpers/form_for_helper'
 require 'bh/helpers/glyphicon_helper'
 require 'bh/helpers/icon_helper'
@@ -17,6 +18,7 @@ module Bh
       ActionView::Base.send :include, AlertHelper
       ActionView::Base.send :include, ButtonToHelper
       ActionView::Base.send :include, CdnHelper
+      ActionView::Base.send :include, DropdownHelper
       ActionView::Base.send :include, FormForHelper
       ActionView::Base.send :include, GlyphiconHelper
       ActionView::Base.send :include, IconHelper

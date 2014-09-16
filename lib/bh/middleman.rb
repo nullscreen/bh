@@ -1,6 +1,7 @@
 require 'bh/helpers/alert_helper'
 require 'bh/helpers/button_to_helper'
 require 'bh/helpers/cdn_helper'
+require 'bh/helpers/dropdown_helper'
 require 'bh/helpers/form_for_helper'
 require 'bh/helpers/glyphicon_helper'
 require 'bh/helpers/icon_helper'
@@ -17,6 +18,7 @@ module Bh
       include AlertHelper
       include ButtonToHelper
       include CdnHelper
+      include DropdownHelper
       include FormForHelper
       include GlyphiconHelper
       include IconHelper

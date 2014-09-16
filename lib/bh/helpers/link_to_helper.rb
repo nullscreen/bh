@@ -12,10 +12,19 @@ module Bh
     # Overrides ActionView +link_to+ to be able to add the 'navbar-brand'
     # class to the link in case the link is inside of an alert.
     def link_to(*args, &block)
-      args = add_link_class!('alert-link', *args, &block) if @alert_link
-      args = add_link_class!('navbar-brand', *args, &block) if @navbar_vertical
-      link = super *args, &block
-      @nav_link ? content_tag(:li, link, nav_list_item_options(*args, &block)) : link
+      if @alert_link
+        super *add_link_class!('alert-link', *args, &block), &block
+      elsif @navbar_vertical
+        super *add_link_class!('navbar-brand', *args, &block), &block
+      elsif @dropdown_link
+        content_tag :li, role: :presentation do
+          super *add_menu_item_attributes!(*args, &block), &block
+        end
+      elsif @nav_link
+        content_tag :li, super(*args, &block), nav_item_options(*args, &block)
+      else
+        super *args, &block
+      end
     end
 
   private
@@ -24,9 +33,16 @@ module Bh
       append_class_as! :class, new_class, *args, &block
     end
 
-    def nav_list_item_options(*args, &block)
+    def nav_item_options(*args, &block)
       options = (block_given? ? args[0] : args[1]) || {}
       {class: 'active'} if current_page? options
+    end
+
+    def add_menu_item_attributes!(*args, &block)
+      html_options = (block_given? ? args[1] : args[2]) || {}
+      html_options.reverse_merge! role: 'menuitem', tabindex: '-1'
+      block_given? ? args[1] = html_options : args[2] = html_options
+      args
     end
   end
 end

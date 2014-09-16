@@ -2,11 +2,13 @@ require 'spec_helper'
 require 'action_dispatch'
 
 require 'bh/helpers/alert_helper'
+require 'bh/helpers/dropdown_helper'
 require 'bh/helpers/link_to_helper'
 require 'bh/helpers/nav_helper'
 require 'bh/helpers/navbar_helper'
 
 include Bh::AlertHelper
+include Bh::DropdownHelper
 include Bh::LinkToHelper
 include Bh::NavHelper
 include Bh::NavbarHelper
@@ -55,6 +57,17 @@ describe 'link_to' do
         it { expect(html).to include 'li class="active"' }
       end
     end
+
+    context 'inside a dropdown' do
+      let(:views_folder) { File.expand_path('../../../lib/bh/views', __FILE__) }
+      let(:lookup_context) { ActionView::LookupContext.new views_folder }
+      let(:view_renderer) { ActionView::Renderer.new lookup_context }
+      let(:html) { dropdown('Menu') { link } }
+
+      specify 'surrounds the link in a list item, and adds role, tabindex' do
+        expect(html).to include '<li role="presentation"><a href="/" role="menuitem" tabindex="-1">Home</a></li>'
+      end
+    end
   end
 
   context 'used with a block' do
@@ -94,6 +107,17 @@ describe 'link_to' do
       context 'given the link points to the current page, applies the "active" class' do
         let(:url) { '' }
         it { expect(html).to include 'li class="active"' }
+      end
+    end
+
+    context 'inside a dropdown' do
+      let(:views_folder) { File.expand_path('../../../lib/bh/views', __FILE__) }
+      let(:lookup_context) { ActionView::LookupContext.new views_folder }
+      let(:view_renderer) { ActionView::Renderer.new lookup_context }
+      let(:html) { dropdown('Menu') { link } }
+
+      specify 'surrounds the link in a list item, and adds role, tabindex' do
+        expect(html).to include '<li role="presentation"><a href="/" role="menuitem" tabindex="-1">Home</a></li>'
       end
     end
   end
