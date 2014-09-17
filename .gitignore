@@ -2,3 +2,5 @@ _site/
 coverage/
 Gemfile.lock
 pkg/
+doc/
+.yardoc/
