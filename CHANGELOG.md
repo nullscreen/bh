@@ -11,6 +11,7 @@ For more information about changelogs, check
 * [FEATURE] Add `icon` helper
 * [FEATURE] Add `font_awesome_css` helper
 * [FEATURE] Add `dropdown` helper
+* [FEATURE] Add `progress_bar` helper
 
 ## 1.0.1 - 2014-09-14
 

@@ -11,6 +11,7 @@ require 'bh/helpers/nav_helper'
 require 'bh/helpers/navbar_helper'
 require 'bh/helpers/panel_helper'
 require 'bh/helpers/panel_row_helper'
+require 'bh/helpers/progress_bar_helper'
 
 module Bh
   class MiddlemanExtension < Middleman::Extension
@@ -28,6 +29,7 @@ module Bh
       include NavbarHelper
       include PanelHelper
       include PanelRowHelper
+      include ProgressBarHelper
     end
   end
 end
