@@ -9,7 +9,7 @@ module Bh
 
     # Returns an HTML block tag to display a vector icon.
     # @return [String] an HTML block tag for a vector icon.
-    # @param [#to_s] :name the name of the icon to display, with either dashes
+    # @param [#to_s] name the name of the icon to display, with either dashes
     #   or underscores to separate multiple words.
     # @param [Hash] options the options for the icon tag. The following options
     #   are used by the +icon+ method, while the remaining ones are passed

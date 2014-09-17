@@ -9,7 +9,7 @@ module Bh
     # Returns an HTML block tag that follows the Bootstrap documentation
     # on how to display *glyphicons*.
     # @return [String] an HTML block tag for a glyphicon.
-    # @param [#to_s] :name the name of the icon to display, with either dashes
+    # @param [#to_s] name the name of the icon to display, with either dashes
     #   or underscores to separate multiple words.
     # @param [Hash] options the options passed to the HTML tag that displays
     #   the icon.
