@@ -46,4 +46,10 @@ describe 'fields_for' do
       it { expect(form).to include '<div class="panel-heading">Your address</div>' }
     end
   end
+  
+  context 'using the no_panel option' do
+    let(:options) { {no_panel:true}}
+    it { expect(form).not_to include 'panel panel-default'}
+    it { expect(form).not_to include '<fieldset'}
+  end
 end

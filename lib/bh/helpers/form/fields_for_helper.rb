@@ -14,7 +14,11 @@ module Bh
         fields_options[:layout] ||= @options[:layout]
         fields_options[:errors] ||= @options[:errors]
         title = fields_options.delete(:title) { record_name.to_s.humanize }
-        fieldset(title) { super record_name, record_object, fields_options, &block }
+        if fields_options[:no_panel]
+          super record_name, record_object, fields_options, &block
+        else
+          fieldset(title) { super record_name, record_object, fields_options, &block }
+        end
       end
     end
   end
