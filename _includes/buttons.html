@@ -1,4 +1,58 @@
 <div class="bs-docs-section">
   <h1 id="buttons" class="page-header">Buttons</h1>
-  <p class="lead">[Missing documentation]</p>
+  <p class="lead">Use the <code>button</code> helper to display Bootstrap-styled buttons.</p>
+
+  <h3 id="button-basic">Basic button</h3>
+  <p>Use <code>button</code> without options to display a button with the given caption.</p>
+  {% highlight rhtml %}
+<%= button 'Menu' %>
+  {% endhighlight %}
+  <p>generates the following component (and HTML code):</p>
+  <div class="bs-example">
+    <button class="btn btn-default">Menu</button>
+  </div>
+  {% highlight html %}
+<button class="btn btn-default">Menu</button>
+  {% endhighlight %}
+
+  <h3 id="button-context">Contextual button</h3>
+  <p>Use <code>button</code> with the <code>:context</code> option to change the color (and semantic context) of the toggle button.</p>
+  <p>Available contexts are <code>:default</code> (default), <code>:primary</code>, <code>:success</code>, <code>:info</code>, <code>:warning</code>, <code>:danger</code> and <code>:link</code>.</p>
+  {% highlight rhtml %}
+<%= button 'Menu', context: :info %>
+  {% endhighlight %}
+  <p>displays an <em>info</em> (blue background) button:</p>
+  <div class="bs-example">
+    <button class="btn btn-info">Menu</button>
+  </div>
+  {% highlight html %}
+<button class="btn btn-info">Menu</button>
+  {% endhighlight %}
+
+  <h3 id="button-size">Custom button size</h3>
+  <p>Use <code>button</code> with the <code>:size</code> option to change the size of the button.</p>
+  {% highlight rhtml %}
+<%= button 'Menu', size: :large %>
+  {% endhighlight %}
+  <p>displays a <em>large</em> button:</p>
+  <div class="bs-example">
+    <button class="btn btn-default btn-lg">Menu</button>
+  </div>
+  {% highlight html %}
+<button class="btn btn-default btn-lg">Menu</button>
+  {% endhighlight %}
+
+  <h3 id="button-layout">Block-level button</h3>
+  <p>Use <code>button</code> with the <code>layout: :block</code> option to display a button that spans the full width of the parent.</p>
+  {% highlight rhtml %}
+<%= button 'Menu', layout: :block %>
+  {% endhighlight %}
+  <p>displays an <em>block</em> button:</p>
+  <div class="bs-example">
+    <button class="btn btn-default btn-block">Menu</button>
+  </div>
+  {% highlight html %}
+<button class="btn btn-default btn-block">Menu</button>
+  {% endhighlight %}
+
 </div>
