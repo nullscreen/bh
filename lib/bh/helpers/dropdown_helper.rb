@@ -17,7 +17,7 @@ module Bh
     # generates a link *surrounded by a list item* and with the appropriate
     # menu item attributes.
     # @example A right-aligned dropdown with two links.
-    #   <%= dropdown align: :right do %>
+    #   <%= dropdown 'Menu', align: :right do %>
     #     <%= link_to 'Home', '/' %>
     #     <%= link_to 'Profile', '/profile' %>
     #   <% end %>

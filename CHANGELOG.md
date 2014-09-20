@@ -13,6 +13,7 @@ For more information about changelogs, check
 * [FEATURE] Add `dropdown` helper
 * [FEATURE] Add `progress_bar` helper
 * [ENHANCEMENT] Add `:fieldset` option to decide whether `fields_for` should wrap fields in a <fieldset> tag
+* [FEATURE] Add `button` helper
 
 ## 1.0.1 - 2014-09-14
 
