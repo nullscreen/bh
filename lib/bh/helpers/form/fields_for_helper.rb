@@ -14,7 +14,9 @@ module Bh
         fields_options[:layout] ||= @options[:layout]
         fields_options[:errors] ||= @options[:errors]
         title = fields_options.delete(:title) { record_name.to_s.humanize }
-        fieldset(title) { super record_name, record_object, fields_options, &block }
+        wrap_in_fieldset = fields_options.fetch :fieldset, true
+        fields = super record_name, record_object, fields_options, &block
+        wrap_in_fieldset ? fieldset(title) { fields } : fields
       end
     end
   end

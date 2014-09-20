@@ -12,26 +12,42 @@ describe 'fields_for' do
   let(:title) { nil }
   let(:fields_block) { Proc.new {|f| f.text_field :street } }
 
-  specify 'adds a <fieldset> that looks like a Bootstrap panel' do
-    expect(form).to include 'fieldset class="panel panel-default">'
+  describe 'with the :fieldset option' do
+    specify 'not set, wraps the fields in a <fieldset> styled like a panel' do
+      expect(form).to include 'fieldset class="panel panel-default">'
+    end
+
+    describe 'set to true, wraps the fields in a <fieldset> styled like a panel' do
+      let(:options) { {fieldset: true} }
+      it { expect(form).to include 'fieldset class="panel panel-default">' }
+    end
+
+    describe 'set to false, does not wrap the fields in a <fieldset>' do
+      let(:options) { {fieldset: false} }
+      it { expect(form).not_to include 'fieldset' }
+    end
   end
 
-  context 'given a title option, uses the provided title' do
-    let(:options) { {title: 'Your address'} }
-    it { expect(form).to include '<div class="panel-heading">Your address</div>' }
+  describe 'with the :title option' do
+    specify 'not set, generates a title from the field name' do
+      expect(form).to include '<div class="panel-heading">Address</div>'
+    end
+
+    context 'set to a value, uses the value as the panel title' do
+      let(:options) { {title: 'Your address'} }
+      it { expect(form).to include '<div class="panel-heading">Your address</div>' }
+    end
   end
 
-  specify 'not given a title, generates one from the field name' do
-    expect(form).to include '<div class="panel-heading">Address</div>'
-  end
+  describe 'with the :layout option' do
+    specify 'not set, inherits the layout options of the parent form' do
+      expect(form).to match %r{<div class="form-group"><label for.+?>Street</label>}
+    end
 
-  specify 'given no layout, inherits the layout options of the parent form' do
-    expect(form).to match %r{<div class="form-group"><label for.+?>Street</label>}
-  end
-
-  context 'given a layout, uses its own layout' do
-    let(:options) { {layout: :horizontal} }
-    it { expect(form).to match %r{<div class="form-group"><label class="col-sm-3 control-label" for.+?>Street</label>} }
+    context 'set to a value, uses the value as the layout' do
+      let(:options) { {layout: :horizontal} }
+      it { expect(form).to match %r{<div class="form-group"><label class="col-sm-3 control-label" for.+?>Street</label>} }
+    end
   end
 
   context 'given a record object' do
