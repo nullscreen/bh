@@ -1,4 +1,5 @@
 require 'bh/helpers/alert_helper'
+require 'bh/helpers/button_helper'
 require 'bh/helpers/button_to_helper'
 require 'bh/helpers/cdn_helper'
 require 'bh/helpers/dropdown_helper'
@@ -17,6 +18,7 @@ module Bh
   class MiddlemanExtension < Middleman::Extension
     helpers do
       include AlertHelper
+      include ButtonHelper
       include ButtonToHelper
       include CdnHelper
       include DropdownHelper
