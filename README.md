@@ -55,7 +55,7 @@ How to install
 
 Bh is meant to be included in Rails apps by adding this line to the Gemfile:
 
-    gem 'bh', '~> 1.0'
+    gem 'bh', '~> 1.1'
 
 Since the gem follows [Semantic Versioning](http://semver.org), indicating the
 version number in your Gemfile in the *'~> major.minor'* format guarantees
@@ -92,7 +92,7 @@ document the changes in CHANGELOG.md and README.md, bump the version, then run
 
 Remember that the bh gem follows [Semantic Versioning](http://semver.org).
 
-Any new release that makes backward-compatible bug fixes should bump the *patch* version (1.0.x).
+Any new release that makes backward-compatible bug fixes should bump the *patch* version (1.1.x).
 
 Any new release that adds backward-compatible features should bump the *minor* version (1.x.0).
 
