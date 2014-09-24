@@ -6,6 +6,7 @@ require 'bh/helpers/dropdown_helper'
 require 'bh/helpers/form_for_helper'
 require 'bh/helpers/glyphicon_helper'
 require 'bh/helpers/icon_helper'
+require 'bh/helpers/label_helper'
 require 'bh/helpers/link_to_helper'
 require 'bh/helpers/modal_helper'
 require 'bh/helpers/nav_helper'
@@ -25,6 +26,7 @@ module Bh
       ActionView::Base.send :include, FormForHelper
       ActionView::Base.send :include, GlyphiconHelper
       ActionView::Base.send :include, IconHelper
+      ActionView::Base.send :include, LabelHelper
       ActionView::Base.send :include, LinkToHelper
       ActionView::Base.send :include, ModalHelper
       ActionView::Base.send :include, NavHelper
