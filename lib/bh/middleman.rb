@@ -6,6 +6,7 @@ require 'bh/helpers/dropdown_helper'
 require 'bh/helpers/form_for_helper'
 require 'bh/helpers/glyphicon_helper'
 require 'bh/helpers/icon_helper'
+require 'bh/helpers/label_helper'
 require 'bh/helpers/link_to_helper'
 require 'bh/helpers/modal_helper'
 require 'bh/helpers/nav_helper'
@@ -25,6 +26,7 @@ module Bh
       include FormForHelper
       include GlyphiconHelper
       include IconHelper
+      include LabelHelper
       include LinkToHelper
       include ModalHelper
       include NavHelper
