@@ -6,6 +6,10 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 1.1.1 - 2014-09-20
+
+* [ENHANCEMENT] Bump Bootstrap version to 3.3.0
+
 ## 1.1.0 - 2014-09-20
 
 * [FEATURE] Add `icon` helper
