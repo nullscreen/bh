@@ -45,7 +45,7 @@ module Bh
     # @note if unspecified, the version should match the latest available
     #   version. If that's not the case, it's a bug and should be fixed.
     def bootstrap_asset(options = {})
-      options[:version] ||= '3.2.0'
+      options[:version] ||= '3.3.0'
       cdn_asset options.merge(library: 'bootstrap')
     end
 
