@@ -56,6 +56,11 @@ field_helpers_to_test.each do |form_field|
         it { expect(form).to match %r{<div class="input-group"><.+?><span class="input-group-addon">Jr</span></div>}m }
       end
 
+      context 'given a suffix option that is a button, prints the correct addon wrapper class' do
+        let(:options) { {suffix: content_tag(:button, 'hey', class: 'btn btn-default')} }
+        it { expect(form).to match %r{<div class="input-group"><.+?><span class="input-group-btn"><button class="btn btn-default">hey</button></span></div>}m }
+      end
+
       specify 'not given an error, does not apply has-error to the form group' do
         expect(form).not_to include 'has-error'
       end
