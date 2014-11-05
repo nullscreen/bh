@@ -1,8 +1,10 @@
 require 'bh/helpers/base_helper'
+require 'bh/helpers/button_helper'
 
 module Bh
   module LinkToHelper
     include BaseHelper
+    include ButtonHelper
 
     # Overrides ActionView +link_to+ to be able to add the 'alert-link' class
     # to the link in case the link is inside of an alert.
@@ -11,7 +13,17 @@ module Bh
     # '<li>' item in case the link is inside of a nav.
     # Overrides ActionView +link_to+ to be able to add the 'navbar-brand'
     # class to the link in case the link is inside of an alert.
+    # Overrides ActionView +link_to+ to be able to add button classes
+    # to the link if as: :button is passed as options.
+    # @example link_to as button
+    #    link_to 'Some link', '#', as: :button, context: :info, size: :lg
     def link_to(*args, &block)
+      options = (block_given? ? args[1] : args[2]) || {}
+      case options.delete(:as).to_s
+      when 'button', 'btn'
+        add_link_class!(btn_class(options), *args, &block)
+      end
+
       if @alert_link
         super *add_link_class!('alert-link', *args, &block), &block
       elsif @navbar_vertical
