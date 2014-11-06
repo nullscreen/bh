@@ -53,7 +53,7 @@ Please proceed to [http://fullscreen.github.io/bh](http://fullscreen.github.io/b
 How to install
 ==============
 
-Bh is meant to be included in Rails apps by adding this line to the Gemfile:
+Bh is meant to be included in Ruby apps by adding this line to the Gemfile:
 
     gem 'bh', '~> 1.1'
 
@@ -62,20 +62,30 @@ version number in your Gemfile in the *'~> major.minor'* format guarantees
 that your project won’t break when you `bundle update` to a new version.
 
 Adding `bh` to your Gemfile is all you need!
-From now on, you will be able to use any Bh helper in your ERB views.
+From now on, you will be able to use any Bh helper in your views.
 
+How to try it in your browser
+=============================
 
-How to try it in your browser in 10 seconds
-===========================================
+The `examples` folder includes two sample apps that you can rapidly run in
+your browser and edit as you please, in order to visually appreciate the result
+of Bh.
+
+If you’d like to run the _test Rails app_:
+
+1. Download the source code
+1. `cd` into the `examples/rails` folder
+1. Run `bundle install`
+1. Run `bundle exec rails server`
+1. Point your browser to [http://0.0.0.0:3000](http://0.0.0.0:3000)
+
+If you prefer to see the helpers inside a _test Middleman app_:
 
 1. Download the source code
 1. `cd` into the `examples/middleman` folder
 1. Run `bundle install`
 1. Run `bundle exec middleman`
 1. Point your browser to [http://0.0.0.0:4567](http://0.0.0.0:4567)
-
-There you will see an example HTML page generated with many Bootstrap Helpers.
-Feel free to edit the [source/index.html.erb](https://github.com/claudiob/bh/blob/master/examples/middleman/source/index.html.erb) file and refresh the page to test how the helpers look like.
 
 
 How to update
