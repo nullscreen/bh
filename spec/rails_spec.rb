@@ -5,4 +5,5 @@ describe 'When used in Rails' do
   include ActionView::Context # for capture
 
   all_tests_pass_for 'the alert_box helper'
+  all_tests_pass_for 'the button helper'
 end
