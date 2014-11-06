@@ -15,28 +15,30 @@ require 'bh/helpers/panel_row_helper'
 require 'bh/helpers/progress_bar_helper'
 
 module Bh
-  class Railtie < Rails::Railtie
-    initializer 'bh.add_helpers' do
-      ActionView::Base.send :include, AlertHelper
-      ActionView::Base.send :include, ButtonHelper
-      ActionView::Base.send :include, ButtonToHelper
-      ActionView::Base.send :include, CdnHelper
-      ActionView::Base.send :include, DropdownHelper
-      ActionView::Base.send :include, FormForHelper
-      ActionView::Base.send :include, GlyphiconHelper
-      ActionView::Base.send :include, IconHelper
-      ActionView::Base.send :include, LinkToHelper
-      ActionView::Base.send :include, ModalHelper
-      ActionView::Base.send :include, NavHelper
-      ActionView::Base.send :include, NavbarHelper
-      ActionView::Base.send :include, PanelHelper
-      ActionView::Base.send :include, PanelRowHelper
-      ActionView::Base.send :include, ProgressBarHelper
-    end
+  module Extensions
+    class Railtie < Rails::Railtie
+      initializer 'bh.add_helpers' do
+        ActionView::Base.send :include, AlertHelper
+        ActionView::Base.send :include, ButtonHelper
+        ActionView::Base.send :include, ButtonToHelper
+        ActionView::Base.send :include, CdnHelper
+        ActionView::Base.send :include, DropdownHelper
+        ActionView::Base.send :include, FormForHelper
+        ActionView::Base.send :include, GlyphiconHelper
+        ActionView::Base.send :include, IconHelper
+        ActionView::Base.send :include, LinkToHelper
+        ActionView::Base.send :include, ModalHelper
+        ActionView::Base.send :include, NavHelper
+        ActionView::Base.send :include, NavbarHelper
+        ActionView::Base.send :include, PanelHelper
+        ActionView::Base.send :include, PanelRowHelper
+        ActionView::Base.send :include, ProgressBarHelper
+      end
 
-    initializer 'bh.add_views' do |app|
-      views_path = File.dirname(__FILE__) + "/views"
-      ActionController::Base.prepend_view_path views_path
+      initializer 'bh.add_views' do |app|
+        views_path = File.dirname(__FILE__) + "/views"
+        ActionController::Base.prepend_view_path views_path
+      end
     end
   end
 end
