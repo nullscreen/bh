@@ -2,9 +2,9 @@
 
 require 'spec_helper'
 
-require 'bh/helpers/alert_helper'
+require 'bh/helpers/alert_box_helper'
 require 'bh/core_ext/rails/link_to_helper'
-include Bh::AlertHelper
+include Bh::AlertBoxHelper
 include Bh::LinkToHelper
 
 describe 'alert_box' do

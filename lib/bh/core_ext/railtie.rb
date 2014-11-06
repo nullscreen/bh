@@ -1,4 +1,4 @@
-require 'bh/helpers/alert_helper'
+require 'bh/helpers/alert_box_helper'
 require 'bh/helpers/button_helper'
 require 'bh/helpers/button_to_helper'
 require 'bh/helpers/cdn_helper'
@@ -19,7 +19,7 @@ module Bh
   module Extensions
     class Railtie < Rails::Railtie
       initializer 'bh.add_helpers' do
-        ActionView::Base.send :include, AlertHelper
+        ActionView::Base.send :include, AlertBoxHelper
         ActionView::Base.send :include, ButtonHelper
         ActionView::Base.send :include, ButtonToHelper
         ActionView::Base.send :include, CdnHelper
