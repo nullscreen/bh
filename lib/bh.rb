@@ -1,6 +1,6 @@
-require 'bh/railtie' if defined?(Rails)
-require 'bh/middleman' if defined?(Middleman)
-
-# Adds Bootstrap styles to Rails helpers
+# Bootstrap Helpers
 module Bh
 end
+
+require 'bh/core_ext/railtie' if defined?(Rails)
+require 'bh/core_ext/middleman' if defined?(Middleman)
