@@ -7,7 +7,7 @@ require 'bh/core_ext/rails/link_to_helper'
 require 'bh/helpers/nav_helper'
 require 'bh/helpers/navbar_helper'
 
-include Bh::AlertHelper
+include Bh::AlertBoxHelper
 include Bh::DropdownHelper
 include Bh::LinkToHelper
 include Bh::NavHelper

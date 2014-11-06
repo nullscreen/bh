@@ -1,7 +1,7 @@
 require 'bh/helpers/base_helper'
 
 module Bh
-  module AlertHelper
+  module AlertBoxHelper
     include BaseHelper
     # Returns an HTML block tag that follows the Bootstrap documentation
     # on how to display *alert boxes*.

@@ -19,7 +19,7 @@ module Bh
   module Extensions
     class Railtie < Rails::Railtie
       initializer 'bh.add_helpers' do
-        ActionView::Base.send :include, AlertHelper
+        ActionView::Base.send :include, AlertBoxHelper
         ActionView::Base.send :include, ButtonHelper
         ActionView::Base.send :include, ButtonToHelper
         ActionView::Base.send :include, CdnHelper

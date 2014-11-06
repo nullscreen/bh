@@ -16,7 +16,7 @@ module Bh
   module Extensions
     class MiddlemanExtension < Middleman::Extension
       helpers do
-        include AlertHelper
+        include AlertBoxHelper
         include ButtonHelper
         include ButtonToHelper
         include CdnHelper
