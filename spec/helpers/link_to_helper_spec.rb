@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'action_dispatch'
 
-require 'bh/helpers/alert_helper'
+require 'bh/helpers/alert_box_helper'
 require 'bh/helpers/dropdown_helper'
 require 'bh/core_ext/rails/link_to_helper'
 require 'bh/helpers/nav_helper'
