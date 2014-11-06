@@ -23,11 +23,7 @@ module Bh
     end
 
     def context_for(context = nil, options = {})
-      context = case context.to_s
-        when 'notice' then 'success'
-        when 'alert' then 'danger'
-        else context.to_s
-      end
+      context = context.to_s
 
       if options.fetch(:valid, []).map(&:to_s).include? context
         context

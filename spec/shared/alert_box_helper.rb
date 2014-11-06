@@ -50,7 +50,11 @@ shared_examples_for 'the :context alert option' do
   specify 'not set, adds the class alert-info' do
     expect(nil).to generate_alert_with 'alert-info'
   end
-
+  # Bh::AlertBox.new.contexts.each do |context, context_class|
+  #   specify %Q{set to :#{context}, adds the class "#{context_class}"} do
+  #     expect(context: context.to_s).to generate_alert_with context_class
+  #   end
+  # end
 end
 
 shared_examples_for 'the :dismissible alert option' do
@@ -87,10 +91,10 @@ end
 RSpec::Matchers.define :generate_alert_with do |text|
   match do |options|
     inline = alert_box *['inline', options].compact
-    inline_match = inline.include?('inline') && inline.include?(text)
+    inline_match = inline.include?('inline') && inline.include?(text.to_s)
 
     block = alert_box(*[options].compact) { 'block' }
-    block_match = block.include?('block') && block.include?(text)
+    block_match = block.include?('block') && block.include?(text.to_s)
 
     inline_match && block_match
   end

@@ -1,4 +1,5 @@
 require 'bh/helpers/base_helper'
+require 'bh/classes/stack'
 
 module Bh
   module LinkToHelper
@@ -12,7 +13,7 @@ module Bh
     # Overrides ActionView +link_to+ to be able to add the 'navbar-brand'
     # class to the link in case the link is inside of an alert.
     def link_to(*args, &block)
-      if @alert_link
+      if Bh::Stack.find Bh::AlertBox
         super *add_link_class!('alert-link', *args, &block), &block
       elsif @navbar_vertical
         super *add_link_class!('navbar-brand', *args, &block), &block
