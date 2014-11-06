@@ -79,6 +79,14 @@ describe 'dropdown' do
     end
   end
 
+  describe 'with the :layout option' do
+    describe 'set to :block, shows a "block" dropdown button' do
+      let(:options) { {layout: :block, groupable: false} }
+      it { expect(html).to include 'btn-block' }
+    end
+  end
+
+
   describe 'with the :context option' do
     let(:options) { {context: context} }
 

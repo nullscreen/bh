@@ -8,8 +8,9 @@ For more information about changelogs, check
 
 ## 1.1.2 - unreleased
 
+* [ENHANCEMENT] Allow `dropdown` to display a full-width button when called with `{layout: :block, groupable: false}`
 * [ENHANCEMENT] Allow `alert_box` to pass extra parameters to the alert box <div>
-  
+
 ## 1.1.1 - 2014-09-20
 
 * [ENHANCEMENT] Bump Bootstrap version to 3.3.0

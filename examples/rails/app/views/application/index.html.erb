@@ -185,39 +185,45 @@
         <% end %>
       <% end %>
 
-      <%= dropdown 'Menu', split: true do %>
+      <%= dropdown 'Split', split: true do %>
         <%= link_to 'Home', url_for(:root) %>
         <%= link_to 'Users', url_for(:root) %>
         <%= link_to 'Profile', url_for(:root) %>
       <% end %>
 
-      <%= dropdown 'Menu', direction: :up do %>
+      <%= dropdown 'Up', direction: :up do %>
         <%= link_to 'Home', url_for(:root) %>
         <%= link_to 'Users', url_for(:root) %>
         <%= link_to 'Profile', url_for(:root) %>
       <% end %>
 
-      <%= dropdown 'Menu', align: :right do %>
+      <%= dropdown 'Right', align: :right do %>
         <%= link_to 'Home', url_for(:root) %>
         <%= link_to 'Users', url_for(:root) %>
         <%= link_to 'Profile', url_for(:root) %>
       <% end %>
 
-      <%= dropdown 'Menu', groupable: true do %>
+      <%= dropdown 'Groupable', groupable: true do %>
         <%= link_to 'Home', url_for(:root) %>
         <%= link_to 'Users', url_for(:root) %>
       <% end %>
-      <%= dropdown 'Profile', groupable: true do %>
+      <%= dropdown 'Groupable', groupable: true do %>
         <%= link_to 'Profile', url_for(:root) %>
       <% end %>
 
-      <%= dropdown 'Menu', context: :info do %>
+      <%= dropdown 'Block', layout: :block, groupable: false do %>
         <%= link_to 'Profile', url_for(:root) %>
       <% end %>
 
-      <%= dropdown 'Menu', size: :extra_small do %>
+      <%= dropdown 'Info', context: :info do %>
         <%= link_to 'Profile', url_for(:root) %>
       <% end %>
+
+      <%= dropdown 'Extra small', size: :extra_small do %>
+        <%= link_to 'Profile', url_for(:root) %>
+      <% end %>
+
+      <%= dropdown 'Empty (Just the button)' %>
 
       <h1>Forms</h1>
 

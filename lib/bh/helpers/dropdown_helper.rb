@@ -19,6 +19,9 @@ module Bh
     #   that only toggles the dropdown when clicked on the rightmost part.
     # @option options [#to_s] :direction if set to :up, the dropdown appears
     #   above the button, rather than below.
+    # @option options [#to_s] :layout if set to `:block`, span the dropdown
+    #   button for the full width of the parent. Note that :groupable takes
+    #   precedence, so it must be set to `false` to display a full-width button.
     # @option options [#to_s] :align if set to :right, the dropdown is aligned
     #   to the right-end of the button, rather than to the left-end.
     # @option options [#to_s] :context (:default) the context for the button,
@@ -32,6 +35,7 @@ module Bh
       dropdown.append_class_to! :button, :btn
       dropdown.append_class_to! :button, dropdown.context_class
       dropdown.append_class_to! :button, dropdown.size_class
+      dropdown.append_class_to! :button, dropdown.layout_class
       dropdown.append_class_to! :div, dropdown.groupable_class
       dropdown.append_class_to! :div, dropdown.direction_class
       dropdown.append_class_to! :ul, :'dropdown-menu'
