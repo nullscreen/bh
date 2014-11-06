@@ -6,9 +6,7 @@ require 'bh/helpers/dropdown_helper'
 include Bh::DropdownHelper
 
 describe 'dropdown' do
-  let(:views_folder) { File.expand_path('../../../lib/bh/views', __FILE__) }
-  let(:lookup_context) { ActionView::LookupContext.new views_folder }
-  let(:view_renderer) { ActionView::Renderer.new lookup_context }
+  attr_accessor :output_buffer
   let(:caption) { 'Menu' }
   let(:options) { {} }
   let(:html) { dropdown(caption, options) {} }

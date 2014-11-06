@@ -1,4 +1,5 @@
 require 'bh/classes/stack'
+require 'ostruct'
 
 module Bh
   module Classes
@@ -23,6 +24,10 @@ module Bh
         hash[:class] = [existing_class, new_class].compact.join ' '
       end
 
+      def append_class_to!(key, new_class)
+        append_class! new_class, (html_attributes[key] ||= {})
+      end
+
       def prepend_html!(html)
         @content = safe_join [html, @content]
       end
@@ -30,6 +35,13 @@ module Bh
       def render_tag(tag)
         html = @app.content_tag tag, @content, attributes
         render html
+      end
+
+      def render_partial(partial)
+        file = File.expand_path "../../views/bh/_#{partial}.html.erb", __FILE__
+        template = ERB.new(File.read file)
+        assigns = OpenStruct.new attributes.merge(content: @content)
+        render template.result(assigns.instance_eval{ binding &nil }).html_safe
       end
 
     private
@@ -69,7 +81,8 @@ module Bh
       end
 
       def capture_content(&block)
-        ActiveSupport::SafeBuffer.new.safe_concat(@app.capture &block)
+        content = @app.capture &block
+        ActiveSupport::SafeBuffer.new.safe_concat(content) if content
       end
     end
   end

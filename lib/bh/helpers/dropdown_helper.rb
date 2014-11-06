@@ -1,28 +1,15 @@
-require 'bh/helpers/base_helper'
+require 'bh/classes/dropdown'
 
 module Bh
-  # Provides methods to include dropdowns.
-  # @see http://getbootstrap.com/components/#dropdowns
-  # @see http://getbootstrap.com/components/#btn-dropdowns
+  # Provides the `dropdown` helper.
   module DropdownHelper
-    include BaseHelper
-
-    # Returns an HTML block tag that follows the Bootstrap documentation
-    # on how to display *dropdowns*.
-    #
-    # The skeleton of the dropdown is an unordered list; its content is passed
-    # as block to the list of dropdown items.
-    # Since the most common use for a dropdown is to display a menu of links, a
-    # variable is set inside the block so that every call to +link_to+
-    # generates a link *surrounded by a list item* and with the appropriate
-    # menu item attributes.
-    # @example A right-aligned dropdown with two links.
-    #   <%= dropdown 'Menu', align: :right do %>
-    #     <%= link_to 'Home', '/' %>
-    #     <%= link_to 'Profile', '/profile' %>
-    #   <% end %>
-    #
-    # @return [String] an HTML block tag for a dropdown.
+    # @see http://getbootstrap.com/components/#dropdowns
+    # @see http://getbootstrap.com/components/#btn-dropdowns
+    # @return [String] an HTML block to display a dropdown.
+    # @example A right-aligned dropdown with a links.
+    #   dropdown 'Menu', align: :right do
+    #     content_tag :li, link_to('Home', '/')
+    #   end
     # @param [#to_s] caption the caption for the dropdown button.
     # @param [Hash] options the display options for the dropdown.
     # @option options [Boolean] :groupable (true) if true, uses the "btn-group"
@@ -37,46 +24,20 @@ module Bh
     # @option options [#to_s] :context (:default) the context for the button,
     #   which determines its color.
     # @option options [#to_s] :size the size of the button.
-    # @yield block the content of the dropdown
-    # @see http://getbootstrap.com/components/#dropdowns
-    # @see http://getbootstrap.com/components/#btn-dropdowns
+    # @yieldreturn [#to_s] the content of the dropdown.
     def dropdown(caption, options = {}, &block)
-      options ||= {}
-      options[:id] ||= "dropdown-#{rand 10**10}"
-      options[:caption] = caption
-      options[:div_class] = dropdown_div_class options
-      options[:button_class] = dropdown_button_class options
-      options[:list_class] = dropdown_list_class options
-      layout = options[:split] ? 'bh/dropdown_split' : 'bh/dropdown'
-      @dropdown_link = true
-      dropdown = render layout: layout, locals: options, &block
-      dropdown.tap{ @dropdown_link = false }
-    end
+      dropdown = Bh::Dropdown.new self, nil, options, &block
+      dropdown.merge! button: {caption: caption, id: dropdown.id}
 
-  private
+      dropdown.append_class_to! :button, :btn
+      dropdown.append_class_to! :button, dropdown.context_class
+      dropdown.append_class_to! :button, dropdown.size_class
+      dropdown.append_class_to! :div, dropdown.groupable_class
+      dropdown.append_class_to! :div, dropdown.direction_class
+      dropdown.append_class_to! :ul, :'dropdown-menu'
+      dropdown.append_class_to! :ul, dropdown.align_class
 
-    def dropdown_div_class(options = {})
-      group = options.fetch(:groupable, true) ? 'btn-group' : 'dropdown'
-      direction = 'dropup' if options[:direction].to_s == 'up'
-      [group, direction].compact.join ' '
-    end
-
-    def dropdown_list_class(options = {})
-      align = 'dropdown-menu-right' if options[:align].to_s == 'right'
-      ['dropdown-menu', align].compact.join ' '
-    end
-
-    def dropdown_button_class(options = {})
-      valid_contexts = %w(primary success info warning danger link)
-      context = context_for options[:context], valid: valid_contexts
-
-      size = case options[:size].to_s
-        when 'lg', 'large' then 'btn-lg'
-        when 'sm', 'small' then 'btn-sm'
-        when 'xs', 'extra_small' then 'btn-xs'
-      end
-
-      ['btn', "btn-#{context}", size].compact.join ' '
+      dropdown.render_partial dropdown.partial
     end
   end
 end
