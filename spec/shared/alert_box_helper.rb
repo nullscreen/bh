@@ -5,6 +5,7 @@ shared_examples_for 'the alert_box helper' do
   include Bh::AlertBoxHelper
 
   all_tests_pass_with 'no alert options'
+  all_tests_pass_with 'extra alert options'
   all_tests_pass_with 'the :context alert option'
   all_tests_pass_with 'the :dismissible alert option'
   all_tests_pass_with 'the :priority alert option'
@@ -16,6 +17,12 @@ shared_examples_for 'no alert options' do
   specify 'sets the role and the class to "alert"' do
     expect(nil).to generate_alert_with 'role="alert"'
     expect(nil).to generate_alert_with 'class="alert alert-info"'
+  end
+end
+
+shared_examples_for 'extra alert options' do
+  specify 'passes the options to the wrapping <div>' do
+    expect(class: 'text-left').to generate_alert_with 'class="text-left'
   end
 end
 
