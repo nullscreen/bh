@@ -1,13 +1,13 @@
-require 'bh/helpers/form/check_box_helper'
-require 'bh/helpers/form/field_helper'
-require 'bh/helpers/form/fieldset_helper'
-require 'bh/helpers/form/fields_for_helper'
-require 'bh/helpers/form/file_field_helper'
-require 'bh/helpers/form/legend_helper'
-require 'bh/helpers/form/radio_button_helper'
-require 'bh/helpers/form/select_helper'
-require 'bh/helpers/form/static_control_helper'
-require 'bh/helpers/form/submit_helper'
+require 'bh/core_ext/rails/form/check_box_helper'
+require 'bh/core_ext/rails/form/field_helper'
+require 'bh/core_ext/rails/form/fieldset_helper'
+require 'bh/core_ext/rails/form/fields_for_helper'
+require 'bh/core_ext/rails/form/file_field_helper'
+require 'bh/core_ext/rails/form/legend_helper'
+require 'bh/core_ext/rails/form/radio_button_helper'
+require 'bh/core_ext/rails/form/select_helper'
+require 'bh/core_ext/rails/form/static_control_helper'
+require 'bh/core_ext/rails/form/submit_helper'
 
 module Bh
   class FormBuilder < ActionView::Helpers::FormBuilder

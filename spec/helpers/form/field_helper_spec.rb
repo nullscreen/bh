@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'bh/helpers/form_for_helper'
+require 'bh/core_ext/rails/form_for_helper'
 include Bh::FormForHelper
 
 def self.field_helpers_to_test
