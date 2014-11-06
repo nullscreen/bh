@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag font_awesome_css, bootstrap_css, bootstrap_theme_css %>
+    <title>Bh test page</title>
+  </head>
+  <body>
+    <div class='container'>
+
+      <h1>Alerts</h1>
+
+      <%= alert_box 'You accepted the Terms of service.', context: :success, dismissible: true %>
+      <%= alert_box 'You accepted the Terms of service.', context: :info, dismissible: true %>
+      <%= alert_box 'You accepted the Terms of service.', context: :warning, dismissible: true %>
+      <%= alert_box 'You accepted the Terms of service.', context: :danger, dismissible: true %>
+      <%= alert_box 'You accepted the Terms of service.', dismissible: true %>
+      <%= alert_box context: :warning, dismissible: true do %>
+        <strong>Thanks!</strong> You accepted the <%= link_to 'Terms of service', '/terms' %>.
+      <% end %>
+
+      <h1>Panels</h1>
+
+      <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :primary %>
+      <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :success %>
+      <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :info %>
+      <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :warning %>
+      <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :danger %>
+      <%= panel body: 'You accepted the Terms of service.', title: 'Thanks' %>
+      <%= panel tag: :aside do %>
+        <div class='panel-body'>You accepted the Terms of service. <%= glyphicon :ok %></div>
+        <div class='panel-footer'><h4>Thanks</h4></div>
+      <% end %>
+
+      <h1>Panel rows</h1>
+
+      <%= panel_row column_class: 'col-sm-4' do %>
+        <%= panel body: 'Panel #1' %>
+        <%= panel body: 'Panel #2' %>
+        <%= panel body: 'Panel #3' %>
+      <% end %>
+
+      <%= panel_row column_class: 'col-sm-4' do %>
+        <%= panel title: 'User', context: :info do %>
+          <div class='panel-body'><%= glyphicon :user %> John Smith</div>
+        <% end %>
+        <%= panel title: 'Phone' do %>
+          <div class='panel-body'><%= glyphicon :earphone %> 323-555-5555</div>
+        <% end %>
+        <%= panel title: 'City' do %>
+          <div class='panel-body'><%= glyphicon :record %> Los Angeles, CA</div>
+        <% end %>
+      <% end %>
+
+      <h1>Modals</h1>
+
+      <%= modal body: 'Do what you want!' %>
+      <%= modal body: 'Do what you want!', size: 'small' %>
+      <%= modal title: 'Terms of service', body: 'Do what you want!', button: {context: :info}  %>
+      <%= modal button: {layout: :block}, title: 'Terms of service', body: 'Do what you want!' %>
+      <%= modal button: {caption: 'Click me!'}, body: 'Do what you want!' %>
+      <%= modal button: {size: :xs}, body: 'Do what you want!' %>
+      <%= modal title: 'Terms of service', button: {size: :large, context: :info} do %>
+        <div class="modal-body">Please accept the Terms of service.</div>
+        <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
+      <% end %>
+
+
+      <h1>Navs</h1>
+
+      <%= nav do %>
+        <%= link_to 'Home', '/' %>
+        <%= link_to 'Users', '/users' %>
+        <%= link_to 'Profile', '/profile' %>
+      <% end %>
+
+      <%= nav layout: :justified do %>
+        <%= link_to 'Home', root_url %>
+        <%= link_to 'Users', users_url %>
+        <%= link_to 'Profile', user_path(1) %>
+      <% end %>
+
+      <%= nav as: :pills do %>
+        <%= link_to 'Home', controller: :application, action: :index %>
+        <%= link_to 'Users', controller: :users %>
+        <%= link_to 'Profile', controller: :users, action: :show, id: 1 %>
+      <% end %>
+
+      <%= nav as: :pills, layout: :stacked do %>
+        <%= link_to controller: :application do %>
+          Home
+        <% end %>
+        <%= link_to({controller: :users}, data: {confirm: true}) do %>
+          Users
+        <% end %>
+        <%= link_to controller: :users, action: :show, id: 1, anchor: 'anchor' do %>
+          Home
+        <% end %>
+      <% end %>
+
+
+      <h1>Navbars</h1>
+
+      <%= navbar do %>
+        <%= vertical do %>
+          <%= link_to 'Home', root_path %>
+        <% end %>
+        <%= horizontal do %>
+          <%= nav class: 'navbar-right' do %>
+            <%= link_to 'Profile', root_path %>
+            <%= link_to 'Settings', users_path %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= navbar inverted: true do %>
+        <%= vertical do %>
+          <%= link_to 'Home', root_path %>
+        <% end %>
+        <%= horizontal do %>
+          <%= nav class: 'navbar-right' do %>
+            <%= link_to 'Users', users_path %>
+            <%= link_to 'Settings', users_path %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= navbar fluid: true do %>
+        <%= vertical do %>
+          <%= link_to 'Home', root_path %>
+        <% end %>
+      <% end %>
+
+      <%= navbar position: :static do %>
+        <%= vertical do %>
+          <%= link_to 'Home', root_path %>
+        <% end %>
+      <% end %>
+
+      <%= navbar position: :top do %>
+        <%= vertical do %>
+          <%= link_to 'Home', root_path %>
+        <% end %>
+      <% end %>
+
+      <%= navbar position: :bottom, padding: 100 do %>
+        <%= vertical do %>
+          <%= link_to 'Home', root_path %>
+        <% end %>
+      <% end %>
+
+
+      <h1>Buttons</h1>
+
+      <%= button 'Menu' %>
+      <%= button 'Menu', context: :info %>
+      <%= button 'Menu', size: :large %>
+      <%= button 'Menu', layout: :block %>
+      <%= button context: :info do %>
+        <strong>Click</strong> me
+      <% end %>
+
+      <h1>Button to</h1>
+
+      <%= button_to "New", {controller: 'users', action: "new"}, context: :info %>
+      <%= button_to "New", new_user_path, size: :extra_small %>
+      <%= button_to [:edit, User.new] do %>
+        Edit <strong>user</strong>
+      <% end %>
+      <%= button_to "New", { controller: 'users', action: "new" }, form_class: "new-thing" %>
+      <%= button_to "Create user", { controller: 'users', action: "create" }, remote: true, form: { "data-type" => "json" } %>
+      <%= button_to "Delete User", { controller: 'users', action: "destroy", id: 1 }, method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= button_to('Destroy', 'http://www.example.com',  method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
+
+
+      <h1>Dropdowns</h1>
+
+      <%= dropdown 'Menu' do %>
+        <%= link_to 'Home', url_for(:root), method: :get %>
+        <%= link_to 'Users', url_for(:root), style: 'font-weight: bold' %>
+        <%= link_to url_for(:root) do %>
+          <strong>my</strong> profile
+        <% end %>
+      <% end %>
+
+      <%= dropdown 'Menu', split: true do %>
+        <%= link_to 'Home', url_for(:root) %>
+        <%= link_to 'Users', url_for(:root) %>
+        <%= link_to 'Profile', url_for(:root) %>
+      <% end %>
+
+      <%= dropdown 'Menu', direction: :up do %>
+        <%= link_to 'Home', url_for(:root) %>
+        <%= link_to 'Users', url_for(:root) %>
+        <%= link_to 'Profile', url_for(:root) %>
+      <% end %>
+
+      <%= dropdown 'Menu', align: :right do %>
+        <%= link_to 'Home', url_for(:root) %>
+        <%= link_to 'Users', url_for(:root) %>
+        <%= link_to 'Profile', url_for(:root) %>
+      <% end %>
+
+      <%= dropdown 'Menu', groupable: true do %>
+        <%= link_to 'Home', url_for(:root) %>
+        <%= link_to 'Users', url_for(:root) %>
+      <% end %>
+      <%= dropdown 'Profile', groupable: true do %>
+        <%= link_to 'Profile', url_for(:root) %>
+      <% end %>
+
+      <%= dropdown 'Menu', context: :info do %>
+        <%= link_to 'Profile', url_for(:root) %>
+      <% end %>
+
+      <%= dropdown 'Menu', size: :extra_small do %>
+        <%= link_to 'Profile', url_for(:root) %>
+      <% end %>
+
+      <h1>Forms</h1>
+
+      <p>Forms currently not supported in Middleman.</p>
+
+      <h1>Progress bars</h1>
+
+      <%= progress_bar percentage: 30 %>
+
+      <%= progress_bar percentage: 30, label: true %>
+      <%= progress_bar percentage: 30, label: "thirty percent" %>
+
+      <%= progress_bar percentage: 30, context: :warning %>
+
+      <%= progress_bar percentage: 30, striped: true %>
+
+      <%= progress_bar percentage: 30, animated: true %>
+
+      <%= progress_bar [{percentage: 30, context: :success, label: 'Completed'}, {percentage: 40, context: :warning, animated: true, label: 'Pending'}] %>
+
+      <h1>Glyphicons</h1>
+
+      <%= icon :zoom_in %>
+
+      <h1>Icons</h1>
+
+      <%= icon :heart %>
+      <%= stylesheet_link_tag font_awesome_css %>
+      <%= icon :heart, library: :font_awesome, class: 'fa-5x' %>
+
+    </div>
+    <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js' %>
+    <%= javascript_include_tag bootstrap_js %>
+  </body>
+</html>
