@@ -1,4 +1,4 @@
-require 'bh/helpers/form/fieldset_helper'
+require 'bh/core_ext/rails/form/fieldset_helper'
 
 module Bh
   module Form

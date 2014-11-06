@@ -1,5 +1,5 @@
 require 'bh/helpers/base_helper'
-require 'bh/form_builders/form_builder'
+require 'bh/core_ext/rails/form_builder'
 
 module Bh
   module FormForHelper

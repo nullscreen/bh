@@ -3,7 +3,6 @@ require 'bh/helpers/button_helper'
 require 'bh/helpers/button_to_helper'
 require 'bh/helpers/cdn_helper'
 require 'bh/helpers/dropdown_helper'
-require 'bh/helpers/form_for_helper'
 require 'bh/helpers/glyphicon_helper'
 require 'bh/helpers/icon_helper'
 require 'bh/helpers/link_to_helper'
@@ -13,6 +12,8 @@ require 'bh/helpers/navbar_helper'
 require 'bh/helpers/panel_helper'
 require 'bh/helpers/panel_row_helper'
 require 'bh/helpers/progress_bar_helper'
+
+require 'bh/core_ext/rails/form_for_helper'
 
 module Bh
   module Extensions
@@ -36,7 +37,7 @@ module Bh
       end
 
       initializer 'bh.add_views' do |app|
-        views_path = File.dirname(__FILE__) + "/views"
+        views_path = File.expand_path '../../views', __FILE__
         ActionController::Base.prepend_view_path views_path
       end
     end

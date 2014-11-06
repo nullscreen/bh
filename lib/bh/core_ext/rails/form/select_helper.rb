@@ -1,4 +1,4 @@
-require 'bh/helpers/form/base_helper'
+require 'bh/core_ext/rails/form/base_helper'
 
 module Bh
   module Form
