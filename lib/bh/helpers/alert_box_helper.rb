@@ -1,9 +1,8 @@
-require 'bh/helpers/base_helper'
+require 'bh/classes/alert_box'
 
 module Bh
   # Provides the `alert_box` helper.
   module AlertBoxHelper
-    include BaseHelper
     # @see http://getbootstrap.com/components/#alerts
     # @return [String] an HTML block to display an alert box.
     # @overload alert_box(message, options = {})
@@ -27,48 +26,15 @@ module Bh
     #       alert_box 'User updated successfully' do
     #         content_tag :strong, "User updated successfully"
     #       end
-    def alert_box(message_or_options_with_block = nil, options = nil, &block)
-      if block_given?
-        alert_string capture_alert(&block), message_or_options_with_block || {}
-      else
-        alert_string message_or_options_with_block, options || {}
-      end
-    end
+    def alert_box(*args, &block)
+      alert_box = Bh::AlertBox.new(self, *args, &block)
+      alert_box.extract! :context, :priority, :dismissible
 
-  private
-
-    def alert_string(message = nil, options = {})
-      dismissible = options[:dismissible] || options[:priority]
-      message = add_dismiss_button_to(message) if dismissible
-      klass = alert_class options.fetch(:context, options[:priority])
-      append_class! options, klass
-      content_tag :div, message, options.merge(role: :alert)
-    end
-
-    def alert_class(context = nil)
-      valid_contexts = %w(success info warning danger)
-      context = context_for context, default: 'info', valid: valid_contexts
-      "alert alert-#{context}"
-    end
-
-    def add_dismiss_button_to(message)
-      options = {type: 'button', class: 'close', :'data-dismiss' => 'alert'}
-      dismiss_button = content_tag :button, options do
-        safe_join [
-          content_tag(:span, '&times;'.html_safe, :'aria-hidden' => true),
-          content_tag(:span, 'Close', class: 'sr-only'),
-        ], ''
-      end
-      safe_join [dismiss_button, message], "\n"
-    end
-
-    # Captures the message passed as a block and sets a variable so that
-    # every +link_to+ helper called inside the block gets the "alert-link"
-    # class added, for links to look better.
-    # @see http://getbootstrap.com/components/#alerts-links
-    def capture_alert(&block)
-      @alert_link = true
-      capture(&block).tap{ @alert_link = false }
+      alert_box.merge! role: :alert
+      alert_box.append_class! :alert
+      alert_box.append_class! alert_box.context_class
+      alert_box.prepend_html! alert_box.dismissible_button
+      alert_box.render_tag :div
     end
   end
 end

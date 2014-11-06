@@ -27,30 +27,11 @@ shared_examples_for 'extra alert options' do
 end
 
 shared_examples_for 'the :context alert option' do
-  specify 'set to :success, adds the class alert-success' do
-    expect(context: 'success').to generate_alert_with 'alert-success'
+  Bh::AlertBox.new.contexts.each do |context, context_class|
+    specify %Q{set to :#{context}, adds the class "#{context_class}"} do
+      expect(context: context.to_s).to generate_alert_with context_class
+    end
   end
-
-  specify 'set to :info, adds the class alert-info' do
-    expect(context: 'info').to generate_alert_with 'alert-info'
-  end
-
-  specify 'set to :warning, adds the class alert-warning' do
-    expect(context: 'warning').to generate_alert_with 'alert-warning'
-  end
-
-  specify 'set to :danger, adds the class alert-danger' do
-    expect(context: 'danger').to generate_alert_with 'alert-danger'
-  end
-
-  specify 'set to any other value, adds the class alert-info' do
-    expect(context: 'info').to generate_alert_with 'alert-info'
-  end
-
-  specify 'not set, adds the class alert-info' do
-    expect(nil).to generate_alert_with 'alert-info'
-  end
-
 end
 
 shared_examples_for 'the :dismissible alert option' do
@@ -87,10 +68,10 @@ end
 RSpec::Matchers.define :generate_alert_with do |text|
   match do |options|
     inline = alert_box *['inline', options].compact
-    inline_match = inline.include?('inline') && inline.include?(text)
+    inline_match = inline.include?('inline') && inline.include?(text.to_s)
 
     block = alert_box(*[options].compact) { 'block' }
-    block_match = block.include?('block') && block.include?(text)
+    block_match = block.include?('block') && block.include?(text.to_s)
 
     inline_match && block_match
   end
