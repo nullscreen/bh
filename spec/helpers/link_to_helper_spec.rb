@@ -3,7 +3,7 @@ require 'action_dispatch'
 
 require 'bh/helpers/alert_helper'
 require 'bh/helpers/dropdown_helper'
-require 'bh/helpers/link_to_helper'
+require 'bh/core_ext/rails/link_to_helper'
 require 'bh/helpers/nav_helper'
 require 'bh/helpers/navbar_helper'
 

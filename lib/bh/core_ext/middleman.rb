@@ -5,7 +5,6 @@ require 'bh/helpers/cdn_helper'
 require 'bh/helpers/dropdown_helper'
 require 'bh/helpers/glyphicon_helper'
 require 'bh/helpers/icon_helper'
-require 'bh/helpers/link_to_helper'
 require 'bh/helpers/modal_helper'
 require 'bh/helpers/nav_helper'
 require 'bh/helpers/navbar_helper'
@@ -24,7 +23,6 @@ module Bh
         include DropdownHelper
         include GlyphiconHelper
         include IconHelper
-        include LinkToHelper
         include ModalHelper
         include NavHelper
         include NavbarHelper
