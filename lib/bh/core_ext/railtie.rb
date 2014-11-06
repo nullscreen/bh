@@ -1,6 +1,5 @@
 require 'bh/helpers/alert_box_helper'
 require 'bh/helpers/button_helper'
-require 'bh/helpers/button_to_helper'
 require 'bh/helpers/cdn_helper'
 require 'bh/helpers/dropdown_helper'
 require 'bh/helpers/glyphicon_helper'
@@ -14,6 +13,7 @@ require 'bh/helpers/progress_bar_helper'
 
 require 'bh/core_ext/rails/form_for_helper'
 require 'bh/core_ext/rails/link_to_helper'
+require 'bh/core_ext/rails/button_to_helper'
 
 module Bh
   module Extensions
