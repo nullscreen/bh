@@ -31,6 +31,8 @@
       <%= panel title: 'Title only' %>
       <%= panel body: 'Body only' %>
       <%= panel 'Content', body: 'And Body', title: 'and title' %>
+      <%= panel 'With extra params', class: 'important', id: 'alert', data: {name: 'name'} %>
+
 
       <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :primary %>
       <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :success %>
