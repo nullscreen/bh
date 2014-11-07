@@ -257,13 +257,16 @@
 
       <h1>Glyphicons</h1>
 
-      <%= icon :zoom_in %>
+      <%= glyphicon :zoom_in %>
+      <%= glyphicon %>
 
       <h1>Icons</h1>
 
       <%= icon :heart %>
-      <%= stylesheet_link_tag font_awesome_css %>
-      <%= icon :heart, library: :font_awesome, class: 'fa-5x' %>
+      <%= icon :heart, library: :glyphicons %>
+      <%= icon :heart, library: :font_awesome %>
+      <%= icon :heart, library: :font_awesome, class: 'fa-fw' %>
+      <%= icon :heart, library: :font_awesome, class: 'fa-lg' %>
 
     </div>
     <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js' %>
