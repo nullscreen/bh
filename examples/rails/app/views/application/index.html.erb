@@ -23,6 +23,15 @@
 
       <h1>Panels</h1>
 
+      <%= panel do %>
+        Block only
+      <% end %>
+
+      <%= panel 'Content only' %>
+      <%= panel title: 'Title only' %>
+      <%= panel body: 'Body only' %>
+      <%= panel 'Content', body: 'And Body', title: 'and title' %>
+
       <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :primary %>
       <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :success %>
       <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :info %>
