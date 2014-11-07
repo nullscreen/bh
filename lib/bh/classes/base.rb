@@ -16,7 +16,7 @@ module Bh
       end
 
       def merge!(attributes = {})
-        html_attributes.merge! attributes
+        html_attributes.deep_merge! attributes
       end
 
       def append_class!(new_class, hash = html_attributes)

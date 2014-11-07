@@ -6,9 +6,8 @@ require 'bh/helpers/modal_helper'
 include Bh::ModalHelper
 
 describe 'modal' do
-  let(:views_folder) { File.expand_path('../../../lib/bh/views', __FILE__) }
-  let(:lookup_context) { ActionView::LookupContext.new views_folder }
-  let(:view_renderer) { ActionView::Renderer.new lookup_context }
+  attr_accessor :output_buffer
+
   describe 'accepts as parameters:' do
     let(:behave) { include 'content' }
 
@@ -140,6 +139,18 @@ describe 'modal' do
   describe 'with the :title option' do
     specify 'includes its value as a title in the modal heading' do
       expect(modal 'content', title: 'Profile').to include 'Profile</h4>'
+    end
+  end
+
+  describe 'with the :id option' do
+    specify 'uses the ID to connect button and modal' do
+      expect(modal id: 'my-modal').to match /<button.+?data-target="#my-modal">.+?<div class="modal fade" id="my-modal"/m
+    end
+  end
+
+  describe 'without the :id option' do
+    specify 'uses a generated ID to connect button and modal' do
+      expect(modal).to match /<button.+?data-target="#(.*?)">.+?<div class="modal fade" id="\1"/m
     end
   end
 end
