@@ -67,6 +67,15 @@
 
       <h1>Modals</h1>
 
+      <%= modal do %>
+        Block only
+      <% end %>
+
+      <%= modal 'Content only' %>
+      <%= modal title: 'Title only' %>
+      <%= modal body: 'Body only' %>
+      <%= modal 'Content', body: 'And Body', title: 'and title' %>
+
       <%= modal body: 'Do what you want!' %>
       <%= modal body: 'Do what you want!', size: 'small' %>
       <%= modal title: 'Terms of service', body: 'Do what you want!', button: {context: :info}  %>

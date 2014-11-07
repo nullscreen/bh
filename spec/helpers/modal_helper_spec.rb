@@ -120,8 +120,20 @@ describe 'modal' do
   end
 
   describe 'with the :body option' do
-    specify 'includes its value in the modal body' do
+    specify 'and no content, includes its value in the modal body' do
       expect(modal body: 'Your profile was updated', title: 'Profile').to include '<div class="modal-body">Your profile was updated</div>'
+    end
+
+    specify 'and content, uses the content as the body' do
+      expect(modal 'content', body: 'Your profile was updated', title: 'Profile').to include '<div class="modal-body">content</div>'
+    end
+
+    specify 'not set and with content, uses the content as the body' do
+      expect(modal 'content', title: 'Profile').to include '<div class="modal-body">content</div>'
+    end
+
+    specify 'not set and with a content, does not include a body' do
+      expect(title: 'Profile').not_to include '<div class="modal-body">'
     end
   end
 
