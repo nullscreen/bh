@@ -5,6 +5,8 @@ require 'bh/helpers/panel_helper'
 include Bh::PanelHelper
 
 describe 'panel' do
+  attr_accessor :output_buffer
+
   describe 'accepts as parameters:' do
     let(:behave) { include 'content' }
 
@@ -102,6 +104,12 @@ describe 'panel' do
   describe 'with the :tag option' do
     specify 'uses the specified tag rather than DIV' do
       expect(panel 'content', tag: :aside).to include '<aside class="panel panel-default">'
+    end
+  end
+
+  describe 'with extra options' do
+    specify 'pass the options to the wrapping DIV' do
+      expect(panel 'content', id: 'my-panel', data: {name: 'a-panel'}).to include '<div class="panel panel-default" data-name="a-panel" id="my-panel">'
     end
   end
 end
