@@ -256,7 +256,8 @@
       <h1>Progress bars</h1>
 
       <%= progress_bar percentage: 30 %>
-      <%= progress_bar percentage: 30, label: 'Extra params', class: :important, id: 'my-bar', data: {value: 1} %>
+      <%= progress_bar percentage: 30, label: 'With bar params', class: :important, id: 'my-bar', data: {value: 1} %>
+      <%= progress_bar({percentage: 30, label: 'With container params'}, class: :important, id: 'my-container') %>
 
       <%= progress_bar percentage: 30, label: true %>
       <%= progress_bar percentage: 30, label: "thirty percent" %>

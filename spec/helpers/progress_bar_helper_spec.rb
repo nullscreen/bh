@@ -120,4 +120,12 @@ describe 'progress_bar' do
       expect(html).to match %r{^<div class="progress"><div.+aria-valuenow="20" class="progress-bar progress-bar-success".+style="width: 20%">20% \(success\)</div>\n<div.+aria-valuenow="30" class="progress-bar progress-bar-striped active".+style="width: 30%">Current</div></div>$}m
     end
   end
+
+  context 'with progress bar options and extra options' do
+    let(:html) { progress_bar({percentage: 30}, class: :important, id: 'my-container') }
+
+    it 'passes the extra options to the wrapping container' do
+      expect(html).to match '<div class="important progress" id="my-container"><div.+</div></div>'
+    end
+  end
 end
