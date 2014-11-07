@@ -6,6 +6,8 @@ require 'bh/helpers/progress_bar_helper'
 include Bh::ProgressBarHelper
 
 describe 'progress_bar' do
+  attr_accessor :output_buffer
+
   context 'without options' do
     let(:html) { progress_bar }
 
@@ -98,6 +100,13 @@ describe 'progress_bar' do
       context 'is set to true, shows an animated color bar' do
         let(:options) { {animated: true} }
         it { expect(html).to include 'class="progress-bar progress-bar-striped active"' }
+      end
+    end
+
+    describe 'given extra options' do
+      let(:options) { {class: :important, id: 'my-bar', data: {value: 1}} }
+      specify 'passes the options to the progress bar <div>' do
+        expect(html).to include 'class="important progress-bar" data-value="1" id="my-bar"'
       end
     end
   end
