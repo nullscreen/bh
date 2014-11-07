@@ -8,6 +8,7 @@ For more information about changelogs, check
 
 ## 1.1.2 - unreleased
 
+* [ENHANCEMENT] Wrap plain content passed to `modal` inside the modal body
 * [ENHANCEMENT] Allow `panel` to pass extra parameters to the wrapping <div>
 * [ENHANCEMENT] Wrap plain content passed to `panel` inside the panel body
 * [ENHANCEMENT] Allow `dropdown` to display a full-width button when called with `{layout: :block, groupable: false}`

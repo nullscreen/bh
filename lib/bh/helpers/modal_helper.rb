@@ -35,18 +35,17 @@ module Bh
     # @see http://getbootstrap.com/javascript/#modals
     def modal(content_or_options_with_block = nil, options = nil, &block)
       if block_given?
-        modal_string content_or_options_with_block, &block
+        modal_string (content_or_options_with_block || {}), &block
       elsif content_or_options_with_block.is_a?(Hash) && options.nil?
         modal_string content_or_options_with_block, &Proc.new { nil }
       else
-        modal_string options, &Proc.new { content_or_options_with_block }
+        modal_string (options || {}).merge(body: content_or_options_with_block), &Proc.new { nil }
       end
     end
 
   private
 
-    def modal_string(options = nil, &block)
-      options ||= {}
+    def modal_string(options, &block)
       options[:id] ||= "modal-#{rand 10**10}"
       options[:title] ||= 'Modal'
       options[:body] = modal_body options[:body]
