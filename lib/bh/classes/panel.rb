@@ -14,7 +14,7 @@ module Bh
         super
       end
 
-      # @return [#to_s] the content-related class to assign to the alert box.
+      # @return [#to_s] the content-related class to assign to the panel.
       def context_class
         contexts[@options[:context]]
       end
