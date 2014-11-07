@@ -8,7 +8,8 @@ For more information about changelogs, check
 
 ## 1.1.2 - unreleased
 
-* [ENHANCEMENT] Allow `progress_bar` to pass extra parameters to the wrapping <div>
+* [ENHANCEMENT] Allow `progress_bar` to pass extra parameters to the wrapping container
+* [ENHANCEMENT] Allow `progress_bar` to pass extra parameters to each bar
 * [ENHANCEMENT] Wrap plain content passed to `modal` inside the modal body
 * [ENHANCEMENT] Allow `panel` to pass extra parameters to the wrapping <div>
 * [ENHANCEMENT] Wrap plain content passed to `panel` inside the panel body

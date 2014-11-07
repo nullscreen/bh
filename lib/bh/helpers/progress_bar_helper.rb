@@ -24,7 +24,7 @@ module Bh
     #   @param [Array<Hash>] array_of_options the set of options for each
     #     progress bar. When an array is provided, a group of stacked progress
     #     bar is displayed, each one with the corresponding options.
-    def progress_bar(args = nil)
+    def progress_bar(args = nil, options = {})
       progress_bars = Array.wrap(args).map do |options|
         progress_bar = Bh::ProgressBar.new self, nil, options
         progress_bar.extract! :percentage, :context, :striped, :animated, :label
@@ -38,7 +38,7 @@ module Bh
         progress_bar.render_tag :div
       end
 
-      container = Bh::Base.new(self) {safe_join progress_bars, "\n"}
+      container = Bh::Base.new(self, options) {safe_join progress_bars, "\n"}
       container.append_class! :progress
       container.render_tag :div
     end
