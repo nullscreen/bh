@@ -17,7 +17,7 @@ module Bh
         super *add_link_class!('alert-link', *args, &block), &block
       elsif @navbar_vertical
         super *add_link_class!('navbar-brand', *args, &block), &block
-      elsif @dropdown_link
+      elsif Bh::Stack.find Bh::Dropdown
         content_tag :li, role: :presentation do
           super *add_menu_item_attributes!(*args, &block), &block
         end
