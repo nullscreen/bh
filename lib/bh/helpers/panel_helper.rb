@@ -32,7 +32,13 @@ module Bh
       panel.append_class! panel.context_class
       panel.merge_html! panel.body
       panel.prepend_html! panel.heading
-      panel.render_tag panel.tag
+      html = panel.render_tag panel.tag
+
+      if panel_row = Bh::Stack.find(Bh::PanelRow)
+        content_tag :div, html, class: panel_row.column_class
+      else
+        html
+      end
     end
   end
 end

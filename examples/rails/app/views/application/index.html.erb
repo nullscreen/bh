@@ -48,9 +48,9 @@
       <h1>Panel rows</h1>
 
       <%= panel_row column_class: 'col-sm-4' do %>
-        <%= panel body: 'Panel #1' %>
+        <%= panel 'Panel #1' %>
         <%= panel body: 'Panel #2' %>
-        <%= panel body: 'Panel #3' %>
+        <%= panel { content_tag :div, 'Panel #3', class: 'panel-body' } %>
       <% end %>
 
       <%= panel_row column_class: 'col-sm-4' do %>
