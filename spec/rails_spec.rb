@@ -7,4 +7,5 @@ describe 'When used in Rails' do
   all_tests_pass_for 'the alert_box helper'
   all_tests_pass_for 'the button helper'
   all_tests_pass_for 'the dropdown helper'
+  all_tests_pass_for 'the panel helper'
 end
