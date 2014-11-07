@@ -21,15 +21,5 @@ module Bh
       block_given? ? args[1] = html_options : args[2] = html_options
       args
     end
-
-    def context_for(context = nil, options = {})
-      context = context.to_s
-
-      if options.fetch(:valid, []).map(&:to_s).include? context
-        context
-      else
-        options.fetch :default, 'default'
-      end
-    end
   end
 end
