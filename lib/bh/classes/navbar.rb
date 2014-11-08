@@ -19,7 +19,7 @@ module Bh
       end
 
       def id
-        @id ||= "navbar-collapse-#{rand 10**10}"
+        @id ||= @options.fetch :id, "navbar-collapse-#{rand 10**10}"
       end
 
       # @private

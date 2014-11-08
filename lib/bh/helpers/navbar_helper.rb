@@ -37,7 +37,7 @@ module Bh
     # @yieldreturn [#to_s] the content of the navbar.
     def navbar(options = {}, &block)
       navbar = Bh::Navbar.new(self, options, &block)
-      navbar.extract! :inverted, :position, :padding, :fluid
+      navbar.extract! :inverted, :position, :padding, :fluid, :id
 
       navbar.append_class_to! :navigation, :navbar
       navbar.append_class_to! :navigation, navbar.style_class
