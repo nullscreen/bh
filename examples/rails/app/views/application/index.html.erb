@@ -94,6 +94,12 @@
 
       <h1>Navs</h1>
 
+      <%= nav class: :important, id: 'my-nav', data: {value: 1} do %>
+        <%= link_to 'Home', '/' %>
+        <%= link_to 'Users', '/users' %>
+        <%= link_to 'Profile', '/profile' %>
+      <% end %>
+
       <%= nav do %>
         <%= link_to 'Home', '/' %>
         <%= link_to 'Users', '/users' %>

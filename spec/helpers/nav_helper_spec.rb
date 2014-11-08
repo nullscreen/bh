@@ -44,6 +44,13 @@ describe 'nav' do
     end
   end
 
+  describe 'with extra options' do
+    let(:options) { {class: :important, id: 'my-nav', data: {value: 1}} }
+    specify 'passes the option to the <nav>' do
+      expect(html).to include 'ul class="important nav nav-tabs" data-value="1" id="my-nav"'
+    end
+  end
+
   describe 'within a navbar' do
     let(:html) { navbar { nav options, &block } }
     specify 'applies roles and classes specific to navbar' do
