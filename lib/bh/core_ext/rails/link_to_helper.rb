@@ -17,6 +17,18 @@ module Bh
     # Overrides ActionView +link_to+ to be able to add the 'navbar-brand'
     # class to the link in case the link is inside of an alert.
     def link_to(*args, &block)
+      options = (block_given? ? args[1] : args[2]) || {}
+      case options.delete(:as).to_s
+      when 'btn', 'button'
+        button = Bh::Button.new(self, *args, &block)
+        button.extract! :context, :size, :layout
+        button_class  = [:btn] 
+        button_class << button.context_class
+        button_class << button.size_class
+        button_class << button.layout_class
+        add_link_class!(button_class.join(' '), *args, &block)
+      end
+
       if Bh::Stack.find Bh::AlertBox
         super *add_link_class!('alert-link', *args, &block), &block
       elsif Bh::Stack.find Bh::Vertical
