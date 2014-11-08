@@ -16,4 +16,5 @@ describe 'When used in Rails' do
   all_tests_pass_for 'the modal helper'
   all_tests_pass_for 'the panel helper'
   all_tests_pass_for 'the panel_row helper'
+  all_tests_pass_for 'the progress_bar helper'
 end
