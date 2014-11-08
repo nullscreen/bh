@@ -124,49 +124,6 @@ describe 'navbar' do
   end
 end
 
-describe 'vertical not nested in navbar' do
-  specify 'returns nil' do
-    expect(vertical 'content').to be_nil
-    expect(vertical { 'content' }).to be_nil
-    expect(vertical 'content', class: :important).to be_nil
-    expect(vertical(class: :important) { 'content' }).to be_nil
-  end
-end
-
-describe 'vertical nested in navbar' do
-  describe 'accepts as parameters:' do
-    let(:behave) { be_a String }
-
-    specify 'a string (content)' do
-      expect(navbar {vertical 'content'}).to behave
-    end
-
-    specify 'a block (content)' do
-      expect(navbar {vertical { 'content' }}).to behave
-    end
-
-    specify 'a string (content) + a hash (options)' do
-      expect(navbar {vertical 'content', class: :important}).to behave
-    end
-
-    specify 'a hash (options) + a block (content)' do
-      expect(navbar {vertical(class: :important) { 'content' }}).to behave
-    end
-  end
-
-  describe 'adds a toggle button and bars' do
-    let(:html) { navbar {vertical 'content'} }
-    it { expect(html).to match %r{<button class="navbar-toggle" data-target="#.+?" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span></button}m }
-  end
-
-  describe 'with extra options' do
-    let(:options) { {class: :important, id: 'my-navbar', data: {value: 1}} }
-    it 'passes the options to the <div> element' do
-      expect(navbar {vertical 'content', options}).to include 'div class="important navbar-header" data-value="1" id="my-navbar"'
-    end
-  end
-end
-
 describe 'horizontal not nested in navbar' do
   specify 'returns nil' do
     expect(horizontal 'content').to be_nil
