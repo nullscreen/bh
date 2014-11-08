@@ -70,6 +70,52 @@ describe 'link_to' do
     end
   end
 
+  context 'link as button' do
+    specify 'by default, does not add button classes to link' do
+      expect(link_to 'Home', url).not_to include 'btn'
+    end
+
+    specify 'given as button option, adds default button classes' do
+      expect(link_to 'Home', url, as: :button).to include 'btn btn-default'
+    end
+
+    specify 'given btn size, adds size class link' do
+      expect(link_to 'Home', url, as: :button, size: :lg).to include 'btn-lg'
+    end
+
+    specify 'given btn context, adds context class link' do
+      expect(link_to 'Home', url, as: :button, context: :danger).to include 'btn btn-danger'
+    end
+
+    context 'inside an alert' do
+      specify 'applies the "btn" class' do
+        expect(alert_box { link_to(url, as: :btn) { 'Home' } }).to include 'btn'
+      end
+    end
+
+    context 'inside a nav' do
+      specify 'applies the "btn" class' do
+        expect(nav { link_to(url, as: :btn) { 'Home' } }).to include 'btn'
+      end
+    end
+
+    context 'used with a block' do
+      specify 'given as button option and content as block, adds default button classes' do
+        link = link_to url, as: :button do
+          'Home'
+        end
+        expect(link).to include 'btn btn-default'
+      end
+
+      specify 'given btn context, adds context class link' do
+        link = link_to url, as: :button, context: :danger do
+          'Home'
+        end
+        expect(link).to include 'btn btn-danger'
+      end
+    end
+  end
+
   context 'used with a block' do
     let(:link) { link_to(url) { 'Home' } }
 
