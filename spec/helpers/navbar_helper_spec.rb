@@ -124,49 +124,6 @@ describe 'navbar' do
   end
 end
 
-describe 'horizontal not nested in navbar' do
-  specify 'returns nil' do
-    expect(horizontal 'content').to be_nil
-    expect(horizontal { 'content' }).to be_nil
-    expect(horizontal 'content', class: :important).to be_nil
-    expect(horizontal(class: :important) { 'content' }).to be_nil
-  end
-end
-
-describe 'horizontal nested in navbar' do
-  describe 'accepts as parameters:' do
-    let(:behave) { be_a String }
-
-    specify 'a string (content)' do
-      expect(navbar {horizontal 'content'}).to behave
-    end
-
-    specify 'a block (content)' do
-      expect(navbar {horizontal { 'content' }}).to behave
-    end
-
-    specify 'a string (content) + a hash (options)' do
-      expect(navbar {horizontal 'content', class: :important}).to behave
-    end
-
-    specify 'a hash (options) + a block (content)' do
-      expect(navbar {horizontal(class: :important) { 'content' }}).to behave
-    end
-  end
-
-  describe 'adds a collapsable div' do
-    let(:html) { navbar {horizontal 'content'} }
-    it { expect(html).to match %r{<div class="collapse navbar-collapse" id=".+?">content</div>} }
-  end
-
-  describe 'with extra options' do
-    let(:options) { {class: :important, data: {value: 1}} }
-    it 'passes the options to the <div> element' do
-      expect(navbar {horizontal 'content', options}).to include 'div class="important collapse navbar-collapse" data-value="1"'
-    end
-  end
-end
-
 describe 'multiple navbars' do
   let(:navbar_1) { navbar inverted: true do
     safe_join [vertical(link_to 'Home', '/'), horizontal(content_tag :p, '')]

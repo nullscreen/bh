@@ -12,6 +12,7 @@ describe 'When used in Rails' do
   all_tests_pass_for 'the dropdown helper'
   all_tests_pass_for 'the font_awesome_css helper'
   all_tests_pass_for 'the glyphicon helper'
+  all_tests_pass_for 'the horizontal helper'
   all_tests_pass_for 'the icon helper'
   all_tests_pass_for 'the modal helper'
   all_tests_pass_for 'the nav helper'
