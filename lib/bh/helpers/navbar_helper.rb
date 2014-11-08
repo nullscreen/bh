@@ -1,9 +1,11 @@
+require 'bh/helpers/base_helper'
 require 'bh/helpers/horizontal_helper'
 require 'bh/helpers/vertical_helper'
 
 module Bh
   # Provides the `navbar` helper.
   module NavbarHelper
+    include BaseHelper
     include HorizontalHelper
     include VerticalHelper
 

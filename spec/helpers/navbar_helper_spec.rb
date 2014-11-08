@@ -8,6 +8,7 @@ include Bh::NavbarHelper
 include Bh::NavHelper
 
 describe 'navbar' do
+  attr_accessor :output_buffer
   let(:html) { navbar options, &block }
   let(:block) { Proc.new {} }
   let(:options) { {} }
@@ -188,6 +189,7 @@ describe 'multiple navbars' do
 
   specify 'toggle their own horizontal part when clicking on vertical' do
     navbar_ids = html.scan %r{<nav.+?data-target="#(.+?)".+?id="(\1)".+?</nav>}m
+
     expect(navbar_ids.size).to eq 2
     expect(navbar_ids.uniq.size).to eq 2
   end

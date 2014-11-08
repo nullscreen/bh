@@ -1,5 +1,9 @@
 require 'bh/helpers/base_helper'
+require 'bh/classes/alert_box'
+require 'bh/classes/dropdown'
+require 'bh/classes/nav'
 require 'bh/classes/stack'
+require 'bh/classes/vertical'
 
 module Bh
   module LinkToHelper
@@ -15,7 +19,7 @@ module Bh
     def link_to(*args, &block)
       if Bh::Stack.find Bh::AlertBox
         super *add_link_class!('alert-link', *args, &block), &block
-      elsif @navbar_vertical
+      elsif Bh::Stack.find Bh::Vertical
         super *add_link_class!('navbar-brand', *args, &block), &block
       elsif Bh::Stack.find Bh::Dropdown
         content_tag :li, role: :presentation do
