@@ -158,6 +158,13 @@ describe 'vertical nested in navbar' do
     let(:html) { navbar {vertical 'content'} }
     it { expect(html).to match %r{<button class="navbar-toggle" data-target="#.+?" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span></button}m }
   end
+
+  describe 'with extra options' do
+    let(:options) { {class: :important, id: 'my-navbar', data: {value: 1}} }
+    it 'passes the options to the <div> element' do
+      expect(navbar {vertical 'content', options}).to include 'div class="important navbar-header" data-value="1" id="my-navbar"'
+    end
+  end
 end
 
 describe 'horizontal not nested in navbar' do
@@ -194,6 +201,13 @@ describe 'horizontal nested in navbar' do
     let(:html) { navbar {horizontal 'content'} }
     it { expect(html).to match %r{<div class="collapse navbar-collapse" id=".+?">content</div>} }
   end
+
+  describe 'with extra options' do
+    let(:options) { {class: :important, data: {value: 1}} }
+    it 'passes the options to the <div> element' do
+      expect(navbar {horizontal 'content', options}).to include 'div class="important collapse navbar-collapse" data-value="1"'
+    end
+  end
 end
 
 describe 'multiple navbars' do
@@ -210,5 +224,14 @@ describe 'multiple navbars' do
 
     expect(navbar_ids.size).to eq 2
     expect(navbar_ids.uniq.size).to eq 2
+  end
+end
+
+describe 'with the :id navbar option' do
+  let(:id) { 'my-navbar' }
+  let(:html) { navbar(id: id) {safe_join [vertical, horizontal]} }
+  it 'uses the id for the vertical and horizontal elements' do
+    expect(html).to include %Q{button class="navbar-toggle" data-target="##{id}"}
+    expect(html).to include %Q{div class="collapse navbar-collapse" id="#{id}"}
   end
 end
