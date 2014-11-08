@@ -21,7 +21,7 @@ module Bh
         content_tag :li, role: :presentation do
           super *add_menu_item_attributes!(*args, &block), &block
         end
-      elsif @nav_link
+      elsif Bh::Stack.find Bh::Nav
         content_tag :li, super(*args, &block), nav_item_options(*args, &block)
       else
         super *args, &block
