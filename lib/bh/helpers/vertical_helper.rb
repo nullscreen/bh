@@ -6,7 +6,7 @@ module Bh
   module VerticalHelper
 
     def vertical(*args, &block)
-      if navbar = Bh::Stack.find(Bh::Navbar) || OpenStruct.new(id: 'navbar-id')
+      if navbar = Bh::Stack.find(Bh::Navbar)
         vertical = Bh::Vertical.new self, *args, &block
         vertical.append_class! :'navbar-header'
         vertical.prepend_html! vertical.toggle_button(navbar.id)

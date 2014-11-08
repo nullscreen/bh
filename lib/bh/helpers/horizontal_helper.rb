@@ -5,7 +5,7 @@ module Bh
   module HorizontalHelper
 
     def horizontal(*args, &block)
-      if navbar = Bh::Stack.find(Bh::Navbar) || OpenStruct.new(id: 'navbar-id')
+      if navbar = Bh::Stack.find(Bh::Navbar)
         horizontal = Bh::Base.new self, *args, &block
         horizontal.append_class! :'collapse navbar-collapse'
         horizontal.merge! id: navbar.id
