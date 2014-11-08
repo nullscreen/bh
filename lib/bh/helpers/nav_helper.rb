@@ -1,4 +1,5 @@
 require 'bh/classes/nav'
+require 'bh/classes/navbar'
 
 module Bh
   # Provides the `nav` helper.
@@ -20,7 +21,7 @@ module Bh
       nav.extract! :as, :layout
 
       nav.append_class! :nav
-      if @navbar_id
+      if Bh::Stack.find(Bh::Navbar)
         nav.append_class! :'navbar-nav'
       else
         nav.merge! role: :tablist
