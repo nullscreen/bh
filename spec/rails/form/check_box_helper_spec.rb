@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'bh/core_ext/rails/form_for_helper'
-include Bh::FormForHelper
+include Bh::Rails::Helpers
 
 describe 'check_box' do
   attr_accessor :output_buffer

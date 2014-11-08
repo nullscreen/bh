@@ -1,8 +1,10 @@
+require 'bh/core_ext/rails/base_helper'
 require 'bh/helpers/glyphicon_helper'
 
 module Bh
   module Form
     module BaseHelper
+      include Bh::Rails::BaseHelper
       include GlyphiconHelper # for glyphicon
 
     private

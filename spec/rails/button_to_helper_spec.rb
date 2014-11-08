@@ -3,7 +3,7 @@ require 'spec_helper'
 require 'bh/core_ext/rails/button_to_helper'
 require 'bh/helpers/navbar_helper'
 
-include Bh::ButtonToHelper
+include Bh::Rails::Helpers
 include Bh::NavbarHelper
 
 describe 'button_to' do

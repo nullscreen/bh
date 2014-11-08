@@ -15,93 +15,154 @@
 
       <h1>Alerts</h1>
 
-      <%= alert_box 'You accepted the Terms of service.', context: :success, dismissible: true %>
-      <%= alert_box 'You accepted the Terms of service.', context: :info, dismissible: true %>
-      <%= alert_box 'You accepted the Terms of service.', context: :warning, dismissible: true %>
-      <%= alert_box 'You accepted the Terms of service.', context: :danger, dismissible: true %>
-      <%= alert_box 'You accepted the Terms of service.', dismissible: true %>
-      <p>Alert boxes with HTML content currently not supported in Middleman.</p>
+        <%= alert_box 'Plain text' %>
+
+        <!-- Try setting different :dismissible and :context options -->
+        <% alert_box context: :success, dismissible: true, id: 'my-alert', data: {value: 1} do %>
+          Text <em>styled</em> with <acronym title="HyperText Markup Language">HTML</acronym> and <%= link_to 'links', '#', class: 'alert-link' %>.
+        <% end %>
 
       <h1>Panels</h1>
 
-      <%= panel 'Content only' %>
-      <%= panel title: 'Title only' %>
-      <%= panel body: 'Body only' %>
-      <%= panel 'Content', body: 'And Body', title: 'and title' %>
+        <%= panel 'Plain text' %>
 
-      <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :primary %>
-      <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :success %>
-      <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :info %>
-      <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :warning %>
-      <%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :danger %>
-      <%= panel body: 'You accepted the Terms of service.', title: 'Thanks' %>
-      <p>Panels with HTML content currently not supported in Middleman.</p>
+        <!-- Try setting different :title, :tag and :context options -->
+        <% panel title: 'Panel Title', context: :primary, tag: :aside, id: 'my-panel', data: {value: 1} do %>
+          <div class='panel-body'>Text <em>styled</em> with icons: <%= glyphicon :ok %></div>
+          <div class='panel-footer'><h4>Footer</h4></div>
+        <% end %>
 
       <h1>Panel rows</h1>
 
-      <p>Panel rows currently not supported in Middleman.</p>
+        <% panel_row do %>
+          <%= panel 'Plain full-width panel' %>
+        <% end %>
+
+        <!-- Try setting a different :column_class option -->
+        <% panel_row column_class: 'col-sm-4', id: 'my-panel-row', data: {value: 1} do %>
+          <%= panel 'John Smith', title: 'User', context: :info %>
+          <% panel title: 'Phone' do %>
+            <div class='panel-body'><%= glyphicon :earphone %> 323-555-5555</div>
+          <% end %>
+          <%= panel 'Los Angeles, CA', title: 'City' %>
+        <% end %>
 
       <h1>Modals</h1>
 
-      <p>Modals currently not supported in Middleman.</p>
+        <%= modal 'Plain text' %>
+
+        <!-- Try setting different :title, :size, :button or :context options -->
+        <% modal title: 'Modal Title', button: {size: :large, context: :primary}, size: :small do %>
+          <div class="modal-body">Text <em>styled</em> with icons: <%= glyphicon :ok %></div>
+          <div class="modal-footer"><%= button 'Accept' %></div>
+        <% end %>
 
       <h1>Navs</h1>
 
-      <p>Navs currently not supported in Middleman.</p>
+        <% nav do %>
+          <li class='active'>
+            <%= link_to 'Home', '/' %>
+          </li>
+          <li>
+            <%= link_to 'Profile', '/#profile' %>
+          </li>
+          <li>
+            <%= link_to 'Settings', '/#settings' %>
+          </li>
+        <% end %>
+
+        <br />
+        <!-- Try setting different :layout or :as options -->
+        <% nav as: :pills, layout: :stacked, id: 'my-nav', data: {value: 1} do %>
+          <li class='active'>
+            <%= link_to 'Home', '/' %>
+          </li>
+          <li>
+            <%= link_to 'Profile', '/#profile' %>
+          </li>
+          <li>
+            <%= link_to 'Settings', '/#settings' %>
+          </li>
+        <% end %>
 
       <h1>Navbars</h1>
 
-      <p>Navbars currently not supported in Middleman.</p>
+        <% navbar do %>
+          <% vertical do %>
+            <%= link_to 'Home', '/', class: 'navbar-brand' %>
+          <% end %>
+        <% end %>
 
+        <!-- Try adding a horizontal element and setting different :inverted, :fluid, :position or :padding options -->
+        <% navbar inverted: true, position: :bottom, padding: 100, id: 'my-navbar', data: {value: 1} do %>
+          <% vertical do %>
+            <%= link_to 'Home', '/', class: 'navbar-brand' %>
+          <% end %>
+          <% horizontal do %>
+            <% nav class: 'navbar-right' do %>
+              <li class='active'>
+                <%= link_to 'Home', '/' %>
+              </li>
+              <li>
+                <%= link_to 'Profile', '/#profile' %>
+              </li>
+              <li>
+                <%= link_to 'Settings', '/#settings' %>
+              </li>
+            <% end %>
+          <% end %>
+        <% end %>
 
       <h1>Buttons</h1>
 
-      <%= button 'Menu' %>
-      <%= button 'Menu', context: :info %>
-      <%= button 'Menu', size: :large %>
-      <%= button 'Menu', layout: :block %>
-      <p>Button with HTML content currently not supported in Middleman.</p>
+        <%= button 'Plain text' %>
 
-
-      <h1>Button to</h1>
-
-      <p>Button to currently not supported in Middleman.</p>
-
+        <!-- Try setting different :context, :size and :layout options -->
+        <% button context: :info, size: :small do %>
+          Text <em>styled</em> with icons: <%= glyphicon :ok %>
+        <% end %>
 
       <h1>Dropdowns</h1>
 
-      <p>Dropdowns currently not supported in Middleman.</p>
+        <%= dropdown 'Plain caption' %>
 
-
-      <h1>Forms</h1>
-
-      <p>Forms currently not supported in Middleman.</p>
+        <!-- Try setting different :split, :direction, :align, :groupable, :layout, :context or :size options -->
+        <% dropdown 'Plain caption', split: true, direction: :up, align: :right, groupable: true, context: :info, size: :extra_small do %>
+          <li role='presentation'>
+            <%= link_to 'Home', '/', role: 'menuitem', tabindex: '-1' %>
+          </li>
+          <li role='presentation'>
+            <%= link_to 'Profile', '/#profile', role: 'menuitem', tabindex: '-1' %>
+          </li>
+          <li role='presentation'>
+            <%= link_to 'Settings', '/#settings', role: 'menuitem', tabindex: '-1' %>
+          </li>
+        <% end %>
 
       <h1>Progress bars</h1>
 
-      <%= progress_bar percentage: 30 %>
-      <%= progress_bar percentage: 30, label: 'With bar params', class: :important, id: 'my-bar', data: {value: 1} %>
-      <%= progress_bar({percentage: 30, label: 'With container params'}, class: :important, id: 'my-container') %>
-      <%= progress_bar percentage: 30, label: true %>
-      <%= progress_bar percentage: 30, label: "thirty percent" %>
-      <%= progress_bar percentage: 30, context: :warning %>
-      <%= progress_bar percentage: 30, striped: true %>
-      <%= progress_bar percentage: 30, animated: true %>
-      <%= progress_bar [{percentage: 30, context: :success, label: 'Completed'}, {percentage: 40, context: :warning, animated: true, label: 'Pending'}] %>
+        <%= progress_bar percentage: 75 %>
 
+        <!-- Try passing multiple values with different :percentage, :label, :context, :striped, :animated options -->
+        <%= progress_bar([
+            {percentage: 40, label: 'Completed', context: :success},
+            {percentage: 20, label: true, striped: true, context: :warning},
+            {percentage: 30, label: false, animated: true},
+          ], id: 'my-container', data: {value: 1})
+        %>
 
       <h1>Glyphicons</h1>
 
-      <%= glyphicon :zoom_in %>
-      <%= glyphicon %>
+        <!-- Try setting a different icon -->
+        <%= glyphicon :zoom_in %>
 
       <h1>Icons</h1>
 
-      <%= icon :heart %>
-      <%= icon :heart, library: :glyphicons %>
-      <%= icon :heart, library: :font_awesome %>
-      <%= icon :heart, library: :font_awesome, class: 'fa-fw' %>
-      <%= icon :heart, library: :font_awesome, class: 'fa-lg' %>
+        <%= icon :user %>
+
+        <!-- Try setting a different :library option -->
+        <%= icon :user, library: :font_awesome, class: 'fa-2x' %>
+
 
     </div>
     <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js' %>

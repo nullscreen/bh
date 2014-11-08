@@ -33,8 +33,7 @@ module Bh
       end
 
       def render_tag(tag)
-        html = @app.content_tag tag, @content, attributes
-        render html
+        render content_tag(tag)
       end
 
       def render_partial(partial)
@@ -42,6 +41,25 @@ module Bh
         template = ERB.new(File.read file)
         assigns = OpenStruct.new attributes.merge(content: @content)
         render template.result(assigns.instance_eval{ binding &nil }).html_safe
+      end
+
+      def tag
+        :div
+      end
+
+      def attributes
+        @attributes || @options
+      end
+
+      def content
+        items = Array.wrap(@content).map do |item|
+          item.is_a?(Base) ? item.content_tag(item.tag) : item
+        end
+        safe_join items
+      end
+
+      def content_tag(tag)
+        @app.content_tag tag, content, attributes
       end
 
     private
@@ -53,10 +71,6 @@ module Bh
       def stack(&block)
         Stack.unshift self
         yield.tap{ Stack.shift }
-      end
-
-      def attributes
-        @attributes || @options
       end
 
       def html_attributes

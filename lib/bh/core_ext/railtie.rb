@@ -1,26 +1,25 @@
+require 'bh/core_ext/rails/button_to_helper'
 require 'bh/core_ext/rails/form_for_helper'
 require 'bh/core_ext/rails/link_to_helper'
-require 'bh/core_ext/rails/button_to_helper'
 
 module Bh
   module Extensions
-    class Railtie < Rails::Railtie
+    class Railtie < ::Rails::Railtie
       initializer 'bh.add_helpers' do
         ActionView::Base.send :include, AlertBoxHelper
         ActionView::Base.send :include, ButtonHelper
-        ActionView::Base.send :include, ButtonToHelper
         ActionView::Base.send :include, CdnHelper
         ActionView::Base.send :include, DropdownHelper
-        ActionView::Base.send :include, FormForHelper
         ActionView::Base.send :include, GlyphiconHelper
         ActionView::Base.send :include, IconHelper
-        ActionView::Base.send :include, LinkToHelper
         ActionView::Base.send :include, ModalHelper
         ActionView::Base.send :include, NavHelper
         ActionView::Base.send :include, NavbarHelper
         ActionView::Base.send :include, PanelHelper
         ActionView::Base.send :include, PanelRowHelper
         ActionView::Base.send :include, ProgressBarHelper
+
+        ActionView::Base.send :include, Bh::Rails::Helpers
       end
 
       initializer 'bh.add_views' do |app|
