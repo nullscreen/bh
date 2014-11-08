@@ -1,24 +1,14 @@
-require 'bh/helpers/base_helper'
+require 'bh/classes/base'
 
 module Bh
   # Provides the `horizontal` helper.
   module HorizontalHelper
-    include BaseHelper
 
-    def horizontal(content_or_options_with_block = nil, options = nil, &block)
-      if block_given?
-        horizontal_string (content_or_options_with_block || {}), &block
-      else
-        horizontal_string (options || {}), &Proc.new { content_or_options_with_block }
-      end
-    end
-
-  private
-
-    def horizontal_string(options = {}, &block)
-      append_class! options, 'collapse navbar-collapse'
-      options[:id] = navbar_id
-      content_tag :div, options, &block
+    def horizontal(*args, &block)
+      horizontal = Bh::Base.new self, *args, &block
+      horizontal.append_class! :'collapse navbar-collapse'
+      horizontal.merge! id: navbar_id
+      horizontal.render_tag :div
     end
   end
 end
