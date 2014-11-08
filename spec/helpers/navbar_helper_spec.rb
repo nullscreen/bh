@@ -124,56 +124,74 @@ describe 'navbar' do
   end
 end
 
-describe 'vertical' do
+describe 'vertical not nested in navbar' do
+  specify 'returns nil' do
+    expect(vertical 'content').to be_nil
+    expect(vertical { 'content' }).to be_nil
+    expect(vertical 'content', class: :important).to be_nil
+    expect(vertical(class: :important) { 'content' }).to be_nil
+  end
+end
+
+describe 'vertical nested in navbar' do
   describe 'accepts as parameters:' do
     let(:behave) { be_a String }
 
     specify 'a string (content)' do
-      expect(vertical 'content').to behave
+      expect(navbar {vertical 'content'}).to behave
     end
 
     specify 'a block (content)' do
-      expect(vertical { 'content' }).to behave
+      expect(navbar {vertical { 'content' }}).to behave
     end
 
     specify 'a string (content) + a hash (options)' do
-      expect(vertical 'content', class: :important).to behave
+      expect(navbar {vertical 'content', class: :important}).to behave
     end
 
     specify 'a hash (options) + a block (content)' do
-      expect(vertical(class: :important) { 'content' }).to behave
+      expect(navbar {vertical(class: :important) { 'content' }}).to behave
     end
   end
 
   describe 'adds a toggle button and bars' do
-    let(:html) { vertical 'content' }
+    let(:html) { navbar {vertical 'content'} }
     it { expect(html).to match %r{<button class="navbar-toggle" data-target="#.+?" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span></button}m }
   end
 end
 
-describe 'horizontal' do
+describe 'horizontal not nested in navbar' do
+  specify 'returns nil' do
+    expect(horizontal 'content').to be_nil
+    expect(horizontal { 'content' }).to be_nil
+    expect(horizontal 'content', class: :important).to be_nil
+    expect(horizontal(class: :important) { 'content' }).to be_nil
+  end
+end
+
+describe 'horizontal nested in navbar' do
   describe 'accepts as parameters:' do
     let(:behave) { be_a String }
 
     specify 'a string (content)' do
-      expect(horizontal 'content').to behave
+      expect(navbar {horizontal 'content'}).to behave
     end
 
     specify 'a block (content)' do
-      expect(horizontal { 'content' }).to behave
+      expect(navbar {horizontal { 'content' }}).to behave
     end
 
     specify 'a string (content) + a hash (options)' do
-      expect(horizontal 'content', class: :important).to behave
+      expect(navbar {horizontal 'content', class: :important}).to behave
     end
 
     specify 'a hash (options) + a block (content)' do
-      expect(horizontal(class: :important) { 'content' }).to behave
+      expect(navbar {horizontal(class: :important) { 'content' }}).to behave
     end
   end
 
   describe 'adds a collapsable div' do
-    let(:html) { horizontal 'content' }
+    let(:html) { navbar {horizontal 'content'} }
     it { expect(html).to match %r{<div class="collapse navbar-collapse" id=".+?">content</div>} }
   end
 end
