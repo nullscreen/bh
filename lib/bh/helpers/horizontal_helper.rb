@@ -1,14 +1,16 @@
-require 'bh/classes/base'
+require 'bh/classes/navbar'
 
 module Bh
   # Provides the `horizontal` helper.
   module HorizontalHelper
 
     def horizontal(*args, &block)
-      horizontal = Bh::Base.new self, *args, &block
-      horizontal.append_class! :'collapse navbar-collapse'
-      horizontal.merge! id: navbar_id
-      horizontal.render_tag :div
+      if navbar = Bh::Stack.find(Bh::Navbar) || OpenStruct.new(id: 'navbar-id')
+        horizontal = Bh::Base.new self, *args, &block
+        horizontal.append_class! :'collapse navbar-collapse'
+        horizontal.merge! id: navbar.id
+        horizontal.render_tag :div
+      end
     end
   end
 end

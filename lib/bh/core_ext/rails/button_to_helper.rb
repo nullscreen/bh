@@ -1,4 +1,6 @@
 require 'bh/helpers/base_helper'
+require 'bh/classes/navbar'
+require 'bh/classes/stack'
 
 module Bh
   module ButtonToHelper
@@ -10,7 +12,7 @@ module Bh
     # @see http://getbootstrap.com/components/#navbar-buttons
     def button_to(*args, &block)
       args = append_class_as! :class, 'btn', *args, &block
-      if @navbar_id
+      if Bh::Stack.find(Bh::Navbar)
         args = append_class_as! :form_class, 'navbar-form', *args, &block
       end
       super *args, &block
