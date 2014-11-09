@@ -1,4 +1,5 @@
-require 'bh/core_ext/rails/base_helper'
+require 'bh/classes/link_to'
+
 require 'bh/classes/alert_box'
 require 'bh/classes/dropdown'
 require 'bh/classes/nav'
@@ -8,8 +9,6 @@ require 'bh/classes/vertical'
 module Bh
   module Rails
     module Helpers
-      include BaseHelper
-
       # Overrides ActionView +link_to+ to be able to add the 'alert-link' class
       # to the link in case the link is inside of an alert.
       # @see http://getbootstrap.com/components/#alerts-links
@@ -18,37 +17,24 @@ module Bh
       # Overrides ActionView +link_to+ to be able to add the 'navbar-brand'
       # class to the link in case the link is inside of an alert.
       def link_to(*args, &block)
-        if Bh::Stack.find Bh::AlertBox
-          super *add_link_class!('alert-link', *args, &block), &block
-        elsif Bh::Stack.find Bh::Vertical
-          super *add_link_class!('navbar-brand', *args, &block), &block
-        elsif Bh::Stack.find Bh::Dropdown
-          content_tag :li, role: :presentation do
-            super *add_menu_item_attributes!(*args, &block), &block
-          end
-        elsif Bh::Stack.find Bh::Nav
-          content_tag :li, super(*args, &block), nav_item_options(*args, &block)
+        link_to = Bh::LinkTo.new self, *args, &block
+        link_to.append_class! :'alert-link' if Bh::Stack.find(Bh::AlertBox)
+        link_to.append_class! :'navbar-brand' if Bh::Stack.find(Bh::Vertical)
+        link_to.merge! role: :menuitem if Bh::Stack.find(Bh::Dropdown)
+        link_to.merge! tabindex: -1 if Bh::Stack.find(Bh::Dropdown)
+        html = super link_to.content, link_to.url, link_to.attributes, &nil
+
+        if Bh::Stack.find(Bh::Dropdown)
+          container = Bh::Base.new(self) { html }
+          container.merge! role: :presentation
+          container.render_tag :li
+        elsif Bh::Stack.find(Bh::Nav)
+          container = Bh::Base.new(self) { html }
+          container.append_class! :active if current_page?(link_to.url)
+          container.render_tag :li
         else
-          super *args, &block
+          html
         end
-      end
-
-    private
-
-      def add_link_class!(new_class, *args, &block)
-        append_class_as! :class, new_class, *args, &block
-      end
-
-      def nav_item_options(*args, &block)
-        options = (block_given? ? args[0] : args[1]) || {}
-        {class: 'active'} if current_page? options
-      end
-
-      def add_menu_item_attributes!(*args, &block)
-        html_options = (block_given? ? args[1] : args[2]) || {}
-        html_options.reverse_merge! role: 'menuitem', tabindex: '-1'
-        block_given? ? args[1] = html_options : args[2] = html_options
-        args
       end
     end
   end
