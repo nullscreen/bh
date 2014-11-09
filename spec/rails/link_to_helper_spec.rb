@@ -13,12 +13,14 @@ include Bh::DropdownHelper
 include Bh::NavHelper
 include Bh::NavbarHelper
 
+include ActionView::Helpers::UrlHelper # for link_to
 include Bh::Rails::Helpers
 
 describe 'link_to' do
   let(:request) { ActionDispatch::Request.new request_options }
   let(:request_options) { {'REQUEST_METHOD' => 'GET'} }
   let(:url) { '/' }
+  attr_accessor :output_buffer
 
   context 'used without a block' do
     let(:link) { link_to 'Home', url }
