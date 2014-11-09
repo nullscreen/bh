@@ -1,8 +1,10 @@
 require 'spec_helper'
+require 'action_dispatch'
 require 'action_view'
 
 describe 'When used in Rails' do
   include ActionView::Context # for capture
+  let(:request) { ActionDispatch::Request.new 'REQUEST_METHOD' => 'GET' }
 
   all_tests_pass_for 'the alert_box helper'
   all_tests_pass_for 'the bootstrap_css helper'
@@ -14,6 +16,7 @@ describe 'When used in Rails' do
   all_tests_pass_for 'the glyphicon helper'
   all_tests_pass_for 'the horizontal helper'
   all_tests_pass_for 'the icon helper'
+  all_tests_pass_for 'the link_to helper'
   all_tests_pass_for 'the modal helper'
   all_tests_pass_for 'the nav helper'
   all_tests_pass_for 'the navbar helper'
