@@ -1,3 +1,4 @@
+require 'active_support/core_ext/array/wrap' # for Array.wrap
 require 'bh/classes/progress_bar'
 
 module Bh
@@ -35,10 +36,10 @@ module Bh
         progress_bar.append_class! progress_bar.animated_class
         progress_bar.merge! progress_bar.values
         progress_bar.prepend_html! progress_bar.label
-        progress_bar.render_tag :div
+        progress_bar
       end
 
-      container = Bh::Base.new(self, options) {safe_join progress_bars, "\n"}
+      container = Bh::Base.new self, progress_bars, options
       container.append_class! :progress
       container.render_tag :div
     end

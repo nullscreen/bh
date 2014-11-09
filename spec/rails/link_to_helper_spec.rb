@@ -3,15 +3,17 @@ require 'action_dispatch'
 
 require 'bh/helpers/alert_box_helper'
 require 'bh/helpers/dropdown_helper'
-require 'bh/core_ext/rails/link_to_helper'
 require 'bh/helpers/nav_helper'
 require 'bh/helpers/navbar_helper'
 
+require 'bh/core_ext/rails/link_to_helper'
+
 include Bh::AlertBoxHelper
 include Bh::DropdownHelper
-include Bh::LinkToHelper
 include Bh::NavHelper
 include Bh::NavbarHelper
+
+include Bh::Rails::Helpers
 
 describe 'link_to' do
   let(:request) { ActionDispatch::Request.new request_options }

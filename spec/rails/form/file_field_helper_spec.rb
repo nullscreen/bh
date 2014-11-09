@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'bh/core_ext/rails/form_for_helper'
-include Bh::FormForHelper
+include Bh::Rails::Helpers
 
 describe 'file_field' do
   let(:protect_against_forgery?) { false }

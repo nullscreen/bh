@@ -3,6 +3,8 @@ class User
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
+  attr_accessor :email, :password, :remember_me, :phone, :subscribe, :avatar
+
   def persisted?
     true
   end
