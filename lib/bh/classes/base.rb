@@ -21,13 +21,17 @@ module Bh
         html_attributes.deep_merge! attributes
       end
 
-      def append_class!(new_class, hash = html_attributes)
-        existing_class = hash[:class]
-        hash[:class] = [existing_class, new_class].compact.join ' '
+      def append_class!(new_class, hash = html_attributes, attribute = :class)
+        existing_class = hash[attribute]
+        hash[attribute] = [existing_class, new_class].compact.join ' '
       end
 
       def append_class_to!(key, new_class)
         append_class! new_class, (html_attributes[key] ||= {})
+      end
+
+      def append_class_as!(attribute, new_class)
+        append_class! new_class, html_attributes, attribute
       end
 
       def prepend_html!(html)

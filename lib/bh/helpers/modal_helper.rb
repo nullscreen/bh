@@ -1,8 +1,7 @@
 require 'bh/classes/modal'
 
 module Bh
-  # Provides the `modal` helper.
-  module ModalHelper
+  module Helpers
     # @see http://getbootstrap.com/javascript/#modals
     # @return [String] an HTML block to display a modal and a toggle button.
     # @example A small button to toggle a modal with a given body.

@@ -6,19 +6,7 @@ module Bh
   module Extensions
     class Railtie < ::Rails::Railtie
       initializer 'bh.add_helpers' do
-        ActionView::Base.send :include, AlertBoxHelper
-        ActionView::Base.send :include, ButtonHelper
-        ActionView::Base.send :include, CdnHelper
-        ActionView::Base.send :include, DropdownHelper
-        ActionView::Base.send :include, GlyphiconHelper
-        ActionView::Base.send :include, IconHelper
-        ActionView::Base.send :include, ModalHelper
-        ActionView::Base.send :include, NavHelper
-        ActionView::Base.send :include, NavbarHelper
-        ActionView::Base.send :include, PanelHelper
-        ActionView::Base.send :include, PanelRowHelper
-        ActionView::Base.send :include, ProgressBarHelper
-
+        ActionView::Base.send :include, Bh::Helpers
         ActionView::Base.send :include, Bh::Rails::Helpers
       end
 

@@ -5,7 +5,7 @@ module Bh
   module Form
     module BaseHelper
       include Bh::Rails::BaseHelper
-      include GlyphiconHelper # for glyphicon
+      include Bh::Helpers
 
     private
 

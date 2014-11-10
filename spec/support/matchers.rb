@@ -4,7 +4,7 @@ RSpec::Matchers.define :generate do |html|
       helper, options = helper.keys.first, helper.values.first
     end
 
-    if helper == :link_to
+    if helper == :link_to || helper == :button_to
       @inline = bh.send helper, *['content', '/', options].compact
       @block = bh.send(helper, *['/', options].compact) { 'content' }
     elsif helper == :dropdown

@@ -1,8 +1,7 @@
 require 'bh/classes/alert_box'
 
 module Bh
-  # Provides the `alert_box` helper.
-  module AlertBoxHelper
+  module Helpers
     # @see http://getbootstrap.com/components/#alerts
     # @return [String] an HTML block to display an alert box.
     # @overload alert_box(message, options = {})

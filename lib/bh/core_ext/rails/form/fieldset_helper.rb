@@ -4,7 +4,7 @@ module Bh
   module Form
     module FieldsetHelper
       include BaseHelper
-      include PanelHelper # for panel
+      include Bh::Helpers # for panel
 
       def fieldset(title = nil, &block)
         options = {tag: :fieldset, body: @template.capture(&block)}

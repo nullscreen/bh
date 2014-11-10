@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'action_view'
 
 describe 'When used in Rails' do
   let(:bh) { RailsView.new }
@@ -14,7 +13,6 @@ describe 'When used in Rails' do
   all_tests_pass_for 'the glyphicon helper'
   all_tests_pass_for 'the horizontal helper'
   all_tests_pass_for 'the icon helper'
-  all_tests_pass_for 'the link_to helper'
   all_tests_pass_for 'the modal helper'
   all_tests_pass_for 'the nav helper'
   all_tests_pass_for 'the navbar helper'
@@ -22,4 +20,7 @@ describe 'When used in Rails' do
   all_tests_pass_for 'the panel_row helper'
   all_tests_pass_for 'the progress_bar helper'
   all_tests_pass_for 'the vertical helper'
+
+  all_tests_pass_for 'the button_to helper'
+  all_tests_pass_for 'the link_to helper'
 end

@@ -1,8 +1,7 @@
 require 'bh/classes/panel_row'
 
 module Bh
-  # Provides the `panel_row` helper.
-  module PanelRowHelper
+  module Helpers
     # @see http://getbootstrap.com/components/#panels
     # @see http://getbootstrap.com/css/#grid
     # @return [String] an HTML block to display a row of panels.

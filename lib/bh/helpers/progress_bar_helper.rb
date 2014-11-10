@@ -2,8 +2,7 @@ require 'active_support/core_ext/array/wrap' # for Array.wrap
 require 'bh/classes/progress_bar'
 
 module Bh
-  # Provides the `progress_bar` helper.
-  module ProgressBarHelper
+  module Helpers
     # @see http://getbootstrap.com/components/#progress
     # @return [String] an HTML block to display a progress bar.
     # @example A 50%-filled, striped progress bar.

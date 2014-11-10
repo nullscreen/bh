@@ -3,6 +3,7 @@ require 'padrino-helpers'
 
 require 'bh/helpers/alert_box_helper'
 require 'bh/helpers/button_helper'
+require 'bh/helpers/cdn_helper'
 require 'bh/helpers/dropdown_helper'
 require 'bh/helpers/glyphicon_helper'
 require 'bh/helpers/horizontal_helper'
@@ -21,17 +22,5 @@ class MiddlemanView
   include Padrino::Helpers::TagHelpers # for content_tag
   include Padrino::Helpers::AssetTagHelpers # for link_to
 
-  include Bh::AlertBoxHelper
-  include Bh::ButtonHelper
-  include Bh::DropdownHelper
-  include Bh::GlyphiconHelper
-  include Bh::HorizontalHelper
-  include Bh::IconHelper
-  include Bh::ModalHelper
-  include Bh::NavHelper
-  include Bh::NavbarHelper
-  include Bh::PanelHelper
-  include Bh::PanelRowHelper
-  include Bh::ProgressBarHelper
-  include Bh::VerticalHelper
+  include Bh::Helpers
 end
