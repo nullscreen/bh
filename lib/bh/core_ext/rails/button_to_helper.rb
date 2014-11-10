@@ -11,7 +11,12 @@ module Bh
       # @see http://getbootstrap.com/components/#navbar-buttons
       def button_to(*args, &block)
         button_to = Bh::ButtonTo.new self, *args, &block
+        button_to.extract! :context, :size, :layout
         button_to.append_class! :btn
+        button_to.append_class! button_to.context_class
+        button_to.append_class! button_to.size_class
+        button_to.append_class! button_to.layout_class
+
         if Bh::Stack.find(Bh::Navbar)
           button_to.append_class_as! :form_class, :'navbar-form'
         end
