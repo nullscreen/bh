@@ -54,7 +54,6 @@ shared_examples_for 'the :body modal option' do
   end
 end
 
-
 shared_examples_for 'the :title modal option' do
   specify 'sets the modal title to the given value' do
     html = %r{<h4 class="modal-title".+>Title</h4>}
