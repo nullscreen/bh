@@ -5,8 +5,10 @@ require 'bh/helpers/alert_box_helper'
 require 'bh/helpers/button_helper'
 require 'bh/helpers/dropdown_helper'
 require 'bh/helpers/glyphicon_helper'
+require 'bh/helpers/horizontal_helper'
 require 'bh/helpers/icon_helper'
 require 'bh/helpers/modal_helper'
+require 'bh/helpers/navbar_helper'
 require 'bh/helpers/progress_bar_helper'
 
 
@@ -20,7 +22,9 @@ class MiddlemanView
   include Bh::ButtonHelper
   include Bh::DropdownHelper
   include Bh::GlyphiconHelper
+  include Bh::HorizontalHelper
   include Bh::IconHelper
   include Bh::ModalHelper
+  include Bh::NavbarHelper
   include Bh::ProgressBarHelper
 end

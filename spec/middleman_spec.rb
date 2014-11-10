@@ -10,4 +10,5 @@ describe 'When used in Middleman' do
   all_tests_pass_for 'the icon helper'
   all_tests_pass_for 'the progress_bar helper'
   all_tests_pass_for 'the modal helper'
+  all_tests_pass_for 'the horizontal helper'
 end
