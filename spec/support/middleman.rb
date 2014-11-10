@@ -4,6 +4,8 @@ require 'padrino-helpers'
 require 'bh/helpers/alert_box_helper'
 require 'bh/helpers/button_helper'
 require 'bh/helpers/dropdown_helper'
+require 'bh/helpers/glyphicon_helper'
+require 'bh/helpers/icon_helper'
 
 
 # A view that behaves like a Middleman view
@@ -15,4 +17,6 @@ class MiddlemanView
   include Bh::AlertBoxHelper
   include Bh::ButtonHelper
   include Bh::DropdownHelper
+  include Bh::GlyphiconHelper
+  include Bh::IconHelper
 end

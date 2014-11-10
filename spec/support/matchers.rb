@@ -10,6 +10,9 @@ RSpec::Matchers.define :generate do |html|
     elsif helper == :dropdown
       @block = bh.send(helper, *['caption', options].compact) { 'content' }
       @inline = @block
+    elsif helper == :glyphicon || helper == :icon
+      @inline = bh.send helper, *['zoom-in', options].compact
+      @block = bh.send helper, *[:zoom_in, options].compact
     else
       @inline = bh.send helper, *['content', options].compact
       @block = bh.send(helper, *[options].compact) { 'content' }
