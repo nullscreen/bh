@@ -10,7 +10,7 @@ require 'bh/helpers/icon_helper'
 require 'bh/helpers/modal_helper'
 require 'bh/helpers/navbar_helper'
 require 'bh/helpers/progress_bar_helper'
-
+require 'bh/helpers/vertical_helper'
 
 # A view that behaves like a Middleman view
 class MiddlemanView
@@ -27,4 +27,5 @@ class MiddlemanView
   include Bh::ModalHelper
   include Bh::NavbarHelper
   include Bh::ProgressBarHelper
+  include Bh::VerticalHelper
 end
