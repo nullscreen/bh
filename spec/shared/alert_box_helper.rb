@@ -24,7 +24,7 @@ shared_examples_for 'extra alert options' do
 end
 
 shared_examples_for 'the :context alert option' do
-  Bh::AlertBox.new.contexts.each do |context, context_class|
+  Bh::AlertBox.contexts.each do |context, context_class|
     specify %Q{set to :#{context}, adds the class "#{context_class}"} do
       html = %Q{<div class="alert #{context_class}" role="alert">content</div>}
       expect(alert_box: {context: context.to_s}).to generate html

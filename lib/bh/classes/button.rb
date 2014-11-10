@@ -5,22 +5,24 @@ module Bh
     class Button < Base
       # @return [#to_s] the context-related class to assign to the button.
       def context_class
-        contexts[@options[:context]]
+        Button.contexts[@options[:context]]
       end
 
       # @return [#to_s] the size-related class to assign to the alert box.
       def size_class
-        sizes[@options[:size]]
+        Button.sizes[@options[:size]]
       end
 
       # @return [#to_s] the layout-related class to assign to the alert box.
       def layout_class
-        layouts[@options[:layout]]
+        Button.layouts[@options[:layout]]
       end
+
+    private
 
       # @return [Hash<Symbol, String>] the classes that Bootstrap requires to
       #   append to buttons for each possible context.
-      def contexts
+      def self.contexts
         HashWithIndifferentAccess.new(:'btn-default').tap do |klass|
           klass[:danger]  = :'btn-danger'
           klass[:info]    = :'btn-info'
@@ -33,7 +35,7 @@ module Bh
 
       # @return [Hash<Symbol, String>] the classes that Bootstrap requires to
       #   append to buttons for each possible size.
-      def sizes
+      def self.sizes
         HashWithIndifferentAccess.new.tap do |klass|
           klass[:extra_small] = :'btn-xs'
           klass[:large]       = :'btn-lg'
@@ -46,7 +48,7 @@ module Bh
 
       # @return [Hash<Symbol, String>] the classes that Bootstrap requires to
       #   append to buttons for each possible layout.
-      def layouts
+      def self.layouts
         HashWithIndifferentAccess.new.tap do |klass|
           klass[:block] = :'btn-block'
         end

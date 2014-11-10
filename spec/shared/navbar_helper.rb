@@ -22,7 +22,7 @@ shared_examples_for 'no navbar options' do
 end
 
 shared_examples_for 'the :fluid navbar option' do
-  Bh::Navbar.new.layouts.each do |value, fluid_class|
+  Bh::Navbar.layouts.each do |value, fluid_class|
     specify %Q{set to #{value}, sets the class "#{fluid_class}"} do
       html = %r{<div class="#{fluid_class}">}
       expect(navbar: {fluid: value}).to generate html
@@ -31,7 +31,7 @@ shared_examples_for 'the :fluid navbar option' do
 end
 
 shared_examples_for 'the :inverted navbar option' do
-  Bh::Navbar.new.styles.each do |value, inverted_class|
+  Bh::Navbar.styles.each do |value, inverted_class|
     specify %Q{set to #{value}, sets the class "#{inverted_class}"} do
       html = %r{<nav class="navbar #{inverted_class}"}
       expect(navbar: {inverted: value}).to generate html
@@ -40,7 +40,7 @@ shared_examples_for 'the :inverted navbar option' do
 end
 
 shared_examples_for 'the :position navbar option' do
-  Bh::Navbar.new.positions.each do |position, position_class|
+  Bh::Navbar.positions.each do |position, position_class|
     specify %Q{set to #{position}, sets the class "#{position_class}"} do
       html = %r{<nav class="navbar navbar-default #{position_class}"}
       expect(navbar: {position: position}).to generate html

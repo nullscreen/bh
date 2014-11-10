@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 require 'bh/core_ext/rails/button_to_helper'
 require 'bh/helpers/navbar_helper'

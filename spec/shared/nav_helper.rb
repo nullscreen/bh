@@ -24,7 +24,7 @@ shared_examples_for 'extra nav options' do
 end
 
 shared_examples_for 'the :as nav option' do
-  Bh::Nav.new.styles.each do |style, style_class|
+  Bh::Nav.styles.each do |style, style_class|
     specify %Q{set to :#{context}, sets the class "#{style_class}"} do
       html = %r{<ul class="nav #{style_class}"}
       expect(nav: {as: style}).to generate html
@@ -33,7 +33,7 @@ shared_examples_for 'the :as nav option' do
 end
 
 shared_examples_for 'the :layout nav option' do
-  Bh::Nav.new.layouts.each do |layout, layout_class|
+  Bh::Nav.layouts.each do |layout, layout_class|
     specify %Q{set to :#{layout}, adds the class "#{layout_class}"} do
       html = %r{<ul class="nav nav-tabs #{layout_class}"}
       expect(nav: {layout: layout}).to generate html

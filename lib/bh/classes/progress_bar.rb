@@ -5,17 +5,17 @@ module Bh
     class ProgressBar < Base
       # @return [#to_s] the context-related class to assign to the progress bar.
       def context_class
-        contexts[@options[:context]]
+        ProgressBar.contexts[@options[:context]]
       end
 
       # @return [#to_s] the class to assign to make the progress bar striped.
       def striped_class
-        stripes[@options[:striped]]
+        ProgressBar.stripes[@options[:striped]]
       end
 
       # @return [#to_s] the class to assign to make the progress bar aniamted.
       def animated_class
-        animations[@options[:animated]]
+        ProgressBar.animations[@options[:animated]]
       end
 
       # @return [#to_s] the text to display as the label of the progress bar.
@@ -38,9 +38,11 @@ module Bh
         end
       end
 
+    private
+
       # @return [Hash<Symbol, String>] the classes that Bootstrap requires to
       #   append to the progress bar for each possible context.
-      def contexts
+      def self.contexts
         HashWithIndifferentAccess.new.tap do |klass|
           klass[:danger]  = :'progress-bar-danger'
           klass[:info]    = :'progress-bar-info'
@@ -51,7 +53,7 @@ module Bh
 
       # @return [Hash<Symbol, String>] the classes that Bootstrap requires to
       #   append to the progress bar to make it look striped.
-      def stripes
+      def self.stripes
         HashWithIndifferentAccess.new.tap do |klass|
           klass[true]  = :'progress-bar-striped'
         end
@@ -59,7 +61,7 @@ module Bh
 
       # @return [Hash<Symbol, String>] the classes that Bootstrap requires to
       #   append to the progress bar to make it look animated.
-      def animations
+      def self.animations
         HashWithIndifferentAccess.new.tap do |klass|
           klass[true]  = :'progress-bar-striped active'
         end
@@ -72,8 +74,6 @@ module Bh
           label[false]  = @app.content_tag(:span, text, class: 'sr-only')
         end
       end
-
-    private
 
       def percentage
         @options.fetch :percentage, 0

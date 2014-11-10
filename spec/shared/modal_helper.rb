@@ -62,7 +62,7 @@ shared_examples_for 'the :title modal option' do
 end
 
 shared_examples_for 'the :size modal option'do
-  Bh::Modal.new.dialog_sizes.each do |size, size_class|
+  Bh::Modal.dialog_sizes.each do |size, size_class|
     specify %Q{set to :#{size}, adds the class "#{size_class}"}  do
       html = %r{<div class="modal-dialog #{size_class}">}
       expect(modal: {size: size}).to generate html
@@ -78,7 +78,7 @@ shared_examples_for 'the button: :caption modal option' do
 end
 
 shared_examples_for 'the button: :context modal option' do
-  Bh::Button.new.contexts.each do |context, context_class|
+  Bh::Button.contexts.each do |context, context_class|
     specify %Q{set to :#{context}, adds the class "#{context_class}"} do
       html = %r{<button class="btn #{context_class}"}
       expect(modal: {button: {context: context}}).to generate html
@@ -87,7 +87,7 @@ shared_examples_for 'the button: :context modal option' do
 end
 
 shared_examples_for 'the button: :size modal option' do
-  Bh::Button.new.sizes.each do |size, size_class|
+  Bh::Button.sizes.each do |size, size_class|
     specify %Q{set to :#{size}, adds the class "#{size_class}"} do
       html = %r{<button class="btn btn-default #{size_class}"}
       expect(modal: {button: {size: size}}).to generate html

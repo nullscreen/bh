@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 require 'bh/core_ext/rails/form_for_helper'
 include Bh::Rails::Helpers
 

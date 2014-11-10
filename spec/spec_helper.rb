@@ -16,32 +16,3 @@ RSpec.configure do |config|
   config.alias_it_should_behave_like_to :all_tests_pass_for, ''
   config.alias_it_should_behave_like_to :all_tests_pass_with, 'with'
 end
-
-
-
-class User
-  require 'active_model'
-
-  include ActiveModel::Validations
-  include ActiveModel::Conversion
-  extend ActiveModel::Naming
-
-  attr_accessor :name
-
-  def initialize(attributes = {})
-    @name = attributes[:name]
-  end
-
-  def persisted?
-    false
-  end
-end
-
-require 'action_view'
-include ActionView::Helpers::FormOptionsHelper
-if defined?(ActionView::VERSION) # only defined in ActionView >=4
-  include ActionView::RecordIdentifier
-else
-  include ActionController::RecordIdentifier
-end
-I18n.enforce_available_locales = true

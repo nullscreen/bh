@@ -22,7 +22,7 @@ shared_examples_for 'extra icon options' do
 end
 
 shared_examples_for 'the :library icon option' do
-  Bh::Icon.new.libraries.each do |library, library_class|
+  Bh::Icon.libraries.each do |library, library_class|
     specify %Q{set to :#{library}, adds the class "#{library_class}"} do
       html = %Q{<span class="#{library_class} #{library_class}-zoom-in"></span>}
       expect(icon: {library: library}).to generate html

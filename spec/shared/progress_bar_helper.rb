@@ -60,7 +60,7 @@ shared_examples_for 'the :label progress_bar option' do
 end
 
 shared_examples_for 'the :context progress_bar option' do
-  Bh::ProgressBar.new.contexts.each do |context, context_class|
+  Bh::ProgressBar.contexts.each do |context, context_class|
     specify %Q{set to :#{context}, adds the class "#{context_class}"} do
       html = %r{<div.+class="progress-bar #{context_class}"}
       expect(progress_bar: {percentage: 30, context: context}).to generate html
