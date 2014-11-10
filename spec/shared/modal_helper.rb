@@ -1,7 +1,4 @@
 shared_examples_for 'the modal helper' do
-  require 'bh/helpers/modal_helper'
-  include Bh::ModalHelper
-
   all_tests_pass_with 'no modal options'
   all_tests_pass_with 'the :id modal option'
   all_tests_pass_with 'the :body modal option'
@@ -16,71 +13,76 @@ end
 
 shared_examples_for 'no modal options' do
   specify 'sets the role and the class to "modal", uses a generated ID and uses "Modal" as the title and caption' do
-    expect(nil).to generate_modal_with %r{<button class="btn btn-default" data-toggle="modal" data-target="#(.+?)">Modal</button>.+?<div class="modal fade" id="\1" tabindex="-1" role="dialog" aria-labelledby="label-modal-.+?" aria-hidden="true">}m
-    expect(nil).to generate_modal_with %Q{<h4 class="modal-title" id="label-modal-.+?">Modal</h4>}
+    html = <<-EOT.strip_heredoc.strip
+      <button class="btn btn-default" data-toggle="modal" data-target="#(.+)">Modal<\/button>
+      <div class="modal fade" id="\\1" tabindex="-1" role="dialog" aria-labelledby="label-\\1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;<\/span><span class="sr-only">Close<\/span>
+              <\/button>
+              <h4 class="modal-title" id="label-\\1">Modal<\/h4>
+            <\/div>
+            (<div class=\"modal-body\">)*content(</div>)*
+          <\/div>
+        <\/div>
+      <\/div>
+    EOT
+    expect(:modal).to generate %r{#{html}}
   end
 end
 
 shared_examples_for 'the :id modal option' do
   specify 'uses the ID to connect button and modal' do
-    expect(modal id: 'my-modal').to match %r{<button.+?data-target="#my-modal">.+?<div class="modal fade" id="my-modal"}m
+    id = 'my-modal'
+    expect(modal: {id: id}).to generate %r{<button.+data-target="##{id}">Modal<\/button>}
+    expect(modal: {id: id}).to generate %r{<div.+id="#{id}".+aria-labelledby="label-#{id}".+>}
+    expect(modal: {id: id}).to generate %r{<h4.+id="label-#{id}">Modal<\/h4>}
   end
 end
 
 shared_examples_for 'the :body modal option' do
-  context 'given neither a content nor a block' do
-    let(:html) { modal body: 'Body' }
+  let(:html) { %r{<div class="modal-body">Body</div>} }
 
-    specify 'sets the body of the modal to the specified value' do
-      expect(html).to include %Q{<div class="modal-body">Body</div>}
-    end
+  specify 'given either a content or a block, is ignored' do
+    expect(modal: {body: 'Body'}).not_to generate html
   end
 
-  context 'given a content' do
-    let(:html) { modal 'content', body: 'Body' }
-
-    specify 'ignores the :body option and uses the content' do
-      expect(html).not_to include %Q{<div class="modal-body">Body</div>}
-      expect(html).to include %Q{<div class="modal-body">content</div>}
-    end
-  end
-
-  context 'given a block' do
-    let(:html) { modal(body: 'Body') { 'block' } }
-
-    specify 'ignores the :body option and uses the block' do
-      expect(html).not_to include %Q{<div class="modal-body">Body</div>}
-      expect(html).to include %Q{block}
-    end
+  specify 'given neither content nor a block, it is displayed as the content' do
+    expect(bh.modal(body: 'Body')).to match html
   end
 end
 
+
 shared_examples_for 'the :title modal option' do
   specify 'sets the modal title to the given value' do
-    expect(title: 'Title').to generate_modal_with %Q{<h4 class="modal-title".+>Title</h4>}
+    html = %r{<h4 class="modal-title".+>Title</h4>}
+    expect(modal: {title: 'Title'}).to generate html
   end
 end
 
 shared_examples_for 'the :size modal option'do
   Bh::Modal.new.dialog_sizes.each do |size, size_class|
     specify %Q{set to :#{size}, adds the class "#{size_class}"}  do
-      expect(size: size.to_s).to generate_modal_with %Q{<div class="modal-dialog #{size_class}">}
+      html = %r{<div class="modal-dialog #{size_class}">}
+      expect(modal: {size: size}).to generate html
     end
   end
 end
 
 shared_examples_for 'the button: :caption modal option' do
-  let(:caption) { 'Click to toggle modal' }
-
   specify 'sets the button caption to the given value' do
-    expect(button: {caption: caption}).to generate_modal_with %Q{<button.+>#{caption}</button>}
+    html = %r{<button.+>Click me</button>}
+    expect(modal: {button: {caption: 'Click me'}}).to generate html
   end
 end
 
 shared_examples_for 'the button: :context modal option' do
   Bh::Button.new.contexts.each do |context, context_class|
     specify %Q{set to :#{context}, adds the class "#{context_class}"} do
-      expect(button: {context: context.to_s}).to generate_modal_with %Q{<button class="btn #{context_class}"}
+      html = %r{<button class="btn #{context_class}"}
+      expect(modal: {button: {context: context}}).to generate html
     end
   end
 end
@@ -88,21 +90,8 @@ end
 shared_examples_for 'the button: :size modal option' do
   Bh::Button.new.sizes.each do |size, size_class|
     specify %Q{set to :#{size}, adds the class "#{size_class}"} do
-      expect(button: {size: size.to_s}).to generate_modal_with %Q{<button class="btn btn-default #{size_class}"}
+      html = %r{<button class="btn btn-default #{size_class}"}
+      expect(modal: {button: {size: size}}).to generate html
     end
-  end
-end
-
-#--
-
-RSpec::Matchers.define :generate_modal_with do |regex|
-  match do |options|
-    inline = modal *['inline', options].compact
-    inline_match = inline.include?(%Q{<div class="modal-body">inline</div>}) && inline.match(regex)
-
-    block = modal(*[options].compact) { 'block' }
-    block_match = block.include?('block') && block.match(regex)
-
-    inline_match && block_match
   end
 end
