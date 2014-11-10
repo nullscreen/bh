@@ -12,4 +12,8 @@ RSpec::Matchers.define :generate do |html|
       else @inline.eql?(html) && @block.eql?(html)
     end
   end
+
+  failure_message do |actual|
+    "expected #{html}, got #{@inline} and #{@block}"
+  end
 end
