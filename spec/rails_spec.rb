@@ -2,6 +2,8 @@ require 'spec_helper'
 require 'action_view'
 
 describe 'When used in Rails' do
+  let(:bh) { RailsView.new }
+
   include ActionView::Context # for capture
 
   all_tests_pass_for 'the alert_box helper'
@@ -14,6 +16,7 @@ describe 'When used in Rails' do
   all_tests_pass_for 'the glyphicon helper'
   all_tests_pass_for 'the horizontal helper'
   all_tests_pass_for 'the icon helper'
+  all_tests_pass_for 'the link_to helper'
   all_tests_pass_for 'the modal helper'
   all_tests_pass_for 'the nav helper'
   all_tests_pass_for 'the navbar helper'

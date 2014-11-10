@@ -1,4 +1,6 @@
 require 'bh/classes/panel'
+require 'bh/classes/panel_row'
+require 'bh/classes/stack'
 
 module Bh
   # Provides the `panel` helper.

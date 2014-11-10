@@ -8,6 +8,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 SimpleCov.start
 
 Dir['./spec/shared/**/*.rb'].each {|f| require f}
+Dir['./spec/support/**/*.rb'].each {|f| require f}
 
 RSpec.configure do |config|
   config.order = 'random'
@@ -20,7 +21,6 @@ end
 
 class User
   require 'active_model'
-  require 'active_support/all'
 
   include ActiveModel::Validations
   include ActiveModel::Conversion

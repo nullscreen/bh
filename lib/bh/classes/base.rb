@@ -1,5 +1,7 @@
 require 'bh/classes/stack'
 require 'ostruct'
+require 'active_support'
+require 'active_support/core_ext'
 
 module Bh
   module Classes
