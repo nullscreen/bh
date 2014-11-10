@@ -7,6 +7,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 ]
 SimpleCov.start
 
+require 'bh'
+
 Dir['./spec/shared/**/*.rb'].each {|f| require f}
 Dir['./spec/support/**/*.rb'].each {|f| require f}
 
