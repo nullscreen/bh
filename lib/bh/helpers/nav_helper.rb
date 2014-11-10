@@ -2,8 +2,7 @@ require 'bh/classes/nav'
 require 'bh/classes/navbar'
 
 module Bh
-  # Provides the `nav` helper.
-  module NavHelper
+  module Helpers
     # @see http://getbootstrap.com/components/#nav
     # @return [String] an HTML block to display a nav.
     # @example A pills-styled nav with a link.

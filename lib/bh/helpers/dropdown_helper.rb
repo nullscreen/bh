@@ -1,8 +1,7 @@
 require 'bh/classes/dropdown'
 
 module Bh
-  # Provides the `dropdown` helper.
-  module DropdownHelper
+  module Helpers
     # @see http://getbootstrap.com/components/#dropdowns
     # @see http://getbootstrap.com/components/#btn-dropdowns
     # @return [String] an HTML block to display a dropdown.

@@ -1,8 +1,7 @@
 require 'bh/classes/button'
 
 module Bh
-  # Provides the `button` helper.
-  module ButtonHelper
+  module Helpers
     # @see http://getbootstrap.com/css/#buttons
     # @return [String] an HTML block to display a button.
     # @overload button(caption, options = {})

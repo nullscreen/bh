@@ -1,9 +1,7 @@
 require 'bh/helpers/icon_helper'
 
 module Bh
-  # Provides the `glyphicon` helper.
-  module GlyphiconHelper
-    include IconHelper
+  module Helpers
     # @see http://getbootstrap.com/components/#glyphicons
     # @return [String] an HTML block to display an glyphicon.
     # @param [#to_s] name the name of the icon to display, with either dashes

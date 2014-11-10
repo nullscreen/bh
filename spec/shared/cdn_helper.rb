@@ -1,45 +1,36 @@
 shared_examples_for 'the bootstrap_css helper' do
-  it_behaves_like('a cdn helper') { let(:method) { :bootstrap_css } }
+  it { expect(:bootstrap_css).to link_to_existing_file }
 end
 
 shared_examples_for 'the bootstrap_theme_css helper' do
-  it_behaves_like('a cdn helper') { let(:method) { :bootstrap_theme_css } }
+  it { expect(:bootstrap_theme_css).to link_to_existing_file }
 end
 
 shared_examples_for 'the bootstrap_js helper' do
-  it_behaves_like('a cdn helper') { let(:method) { :bootstrap_js } }
+  it { expect(:bootstrap_js).to link_to_existing_file }
 end
 
 shared_examples_for 'the font_awesome_css helper' do
-  it_behaves_like('a cdn helper') { let(:method) { :font_awesome_css } }
+  it { expect(:font_awesome_css).to link_to_existing_file }
 end
 
 #--
 
-shared_examples_for 'a cdn helper' do
-  require 'bh/helpers/cdn_helper'
-  include Bh::CdnHelper
-  require 'open-uri'
-  let(:open_uri_options) { {ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE} }
-  let(:file) { open send(method, options), open_uri_options }
+RSpec::Matchers.define :link_to_existing_file do
+  match do |helper|
+    require 'open-uri'
+    open_uri_options = {ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE}
 
-  describe 'with the :scheme option set to :http', slow: true do
-    let(:options) { {scheme: :http} }
-    it('links to an existing file') { expect(file).to be }
-  end
+    # via HTTP
+    open bh.send(helper, scheme: :http), open_uri_options
 
-  describe 'with the :scheme option set to :https', slow: true do
-    let(:options) { {scheme: :https} }
-    it('links to an existing file') { expect(file).to be }
-  end
+    # via HTTPS
+    open bh.send(helper, scheme: :https), open_uri_options
 
-  describe 'with the :minified option set to false', slow: true do
-    let(:options) { {scheme: :http, minified: false} }
-    it('links to an existing file') { expect(file).to be }
-  end
+    # non-minified
+    open bh.send(helper, scheme: :http, minified: false), open_uri_options
 
-  describe 'with the :version option set to a legacy version', slow: true do
-    let(:options) { {scheme: :https, version: '3.1.0'} }
-    it('links to an existing file') { expect(file).to be }
+    # legacy version
+    open bh.send(helper, scheme: :http, version: '3.1.0'), open_uri_options
   end
 end

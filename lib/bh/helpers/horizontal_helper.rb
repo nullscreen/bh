@@ -1,9 +1,7 @@
 require 'bh/classes/navbar'
 
 module Bh
-  # Provides the `horizontal` helper.
-  module HorizontalHelper
-
+  module Helpers
     def horizontal(*args, &block)
       if navbar = Bh::Stack.find(Bh::Navbar)
         horizontal = Bh::Base.new self, *args, &block

@@ -2,11 +2,7 @@ require 'bh/helpers/horizontal_helper'
 require 'bh/helpers/vertical_helper'
 
 module Bh
-  # Provides the `navbar` helper.
-  module NavbarHelper
-    include HorizontalHelper
-    include VerticalHelper
-
+  module Helpers
     # @see http://getbootstrap.com/components/#navbar
     # @return [String] an HTML block to display a navbar.
     # @example An inverted navbar with the company logo and two links.

@@ -1,8 +1,7 @@
 require 'bh/classes/icon'
 
 module Bh
-  # Provides the `icon` helper.
-  module IconHelper
+  module Helpers
     # @see http://getbootstrap.com/components/#glyphicons
     # @see http://fortawesome.github.io/Font-Awesome/examples/#bootstrap
     # @return [String] an HTML block to display a vector (font) icon.

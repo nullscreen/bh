@@ -3,8 +3,7 @@ require 'bh/classes/panel_row'
 require 'bh/classes/stack'
 
 module Bh
-  # Provides the `panel` helper.
-  module PanelHelper
+  module Helpers
     # @see http://getbootstrap.com/components/#panels
     # @return [String] an HTML block to display a panel.
     # @overload panel(options = {})

@@ -2,9 +2,7 @@ require 'bh/classes/navbar'
 require 'bh/classes/vertical'
 
 module Bh
-  # Provides the `vertical` helper.
-  module VerticalHelper
-
+  module Helpers
     def vertical(*args, &block)
       if navbar = Bh::Stack.find(Bh::Navbar)
         vertical = Bh::Vertical.new self, *args, &block

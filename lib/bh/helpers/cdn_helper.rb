@@ -1,10 +1,8 @@
 require 'bh/classes/cdn'
 
 module Bh
-  # Provides methods to retrieve the URLs of Bootstrap stylesheets and
-  # Javascript files from Bootstrap CDN
-  # @see http://www.bootstrapcdn.com
-  module CdnHelper
+  module Helpers
+    # @see http://www.bootstrapcdn.com
     # @return [String] the URL of the Bootstrap CSS file
     # @param [Hash] options the options for which CSS file to retrieve.
     # @option options [String] :version the version of Bootstrap.
@@ -14,6 +12,7 @@ module Bh
       Bh::Cdn.bootstrap options.merge(name: 'bootstrap', extension: 'css')
     end
 
+    # @see http://www.bootstrapcdn.com
     # @return [String] the URL of the Bootstrap Theme CSS file
     # @param [Hash] options the options for which CSS file to retrieve.
     # @option options [String] :version the version of Bootstrap.
@@ -23,6 +22,7 @@ module Bh
       Bh::Cdn.bootstrap options.merge(name: 'bootstrap-theme', extension: 'css')
     end
 
+    # @see http://www.bootstrapcdn.com
     # @return [String] the URL of the Font Awesome CSS file
     # @param [Hash] options the options for which CSS file to retrieve.
     # @option options [String] :version the version of Font Awesome.
@@ -33,6 +33,7 @@ module Bh
       Bh::Cdn.font_awesome options.merge(name: 'font-awesome', extension: 'css')
     end
 
+    # @see http://www.bootstrapcdn.com
     # @return [String] the URL of the Bootstrap JS file
     # @param [Hash] options the options for which JS file to retrieve.
     # @option options [String] :version the version of Bootstrap.
