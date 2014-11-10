@@ -30,9 +30,9 @@ module Bh
       alert_box = Bh::AlertBox.new(self, *args, &block)
       alert_box.extract! :context, :priority, :dismissible
 
-      alert_box.merge! role: :alert
       alert_box.append_class! :alert
       alert_box.append_class! alert_box.context_class
+      alert_box.merge! role: :alert
       alert_box.prepend_html! alert_box.dismissible_button
       alert_box.render_tag :div
     end
