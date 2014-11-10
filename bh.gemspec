@@ -21,17 +21,20 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'activesupport'
-  spec.add_dependency 'actionpack'
+  spec.add_dependency 'activesupport'                # versioned in gemfiles/
+  spec.add_dependency 'actionpack'                   # versioned in gemfiles/
 
   # For development / Code coverage / Documentation
-  spec.add_development_dependency 'bundler' #, '~> 1.0'
-  spec.add_development_dependency 'rspec' #, '~> 2.0'
-  spec.add_development_dependency 'rake' #, '~> 10.0'
-  spec.add_development_dependency 'yard' #, '~> 0.8.0'
-  spec.add_development_dependency 'coveralls' #, '~> 0.7.0'
-  spec.add_development_dependency 'activemodel'
+  spec.add_development_dependency 'bundler',         '~> 1.1'
+  spec.add_development_dependency 'rspec',           '~> 3.1'
+  spec.add_development_dependency 'rake',            '~> 10.3'
+  spec.add_development_dependency 'yard',            '~> 0.8.7'
+  spec.add_development_dependency 'coveralls',       '~> 0.7.1'
+  spec.add_development_dependency 'activemodel'      # versioned in gemfiles/
 
   # For spec/dummy
-  spec.add_development_dependency 'middleman-core' #, '~> 3.3.5'
+  spec.add_development_dependency 'middleman-core'   # versioned in gemfiles/
+
+  # For Middleman/Padrino tests
+  spec.add_development_dependency 'padrino-helpers', '~> 0.12.4'
 end
