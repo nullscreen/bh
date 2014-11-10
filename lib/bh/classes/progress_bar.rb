@@ -23,13 +23,18 @@ module Bh
         labels[@options.fetch :label, false] || @options[:label]
       end
 
+      def aria_values
+        {}.tap do |values|
+          values[:'aria-valuemax'] = 100
+          values[:'aria-valuemin'] = 0
+          values[:'aria-valuenow'] = percentage
+        end
+      end
+
       def values
         {}.tap do |values|
-          values[:style] = "width: #{percentage}%"
           values[:role] = :progressbar
-          values[:'aria-valuenow'] = percentage
-          values[:'aria-valuemin'] = 0
-          values[:'aria-valuemax'] = 100
+          values[:style] = "width: #{percentage}%"
         end
       end
 
