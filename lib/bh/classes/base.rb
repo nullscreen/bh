@@ -98,7 +98,9 @@ module Bh
 
       def capture_content(&block)
         content = @app.capture &block
-        ActiveSupport::SafeBuffer.new.safe_concat(content) if content
+        if content.is_a? String
+          ActiveSupport::SafeBuffer.new.safe_concat(content)
+        end
       end
     end
   end
