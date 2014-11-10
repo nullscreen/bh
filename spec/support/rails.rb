@@ -4,6 +4,8 @@ require 'action_view'
 require 'bh/helpers/alert_box_helper'
 require 'bh/helpers/button_helper'
 require 'bh/helpers/dropdown_helper'
+require 'bh/helpers/glyphicon_helper'
+require 'bh/helpers/icon_helper'
 require 'bh/helpers/nav_helper'
 require 'bh/helpers/vertical_helper'
 require 'bh/core_ext/rails/link_to_helper'
@@ -24,6 +26,8 @@ class RailsView
   include Bh::AlertBoxHelper
   include Bh::ButtonHelper
   include Bh::DropdownHelper
+  include Bh::GlyphiconHelper
+  include Bh::IconHelper
   include Bh::NavHelper
   include Bh::VerticalHelper
 
