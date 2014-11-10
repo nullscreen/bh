@@ -8,6 +8,7 @@ require 'bh/helpers/glyphicon_helper'
 require 'bh/helpers/horizontal_helper'
 require 'bh/helpers/icon_helper'
 require 'bh/helpers/modal_helper'
+require 'bh/helpers/nav_helper'
 require 'bh/helpers/navbar_helper'
 require 'bh/helpers/panel_helper'
 require 'bh/helpers/panel_row_helper'
@@ -27,6 +28,7 @@ class MiddlemanView
   include Bh::HorizontalHelper
   include Bh::IconHelper
   include Bh::ModalHelper
+  include Bh::NavHelper
   include Bh::NavbarHelper
   include Bh::PanelHelper
   include Bh::PanelRowHelper
