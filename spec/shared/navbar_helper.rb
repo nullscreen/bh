@@ -22,7 +22,7 @@ end
 
 shared_examples_for 'the :id navbar option' do
   let(:id) { 'my-navbar' }
-  let(:html) { navbar(id: id) {safe_join [vertical, horizontal]} }
+  let(:html) { navbar(id: id) {[vertical, horizontal].join.html_safe} }
   it 'uses the id for the vertical and horizontal elements' do
     expect(html).to include %Q{button class="navbar-toggle" data-target="##{id}"}
     expect(html).to include %Q{div class="collapse navbar-collapse" id="#{id}"}
@@ -30,9 +30,9 @@ shared_examples_for 'the :id navbar option' do
 end
 
 shared_examples_for 'multiple navbars' do
-  let(:navbar_1) { navbar(inverted: true) {safe_join [vertical, horizontal]} }
-  let(:navbar_2) { navbar(position: :top) {safe_join [vertical, horizontal]} }
-  let(:html) { safe_join [navbar_1, navbar_2], "\n"}
+  let(:navbar_1) { navbar(inverted: true) {[vertical, horizontal].join.html_safe} }
+  let(:navbar_2) { navbar(position: :top) {[vertical, horizontal].join.html_safe} }
+  let(:html) { [navbar_1, navbar_2].join.html_safe }
 
   specify 'toggle their own horizontal part when clicking on vertical' do
     navbar_ids = html.scan %r{<nav.+?data-target="#(.+?)".+?id="(\1)".+?</nav>}m
