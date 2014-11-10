@@ -4,10 +4,10 @@ module Bh
   module Classes
     class Vertical < Base
       def toggle_button(navbar_id, options = {})
-        options[:'type']        = :'button'
         options[:'class']       = :'navbar-toggle'
-        options[:'data-toggle'] = :'collapse'
         options[:'data-target'] = :"##{navbar_id}"
+        options[:'data-toggle'] = :'collapse'
+        options[:'type']        = :'button'
         @app.content_tag :button, options do
           safe_join [toggle_text, toggle_bar, toggle_bar, toggle_bar]
         end
