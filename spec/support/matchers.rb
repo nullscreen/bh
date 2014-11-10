@@ -1,5 +1,5 @@
 RSpec::Matchers.define :generate do |html|
-  match do |helper, options = {}|
+  match do |helper, options = nil|
     if helper.is_a?(Hash)
       helper, options = helper.keys.first, helper.values.first
     end
@@ -13,6 +13,9 @@ RSpec::Matchers.define :generate do |html|
     elsif helper == :glyphicon || helper == :icon
       @inline = bh.send helper, *['zoom-in', options].compact
       @block = bh.send helper, *[:zoom_in, options].compact
+    elsif helper == :progress_bar
+      @inline = bh.send helper, *Array.wrap(options)
+      @block = @inline
     else
       @inline = bh.send helper, *['content', options].compact
       @block = bh.send(helper, *[options].compact) { 'content' }

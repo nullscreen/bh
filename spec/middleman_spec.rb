@@ -8,4 +8,5 @@ describe 'When used in Middleman' do
   all_tests_pass_for 'the dropdown helper'
   all_tests_pass_for 'the glyphicon helper'
   all_tests_pass_for 'the icon helper'
+  all_tests_pass_for 'the progress_bar helper'
 end

@@ -30,6 +30,7 @@ module Bh
         progress_bar = Bh::ProgressBar.new self, nil, options
         progress_bar.extract! :percentage, :context, :striped, :animated, :label
 
+        progress_bar.merge! progress_bar.aria_values
         progress_bar.append_class! :'progress-bar'
         progress_bar.append_class! progress_bar.context_class
         progress_bar.append_class! progress_bar.striped_class

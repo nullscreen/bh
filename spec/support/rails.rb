@@ -7,6 +7,7 @@ require 'bh/helpers/dropdown_helper'
 require 'bh/helpers/glyphicon_helper'
 require 'bh/helpers/icon_helper'
 require 'bh/helpers/nav_helper'
+require 'bh/helpers/progress_bar_helper'
 require 'bh/helpers/vertical_helper'
 require 'bh/core_ext/rails/link_to_helper'
 
@@ -29,6 +30,7 @@ class RailsView
   include Bh::GlyphiconHelper
   include Bh::IconHelper
   include Bh::NavHelper
+  include Bh::ProgressBarHelper
   include Bh::VerticalHelper
 
   include Bh::Rails::Helpers
