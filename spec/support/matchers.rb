@@ -4,8 +4,16 @@ RSpec::Matchers.define :generate do |html|
       helper, options = helper.keys.first, helper.values.first
     end
 
-    @inline = bh.send helper, *['content', '/', options].compact
-    @block = bh.send(helper, *['/', options].compact) { 'content' }
+    if helper == :link_to
+      @inline = bh.send helper, *['content', '/', options].compact
+      @block = bh.send(helper, *['/', options].compact) { 'content' }
+    elsif helper == :dropdown
+      @block = bh.send(helper, *['caption', options].compact) { 'content' }
+      @inline = @block
+    else
+      @inline = bh.send helper, *['content', options].compact
+      @block = bh.send(helper, *[options].compact) { 'content' }
+    end
 
     case html
       when Regexp then @inline.match(html) && @block.match(html)
@@ -13,7 +21,5 @@ RSpec::Matchers.define :generate do |html|
     end
   end
 
-  failure_message do |actual|
-    "expected #{html}, got #{@inline} and #{@block}"
-  end
+  failure_message{|actual| "expected #{html}, got #{@inline} and #{@block}"}
 end
