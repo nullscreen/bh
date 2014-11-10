@@ -6,7 +6,7 @@ module Bh
       # @return [#to_s] the class to assign to the icon based on the Vector
       #   Icon library used.
       def library_class
-        libraries[@options[:library].to_s.underscore] || @options[:library]
+        Icon.libraries[@options[:library].to_s.underscore] || @options[:library]
       end
 
       # @return [#to_s] the class to assign to the icon based on the name
@@ -17,10 +17,11 @@ module Bh
         end
       end
 
+    private
 
       # @return [Hash<Symbol, String>] the classes that Bootstrap requires to
       #   append to icons for each possible vector icon library.
-      def libraries
+      def self.libraries
         HashWithIndifferentAccess.new(nil).tap do |klass|
           klass[:font_awesome]  = :'fa'
           klass[:glyphicons]    = :'glyphicon'

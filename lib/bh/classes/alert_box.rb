@@ -5,7 +5,7 @@ module Bh
     class AlertBox < Base
       # @return [#to_s] the content-related class to assign to the alert box.
       def context_class
-        contexts[@options.fetch :context, @options[:priority]]
+        AlertBox.contexts[@options.fetch :context, @options[:priority]]
       end
 
       # @return [#to_s] the HTML to show a dismissible button for the alert box.
@@ -16,9 +16,11 @@ module Bh
         end
       end
 
+    private
+
       # @return [Hash<Symbol, String>] the class that Bootstrap requires to
       #   append to an alert box based on its context.
-      def contexts
+      def self.contexts
         HashWithIndifferentAccess.new(:'alert-info').tap do |klass|
           klass[:alert]   = :'alert-danger'
           klass[:danger]  = :'alert-danger'

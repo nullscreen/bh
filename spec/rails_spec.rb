@@ -4,8 +4,6 @@ require 'action_view'
 describe 'When used in Rails' do
   let(:bh) { RailsView.new }
 
-  include ActionView::Context # for capture
-
   all_tests_pass_for 'the alert_box helper'
   all_tests_pass_for 'the bootstrap_css helper'
   all_tests_pass_for 'the bootstrap_js helper'

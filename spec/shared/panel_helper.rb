@@ -60,7 +60,7 @@ shared_examples_for 'the :tag panel option' do
 end
 
 shared_examples_for 'the :context panel option' do
-  Bh::Panel.new.contexts.each do |context, context_class|
+  Bh::Panel.contexts.each do |context, context_class|
     specify %Q{set to :#{context}, adds the class "#{context_class}"} do
       html = %r{^<div class="panel #{context_class}">.*</div>$}m
       expect(panel: {context: context}).to generate html

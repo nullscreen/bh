@@ -1,9 +1,8 @@
-
 require 'bh/classes/button'
 
 module Bh
   module Classes
-    class Modal < Button
+    class Modal < Base
       # Differently from other classes, Modal works with no content or block,
       # given that the options[:body] is passed, in which case it functions
       # as the content.
@@ -17,17 +16,17 @@ module Bh
 
       # @return [#to_s] the context-related class to assign to the modal button.
       def button_context_class
-        contexts[@options.fetch(:button, {})[:context]]
+        Button.contexts[@options.fetch(:button, {})[:context]]
       end
 
       # @return [#to_s] the size-related class to assign to the modal button.
       def button_size_class
-        sizes[@options.fetch(:button, {})[:size]]
+        Button.sizes[@options.fetch(:button, {})[:size]]
       end
 
       # @return [#to_s] the size-related class to assign to the modal dialog.
       def dialog_size_class
-        dialog_sizes[@options[:size]]
+        Modal.dialog_sizes[@options[:size]]
       end
 
       # @return [#to_s] the caption for the modal button.
@@ -44,9 +43,11 @@ module Bh
         @options.fetch :id, "modal-#{rand 10**10}"
       end
 
+    private
+
       # @return [Hash<Symbol, String>] the classes that Bootstrap requires to
       #   append to the modal dialog for each possible size.
-      def dialog_sizes
+      def self.dialog_sizes
         HashWithIndifferentAccess.new.tap do |klass|
           klass[:large]       = :'modal-lg'
           klass[:lg]          = :'modal-lg'
@@ -54,8 +55,6 @@ module Bh
           klass[:small]       = :'modal-sm'
         end
       end
-
-    private
 
       def extract_content_from(*args, &block)
         if block_given?

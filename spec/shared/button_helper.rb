@@ -25,7 +25,7 @@ shared_examples_for 'extra button options' do
 end
 
 shared_examples_for 'the :context button option' do
-  Bh::Button.new.contexts.each do |context, context_class|
+  Bh::Button.contexts.each do |context, context_class|
     specify %Q{set to :#{context}, adds the class "#{context_class}"} do
       html = %Q{<button class="btn #{context_class}">content</button>}
       expect(button: {context: context}).to generate html
@@ -34,7 +34,7 @@ shared_examples_for 'the :context button option' do
 end
 
 shared_examples_for 'the :size button option' do
-  Bh::Button.new.sizes.each do |size, size_class|
+  Bh::Button.sizes.each do |size, size_class|
     specify %Q{set to :#{size}, adds the class "#{size_class}"} do
       html = %Q{<button class="btn btn-default #{size_class}">content</button>}
       expect(button: {size: size}).to generate html
@@ -43,7 +43,7 @@ shared_examples_for 'the :size button option' do
 end
 
 shared_examples_for 'the :layout button option' do
-  Bh::Button.new.layouts.each do |layout, layout_class|
+  Bh::Button.layouts.each do |layout, layout_class|
     specify %Q{set to :#{layout}, adds the class "#{layout_class}"} do
       html = %Q{<button class="btn btn-default #{layout_class}">content</button>}
       expect(button: {layout: layout}).to generate html

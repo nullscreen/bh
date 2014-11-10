@@ -5,17 +5,17 @@ module Bh
     class Navbar < Base
       # @return [#to_s] the style-related class to assign to the navbar.
       def style_class
-        styles[@options[:inverted]]
+        Navbar.styles[@options[:inverted]]
       end
 
       # @return [#to_s] the position-related class to assign to the navbar.
       def position_class
-        positions[@options[:position]]
+        Navbar.positions[@options[:position]]
       end
 
       # @return [#to_s] the layout-related class to assign to the navbar.
       def layout_class
-        layouts[@options[:fluid]]
+        Navbar.layouts[@options[:fluid]]
       end
 
       def id
@@ -34,9 +34,11 @@ module Bh
         end
       end
 
+    private
+
       # @return [Hash<Symbol, String>] the classes that Bootstrap requires to
       #   append to navbars to specify a color combination.
-      def styles
+      def self.styles
         HashWithIndifferentAccess.new(:'navbar-default').tap do |klass|
           klass[true] = :'navbar-inverse'
         end
@@ -44,7 +46,7 @@ module Bh
 
       # @return [Hash<Symbol, String>] the classes that Bootstrap requires to
       #   append to navbars to set a specific DOM position.
-      def positions
+      def self.positions
         HashWithIndifferentAccess.new.tap do |klass|
           klass[:static]        = :'navbar-static-top'
           klass[:static_top]    = :'navbar-static-top'
@@ -57,13 +59,11 @@ module Bh
 
       # @return [Hash<Symbol, String>] the classes that Bootstrap requires to
       #   append to the navbar container for each possible layout.
-      def layouts
+      def self.layouts
         HashWithIndifferentAccess.new(:'container').tap do |klass|
           klass[true] = :'container-fluid'
         end
       end
-
-    private
 
       def body_padding_amount
         @options.fetch :padding, 70
