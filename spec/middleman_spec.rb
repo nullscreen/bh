@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'When used in Middleman' do
+describe 'When used in Middleman or Padrino' do
   let(:bh) { MiddlemanView.new }
 
   all_tests_pass_for 'the alert_box helper'

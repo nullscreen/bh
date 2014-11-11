@@ -8,6 +8,7 @@ For more information about changelogs, check
 
 ## 1.2.0 - unreleased
 
+* [FEATURE] Add support for Middleman and Padrino for all helpers except `button_to`, `form_for` and `link_to`
 * [FEATURE] Extend `button_to` to accept the same :content, :size and :layout options as `button`
 * [ENHANCEMENT] Allow `button_to` to pass extra parameters to the button element
 * [ENHANCEMENT] Don’t render anything when `vertical` and `horizontal` are not wrapped in a `navbar`
