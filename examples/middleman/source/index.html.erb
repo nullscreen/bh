@@ -19,7 +19,7 @@
 
         <!-- Try setting different :dismissible and :context options -->
         <% alert_box context: :success, dismissible: true, id: 'my-alert', data: {value: 1} do %>
-          Text <em>styled</em> with <acronym title="HyperText Markup Language">HTML</acronym> and <%= link_to 'links', '#', class: 'alert-link' %>.
+          Text <em>styled</em> with <acronym title="HyperText Markup Language">HTML</acronym> and <%= link_to 'links', '#' %>.
         <% end %>
 
       <h1>Panels</h1>
@@ -89,7 +89,7 @@
 
         <% navbar do %>
           <% vertical do %>
-            <%= link_to 'Home', '/', class: 'navbar-brand' %>
+            <%= link_to 'Home', '/' %>
           <% end %>
         <% end %>
 
@@ -128,15 +128,9 @@
 
         <!-- Try setting different :split, :direction, :align, :groupable, :layout, :context or :size options -->
         <% dropdown 'Plain caption', split: true, direction: :up, align: :right, groupable: true, context: :info, size: :extra_small do %>
-          <li role='presentation'>
-            <%= link_to 'Home', '/', role: 'menuitem', tabindex: '-1' %>
-          </li>
-          <li role='presentation'>
-            <%= link_to 'Profile', '/#profile', role: 'menuitem', tabindex: '-1' %>
-          </li>
-          <li role='presentation'>
-            <%= link_to 'Settings', '/#settings', role: 'menuitem', tabindex: '-1' %>
-          </li>
+          <%= link_to 'Home', '/' %>
+          <%= link_to 'Profile', '/#profile' %>
+          <%= link_to 'Settings', '/#settings' %>
         <% end %>
 
       <h1>Progress bars</h1>

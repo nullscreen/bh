@@ -23,4 +23,5 @@ describe 'When used in Middleman or Padrino' do
   all_tests_pass_for 'the vertical helper'
 
   all_tests_pass_for 'the button_to helper (Middleman)'
+  all_tests_pass_for 'the link_to helper'
 end

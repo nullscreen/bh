@@ -1,4 +1,5 @@
 require 'bh/core_ext/padrino/button_to_helper'
+require 'bh/core_ext/padrino/link_to_helper'
 
 module Bh
   module Extensions

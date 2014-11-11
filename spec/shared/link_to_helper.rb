@@ -19,7 +19,7 @@ end
 shared_examples_for 'extra link_to options' do
   specify 'passes the options to the <a>' do
     options = {class: 'important', data: {value: 1}, id: 'my-link'}
-    html = %r{^<a.+class="important" data-value="1".+id="my-link">content</a>$}
+    html = %r{^<a.+class="important" data-value="1".+id="my-link".*>content</a>$}
     expect(link_to: options).to generate html
   end
 end
@@ -33,7 +33,7 @@ end
 
 shared_examples_for 'the link wrapped in dropdown' do
   specify 'surrounds the link in a <li> and adds role and tabindex' do
-    html = '<li role="presentation"><a href="/" role="menuitem" tabindex="-1">content</a></li>'
+    html = %r{<li role="presentation"><a.+role="menuitem" tabindex="-1".*>content</a></li>}
     bh.dropdown('') { expect(:link_to).to generate html }
   end
 end
