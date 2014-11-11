@@ -6,7 +6,11 @@ RSpec::Matchers.define :generate do |html|
 
     if helper == :link_to || helper == :button_to
       @inline = bh.send helper, *['content', '/', options].compact
-      @block = bh.send(helper, *['/', options].compact) { 'content' }
+      if bh.test_button_to_with_block
+        @block = bh.send(helper, *['/', options].compact) { 'content' }
+      else
+        @block = @inline
+      end
     elsif helper == :dropdown
       @block = bh.send(helper, *['caption', options].compact) { 'content' }
       @inline = @block

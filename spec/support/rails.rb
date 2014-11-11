@@ -25,4 +25,8 @@ class RailsView
   def protect_against_forgery?
     false
   end
+
+  def test_button_to_with_block
+    true
+  end
 end
