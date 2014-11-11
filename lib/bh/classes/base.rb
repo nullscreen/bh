@@ -68,6 +68,11 @@ module Bh
         @app.content_tag tag, content, attributes
       end
 
+      def url
+        @url
+      end
+
+
     private
 
       def safe_join(array = [])
@@ -98,6 +103,10 @@ module Bh
         else
           args.shift
         end
+      end
+
+      def extract_url_from(*args)
+        args.delete_at(block_given? ? 0 : 1)
       end
 
       def capture_content(&block)

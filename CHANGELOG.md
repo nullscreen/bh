@@ -6,8 +6,10 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
-## 1.1.2 - unreleased
+## 1.2.0 - unreleased
 
+* [FEATURE] Extend `button_to` to accept the same :content, :size and :layout options as `button`
+* [ENHANCEMENT] Allow `button_to` to pass extra parameters to the button element
 * [ENHANCEMENT] Don’t render anything when `vertical` and `horizontal` are not wrapped in a `navbar`
 * [ENHANCEMENT] Allow `progress_bar` to pass extra parameters to the wrapping container
 * [ENHANCEMENT] Allow `progress_bar` to pass extra parameters to each bar
