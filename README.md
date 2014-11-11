@@ -87,6 +87,14 @@ If you prefer to see the helpers inside a _test Middleman app_:
 1. Run `bundle exec middleman`
 1. Point your browser to [http://0.0.0.0:4567](http://0.0.0.0:4567)
 
+If you prefer to see the helpers inside a _test Padrino app_:
+
+1. Download the source code
+1. `cd` into the `examples/padrino` folder
+1. Run `bundle install`
+1. Run `bundle padrino start`
+1. Point your browser to [http://0.0.0.0:3000](http://0.0.0.0:3000)
+
 
 How to update
 =============
