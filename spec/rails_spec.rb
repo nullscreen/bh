@@ -1,4 +1,5 @@
 require 'spec_helper'
+Dir['./spec/rails/*_helper.rb'].each {|f| require f}
 
 describe 'When used in Rails' do
   let(:bh) { RailsView.new }
@@ -21,6 +22,6 @@ describe 'When used in Rails' do
   all_tests_pass_for 'the progress_bar helper'
   all_tests_pass_for 'the vertical helper'
 
-  all_tests_pass_for 'the button_to helper'
+  all_tests_pass_for 'the button_to helper (Rails)'
   all_tests_pass_for 'the link_to helper'
 end

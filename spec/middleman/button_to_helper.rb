@@ -1,10 +1,7 @@
 shared_examples_for 'the button_to helper (Middleman)' do
   all_tests_pass_with 'no button_to options (Middleman)'
   all_tests_pass_with 'extra button_to options (Middleman)'
-  all_tests_pass_with 'the :context button_to option'
-  all_tests_pass_with 'the :size button_to option'
-  all_tests_pass_with 'the :layout button_to option'
-  all_tests_pass_with 'the button wrapped in navbar'
+  all_tests_pass_for 'the button_to helper'
 end
 
 #--
