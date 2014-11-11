@@ -1,5 +1,5 @@
 require 'spec_helper'
-Dir['./spec/middleman/**/*.rb'].each {|f| require f}
+Dir['./spec/middleman/*_helper.rb'].each {|f| require f}
 
 describe 'When used in Middleman or Padrino' do
   let(:bh) { MiddlemanView.new }
