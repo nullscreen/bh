@@ -4,13 +4,13 @@ Bh · Bootstrap Helpers
 Bh provides a set of helpers that streamlines the use of
 [Bootstrap 3 components](http://getbootstrap.com/components) in Ruby views.
 
-The **full documentation** is available at [rubydoc.info](http://rubydoc.info/github/Fullscreen/bh/master/frames).
+The **full documentation** is available at [rubydoc.info](http://www.rubydoc.info/github/Fullscreen/bh/master/Bh/Helpers).
 
 [![Build Status](http://img.shields.io/travis/Fullscreen/bh/master.svg)](https://travis-ci.org/Fullscreen/bh)
 [![Coverage Status](http://img.shields.io/coveralls/Fullscreen/bh/master.svg)](https://coveralls.io/r/Fullscreen/bh)
 [![Dependency Status](http://img.shields.io/gemnasium/Fullscreen/bh.svg)](https://gemnasium.com/Fullscreen/bh)
 [![Code Climate](http://img.shields.io/codeclimate/github/Fullscreen/bh.svg)](https://codeclimate.com/github/Fullscreen/bh)
-[![Online docs](http://img.shields.io/badge/docs-✓-green.svg)](http://rubydoc.info/github/Fullscreen/bh/master/frames)
+[![Online docs](http://img.shields.io/badge/docs-✓-green.svg)](http://www.rubydoc.info/github/Fullscreen/bh/master/Bh/Helpers)
 [![Gem Version](http://img.shields.io/gem/v/bh.svg)](http://rubygems.org/gems/bh)
 
 Bootstrap 3 is a great framework, but requires many lines of HTML code
