@@ -1,4 +1,5 @@
 require 'spec_helper'
+Dir['./spec/middleman/**/*.rb'].each {|f| require f}
 
 describe 'When used in Middleman or Padrino' do
   let(:bh) { MiddlemanView.new }
@@ -20,4 +21,6 @@ describe 'When used in Middleman or Padrino' do
   all_tests_pass_for 'the panel_row helper'
   all_tests_pass_for 'the progress_bar helper'
   all_tests_pass_for 'the vertical helper'
+
+  all_tests_pass_for 'the button_to helper (Middleman)'
 end

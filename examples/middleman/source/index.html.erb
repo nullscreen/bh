@@ -163,6 +163,14 @@
         <!-- Try setting a different :library option -->
         <%= icon :user, library: :font_awesome, class: 'fa-2x' %>
 
+      <h1>Button to</h1>
+
+        <%= button_to "New", '/#new', method: :get, context: :link %>
+        <br />
+        <% button_to '#edit', method: :get, id: 'my-btn-form' do %>
+          <button class="important btn btn-default btn-lg" id="my-btn-to">Edit <strong>user</strong></button>
+        <% end %>
+
 
     </div>
     <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js' %>

@@ -1,3 +1,5 @@
+require 'bh/core_ext/padrino/button_to_helper'
+
 module Bh
   module Extensions
     # Make Bootstrap helpers available in Padrino applications.
@@ -14,6 +16,7 @@ module Bh
       # Register Bh as a Padrino app.
       def registered(app)
         app.include Bh::Helpers
+        app.include Bh::Padrino::Helpers
       end
     end
   end
