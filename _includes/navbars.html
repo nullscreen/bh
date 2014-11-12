@@ -3,9 +3,9 @@
   <p class="lead">Use the <code>navbar</code> helper to display Bootstrap-styled navbars.</p>
 
   <h3 id="navbar-basic">Basic navbars</h3>
-  <p>Use <code>navbar</code> to display a navbar,
-    wrapping inside <code>vertical</code> the links that should always be visible
-    and inside <code>horizontal</code> the links that should be collapsed in mobile views.</p>
+  <p>Use <code>navbar</code> without options to display a basic navbar.<br />
+    Wrap the content that should always be visible (no matter the screen size) with the <code>vertical</code> helper.<br />
+    Wrap the content that should be collapsed for smalls screen sizes with the <code>horizontal</code> helper.</p>
   {% highlight rhtml %}
 <%= navbar do %>
   <%= vertical do %>
@@ -63,8 +63,8 @@
 </nav>
   {% endhighlight %}
 
-  <h3 id="navbar-inverted">Inverted colors</h3>
-  <p>Use the <code>:inverted</code> option to invert the palette of colors.</p>
+  <h3 id="navbar-inverted">Navbars with inverted colors</h3>
+  <p>Use the <code>:inverted</code> option to invert the palette of colors of the navbar.</p>
   {% highlight rhtml %}
 <%= navbar inverted: true do %>
   <%= vertical do %>
@@ -105,7 +105,7 @@
   {% endhighlight %}
 
 
-  <h3 id="navbar-fluid">Fluid container</h3>
+  <h3 id="navbar-fluid">Navbars with a fluid container</h3>
   <p>Use the <code>:fluid</code> option for a full width navbar, spanning the entire width of your viewport.</p>
   {% highlight rhtml %}
 <%= navbar fluid: true do %>
@@ -146,7 +146,7 @@
 </nav>
   {% endhighlight %}
 
-  <h3 id="navbar-static">Static</h3>
+  <h3 id="navbar-static">Static navbars</h3>
   <p>Use the <code>position: :static</code> option to have the navbar scroll away with the page.</p>
   {% highlight rhtml %}
 <%= navbar position: :static do %>
@@ -187,9 +187,9 @@
 </nav>
   {% endhighlight %}
 
-  <h3 id="navbar-top">Fixed to top</h3>
-  <p>Use the <code>position: :top</code> option to fix the navbar at the top of the page,
-    and the <code>:padding</code> option to specify the padding to leave between the top
+  <h3 id="navbar-top">Navbars fixed to top</h3>
+  <p>Use the <code>position: :top</code> option to fix the navbar at the top of the page.<br />
+    Set the <code>:padding</code> option to specify the padding to leave between the top
     of the page and the body (defaults to 70px).</p>
   {% highlight rhtml %}
 <%= navbar position: :top do %>
@@ -232,9 +232,9 @@
 </nav>
   {% endhighlight %}
 
-  <h3 id="navbar-bottom">Fixed to bottom</h3>
-  <p>Use the <code>position: :bottom</code> option to fix the navbar at the bottom of the page,
-    and the <code>:padding</code> option to specify the padding to leave between the body
+  <h3 id="navbar-bottom">Navbars fixed to bottom</h3>
+  <p>Use the <code>position: :bottom</code> option to fix the navbar at the bottom of the page.<br />
+    Set the <code>:padding</code> option to specify the padding to leave between the body
     and the bottom of the page (defaults to 70px).</p>
   {% highlight rhtml %}
 <%= navbar position: :bottom, padding: 100 do %>
@@ -272,6 +272,67 @@
         <span class="icon-bar"></span>
       </button>
       <a href="/" class="navbar-brand">Home</a>
+    </div>
+  </div>
+</nav>
+  {% endhighlight %}
+
+  <h3 id="navbar-advanced">Complex navbars</h3>
+  <p>You can specify a custom <code>id</code> which will be used for the navbar’s collapsable <code>&lt;div&gt;</code>.<br />
+    You can also specify custom options in the <code>vertical</code> and <code>horizontal</code> helpers which will be added to their <code>&lt;div&gt;</code> tags.
+  </p>
+  {% highlight rhtml %}
+<%= navbar id: 'navbar' do %>
+  <%= vertical id: 'vertical', class: :en, data: {js: 1} do %>
+    <%= link_to 'Home', '/' %>
+  <% end %>
+  <%= horizontal class: :en, data: {js: 2} do %>
+    <%= nav class: 'navbar-left' do %>
+      <%= link_to 'Profile', '/#profile' %>
+      <%= link_to 'Settings', '/#settings' %>
+    <% end %>
+  <% end %>
+<% end %>
+  {% endhighlight %}
+  <p>generates the following HTML:</p>
+    <div class="bs-example">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div id="vertical" class="en navbar-header" data-js="1">
+            <button class="navbar-toggle" data-target="#navbar" data-toggle="collapse" type="button">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+          </div>        
+          <div class="en collapse navbar-collapse" data-js="2" id="navbar">
+            <ul class="navbar-left nav navbar-nav">
+              <li><a href="/#profile">Profile</a></li>
+              <li><a href="/#settings">Settings</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  {% highlight html %}
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div id="vertical" class="en navbar-header" data-js="1">
+      <button class="navbar-toggle" data-target="#navbar" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Home</a>
+    </div>        
+    <div class="en collapse navbar-collapse" data-js="2" id="navbar">
+      <ul class="navbar-left nav navbar-nav">
+        <li><a href="/#profile">Profile</a></li>
+        <li><a href="/#settings">Settings</a></li>
+      </ul>
     </div>
   </div>
 </nav>
