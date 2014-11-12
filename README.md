@@ -38,7 +38,7 @@ With Bh, you can achieve the same result with just one line of code:
 
 `alert_box` is only one of the helpers provided by Bh.
 The other ones are: `bootstrap_css`, `bootstrap_js`, `bootstrap_theme_css`,
-`button_to`, `button`, `dropdown`, `font_awesome_css`, `form_for`, `glyphicon`,
+`button_to`, `button`, `dropdown`, `font_awesome_css`, `form_for`,
 `icon`, `modal`, `navbar`, `nav`, `panel_row`, `panel` and `progress_bar`.
 
 How to install

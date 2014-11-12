@@ -25,7 +25,7 @@
 
       <!-- Try setting different :title, :tag and :context options -->
       <%= panel title: 'Panel Title', context: :primary, tag: :aside, id: 'my-panel', data: {value: 1} do %>
-        <div class='panel-body'>Text <em>styled</em> with icons: <%= glyphicon :ok %></div>
+        <div class='panel-body'>Text <em>styled</em> with icons: <%= icon :ok %></div>
         <div class='panel-footer'><h4>Footer</h4></div>
       <% end %>
 
@@ -39,7 +39,7 @@
       <%= panel_row column_class: 'col-sm-4', id: 'my-panel-row', data: {value: 1} do %>
         <%= panel 'John Smith', title: 'User', context: :info %>
         <%= panel title: 'Phone' do %>
-          <div class='panel-body'><%= glyphicon :earphone %> 323-555-5555</div>
+          <div class='panel-body'><%= icon :earphone %> 323-555-5555</div>
         <% end %>
         <%= panel 'Los Angeles, CA', title: 'City' %>
       <% end %>
@@ -123,11 +123,6 @@
           {percentage: 30, label: false, animated: true},
         ], id: 'my-container', data: {value: 1})
       %>
-
-    <h1>Glyphicons</h1>
-
-      <!-- Try setting a different icon -->
-      <%= glyphicon :zoom_in %>
 
     <h1>Icons</h1>
 
