@@ -1,5 +1,6 @@
 shared_examples_for 'the dropdown helper' do
   all_tests_pass_with 'no dropdown options'
+  all_tests_pass_with 'the :id dropdown option'
   all_tests_pass_with 'the :context dropdown option'
   all_tests_pass_with 'the :size dropdown option'
   all_tests_pass_with 'the :layout dropdown option'
@@ -25,6 +26,14 @@ shared_examples_for 'no dropdown options' do
       <\/div>
     EOT
     expect(:dropdown).to generate %r{#{html}}
+  end
+end
+
+shared_examples_for 'the :id dropdown option' do
+  specify 'uses the ID to connect button and ul' do
+    id = 'my-modal'
+    expect(dropdown: {id: id}).to generate %r{<button.+id="#{id}".*>}
+    expect(dropdown: {id: id}).to generate %r{<ul.+aria-labelledby="#{id}".*>}
   end
 end
 
