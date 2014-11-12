@@ -19,7 +19,7 @@ module Bh
       end
 
       def id
-        "dropdown-#{rand 10**10}"
+        @options.fetch :id, "dropdown-#{rand 10**10}"
       end
 
       def partial

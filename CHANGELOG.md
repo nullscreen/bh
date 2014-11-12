@@ -8,18 +8,20 @@ For more information about changelogs, check
 
 ## 1.2.0 - unreleased
 
-* [DEPRECATION] Deprecated `glyphicon` in favor of `icon` (`glyphicon` will still work until version 2.0.0)
 * [FEATURE] Add support for Middleman and Padrino for all helpers except `form_for`
 * [FEATURE] Extend `button_to` to accept the same :content, :size and :layout options as `button`
+* [DEPRECATION] Deprecate `glyphicon` in favor of `icon` (`glyphicon` will still work until version 2.0.0)
+* [ENHANCEMENT] Allow `alert_box` to pass extra parameters to the alert box <div>
 * [ENHANCEMENT] Allow `button_to` to pass extra parameters to the button element
-* [ENHANCEMENT] Don’t render anything when `vertical` and `horizontal` are not wrapped in a `navbar`
+* [ENHANCEMENT] Allow `dropdown` to display a full-width button when called with `{layout: :block, groupable: false}`
+* [ENHANCEMENT] Allow `dropdown` to pass `:id` parameter to the dropdown <ul>
+* [ENHANCEMENT] Allow `modal` to pass the `:id` parameter to the wrapping <div>
+* [ENHANCEMENT] Allow `panel` to pass extra parameters to the wrapping <div>
 * [ENHANCEMENT] Allow `progress_bar` to pass extra parameters to the wrapping container
 * [ENHANCEMENT] Allow `progress_bar` to pass extra parameters to each bar
+* [ENHANCEMENT] Don’t render anything when `vertical` and `horizontal` are not wrapped in a `navbar`
 * [ENHANCEMENT] Wrap plain content passed to `modal` inside the modal body
-* [ENHANCEMENT] Allow `panel` to pass extra parameters to the wrapping <div>
 * [ENHANCEMENT] Wrap plain content passed to `panel` inside the panel body
-* [ENHANCEMENT] Allow `dropdown` to display a full-width button when called with `{layout: :block, groupable: false}`
-* [ENHANCEMENT] Allow `alert_box` to pass extra parameters to the alert box <div>
 
 ## 1.1.1 - 2014-09-20
 

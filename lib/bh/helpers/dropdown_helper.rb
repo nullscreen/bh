@@ -29,6 +29,8 @@ module Bh
     # @yieldreturn [#to_s] the content of the dropdown.
     def dropdown(caption, options = {}, &block)
       dropdown = Bh::Dropdown.new self, nil, options, &block
+      dropdown.extract! :id, :groupable, :direction, :align, :split, :context,
+                        :size, :layout
       dropdown.merge! button: {caption: caption, id: dropdown.id}
 
       dropdown.append_class_to! :button, :btn
