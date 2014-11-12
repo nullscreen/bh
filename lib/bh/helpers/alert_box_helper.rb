@@ -4,7 +4,7 @@ module Bh
   module Helpers
     # Displays a Bootstrap-styled alert message.
     # @see http://getbootstrap.com/components/#alerts
-    # @return [String] the HTML to display a Bootstrap-styled alert content.
+    # @return [String] the HTML to display a Bootstrap-styled alert message.
     # @overload alert_box(content, options = {})
     #   @param [#to_s] content the content to display in the alert.
     #   @param [Hash] options the options for the alert box. Any option not
