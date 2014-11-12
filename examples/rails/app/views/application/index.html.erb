@@ -103,13 +103,16 @@
 
     <h1>Dropdowns</h1>
 
-      <%= dropdown 'Plain caption' %>
-
       <!-- Try setting different :split, :direction, :align, :groupable, :layout, :context or :size options -->
-      <%= dropdown 'Plain caption', split: true, direction: :up, align: :right, groupable: true, context: :info, size: :extra_small do %>
+      <%= dropdown 'Menu', direction: :up, context: :success, align: :right do %>
         <%= link_to 'Home', '/' %>
         <%= link_to 'Profile', '/#profile' %>
         <%= link_to 'Settings', '/#settings' %>
+      <% end %>
+
+      <%= dropdown 'Menu', split: true, id: 'dropdown' do %>
+        <li role="presentation"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#"><%= content_tag :em, 'Profile' %></a></li>
       <% end %>
 
     <h1>Progress bars</h1>
