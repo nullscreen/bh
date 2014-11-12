@@ -1,7 +1,9 @@
 <div class="bs-docs-section">
   <h1 id="overview" class="page-header">Overview</h1>
 
-  <p class="lead">Combine the beauty of Bootstrap’s design and the expressiveness of Ruby to get the best of both worlds with the least amount of keystrokes.</p>
+  <p class="lead">
+    Combine the beauty of Bootstrap’s design and the expressiveness of Ruby.<br />
+    Get the best of both worlds with the least amount of keystrokes.</p>
 
   <p>Bootstrap is a great framework, but requires you to write <mark>many lines of HTML code</mark> even for simple components.<br />
   For instance, you need to write the following HTML to show a dismissible alert:</p>
@@ -23,9 +25,15 @@
   {% endhighlight %}
 
   <h3 id="overview-install">How to install</h3>
-  <p>You can use Bh with Rails or any Ruby web framework that supports ERB templates.</p>
-  <p>Require the gem in the project’s Gemfile with <code>gem 'bh'</code>, and you are good to go!</p>
-  <p>Since Bh does not overwrite any existing helper or style, you can safely use Bh helpers in
-    some of your Ruby views, and continue using Bootstrap &ldquo;the traditional way&rdquo; in others.
-    The list of available helpers is detailed hereafter.</p>
+
+  <p>Bh is compatible with a variety of Ruby frameworks: <strong>Rails 3</strong>, <strong>Rails 4</strong>, <strong>Padrino</strong> and <strong>Middleman</strong>. To include Bh in your project:</p>
+
+  <ol>
+    <li>Open the <code>Gemfile</code> file of your Rails, Padrino or Middleman project and add the line <code>gem 'bh', '~> 1.2'</code>.</li>
+    <li><em>only if you are using Middleman</em>: open <code>config.rb</code> and add <code>activate :bh</code>.</li>
+    <li><em>only if you are using Padrino</em>: open <code>app.rb</code> and add <code>register Bh</code>.</li>
+  </ol>
+
+  <p>Bh does not overwrite any helper or style, so you can easily mix-and-match Bootstrap helpers with your existing HTML views.</p>
+  <p>The list of available Boostrap helpers is detailed hereafter.</p>
 </div>

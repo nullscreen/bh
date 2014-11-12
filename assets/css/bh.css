@@ -3,6 +3,7 @@
 
 body {
   position: relative; /* For scrollspy */
+  padding-top: 50px;
 }
 
 /* Keep code small in tables on account of limited space */
@@ -81,7 +82,7 @@ body {
 .bs-docs-nav {
   margin-bottom: 0;
   background-color: #fff;
-  border-bottom: 0;
+  border-bottom: 3px solid #be64b4;
 }
 .bs-home-nav .bs-nav-b {
   display: none;
@@ -570,7 +571,7 @@ body {
   }
   .bs-docs-sidebar.affix {
     position: fixed; /* Undo the static from mobile first approach */
-    top: 20px;
+    top: 70px;
   }
   .bs-docs-sidebar.affix-bottom {
     position: absolute; /* Undo the static from mobile first approach */
@@ -604,9 +605,13 @@ body {
   margin-bottom: 0;
 }
 
-h1[id] {
-  padding-top: 20px;
-  margin-top: 0;
+.bs-docs-section ol li {
+  margin-bottom: 10px;
+}
+
+h1[id], h3[id] {
+  padding-top: 73px;
+  margin-top: -53px;
 }
 
 
