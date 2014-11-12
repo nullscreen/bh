@@ -28,20 +28,19 @@
         <div class='panel-body'>You accepted the Terms of service. <%= icon :ok %></div>
       <% end %>
 
-      <h1>Panel rows</h1>
+    <h1>Panel rows</h1>
 
-        <% panel_row do %>
-          <%= panel 'Plain full-width panel' %>
-        <% end %>
+      <!-- Try setting a different :column_class option -->
+      <% panel_row column_class: 'col-sm-12' do %>
+        <%= panel 'Plain full-width panel' %>
+      <% end %>
 
-        <!-- Try setting a different :column_class option -->
-        <% panel_row column_class: 'col-sm-4', id: 'my-panel-row', data: {value: 1} do %>
-          <%= panel 'John Smith', title: 'User', context: :info %>
-          <% panel title: 'Phone' do %>
-            <div class='panel-body'><%= icon :earphone %> 323-555-5555</div>
-          <% end %>
-          <%= panel 'Los Angeles, CA', title: 'City' %>
+      <% panel_row column_class: 'col-sm-6', id: 'panel-row', class: :en, data: {js: 1} do %>
+        <%= panel 'John Smith', title: 'User', context: :info %>
+        <% panel title: 'Phone' do %>
+          <div class='panel-body'><%= icon :earphone %> 323-555-5555</div>
         <% end %>
+      <% end %>
 
       <h1>Modals</h1>
 

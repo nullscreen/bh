@@ -20,7 +20,7 @@ RSpec::Matchers.define :generate do |html|
     elsif helper == :progress_bar
       @inline = bh.send helper, *Array.wrap(options)
       @block = @inline
-    elsif helper == :navbar || helper == :nav
+    elsif helper == :navbar || helper == :nav || helper == :panel_row
       @block = bh.send(helper, *[options].compact) { 'content' }
       @inline = @block
     else
