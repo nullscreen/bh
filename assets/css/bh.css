@@ -605,7 +605,7 @@ body {
   margin-bottom: 0;
 }
 
-.bs-docs-section ol li {
+.bs-docs-section ol li, .bs-docs-section ul li {
   margin-bottom: 10px;
 }
 
