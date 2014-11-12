@@ -14,20 +14,20 @@
   <p>generates the following HTML:</p>
     <div class="bs-example">
       <ul class="nav nav-tabs" role="tablist">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Users</a></li>
-          <li><a href="#">Profile</a></li>
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Users</a></li>
+        <li><a href="#">Profile</a></li>
       </ul>
     </div>
   {% highlight html %}
 <ul class="nav nav-tabs" role="tablist">
-    <li class="active"><a href="/">Home</a></li>
-    <li><a href="/users">Users</a></li>
-    <li><a href="/profile">Profile</a></li>
+  <li class="active"><a href="/">Home</a></li>
+  <li><a href="/users">Users</a></li>
+  <li><a href="/profile">Profile</a></li>
 </ul>
   {% endhighlight %}
 
-  <h3 id="justified-navs">Justified tabs</h3>
+  <h3 id="justified-navs">Navs with justified tabs</h3>
   <p>Use the <code>layout: :justified</code> option to make tabs occupy the entire width of their parent.</p>
   {% highlight rhtml %}
 <%= nav layout: :justified do %>
@@ -52,7 +52,7 @@
 </ul>
   {% endhighlight %}
 
-  <h3 id="pills">Pills</h3>
+  <h3 id="pills">Navs with pills</h3>
   <p>Use the <code>as: :pills</code> option to make tabs look like pills.</p>
   {% highlight rhtml %}
 <%= nav as: :pills do %>
@@ -77,7 +77,7 @@
 </ul>
   {% endhighlight %}
 
-  <h3 id="stacked-pills">Stacked pills</h3>
+  <h3 id="stacked-pills">Navs with stacked pills</h3>
   <p>Use the <code>layout: :stacked</code> option to make pills vertically stacked.</p>
   {% highlight rhtml %}
 <%= nav as: :pills, layout: :stacked do %>
@@ -99,6 +99,32 @@
     <li class="active"><a href="/">Home</a></li>
     <li><a href="/users">Users</a></li>
     <li><a href="/profile">Profile</a></li>
+</ul>
+  {% endhighlight %}
+
+  <h3 id="advanced-navs">Complex navs</h3>
+  <p>To include HTML tags or a long text in the nav, pass your content in a block.<br />
+     You can also specify custom options which will be added to the nav’s <code>&lt;ul&gt;</code> tag.</p>
+  {% highlight rhtml %}
+<%= nav as: :pills, id: 'nav', class: :en, data: {js: 1} do %>
+  <li class="active"><a href="/">Home</a></li>
+  <%= link_to 'Users', '/#users' %>
+  <%= link_to 'Profile', '/#profile' %>
+<% end %>
+  {% endhighlight %}
+  <p>generates the following HTML:</p>
+    <div class="bs-example">
+      <ul id="nav" class="en nav nav-pills" data-js="1" role="tablist">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Users</a></li>
+        <li><a href="#">Profile</a></li>
+      </ul>
+    </div>
+  {% highlight html %}
+<ul id="nav" class="en nav nav-pills" data-js="1" role="tablist">
+  <li class="active"><a href="/">Home</a></li>
+  <li><a href="/#users">Users</a></li>
+  <li><a href="/#profile">Profile</a></li>
 </ul>
   {% endhighlight %}
 
