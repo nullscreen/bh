@@ -30,15 +30,30 @@ For instance, you need to write the following HTML to show a _dismissible alert_
 Writing this for every _dismissible alert_ is cumbersome,
 repetitive, and prone to errors.
 
-With Bh, you can achieve the same thing with just one line of code:
+With Bh, you can achieve the same result with just one line of code:
 
 ```rhtml
 <%= alert_box 'You accepted the Terms of service.', dismissible: true %>
 ```
 
 `alert_box` is only one of the helpers provided by Bh.
-You can use the helpers you need and even mix-and-match the "standard way"
-of writing Bootstrap 3 components (many HTML lines) with the "Bh way".
+The other ones are: `bootstrap_css`, `bootstrap_js`, `bootstrap_theme_css`,
+`button_to`, `button`, `dropdown`, `font_awesome_css`, `form_for`, `glyphicon`,
+`icon`, `modal`, `navbar`, `nav`, `panel_row`, `panel` and `progress_bar`.
+
+How to install
+==============
+
+Bh is compatible with **Rails 3**, **Rails 4**, **Padrino** and **Middleman**.
+
+To include the Bh gem in your project:
+
+1. Add `gem 'bh', '~> 1.2'` to the `Gemfile` file of your Rails, Padrino or Middleman project.
+2. *Only if you are using Middleman*: open `config.rb` and add `activate :bh`.
+3. *Only if you are using Padrino*: open `app.rb` and add `register Bh`.
+
+That’s all!
+From now on, you will be able to use any Bh helper in your views.
 
 A comprehensive guide to Bh helpers
 ===================================
@@ -49,25 +64,10 @@ All the helpers available in Bh are detailed on the [Bh homepage](http://fullscr
 
 Please proceed to [http://fullscreen.github.io/bh](http://fullscreen.github.io/bh) for more details and examples on how to use Bh.
 
-
-How to install
-==============
-
-Bh is meant to be included in Ruby apps by adding this line to the Gemfile:
-
-    gem 'bh', '~> 1.1'
-
-Since the gem follows [Semantic Versioning](http://semver.org), indicating the
-version number in your Gemfile in the *'~> major.minor'* format guarantees
-that your project won’t break when you `bundle update` to a new version.
-
-Adding `bh` to your Gemfile is all you need!
-From now on, you will be able to use any Bh helper in your views.
-
 How to try it in your browser
 =============================
 
-The `examples` folder includes two sample apps that you can rapidly run in
+The `examples` folder includes three sample apps that you can rapidly run in
 your browser and edit as you please, in order to visually appreciate the result
 of Bh.
 
@@ -98,6 +98,11 @@ If you prefer to see the helpers inside a _test Padrino app_:
 
 How to update
 =============
+
+Bh strictly follows [Semantic Versioning](http://semver.org).
+By indicating the version number in the *'~> major.minor'* format  in your
+Gemfile, you are guaranteed that that your project won’t break when you
+`bundle update` to a new version.
 
 Whenever a new version is released, the [CHANGELOG file](https://github.com/claudiob/bh/blob/master/CHANGELOG.md)
 will include a description of what features have changed and how to upgrade
