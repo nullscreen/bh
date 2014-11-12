@@ -5,7 +5,7 @@
   <h3 id="basic-panels">Basic panels</h3>
   <p>Use <code>panel</code> without options to display a basic panel.</p>
   {% highlight rhtml %}
-<%= panel body: 'You accepted the Terms of service.' %>
+<%= panel 'You accepted the Terms of service.' %>
   {% endhighlight %}
   <p>generates the following HTML:</p>
     <div class="bs-example">
@@ -22,7 +22,7 @@
   <h3 id="panels-with-heading">Panels with heading</h3>
   <p>Use the <code>:heading</code> options to display a heading above the panel.</p>
   {% highlight rhtml %}
-<%= panel body: 'You accepted the Terms of service.', heading: 'Congratulations' %>
+<%= panel 'You accepted the Terms of service.', heading: 'Congratulations' %>
   {% endhighlight %}
   <p>generates the following HTML:</p>
     <div class="bs-example">
@@ -41,7 +41,7 @@
   <h3 id="panels-with-title">Panels with title</h3>
   <p>Use the <code>:title</code> options to display a title above the panel.</p>
   {% highlight rhtml %}
-<%= panel body: 'You accepted the Terms of service.', title: 'Congratulations' %>
+<%= panel 'You accepted the Terms of service.', title: 'Congratulations' %>
   {% endhighlight %}
   <p>generates the following HTML:</p>
     <div class="bs-example">
@@ -65,7 +65,7 @@
   <p>Set the <code>context</code> option to change the color (and semantic context) of the panel.</p>
   <p>Available contexts are <code>:default</code> (default), <code>:primary</code>, <code>:success</code>, <code>:info</code>, <code>:warning</code> and <code>:danger</code>.</p>
     {% highlight rhtml %}
-<%= panel body: 'You accepted the Terms of service.', title: 'Thanks', context: :success %>
+<%= panel 'You accepted the Terms of service.', title: 'Thanks', context: :success %>
     {% endhighlight %}
     <p>displays a <em>success</em> panel message:</p>
       <div class="bs-example">
@@ -85,32 +85,50 @@
 </div>
     {% endhighlight %}
 
-  <h3 id="complex-panels">Panels with HTML content</h3>
-  <p>Combine multiple options and include an HTML block in the panel as needed.</p>
-    {% highlight rhtml %}
-<%= panel tag: :aside do %>
-  <div class='panel-body'>You accepted the Terms of service. <%= icon :ok %></div>
-  <div class='panel-footer'><h4>Thanks</h4></div>
-<% end %>
-    {% endhighlight %}
-    <p>displays a panel with body and footer in an <em>&lt;aside&gt;</em> tag, with a glyphicon:</p>
-      <div class="bs-example">
-        <aside class="panel panel-default">
-          <div class="panel-body">
-            You accepted the Terms of service.
-            <span class="glyphicon glyphicon-ok"></span>
-          </div>
-          <div class="panel-footer"><h4>Thanks</h4></div>
-        </aside>
-      </div>
+
+  <h3 id="tag-panels">Panels with custom tag</h3>
+  <p>Set the <code>tag</code> option to use a different HTML tag to wrap the panel.</p>
+  {% highlight rhtml %}
+<%= panel 'You accepted the Terms of service.', tag: :aside %>
+  {% endhighlight %}
+    <p>displays a panel wrapped in an <code>&lt;aside&gt;</code> tag:</p>
+    <div class="bs-example">
+      <aside class="panel panel-default">
+        <div class="panel-body">You accepted the Terms of service.</div>
+      </aside>
+    </div>
     {% highlight html %}
 <aside class="panel panel-default">
-  <div class="panel-body">
-    You accepted the Terms of service.
-    <span class="glyphicon glyphicon-ok"></span>
-  </div>
-  <div class="panel-footer"><h4>Thanks</h4></div>
+  <div class="panel-body">You accepted the Terms of service.</div>
 </aside>
     {% endhighlight %}
+
+  <h3 id="advanced-panels">Complex panels</h3>
+  <p>To include HTML tags or a long text in the panel, pass your content in a block.<br />
+     You can also specify custom options which will be added to the alert’s <code>&lt;div&gt;</code> tag.</p>
+    {% highlight rhtml %}
+<%= panel heading: 'Thanks', context: :info, id: 'panel', class: :en, data: {js: 1} do %>
+  <div class='panel-body'>You accepted the Terms of service. <%= icon :ok %></div>
+<% end %>
+  {% endhighlight %}
+  <p>displays a blue panel with a vector icon in the body and a footer:</p>
+    <div class="bs-example">
+      <div id="panel" class="en panel panel-info" data-js="1">
+        <div class="panel-heading">Thanks</div>
+        <div class="panel-body">
+          You accepted the Terms of service. 
+          <span class="glyphicon glyphicon-ok"></span>
+        </div>
+      </div>
+    </div>
+  {% highlight html %}
+<div id="panel" class="en panel panel-info" data-js="1">
+  <div class="panel-heading">Thanks</div>
+  <div class="panel-body">
+    You accepted the Terms of service. 
+    <span class="glyphicon glyphicon-ok"></span>
+  </div>
+</div>
+  {% endhighlight %}
 
 </div>
