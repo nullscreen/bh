@@ -155,4 +155,26 @@
 </div>
   {% endhighlight %}
 
+  <h3 id="progress_bar-advanced">Complex progress bars</h3>
+  <p>You can specify custom options for which progress bar which will be added to the progress bar’s <code>&lt;div&gt;</code> tag.</p>
+  <p>You can also specify custom options for the wrapping <code>&lt;div&gt;</code> container by passing them as the last argument.</p>
+    {% highlight rhtml %}
+<%= progress_bar({percentage: 30, id: 'bar', data: {js: 1}}, id: 'container', class: :en) %>
+  {% endhighlight %}
+  <p>generates the following components (and HTML code):</p>
+  <div class="bs-example">
+    <div id="container" class="en progress">
+      <div id="bar" data-js="1" aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" class="progress-bar" role="progressbar" style="width: 30%">
+        <span class="sr-only">30%</span>
+      </div>
+    </div>
+  </div>
+  {% highlight html %}
+<div id="container" class="en progress">
+  <div id="bar" data-js="1" aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" class="progress-bar" role="progressbar" style="width: 30%">
+    <span class="sr-only">30%</span>
+  </div>
+</div>
+  {% endhighlight %}
+
 </div>
