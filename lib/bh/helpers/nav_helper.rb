@@ -3,18 +3,20 @@ require 'bh/classes/navbar'
 
 module Bh
   module Helpers
+    # Displays a Bootstrap-styled nav.
     # @see http://getbootstrap.com/components/#nav
-    # @return [String] an HTML block to display a nav.
-    # @example A pills-styled nav with a link.
-    #   nav as: :pills do
-    #     link_to 'Home', '/'
-    #   end
-    # @param [Hash] options the display options for the nav.
+    # @return [String] the HTML to display a Bootstrap-styled nav.
+    # @param [Hash] options the options for the nav. Any option not listed below
+    #   is passed as an HTML attribute to the alert’s `<ul>`.
     # @option options [#to_s] :as (:tabs) the style of the nav. Can be `:tabs`
     #   or `:pills`.
     # @option options [#to_s] :layout the layout of the nav. Can be
     #   `:justified` or `:stacked`.
-    # @yieldreturn [#to_s] the content of the nav.
+    # @yieldreturn [#to_s] the content to display in the nav.
+    # @example Display a pills-styled nav with a link.
+    #   nav as: :pills do
+    #     link_to 'Home', '/'
+    #   end
     def nav(options = {}, &block)
       nav = Bh::Nav.new(self, options, &block)
       nav.extract! :as, :layout

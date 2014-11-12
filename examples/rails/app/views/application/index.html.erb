@@ -54,18 +54,19 @@
 
     <h1>Navs</h1>
 
+      <!-- Try setting different :layout or :as options -->
       <%= nav do %>
         <%= link_to 'Home', '/' %>
+        <%= link_to 'Users', '/#users' %>
         <%= link_to 'Profile', '/#profile' %>
-        <%= link_to 'Settings', '/#settings' %>
       <% end %>
 
       <br />
-      <!-- Try setting different :layout or :as options -->
-      <%= nav as: :pills, layout: :stacked, id: 'my-nav', data: {value: 1} do %>
-        <%= link_to 'Home', '/' %>
+
+      <%= nav as: :pills, id: 'nav', class: :en, data: {js: 1} do %>
+        <li class="active"><a href="/">Home</a></li>
+        <%= link_to 'Users', '/#users' %>
         <%= link_to 'Profile', '/#profile' %>
-        <%= link_to 'Settings', '/#settings' %>
       <% end %>
 
     <h1>Navbars</h1>
