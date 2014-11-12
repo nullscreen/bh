@@ -29,7 +29,7 @@ module Bh
     # @overload modal(options = {}, &block)
     #   @param [Hash] options the options for the modal (see above).
     #   @yieldreturn [#to_s] the content to display in the modal.
-    #   @example Display a modal with an HTML content.
+    #   @example Display a modal with HTML content.
     #       modal title: 'Click me' do
     #         content_tag :div, class: 'modal-body' do
     #           content_tag :em, 'You clicked me!'
