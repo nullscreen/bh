@@ -1,8 +1,6 @@
 require 'action_dispatch'
-require 'active_support'
 require 'action_view'
 
-require 'bh/core_ext/rails/button_to_helper'
 require 'bh/core_ext/rails/link_to_helper'
 
 # A view that behaves like a Rails/ActionView view

@@ -30,10 +30,6 @@ module Bh
         append_class! new_class, (html_attributes[key] ||= {})
       end
 
-      def append_class_as!(attribute, new_class)
-        append_class! new_class, html_attributes, attribute
-      end
-
       def prepend_html!(html)
         @content = safe_join [html, @content]
       end

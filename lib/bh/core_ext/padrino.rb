@@ -1,4 +1,3 @@
-require 'bh/core_ext/padrino/button_to_helper'
 require 'bh/core_ext/padrino/link_to_helper'
 
 module Bh
@@ -20,6 +19,8 @@ module Bh
         app.include Bh::Padrino::Helpers
       end
     end
+
+    Bh.framework = :padrino
   end
 
   # Allows to register Bh in a Padrino app simply with `register Bh`.

@@ -1,5 +1,9 @@
+require 'active_support'
+require 'active_support/core_ext'
+
 # Bootstrap Helpers
 module Bh
+  mattr_accessor :framework
 end
 
 # Always require every generic helper

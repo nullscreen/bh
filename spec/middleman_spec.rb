@@ -3,6 +3,7 @@ Dir['./spec/middleman/*_helper.rb'].each {|f| require f}
 
 describe 'When used in Middleman or Padrino' do
   let(:bh) { MiddlemanView.new }
+  before { Bh.framework = :middleman }
 
   all_tests_pass_for 'the alert_box helper'
   all_tests_pass_for 'the bootstrap_css helper'
