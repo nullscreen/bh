@@ -8,6 +8,8 @@ module Bh
     # Can only be used in Ruby frameworks that provide the `button_to` method.
     # @see http://getbootstrap.com/css/#buttons
     # @see http://getbootstrap.com/components/#navbar-buttons
+    # @see http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-button_to
+    # @see http://rubydoc.info/gems/padrino-helpers/Padrino/Helpers/FormHelpers#button_to-instance_method
     # @return [String] the HTML to display a Bootstrap-styled button.
     # @overload button_to(caption, url, options = {})
     #   @param [#to_s] caption the caption to display in the button.
