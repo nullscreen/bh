@@ -52,28 +52,31 @@
 <div class="alert alert-success" role="alert">You accepted the Terms of service.</div>
     {% endhighlight %}
 
-  <h3 id="complex-alerts">Alerts with HTML content</h3>
-  <p>Pass the alert content to <code>alert_box</code> as a block if you need to include HTML tags or a long text.</p>
+  <h3 id="advanced-alerts">Complex alerts</h3>
+  <p>To include HTML tags or a long text in the alert, pass your content in a block.<br />
+     You can also specify custom options which will be added to the alert’s <code>&lt;div&gt;</code> tag.</p>
     {% highlight rhtml %}
-<%= alert_box context: :warning, dismissible: true do %>
-  <strong>Thanks!</strong> You accepted the <%= link_to 'Terms of service', '/terms' %>.
+<%= alert_box context: :warning, dismissible: true, id: 'alert', class: :en, data: {js: 1} do %>
+  <em>Thanks!</em> You accepted the <%= link_to 'Terms of service', '/#terms' %>.
 <% end %>
     {% endhighlight %}
     <p>displays a dismissible <em>warning</em> alert message which includes appropriately styled links and highlighted text:</p>
       <div class="bs-example">
-        <div class="alert alert-warning" role="alert">
-          <button class="close" data-dismiss="alert" type="button">
-            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        <div id="my-alert" class="en alert alert-warning" data-js="1" role="alert">
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
           </button>
-          <strong>Thanks!</strong> You accepted the <a href="#" class="alert-link">Terms of service</a>.
+          <em>Thanks!</em> You accepted the <a class="alert-link" href="/#terms">Terms of service</a>.
         </div>
       </div>
     {% highlight html %}
-<div class="alert alert-warning" role="alert">
-  <button class="close" data-dismiss="alert" type="button">
-    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+<div id="my-alert" class="en alert alert-warning" data-js="1" role="alert">
+  <button type="button" class="close" data-dismiss="alert">
+    <span aria-hidden="true">×</span>
+    <span class="sr-only">Close</span>
   </button>
-  <strong>Thanks!</strong> You accepted the <a href="/terms" class="alert-link">Terms of service</a>.
+  <em>Thanks!</em> You accepted the <a class="alert-link" href="/#terms">Terms of service</a>.
 </div>
     {% endhighlight %}
 
