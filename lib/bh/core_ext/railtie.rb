@@ -1,5 +1,4 @@
 require 'bh/core_ext/rails/form_for_helper'
-require 'bh/core_ext/rails/link_to_helper'
 
 module Bh
   module Extensions

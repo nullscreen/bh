@@ -1,8 +1,6 @@
 require 'action_dispatch'
 require 'action_view'
 
-require 'bh/core_ext/rails/link_to_helper'
-
 # A view that behaves like a Rails/ActionView view
 class RailsView
   include ActionView::Context # for capture
@@ -11,7 +9,6 @@ class RailsView
   include ActionView::Helpers::UrlHelper # for link_to
 
   include Bh::Helpers
-  include Bh::Rails::Helpers
 
   def initialize
   end
