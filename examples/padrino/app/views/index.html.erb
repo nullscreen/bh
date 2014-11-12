@@ -154,14 +154,13 @@
         <!-- Try setting a different :library option -->
         <%= icon :user, library: :font_awesome, class: 'fa-2x' %>
 
-      <h1>Button to</h1>
+    <h1>Button to</h1>
 
-        <%= button_to "New", '/#new', method: :get, context: :link %>
-        <br />
-        <% button_to '#edit', method: :get, size: :large, id: 'my-btn-form', submit_options: {class: 'important', id: 'my-btn-to'} do %>
-          Edit <strong>user</strong>
-        <% end %>
+      <%= button_to 'New', '#new', submit_options: {class: 'b'}, class: 'f', method: :get, context: :primary %>
 
+      <% button_to '/#edit', method: :get, context: :link, submit_options: {id: 'my-btn-to', data: {value: 1}} do %>
+        Button <strong>styled</strong> as a link
+      <% end %>
 
     </div>
     <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js' %>
