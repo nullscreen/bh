@@ -1,5 +1,3 @@
-require 'bh/core_ext/padrino/link_to_helper'
-
 module Bh
   # @api private
   # Provides methods to register Bh in third-party applications.
@@ -16,7 +14,6 @@ module Bh
     class MiddlemanExtension < Middleman::Extension
       helpers do
         include Bh::Helpers
-        include Bh::Padrino::Helpers
       end
     end
   end

@@ -2,8 +2,6 @@ require 'tilt'
 require 'padrino-helpers'
 require 'padrino-routing'
 
-require 'bh/core_ext/padrino/link_to_helper'
-
 # A view that behaves like a Padrino view
 class PadrinoView
   include Padrino::Helpers::OutputHelpers # for capture
@@ -12,7 +10,6 @@ class PadrinoView
   include Padrino::Helpers::FormHelpers # for button_to
   include Padrino::Routing::Helpers # for url_for
   include Bh::Helpers
-  include Bh::Padrino::Helpers
 
   def self.app_name
     'test'

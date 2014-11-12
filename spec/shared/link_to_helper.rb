@@ -45,7 +45,7 @@ shared_examples_for 'the link wrapped in nav' do
   end
 
   describe 'if the link is to the current page' do
-    before { allow(bh).to receive(:current_page?).and_return true }
+    before { allow_any_instance_of(Bh::LinkTo).to receive(:current_page?).and_return true }
 
     specify 'surrounds the link in a <li class="active"> item' do
       html = '<li class="active"><a href="/">content</a></li>'
