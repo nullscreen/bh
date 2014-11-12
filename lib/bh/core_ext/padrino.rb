@@ -3,7 +3,7 @@ require 'bh/core_ext/padrino/link_to_helper'
 
 module Bh
   module Extensions
-    # Make Bootstrap helpers available in Padrino applications.
+    # Makes Bootstrap helpers available in Padrino applications.
     #
     # To use Bh in a Padrino app you need 2 steps:
     #
@@ -22,6 +22,6 @@ module Bh
     end
   end
 
-  # Allow to register Bh in a Padrino app simply with `register Bh`.
+  # Allows to register Bh in a Padrino app simply with `register Bh`.
   extend Extensions::Padrino
 end
