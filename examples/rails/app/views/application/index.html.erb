@@ -114,15 +114,10 @@
 
     <h1>Progress bars</h1>
 
-      <%= progress_bar percentage: 75 %>
-
       <!-- Try passing multiple values with different :percentage, :label, :context, :striped, :animated options -->
-      <%= progress_bar([
-          {percentage: 40, label: 'Completed', context: :success},
-          {percentage: 20, label: true, striped: true, context: :warning},
-          {percentage: 30, label: false, animated: true},
-        ], id: 'my-container', data: {value: 1})
-      %>
+      <%= progress_bar [{percentage: 75, striped: true}, {percentage: 20, context: :warning, label: true}] %>
+
+      <%= progress_bar({percentage: 30, id: 'bar', data: {js: 1}}, id: 'container', class: :en) %>
 
     <h1>Icons</h1>
 

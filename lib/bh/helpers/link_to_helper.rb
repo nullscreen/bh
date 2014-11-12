@@ -19,14 +19,14 @@ module Bh
     # @overload link_to(caption, url, options = {})
     #   @param [#to_s] caption the caption to display in the link.
     #   @param [#to_s] url the URL to link to.
-    #   @param [Hash] options the options for he original `link_to` method.
+    #   @param [Hash] options the options for the original `link_to` method.
     #   @example Display a plain-text link inside an alert-box.
     #       alert_box do
     #         link_to 'Check the terms and conditions', '/#terms'
     #       end
     # @overload button_to(url, options = {}, &block)
     #   @param [#to_s] url the URL to link to (see above).
-    #   @param [Hash] options the options for he original `link_to` method.
+    #   @param [Hash] options the options for the original `link_to` method.
     #   @yieldreturn [#to_s] the caption to display in the link.
     #   @example Display a link with HTML inside a dropdown.
     #       dropdown 'Menu' do
