@@ -37,4 +37,5 @@ Gem::Specification.new do |spec|
 
   # For Middleman/Padrino tests
   spec.add_development_dependency 'padrino-helpers', '~> 0.12.4'
+  spec.add_development_dependency 'padrino-routing', '~> 0.5.0'
 end
