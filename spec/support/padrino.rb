@@ -5,7 +5,7 @@ require 'padrino-routing'
 require 'bh/core_ext/padrino/link_to_helper'
 
 # A view that behaves like a Padrino view
-class MiddlemanView
+class PadrinoView
   include Padrino::Helpers::OutputHelpers # for capture
   include Padrino::Helpers::TagHelpers # for content_tag
   include Padrino::Helpers::AssetTagHelpers # for link_to

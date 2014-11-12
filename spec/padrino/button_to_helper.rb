@@ -1,12 +1,12 @@
-shared_examples_for 'the button_to helper (Middleman)' do
-  all_tests_pass_with 'no button_to options (Middleman)'
-  all_tests_pass_with 'extra button_to options (Middleman)'
+shared_examples_for 'the button_to helper (Padrino)' do
+  all_tests_pass_with 'no button_to options (Padrino)'
+  all_tests_pass_with 'extra button_to options (Padrino)'
   all_tests_pass_for 'the button_to helper'
 end
 
 #--
 
-shared_examples_for 'no button_to options (Middleman)' do
+shared_examples_for 'no button_to options (Padrino)' do
   specify 'adds the "btn btn-default" class to the button' do
     html = '<form action="/" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" /><input type="submit" value="content" class="btn btn-default" /></form>'
     expect(:button_to).to generate html
@@ -17,7 +17,7 @@ shared_examples_for 'no button_to options (Middleman)' do
   end
 end
 
-shared_examples_for 'extra button_to options (Middleman)' do
+shared_examples_for 'extra button_to options (Padrino)' do
   specify 'passes the options to the form and the submit_options to the button' do
     options = {class: 'big', id: 'my-form', submit_options: {class: 'important', data: {value: 1}, id: 'my-button_to'}}
     html = '<form action="/" accept-charset="UTF-8" class="big" id="my-form" method="post"><input type="hidden" name="authenticity_token" /><input type="submit" value="content" class="important btn btn-default" data-value="1" id="my-button_to" /></form>'

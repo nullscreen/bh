@@ -1,9 +1,9 @@
 require 'spec_helper'
-Dir['./spec/middleman/*_helper.rb'].each {|f| require f}
+Dir['./spec/padrino/*_helper.rb'].each {|f| require f}
 
-describe 'When used in Middleman or Padrino' do
-  let(:bh) { MiddlemanView.new }
-  before { Bh.framework = :middleman }
+describe 'When used in Padrino or Middleman' do
+  let(:bh) { PadrinoView.new }
+  before { Bh.framework = :padrino }
 
   all_tests_pass_for 'the alert_box helper'
   all_tests_pass_for 'the bootstrap_css helper'
@@ -23,6 +23,6 @@ describe 'When used in Middleman or Padrino' do
   all_tests_pass_for 'the progress_bar helper'
   all_tests_pass_for 'the vertical helper'
 
-  all_tests_pass_for 'the button_to helper (Middleman)'
+  all_tests_pass_for 'the button_to helper (Padrino)'
   all_tests_pass_for 'the link_to helper'
 end
