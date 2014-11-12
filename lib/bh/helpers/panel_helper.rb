@@ -4,27 +4,34 @@ require 'bh/classes/stack'
 
 module Bh
   module Helpers
+    # Displays a Bootstrap-styled panel.
     # @see http://getbootstrap.com/components/#panels
-    # @return [String] an HTML block to display a panel.
-    # @overload panel(options = {})
-    #   @example An informative panel with plain-text content.
-    #   panel body: 'You accepted the Terms of service.', context: :success
-    #   @param [Hash] options the display options for the panel.
-    #   @option options [#to_s] :body the main text to include in the panel.
-    #   @option options [#to_s] :heading the text to include above the body.
-    #   @option options [#to_s] :title the text to include above the body,
-    #     formatted for more impact than a simple heading.
+    # @return [String] the HTML to display a Bootstrap-styled panel.
+    # @overload panel(body, options = {})
+    #   @param [#to_s] body the content to display as the panel body.
+    #   @param [Hash] options the options for the panel. Any option not
+    #     listed below is passed as an HTML attribute to the panel’s `<div>`.
+    #   @option options [#to_s] :title the text to display as the panel title.
+    #   @option options [#to_s] :heading the text to display as the panel 
+    #     heading.
+    #   @option options [#to_s] :body the text to display as the panel body.
+    #     Using this option is equivalent to passing the body as an argument.
     #   @option options [#to_s] :context (#to_s) (:default) the contextual
     #     alternative to apply to the panel heading and border. Can be
     #     `:danger`, `:info`, `:primary`, `:success` or `:warning`.
     #   @option options [#to_s] :tag (#to_s) (:div) the HTML tag to wrap the
     #     panel into.
-    # @overload panel(options = {}, &content_block)
-    #   @example An informative panel with HTML content.
-    #   panel context: :success do
-    #     content_tag :div, class: 'panel-body' do
-    #       content_tag :strong, 'You accepted the Terms of service.'
-    #   @yieldreturn [#to_s] the content of the panel.
+    #   @example Display an informative panel with plain-text content.
+    #       panel 'You accepted the Terms of service.', context: :success
+    # @overload panel(options = {}, &block)
+    #   @param [Hash] options the options for the panel (see above).
+    #   @yieldreturn [#to_s] the content to display in the panel.
+    #   @example Display a panel with HTML content.
+    #       panel title: 'Thanks' do
+    #         content_tag :div, class: 'panel-body' do
+    #           content_tag :em, 'ou accepted the Terms of service.'
+    #         end
+    #       end
     def panel(*args, &block)
       panel = Bh::Panel.new self, *args, &block
       panel.extract! :body, :context, :title, :heading, :tag
