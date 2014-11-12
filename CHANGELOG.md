@@ -8,6 +8,7 @@ For more information about changelogs, check
 
 ## 1.2.0 - unreleased
 
+* [DEPRECATION] Deprecated `glyphicon` in favor of `icon` (`glyphicon` will still work until version 2.0.0)
 * [FEATURE] Add support for Middleman and Padrino for all helpers except `form_for`
 * [FEATURE] Extend `button_to` to accept the same :content, :size and :layout options as `button`
 * [ENHANCEMENT] Allow `button_to` to pass extra parameters to the button element
