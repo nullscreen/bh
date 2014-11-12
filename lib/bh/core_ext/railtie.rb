@@ -1,4 +1,3 @@
-require 'bh/core_ext/rails/button_to_helper'
 require 'bh/core_ext/rails/form_for_helper'
 require 'bh/core_ext/rails/link_to_helper'
 
@@ -24,4 +23,6 @@ module Bh
       end
     end
   end
+
+  Bh.framework = :rails
 end

@@ -1,4 +1,3 @@
-require 'active_support/core_ext/array/wrap' # for Array.wrap
 require 'bh/classes/progress_bar'
 
 module Bh

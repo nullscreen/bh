@@ -1,4 +1,3 @@
-require 'bh/core_ext/padrino/button_to_helper'
 require 'bh/core_ext/padrino/link_to_helper'
 
 module Bh
@@ -21,6 +20,8 @@ module Bh
       end
     end
   end
+
+  Bh.framework = :middleman
 end
 
 ::Middleman::Extensions.register(:bh, Bh::Extensions::MiddlemanExtension)

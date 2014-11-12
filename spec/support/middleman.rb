@@ -1,7 +1,6 @@
 require 'tilt'
 require 'padrino-helpers'
 
-require 'bh/core_ext/padrino/button_to_helper'
 require 'bh/core_ext/padrino/link_to_helper'
 
 # A view that behaves like a Middleman view
