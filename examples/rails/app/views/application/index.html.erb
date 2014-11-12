@@ -12,11 +12,11 @@
 
     <h1>Alerts</h1>
 
-      <%= alert_box 'Plain text' %>
-
       <!-- Try setting different :dismissible and :context options -->
-      <%= alert_box context: :success, dismissible: true, id: 'my-alert', data: {value: 1} do %>
-        Text <em>styled</em> with <acronym title="HyperText Markup Language">HTML</acronym> and <%= link_to 'links', '#' %>.
+      <%= alert_box 'You accepted the Terms of service.' %>
+
+      <%= alert_box context: :warning, dismissible: true, id: 'alert', class: :en, data: {js: 1} do %>
+        <em>Thanks!</em> You accepted the <%= link_to 'Terms of service', '/#terms' %>.
       <% end %>
 
     <h1>Panels</h1>
