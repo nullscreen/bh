@@ -7,13 +7,33 @@ require 'bh/classes/vertical'
 
 module Bh
   module Helpers
-    # Overrides ActionView +link_to+ to be able to add the 'alert-link' class
-    # to the link in case the link is inside of an alert.
-    # @see http://getbootstrap.com/components/#alerts-links
-    # Overrides ActionView +link_to+ to be able to surround the link in a
-    # '<li>' item in case the link is inside of a nav.
-    # Overrides ActionView +link_to+ to be able to add the 'navbar-brand'
-    # class to the link in case the link is inside of an alert.
+    # Overrides `link_to` to display a Bootstrap-styled link.
+    # Can only be used in Ruby frameworks that provide the `link_to` method.
+    # @see http://getbootstrap.com/components/#dropdowns
+    # @see http://getbootstrap.com/components/#nav
+    # @see http://getbootstrap.com/components/#navbar-brand-image
+    # @see http://getbootstrap.com/components/#navbar-links
+    # @see http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-link_to
+    # @see http://www.rubydoc.info/github/padrino/padrino-framework/Padrino/Helpers/AssetTagHelpers#link_to-instance_method
+    # @return [String] the HTML to display a Bootstrap-styled link.
+    # @overload link_to(caption, url, options = {})
+    #   @param [#to_s] caption the caption to display in the link.
+    #   @param [#to_s] url the URL to link to.
+    #   @param [Hash] options the options for he original `link_to` method.
+    #   @example Display a plain-text link inside an alert-box.
+    #       alert_box do
+    #         link_to 'Check the terms and conditions', '/#terms'
+    #       end
+    # @overload button_to(url, options = {}, &block)
+    #   @param [#to_s] url the URL to link to (see above).
+    #   @param [Hash] options the options for he original `link_to` method.
+    #   @yieldreturn [#to_s] the caption to display in the link.
+    #   @example Display a link with HTML inside a dropdown.
+    #       dropdown 'Menu' do
+    #         link_to '/#terms' do
+    #           content_tag :strong, 'Check the terms and conditions'
+    #         end
+    #       end
     def link_to(*args, &block)
       link_to = Bh::LinkTo.new self, *args, &block
 
