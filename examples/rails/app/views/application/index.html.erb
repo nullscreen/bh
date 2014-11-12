@@ -46,12 +46,12 @@
 
     <h1>Modals</h1>
 
-      <%= modal 'Plain text' %>
-
       <!-- Try setting different :title, :size, :button or :context options -->
-      <%= modal title: 'Modal Title', button: {size: :large, context: :primary}, size: :small do %>
-        <div class="modal-body">Text <em>styled</em> with icons: <%= glyphicon :ok %></div>
-        <div class="modal-footer"><%= button 'Accept' %></div>
+      <%= modal 'Do what you want!', button: {size: :small, context: :info} %>
+
+      <%= modal 'Do what you want!', title: 'Terms of service', size: :large, id: 'modal' do %>
+        <div class="modal-body">Please accept the Terms of service.</div>
+        <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
       <% end %>
 
     <h1>Navs</h1>
