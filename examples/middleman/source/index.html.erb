@@ -115,11 +115,11 @@
 
       <h1>Buttons</h1>
 
-        <%= button 'Plain text' %>
+      <!-- Try setting different :context, :size and :layout options -->
+        <%= button 'Menu' %>
 
-        <!-- Try setting different :context, :size and :layout options -->
-        <% button context: :info, size: :small do %>
-          Text <em>styled</em> with icons: <%= glyphicon :ok %>
+        <% button context: :warning, id: 'button', class: :en, data: {js: 1} do %>
+          Your <em>personal</em> menu
         <% end %>
 
       <h1>Dropdowns</h1>
