@@ -2,6 +2,7 @@ require 'tilt'
 require 'padrino-helpers'
 
 require 'bh/core_ext/padrino/button_to_helper'
+require 'bh/core_ext/padrino/link_to_helper'
 
 # A view that behaves like a Middleman view
 class MiddlemanView
@@ -12,6 +13,10 @@ class MiddlemanView
 
   include Bh::Helpers
   include Bh::Padrino::Helpers
+
+  def req
+    Rack::Request.new 'REQUEST_METHOD' => 'GET'
+  end
 
   def test_button_to_with_block
     false
