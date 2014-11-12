@@ -85,28 +85,21 @@
 
       <h1>Navbars</h1>
 
-        <% navbar do %>
+        <!-- Try adding a horizontal element and setting different :inverted, :fluid, :position or :padding options -->
+        <% navbar inverted: true do %>
           <% vertical do %>
             <%= link_to 'Home', '/' %>
           <% end %>
         <% end %>
 
-        <!-- Try adding a horizontal element and setting different :inverted, :fluid, :position or :padding options -->
-        <% navbar inverted: true, position: :bottom, padding: 100, id: 'my-navbar', data: {value: 1} do %>
+        <% navbar id: 'navbar' do %>
           <% vertical do %>
-            <%= link_to 'Home', '/', class: 'navbar-brand' %>
+            <%= link_to 'Home', '/' %>
           <% end %>
           <% horizontal do %>
-            <% nav class: 'navbar-right' do %>
-              <li class='active'>
-                <%= link_to 'Home', '/' %>
-              </li>
-              <li>
-                <%= link_to 'Profile', '/#profile' %>
-              </li>
-              <li>
-                <%= link_to 'Settings', '/#settings' %>
-              </li>
+            <% nav class: 'navbar-left' do %>
+              <%= link_to 'Profile', '/#profile' %>
+              <%= link_to 'Settings', '/#settings' %>
             <% end %>
           <% end %>
         <% end %>
