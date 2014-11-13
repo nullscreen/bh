@@ -37,6 +37,6 @@ end
 shared_examples_for 'the button wrapped in navbar' do
   specify 'adds the "navbar-form" class to the form' do
     html = %r{^<form.+class="navbar-form"}
-    bh.navbar { expect(:button_to).to generate html }
+    bh.navbar { expect(button_to: {context: :default}).to generate html }
   end
 end
