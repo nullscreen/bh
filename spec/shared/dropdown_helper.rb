@@ -8,6 +8,7 @@ shared_examples_for 'the dropdown helper' do
   all_tests_pass_with 'the :direction dropdown option'
   all_tests_pass_with 'the :align dropdown option'
   all_tests_pass_with 'the :split dropdown option'
+  all_tests_pass_with 'the button: :class dropdown option'
 end
 
 #--
@@ -100,5 +101,12 @@ shared_examples_for 'the :split dropdown option' do
 
   specify %Q{set to falsey, does not split the caption and the caret} do
     expect(dropdown: {split: false}).not_to generate html
+  end
+end
+
+shared_examples_for 'the button: :class dropdown option' do
+  specify 'appends the class to the modal button' do
+    html = %r{<button class="dropdown-toggle important btn btn-default"}
+    expect(dropdown: {button: {class: 'important'}}).to generate html
   end
 end

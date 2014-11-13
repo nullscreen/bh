@@ -47,7 +47,7 @@
       <!-- Try setting different :title, :size, :button or :context options -->
       <%= modal 'Do what you want!', button: {size: :small, context: :info} %>
 
-      <%= modal 'Do what you want!', title: 'Terms of service', size: :large, id: 'modal' do %>
+      <%= modal title: 'Terms of service', size: :large, id: 'modal', button: {class: :en} do %>
         <div class="modal-body">Please accept the Terms of service.</div>
         <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
       <% end %>
@@ -108,7 +108,7 @@
         <%= link_to 'Settings', '/#settings' %>
       <% end %>
 
-      <%= dropdown 'Menu', split: true, id: 'dropdown' do %>
+      <%= dropdown 'Menu', split: true, id: 'dropdown', button: {class: :en} do %>
         <li role="presentation"><a href="#">Home</a></li>
         <li role="presentation"><a href="#"><%= content_tag :em, 'Profile' %></a></li>
       <% end %>

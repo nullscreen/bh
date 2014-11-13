@@ -7,6 +7,7 @@ shared_examples_for 'the modal helper' do
   all_tests_pass_with 'the button: :caption modal option'
   all_tests_pass_with 'the button: :context modal option'
   all_tests_pass_with 'the button: :size modal option'
+  all_tests_pass_with 'the button: :class modal option'
 end
 
 #--
@@ -92,5 +93,12 @@ shared_examples_for 'the button: :size modal option' do
       html = %r{<button class="btn btn-default #{size_class}"}
       expect(modal: {button: {size: size}}).to generate html
     end
+  end
+end
+
+shared_examples_for 'the button: :class modal option' do
+  specify 'appends the class to the modal button' do
+    html = %r{<button class="important btn btn-default"}
+    expect(modal: {button: {class: 'important'}}).to generate html
   end
 end
