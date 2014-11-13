@@ -143,6 +143,8 @@
 
     <h1>Button to</h1>
 
+      <%= button_to 'New', '#new', submit_options: {class: 'b'}, class: 'f', method: :get %>
+      <br />
       <%= button_to 'New', '#new', submit_options: {class: 'b'}, class: 'f', method: :get, context: :primary %>
 
       <% button_to '/#edit', method: :get do %>

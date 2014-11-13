@@ -6,6 +6,8 @@ module Bh
   module Helpers
     # Overrides `button_to` to display a Bootstrap-styled button.
     # Can only be used in Ruby frameworks that provide the `button_to` method.
+    # Only overrides the original method if called with any of the `:context`,
+    # `:size` or `:layout` option, otherwise calls the original method.
     # @see http://getbootstrap.com/css/#buttons
     # @see http://getbootstrap.com/components/#navbar-buttons
     # @see http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-button_to
@@ -36,12 +38,14 @@ module Bh
     #       end
     def button_to(*args, &block)
       button_to = Bh::ButtonTo.new self, *args, &block
-      button_to.extract! :context, :size, :layout
-      button_to.append_button_class! :btn
-      button_to.append_button_class! button_to.context_class
-      button_to.append_button_class! button_to.size_class
-      button_to.append_button_class! button_to.layout_class
-      button_to.append_form_class! :'navbar-form' if Bh::Stack.find(Bh::Navbar)
+
+      if button_to.extract! :context, :size, :layout
+        button_to.append_button_class! :btn
+        button_to.append_button_class! button_to.context_class
+        button_to.append_button_class! button_to.size_class
+        button_to.append_button_class! button_to.layout_class
+        button_to.append_form_class! 'navbar-form' if Bh::Stack.find(Bh::Navbar)
+      end
 
       if block_given? && button_to.accepts_block?
         super button_to.url, button_to.attributes, &-> { button_to.content }

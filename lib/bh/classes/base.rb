@@ -16,6 +16,7 @@ module Bh
 
       def extract!(*keys)
         @attributes = @options.slice! *keys
+        @options.any?
       end
 
       def merge!(attributes = {})

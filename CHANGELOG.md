@@ -11,6 +11,7 @@ For more information about changelogs, check
 * [FEATURE] Add support for Middleman and Padrino for all helpers except `form_for`
 * [FEATURE] Extend `button_to` to accept the same :content, :size and :layout options as `button`
 * [DEPRECATION] Deprecate `glyphicon` in favor of `icon` (`glyphicon` will still work until version 2.0.0)
+* [BUGFIX] Don’t override `button_to` unless `:context`, `:size` or `:layout` is passed
 * [ENHANCEMENT] Allow `alert_box` to pass extra parameters to the alert box <div>
 * [ENHANCEMENT] Allow `button_to` to pass extra parameters to the button element
 * [ENHANCEMENT] Allow `dropdown` to display a full-width button when called with `{layout: :block, groupable: false}`
