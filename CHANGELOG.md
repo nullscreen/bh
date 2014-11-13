@@ -16,6 +16,7 @@ For more information about changelogs, check
 * [ENHANCEMENT] Allow `dropdown` to display a full-width button when called with `{layout: :block, groupable: false}`
 * [ENHANCEMENT] Allow `dropdown` to pass `:id` parameter to the dropdown <ul>
 * [ENHANCEMENT] Allow `modal` to pass the `:id` parameter to the wrapping <div>
+* [ENHANCEMENT] Allow `modal` to pass `{button: :class}` parameter to the toggle <button>
 * [ENHANCEMENT] Allow `panel` to pass extra parameters to the wrapping <div>
 * [ENHANCEMENT] Allow `progress_bar` to pass extra parameters to the wrapping container
 * [ENHANCEMENT] Allow `progress_bar` to pass extra parameters to each bar

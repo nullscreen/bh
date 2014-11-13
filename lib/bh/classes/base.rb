@@ -69,6 +69,11 @@ module Bh
         @url
       end
 
+      def extract_from(option, attributes = [])
+        if @options[option]
+          @attributes[option] = @options[option].except *attributes
+        end
+      end
 
     private
 
