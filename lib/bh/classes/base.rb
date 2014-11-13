@@ -4,6 +4,7 @@ require 'active_support'
 require 'active_support/core_ext'
 
 module Bh
+  # @api private
   module Classes
     class Base
       def initialize(app = nil, *args, &block)

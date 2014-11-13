@@ -8,7 +8,7 @@ module Bh
     # @return [String] the HTML to display a glyphicon.
     # @param [#to_s] name the name of the icon to display, with either dashes
     #   or underscores to separate multiple words.
-    # @param [Hash] options the options to passed to the icon’s `<span>`.
+    # @param [Hash] options the options to pass to the icon’s `<span>`.
     # @example Display the "zoom-in" glyphicon
     #   glyphicon :zoom_in
     def glyphicon(name = nil, options = {})

@@ -2,6 +2,7 @@ require 'action_view'
 
 module Bh
   module Rails
+    # @api private
     module BaseHelper
       include ActionView::Helpers::TagHelper # for content_tag
       include ActionView::Context # for capture

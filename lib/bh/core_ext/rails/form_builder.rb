@@ -10,6 +10,7 @@ require 'bh/core_ext/rails/form/static_control_helper'
 require 'bh/core_ext/rails/form/submit_helper'
 
 module Bh
+  # @api private
   class FormBuilder < ActionView::Helpers::FormBuilder
     include Form::CheckBoxHelper
     include Form::FieldHelper

@@ -2,6 +2,7 @@ require 'bh/classes/base'
 
 module Bh
   module Classes
+    # @api private
     class Cdn
       # @note if unspecified, the version should match the latest available
       #   version. If that's not the case, it's a bug and should be fixed.
