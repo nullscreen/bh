@@ -279,9 +279,10 @@
 
   <h3 id="dropdown-advanced">Complex dropdowns</h3>
   <p>To include HTML tags or a long text in the dropdown, pass your content in a block.<br />
-    You can also specify a custom <code>id</code> which will be added to the dropdown’s <code>&lt;ul&gt;</code> tag.</p>
+    You can specify a custom <code>id</code> which will be added to the dropdown’s <code>&lt;ul&gt;</code> tag.<br />
+    You can also specify a custom <code>{button: :class}</code> which will be added to the toggle <code>&lt;button&gt;</code> tag.</p>
   {% highlight rhtml %}
-<% dropdown 'Menu', split: true, id: 'dropdown' do %>
+<% dropdown 'Menu', split: true, id: 'dropdown', button: {class: :en} do %>
   <li role="presentation"><a href="#">Home</a></li>
   <li role="presentation"><a href="#"><%= content_tag :em, 'Profile' %></a></li>
 <% end %>
@@ -289,8 +290,8 @@
   <p>generates the following HTML:</p>
   <div class="bs-example">
     <div class="btn-group">
-      <button type="button" class="btn btn-default">Menu</button>
-      <button class="dropdown-toggle btn btn-default" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false">
+      <button type="button" class="en btn btn-default">Menu</button>
+      <button class="dropdown-toggle en btn btn-default" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false">
         <span class="caret"></span>
         <span class="sr-only">Toggle Dropdown</span>
       </button>
@@ -302,8 +303,8 @@
   </div>
   {% highlight html %}
 <div class="btn-group">
-  <button type="button" class="btn btn-default">Menu</button>
-  <button class="dropdown-toggle btn btn-default" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false">
+  <button type="button" class="en btn btn-default">Menu</button>
+  <button class="dropdown-toggle en btn btn-default" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false">
     <span class="caret"></span>
     <span class="sr-only">Toggle Dropdown</span>
   </button>

@@ -263,16 +263,17 @@
 
   <h3 id="modal-advanced">Complex modals</h3>
   <p>To include HTML tags or a long text in the modal, pass your content in a block.<br />
-     You can also specify a custom <code>id</code> which will be added to the modal’s <code>&lt;div&gt;</code> tag.</p>
+     You can specify a custom <code>id</code> which will be added to the modal’s <code>&lt;div&gt;</code> tag.<br />
+     You can also specify a custom <code>{button: :class}</code> which will be added to the toggle <code>&lt;button&gt;</code> tag.</p>
   {% highlight rhtml %}
-<%= modal title: 'Terms of service', size: :large, id: 'modal' do %>
+<%= modal title: 'Terms of service', size: :large, id: 'modal', button: {class: :en} do %>
   <div class="modal-body">Please accept the Terms of service.</div>
   <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
 <% end %>
   {% endhighlight %}
   <p>displays a button that toggles a large modal with a title and HTML content:</p>
   <div class="bs-example">
-    <button class="btn btn-default" data-toggle="modal" data-target="#modal">Terms of service</button>
+    <button class="en btn btn-default" data-toggle="modal" data-target="#modal">Terms of service</button>
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="label-modal" aria-hidden="true" style="display: none;">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -291,7 +292,7 @@
     </div>
   </div>
   {% highlight html %}
-<button class="btn btn-default" data-toggle="modal" data-target="#modal">Terms of service</button>
+<button class="en btn btn-default" data-toggle="modal" data-target="#modal">Terms of service</button>
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="label-modal" aria-hidden="true" style="display: none;">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
