@@ -56,14 +56,14 @@
   {% endhighlight %}
 
   <h3 id="button-advanced">Complex buttons</h3>
-  <p>To include HTML tags or a long text in the button, pass the caption as a block.<br />
-     You can also specify custom options which will be added to the <code>&lt;button&gt;</code> tag.</p>
+  <p>To include HTML tags or a long text in the button, pass the caption as a block.</p>
+  <p>You can also specify custom options which will be added to the <code>&lt;button&gt;</code> tag.</p>
   {% highlight rhtml %}
 <%= button context: :warning, id: 'button', class: :en, data: {js: 1} do %>
   Your <em>personal</em> menu
 <% end %>
   {% endhighlight %}
-  <p>displays an <em>block</em> button:</p>
+  <p>generates the following HTML:</p>
   <div class="bs-example">
     <button id="button" class="en btn btn-warning" data-js="1">
       Your <em>personal</em> menu

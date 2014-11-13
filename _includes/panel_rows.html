@@ -1,6 +1,6 @@
 <div class="bs-docs-section">
   <h1 id="panel_rows" class="page-header">Panel rows</h1>
-  <p class="lead">Use the <code>panel_row</code> helper a row of horizontally-aligned Bootstrap-styled panels.</p>
+  <p class="lead">Use the <code>panel_row</code> helper to display a row of horizontally-aligned Bootstrap-styled panels.</p>
 
   <h3 id="basic-row-of-panels">Basic row of panels</h3>
   <p>Use <code>panel_row</code> with the <code>:column_class</code> option to wrap panels of the same size in a row.</p>
@@ -40,7 +40,7 @@
 {% endhighlight %}
 
   <h3 id="complex-row-of-panels">Complex row of panels</h3>
-  <p>You can also custom options which will be added to the panel row’s <code>&lt;div&gt;</code> tag.</p>
+  <p>You can specify custom options which will be added to the panel row’s <code>&lt;div&gt;</code> tag.</p>
     {% highlight rhtml %}
 <%= panel_row column_class: 'col-sm-6', id: 'panel-row', class: :en, data: {js: 1} do %>
   <%= panel 'John Smith', title: 'User', context: :info %>

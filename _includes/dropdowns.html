@@ -11,7 +11,7 @@
   <%= link_to 'Profile', profile_path %>
 <% end %>
   {% endhighlight %}
-  <p>generates the following HTML:</p>
+  <p>generates the following HTML (click on the button to toggle the dropdown):</p>
   <div class="bs-example">
     <div class="btn-group">
       <button class="dropdown-toggle btn btn-default" type="button" id="label-dropdown-8746733656" data-toggle="dropdown">
@@ -278,9 +278,9 @@
   {% endhighlight %}
 
   <h3 id="dropdown-advanced">Complex dropdowns</h3>
-  <p>To include HTML tags or a long text in the dropdown, pass your content in a block.<br />
-    You can specify a custom <code>id</code> which will be added to the dropdown’s <code>&lt;ul&gt;</code> tag.<br />
-    You can also specify a custom <code>{button: :class}</code> which will be added to the toggle <code>&lt;button&gt;</code> tag.</p>
+  <p>To include HTML tags or a long text in the dropdown, pass your content in a block.</p>
+  <p>You can specify a custom <code>id</code> which will be added to the dropdown’s <code>&lt;ul&gt;</code> tag.</p>
+  <p>You can also specify a custom <code>{button: :class}</code> which will be added to the toggle <code>&lt;button&gt;</code> tag.</p>
   {% highlight rhtml %}
 <% dropdown 'Menu', split: true, id: 'dropdown', button: {class: :en} do %>
   <li role="presentation"><a href="#">Home</a></li>

@@ -25,12 +25,12 @@
 
   <h3 id="progress_bar-label">Progress bar with label</h3>
   <p>Use <code>progress_bar</code> with the <code>:label</code> option to show a label on the progress bar.</p>
-  <p>Set <code>:label</code> to a string to use a custom label, or to <code>true</code> to use the value as the label.</p>
+  <p>Set <code>:label</code> to a string to use a custom label, or to <code>true</code> to use its value as the label.</p>
   {% highlight rhtml %}
 <%= progress_bar percentage: 30, label: true %>
 <%= progress_bar percentage: 30, label: "thirty percent" %>
   {% endhighlight %}
-  <p>generates the following components (and HTML code):</p>
+  <p>generates the following HTML:</p>
   <div class="bs-example">
     <div class="progress">
       <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" class="progress-bar" role="progressbar" style="width: 30%">
@@ -62,7 +62,7 @@
   {% highlight rhtml %}
 <%= progress_bar percentage: 30, context: :warning %>
   {% endhighlight %}
-  <p>generates the following components (and HTML code):</p>
+  <p>generates the following HTML:</p>
   <div class="bs-example">
     <div class="progress">
       <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" class="progress-bar progress-bar-warning" role="progressbar" style="width: 30%">
@@ -83,7 +83,7 @@
   {% highlight rhtml %}
 <%= progress_bar percentage: 30, striped: true %>
   {% endhighlight %}
-  <p>generates the following components (and HTML code):</p>
+  <p>generates the following HTML:</p>
   <div class="bs-example">
     <div class="progress">
       <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" class="progress-bar progress-bar-striped" role="progressbar" style="width: 30%">
@@ -108,7 +108,7 @@
   {% highlight rhtml %}
 <%= progress_bar percentage: 30, animated: true %>
   {% endhighlight %}
-  <p>generates the following components (and HTML code):</p>
+  <p>generates the following HTML:</p>
   <div class="bs-example">
     <div class="progress">
       <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" class="progress-bar progress-bar-striped active" role="progressbar" style="width: 30%">
@@ -133,7 +133,7 @@
   {% highlight rhtml %}
 <%= progress_bar [{percentage: 30, context: :success, label: 'Completed'}, {percentage: 40, context: :warning, animated: true, label: 'Pending'}] %>
   {% endhighlight %}
-  <p>generates the following components (and HTML code):</p>
+  <p>generates the following HTML:</p>
   <div class="bs-example">
     <div class="progress">
       <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" class="progress-bar progress-bar-success" role="progressbar" style="width: 30%">
@@ -156,12 +156,12 @@
   {% endhighlight %}
 
   <h3 id="progress_bar-advanced">Complex progress bars</h3>
-  <p>You can specify custom options for which progress bar which will be added to the progress bar’s <code>&lt;div&gt;</code> tag.</p>
+  <p>You can specify custom options for each progress bar which will be added to the progress bar’s <code>&lt;div&gt;</code> tag.</p>
   <p>You can also specify custom options for the wrapping <code>&lt;div&gt;</code> container by passing them as the last argument.</p>
     {% highlight rhtml %}
 <%= progress_bar({percentage: 30, id: 'bar', data: {js: 1}}, id: 'container', class: :en) %>
   {% endhighlight %}
-  <p>generates the following components (and HTML code):</p>
+  <p>generates the following HTML:</p>
   <div class="bs-example">
     <div id="container" class="en progress">
       <div id="bar" data-js="1" aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" class="progress-bar" role="progressbar" style="width: 30%">

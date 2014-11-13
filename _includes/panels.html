@@ -104,19 +104,19 @@
     {% endhighlight %}
 
   <h3 id="advanced-panels">Complex panels</h3>
-  <p>To include HTML tags or a long text in the panel, pass your content in a block.<br />
-     You can also specify custom options which will be added to the alert’s <code>&lt;div&gt;</code> tag.</p>
+  <p>To include HTML tags or a long text in the panel, pass your content in a block.</p>
+  <p>You can also specify custom options which will be added to the alert’s <code>&lt;div&gt;</code> tag.</p>
     {% highlight rhtml %}
 <%= panel heading: 'Thanks', context: :info, id: 'panel', class: :en, data: {js: 1} do %>
   <div class='panel-body'>You accepted the Terms of service. <%= icon :ok %></div>
 <% end %>
   {% endhighlight %}
-  <p>displays a blue panel with a vector icon in the body and a footer:</p>
+  <p>displays an <em>info</em> (blue background) panel with a vector icon in the body:</p>
     <div class="bs-example">
       <div id="panel" class="en panel panel-info" data-js="1">
         <div class="panel-heading">Thanks</div>
         <div class="panel-body">
-          You accepted the Terms of service. 
+          You accepted the Terms of service.
           <span class="glyphicon glyphicon-ok"></span>
         </div>
       </div>
@@ -125,7 +125,7 @@
 <div id="panel" class="en panel panel-info" data-js="1">
   <div class="panel-heading">Thanks</div>
   <div class="panel-body">
-    You accepted the Terms of service. 
+    You accepted the Terms of service.
     <span class="glyphicon glyphicon-ok"></span>
   </div>
 </div>

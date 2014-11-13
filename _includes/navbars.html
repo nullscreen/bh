@@ -3,9 +3,9 @@
   <p class="lead">Use the <code>navbar</code> helper to display Bootstrap-styled navbars.</p>
 
   <h3 id="navbar-basic">Basic navbars</h3>
-  <p>Use <code>navbar</code> without options to display a basic navbar.<br />
-    Wrap the content that should always be visible (no matter the screen size) with the <code>vertical</code> helper.<br />
-    Wrap the content that should be collapsed for smalls screen sizes with the <code>horizontal</code> helper.</p>
+  <p>Use <code>navbar</code> without options to display a basic navbar.</p>
+  <p>Wrap the content that should always be visible (no matter the screen size) with the <code>vertical</code> helper.</p>
+  <p>Wrap the content that should be collapsed for small screen sizes with the <code>horizontal</code> helper.</p>
   {% highlight rhtml %}
 <%= navbar do %>
   <%= vertical do %>
@@ -19,7 +19,7 @@
   <% end %>
 <% end %>
   {% endhighlight %}
-  <p>generates a navbar with the following content (try resizing your browser!):</p>
+  <p>generates a navbar with the following content (try resizing your browser):</p>
     <div class="bs-example">
       <nav class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -188,8 +188,8 @@
   {% endhighlight %}
 
   <h3 id="navbar-top">Navbars fixed to top</h3>
-  <p>Use the <code>position: :top</code> option to fix the navbar at the top of the page.<br />
-    Set the <code>:padding</code> option to specify the padding to leave between the top
+  <p>Use the <code>position: :top</code> option to fix the navbar at the top of the page.</p>
+  <p>Set the <code>:padding</code> option to specify the padding to leave between the top
     of the page and the body (defaults to 70px).</p>
   {% highlight rhtml %}
 <%= navbar position: :top do %>
@@ -233,8 +233,8 @@
   {% endhighlight %}
 
   <h3 id="navbar-bottom">Navbars fixed to bottom</h3>
-  <p>Use the <code>position: :bottom</code> option to fix the navbar at the bottom of the page.<br />
-    Set the <code>:padding</code> option to specify the padding to leave between the body
+  <p>Use the <code>position: :bottom</code> option to fix the navbar at the bottom of the page.</p>
+  <p>Set the <code>:padding</code> option to specify the padding to leave between the body
     and the bottom of the page (defaults to 70px).</p>
   {% highlight rhtml %}
 <%= navbar position: :bottom, padding: 100 do %>
@@ -278,8 +278,8 @@
   {% endhighlight %}
 
   <h3 id="navbar-advanced">Complex navbars</h3>
-  <p>You can specify a custom <code>id</code> which will be used for the navbar’s collapsable <code>&lt;div&gt;</code>.<br />
-    You can also specify custom options in the <code>vertical</code> and <code>horizontal</code> helpers which will be added to their <code>&lt;div&gt;</code> tags.
+  <p>You can specify a custom <code>id</code> which will be used for the navbar’s collapsable <code>&lt;div&gt;</code>.</p>
+  <p>You can also specify custom options in the <code>vertical</code> and <code>horizontal</code> helpers which will be added to their <code>&lt;div&gt;</code> tags.
   </p>
   {% highlight rhtml %}
 <%= navbar id: 'navbar' do %>
@@ -306,7 +306,7 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">Home</a>
-          </div>        
+          </div>
           <div class="en collapse navbar-collapse" data-js="2" id="navbar">
             <ul class="navbar-left nav navbar-nav">
               <li><a href="/#profile">Profile</a></li>
@@ -327,7 +327,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">Home</a>
-    </div>        
+    </div>
     <div class="en collapse navbar-collapse" data-js="2" id="navbar">
       <ul class="navbar-left nav navbar-nav">
         <li><a href="/#profile">Profile</a></li>

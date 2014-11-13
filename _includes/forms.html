@@ -1,6 +1,11 @@
 <div class="bs-docs-section">
   <h1 id="forms" class="page-header">Forms (Rails only)</h1>
-  <p class="lead">Add the <code>:layout</code> option to the <code>form_for</code> helper to display Bootstrap-styled modals.</p>
+  <p class="lead">Use the <code>form_for</code> helper to display Bootstrap-styled forms.</p>
+
+  <p>In Rails apps, ActionView provides the <code>form_for</code> helper which displays model-specific forms (<a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_for">see Rails doc</a>).</p>
+  <p>In Padrino and Middleman apps, Padrino::Helpers provides the <code>form_for</code> helper with the same purpose (<a href="http://www.rubydoc.info/github/padrino/padrino-framework/Padrino/Helpers/FormHelpers:form_for">see Padrino doc</a>).</p>
+  <p>Bh overrides these methods to add Bootstrap styles <strong>only</strong> when used in Rails apps, and <strong>only</strong> when invoked the <code>:layout</code> option.<br />
+     Otherwise, the original <code>form_for</code> method is used.</p>
 
   <h3 id="form-basic">Basic forms</h3>
   <p>Use <code>form_for</code> with <code>layout: :basic</code> to add Bootstrap style to the form elements.</p>
