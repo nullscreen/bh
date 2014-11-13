@@ -90,10 +90,10 @@
         <% end %>
 
         <% navbar id: 'navbar' do %>
-          <% vertical do %>
+          <% vertical id: 'vertical', class: :en, data: {js: 1} do %>
             <%= link_to 'Home', '/' %>
           <% end %>
-          <% horizontal do %>
+          <% horizontal class: :en, data: {js: 2} do %>
             <% nav class: 'navbar-left' do %>
               <%= link_to 'Profile', '/#profile' %>
               <%= link_to 'Settings', '/#settings' %>
