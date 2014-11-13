@@ -2,6 +2,7 @@ require 'bh/classes/base'
 
 module Bh
   module Classes
+    # @api private
     class Icon < Base
       # @return [#to_s] the class to assign to the icon based on the Vector
       #   Icon library used.

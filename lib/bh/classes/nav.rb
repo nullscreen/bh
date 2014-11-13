@@ -2,6 +2,7 @@ require 'bh/classes/base'
 
 module Bh
   module Classes
+    # @api private
     class Nav < Base
       # @return [#to_s] the style-related class to assign to the nav.
       def style_class
