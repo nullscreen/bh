@@ -6,7 +6,7 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
-## 1.2.0 - unreleased
+## 1.2.0 - 2014-11-13
 
 * [FEATURE] Add support for Middleman and Padrino for all helpers except `form_for`
 * [FEATURE] Extend `button_to` to accept the same :content, :size and :layout options as `button`
