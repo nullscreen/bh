@@ -1,7 +1,7 @@
 Bh · Bootstrap Helpers
 ======================
 
-Bh provides a set of Ruby helpers that streamlines the use of
+A set of Ruby helpers that streamlines the use of
 [Bootstrap 3 components](http://getbootstrap.com/components) in HTML views.
 
 The **full documentation** is available at [rubydoc.info](http://www.rubydoc.info/github/Fullscreen/bh/master/Bh/Helpers).
