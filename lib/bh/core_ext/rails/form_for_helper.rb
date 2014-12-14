@@ -23,6 +23,7 @@ module Bh
 
       def class_for(layout)
         case layout.to_s
+          when 'navbar' then 'navbar-form'
           when 'inline' then 'form-inline'
           when 'horizontal' then 'form-horizontal'
         end
