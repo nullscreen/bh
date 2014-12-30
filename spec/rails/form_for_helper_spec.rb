@@ -33,6 +33,16 @@ describe 'form_for' do
     end
   end
 
+  describe 'with layout: :navbar' do
+    let(:options) { {layout: :navbar} }
+
+    specify 'applies Bootstrap attributes of an navbar form' do
+      expect(form).to include 'role="form"'
+      expect(form).to include 'class="navbar-form"'
+    end
+  end
+
+
   describe 'with any other value for :layout' do
     let(:options) { {layout: :basic} }
 

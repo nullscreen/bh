@@ -12,7 +12,7 @@ module Bh
         end
 
         fields_options[:layout] ||= @options[:layout]
-        fields_options[:errors] ||= @options[:errors]
+        fields_options[:errors] ||= @options.fetch(:errors, {})
         title = fields_options.delete(:title) { record_name.to_s.humanize }
         wrap_in_fieldset = fields_options.fetch :fieldset, true
         fields = super record_name, record_object, fields_options, &block

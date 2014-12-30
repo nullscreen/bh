@@ -117,5 +117,13 @@ field_helpers_to_test.each do |form_field|
         end
       end
     end
+
+    describe 'given a navbar layout' do
+      let(:layout) { :navbar }
+
+      it 'adds sr-only to the label' do
+        expect(form).to match %r{<div class="form-group"><label class="sr-only".+?>Name</label><(input|textarea) class="form-control"}
+      end
+    end
   end
 end
