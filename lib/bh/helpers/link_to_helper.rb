@@ -35,10 +35,11 @@ module Bh
     #         end
     #       end
     def link_to(*args, &block)
-      options = args.extract_options!
+      options = args.extract_options!.dup
       no_container = options.delete(:no_container)
+      args << options unless options.empty?
 
-      link_to = Bh::LinkTo.new self, *args, **options, &block
+      link_to = Bh::LinkTo.new self, *args, &block
 
       link_to.append_class! :'alert-link' if Bh::Stack.find(Bh::AlertBox)
       link_to.append_class! :'navbar-brand' if Bh::Stack.find(Bh::Vertical)
