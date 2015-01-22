@@ -35,7 +35,10 @@ module Bh
     #         end
     #       end
     def link_to(*args, &block)
-      link_to = Bh::LinkTo.new self, *args, &block
+      options = args.extract_options!
+      no_container = options.delete(:no_container)
+
+      link_to = Bh::LinkTo.new self, *args, **options, &block
 
       link_to.append_class! :'alert-link' if Bh::Stack.find(Bh::AlertBox)
       link_to.append_class! :'navbar-brand' if Bh::Stack.find(Bh::Vertical)
@@ -43,7 +46,9 @@ module Bh
       link_to.merge! tabindex: -1 if Bh::Stack.find(Bh::Dropdown)
       html = super link_to.content, link_to.url, link_to.attributes, &nil
 
-      if Bh::Stack.find(Bh::Dropdown)
+      if no_container
+        html
+      elsif Bh::Stack.find(Bh::Dropdown)
         container = Bh::Base.new(self) { html }
         container.merge! role: :presentation
         container.render_tag :li
