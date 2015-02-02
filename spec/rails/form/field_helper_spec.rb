@@ -42,6 +42,15 @@ field_helpers_to_test.each do |form_field|
         it { expect(form).to include 'Given name</label>' }
       end
 
+      context 'not given a help option, does not display a help box' do
+        it { expect(form).not_to include 'help-block' }
+      end
+
+      context 'given a help option, displays a help box' do
+        let(:options) { {help: 'Please write the given name'} }
+        it { expect(form).to include '<span class="help-block text-left">Please write the given name</span>' }
+      end
+
       specify 'not given a prefix or suffix option, does not use an input group' do
         expect(form).not_to include 'input-group'
       end
@@ -107,6 +116,14 @@ field_helpers_to_test.each do |form_field|
       let(:layout) { :inline }
       specify 'applies form-group to the container, form-control to the input, sr-only to the label' do
         expect(form).to match %r{<div class="form-group"><label class="sr-only".+?>Name</label><(input|textarea) class="form-control"}
+      end
+
+      context 'given a help message' do
+        let(:options) { {help: 'Please write the given name'} }
+
+        specify 'applies sr-only to the help message' do
+          expect(form).to include '<span class="help-block text-left sr-only">Please write the given name</span>'
+        end
       end
 
       context 'given an error' do

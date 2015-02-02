@@ -31,10 +31,15 @@ module Bh
 
       def field_tags(errors, field_type, options = {}, &block)
         prefix, suffix = options.delete(:prefix), options.delete(:suffix)
+        help_text = options.delete(:help)
         field = @template.capture(&block)
         tags = [field_in_group(field, prefix, suffix)]
         tags << error_icon_tag if show_error_icon?(field_type, errors, suffix)
-        tags << error_help_tag(errors) if errors.any? && show_error_help?
+        if errors.any? && show_error_help?
+          tags << help_tag(errors.to_sentence)
+        elsif help_text
+          tags << help_tag(help_text)
+        end
         safe_join tags
       end
 
@@ -74,10 +79,10 @@ module Bh
         glyphicon :remove, class: 'form-control-feedback'
       end
 
-      def error_help_tag(errors)
+      def help_tag(help_text)
         klass = ['help-block', 'text-left']
         klass << 'sr-only' if inline_form?
-        content_tag :span, errors.to_sentence, class: klass.join(' ')
+        content_tag :span, help_text, class: klass.join(' ')
       end
 
       def label_for(method, errors, options)
