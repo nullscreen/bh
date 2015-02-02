@@ -6,7 +6,7 @@ module Bh
       include BaseHelper
 
       def field(method, field_type, options = {}, &block)
-        options[:placeholder] ||= method.to_s.humanize
+        options[:placeholder] ||= strip_tags(label method)
         append_class! options, 'form-control'
         base_field method, field_type, options, &block
       end
