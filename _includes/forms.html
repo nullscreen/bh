@@ -448,6 +448,83 @@
 </form>
   {% endhighlight %}
 
+  <h3 id="form-help">Help text</h3>
+  <p>Use the <code>:help</code> option to display a help message after fields inside <em>bootstrapped</em> forms.</p>
+  <p>Note that error messages will have precedence over help messages.</p>
+  {% highlight rhtml %}
+<%= form_for User.new, url: '/', method: :get, layout: :basic do |f| %>
+  <%= f.email_field :email, label: 'E-mail address', help: 'We will send a confirmation email' %>
+  <%= f.password_field :password, placeholder: 'Your Password', help: 'Do not use "password"' %>
+  <%= f.file_field :avatar, help: 'Suggested dimension: 50x50 px.' %>
+  <%= f.check_box :confirm, checked: true, help: 'We will not share your data with anyone' %>
+  <%= f.submit 'Sign in' %>
+<% end %>
+  {% endhighlight %}
+  <p>generates a form that shows a help message after each field:
+    <div class="bs-example">
+      <form role="form" class="" id="new_user" enctype="multipart/form-data" action="/" accept-charset="UTF-8" method="get">
+        <input name="utf8" type="hidden" value="✓">
+        <div class="form-group">
+          <label for="user_email">E-mail address</label>
+          <input placeholder="Email" class="form-control" type="email" name="user[email]" id="user_email">
+          <span class="help-block text-left">We will send a confirmation email</span>
+        </div>
+        <div class="form-group">
+          <label for="user_password">Password</label>
+          <input placeholder="Your Password" class="form-control" type="password" name="user[password]" id="user_password">
+          <span class="help-block text-left">Do not use "password"</span>
+        </div>
+        <div class="form-group">
+          <label for="user_avatar">Avatar</label>
+          <input type="file" name="user[avatar]" id="user_avatar">
+          <span class="help-block text-left">Suggested dimension: 50x50 px.</span>
+        </div>
+        <div class="form-group">
+          <div class="checkbox">
+            <label>
+              <input name="user[confirm]" type="hidden" value="0">
+              <input offset="true" label="Confirm" type="checkbox" value="1" checked="checked" name="user[confirm]" id="user_confirm">
+              Confirm
+            </label>
+          </div>
+          <span class="help-block text-left">We will not share your data with anyone</span>
+        </div>
+        <input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+      </form>
+    </div>
+  {% highlight html %}
+<form role="form" class="" id="new_user" enctype="multipart/form-data" action="/" accept-charset="UTF-8" method="get">
+  <input name="utf8" type="hidden" value="✓">
+  <div class="form-group">
+    <label for="user_email">E-mail address</label>
+    <input placeholder="Email" class="form-control" type="email" name="user[email]" id="user_email">
+    <span class="help-block text-left">We will send a confirmation email</span>
+  </div>
+  <div class="form-group">
+    <label for="user_password">Password</label>
+    <input placeholder="Your Password" class="form-control" type="password" name="user[password]" id="user_password">
+    <span class="help-block text-left">Do not use "password"</span>
+  </div>
+  <div class="form-group">
+    <label for="user_avatar">Avatar</label>
+    <input type="file" name="user[avatar]" id="user_avatar">
+    <span class="help-block text-left">Suggested dimension: 50x50 px.</span>
+  </div>
+  <div class="form-group">
+    <div class="checkbox">
+      <label>
+        <input name="user[confirm]" type="hidden" value="0">
+        <input offset="true" label="Confirm" type="checkbox" value="1" checked="checked" name="user[confirm]" id="user_confirm">
+        Confirm
+      </label>
+    </div>
+    <span class="help-block text-left">We will not share your data with anyone</span>
+  </div>
+  <input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+</form>
+  {% endhighlight %}
+
+
   <h3 id="form-fieldsets">Fieldsets</h3>
   <p>Use the <code>fieldset</code> helper to group sets of related fields in a panel with an optional title.</p>
   {% highlight rhtml %}
