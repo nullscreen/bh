@@ -4,8 +4,13 @@
 
   <p>In Rails apps, ActionView provides the <code>form_for</code> helper which displays model-specific forms (<a href="http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_for">see Rails doc</a>).</p>
   <p>In Padrino and Middleman apps, Padrino::Helpers provides the <code>form_for</code> helper with the same purpose (<a href="http://www.rubydoc.info/github/padrino/padrino-framework/Padrino/Helpers/FormHelpers:form_for">see Padrino doc</a>).</p>
-  <p>Bh overrides these methods to add Bootstrap styles <strong>only</strong> when used in Rails apps, and <strong>only</strong> when invoked the <code>:layout</code> option.<br />
-     Otherwise, the original <code>form_for</code> method is used.</p>
+
+  <p>Bh overrides these methods to add Bootstrap styles <strong>only</strong> when used in Rails apps and:</p>
+  <ul>
+    <li>if the <code>:layout</code> option is set, or</li>
+    <li>if the form is wrapped in a <code>navbar</code>.</li>
+  </ul>
+  <p>Otherwise, the original <code>form_for</code> method is used.</p>
 
   <h3 id="form-basic">Basic forms</h3>
   <p>Use <code>form_for</code> with <code>layout: :basic</code> to add Bootstrap style to the form elements.</p>
@@ -47,60 +52,6 @@
   </div>
   <div class="form-group">
     <label for="user_password">Password</label>
-    <input class="form-control" id="user_password" name="user[password]" placeholder="Password" size="30" type="password">
-  </div>
-  <div class="form-group">
-    <div class="checkbox">
-      <input name="user[remember_me]" type="hidden" value="0">
-      <label>
-        <input checked="checked" name="user[remember_me]" type="checkbox" value="1"> Remember me
-      </label>
-    </div>
-  </div>
-  <input class="btn btn-primary" name="commit" type="submit" value="Sign in">
-</form>
-  {% endhighlight %}
-
-  <h3 id="form-inline">Inline forms</h3>
-  <p>Use <code>form_for</code> with <code>layout: :inline</code> for left-aligned and inline-block controls.</p>
-  {% highlight rhtml %}
-<%= form_for User.new, layout: :inline do |f| %>
-  <%= f.email_field :email %>
-  <%= f.password_field :password %>
-  <%= f.check_box :remember_me, checked: true %>
-  <%= f.submit 'Sign in' %>
-<% end %>
-  {% endhighlight %}
-  <p>generates the following HTML:</p>
-    <div class="bs-example">
-      <form accept-charset="UTF-8" action="#" class="form-inline" method="post" role="form">
-        <div class="form-group">
-          <label class="sr-only" for="user_email_2">Email</label>
-          <input class="form-control" id="user_email_2" name="user[email]" placeholder="Email" size="30" type="email">
-        </div>
-        <div class="form-group">
-          <label class="sr-only" for="user_password_2">Password</label>
-          <input class="form-control" id="user_password_2" name="user[password]" placeholder="Password" size="30" type="password">
-        </div>
-        <div class="form-group">
-          <div class="checkbox">
-            <input name="user[remember_me]" type="hidden" value="0">
-            <label>
-              <input checked="checked" name="user[remember_me]" type="checkbox" value="1"> Remember me
-            </label>
-          </div>
-        </div>
-        <input class="btn btn-primary" name="commit" type="submit" value="Sign in">
-      </form>
-    </div>
-  {% highlight html %}
-<form accept-charset="UTF-8" action="/users/new" class="form-inline" method="post" role="form">
-  <div class="form-group">
-    <label class="sr-only" for="user_email">Email</label>
-    <input class="form-control" id="user_email" name="user[email]" placeholder="Email" size="30" type="email">
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="user_password">Password</label>
     <input class="form-control" id="user_password" name="user[password]" placeholder="Password" size="30" type="password">
   </div>
   <div class="form-group">
@@ -186,6 +137,122 @@
     </div>
   </div>
 </form>
+  {% endhighlight %}
+
+  <h3 id="form-inline">Inline forms</h3>
+  <p>Use <code>form_for</code> with <code>layout: :inline</code> for left-aligned and inline-block controls.</p>
+  {% highlight rhtml %}
+<%= form_for User.new, layout: :inline do |f| %>
+  <%= f.email_field :email %>
+  <%= f.password_field :password %>
+  <%= f.check_box :remember_me, checked: true %>
+  <%= f.submit 'Sign in' %>
+<% end %>
+  {% endhighlight %}
+  <p>generates the following HTML:</p>
+    <div class="bs-example">
+      <form accept-charset="UTF-8" action="#" class="form-inline" method="post" role="form">
+        <div class="form-group">
+          <label class="sr-only" for="user_email_2">Email</label>
+          <input class="form-control" id="user_email_2" name="user[email]" placeholder="Email" size="30" type="email">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="user_password_2">Password</label>
+          <input class="form-control" id="user_password_2" name="user[password]" placeholder="Password" size="30" type="password">
+        </div>
+        <div class="form-group">
+          <div class="checkbox">
+            <input name="user[remember_me]" type="hidden" value="0">
+            <label>
+              <input checked="checked" name="user[remember_me]" type="checkbox" value="1"> Remember me
+            </label>
+          </div>
+        </div>
+        <input class="btn btn-primary" name="commit" type="submit" value="Sign in">
+      </form>
+    </div>
+  {% highlight html %}
+<form accept-charset="UTF-8" action="/users/new" class="form-inline" method="post" role="form">
+  <div class="form-group">
+    <label class="sr-only" for="user_email">Email</label>
+    <input class="form-control" id="user_email" name="user[email]" placeholder="Email" size="30" type="email">
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="user_password">Password</label>
+    <input class="form-control" id="user_password" name="user[password]" placeholder="Password" size="30" type="password">
+  </div>
+  <div class="form-group">
+    <div class="checkbox">
+      <input name="user[remember_me]" type="hidden" value="0">
+      <label>
+        <input checked="checked" name="user[remember_me]" type="checkbox" value="1"> Remember me
+      </label>
+    </div>
+  </div>
+  <input class="btn btn-primary" name="commit" type="submit" value="Sign in">
+</form>
+  {% endhighlight %}
+
+  <h3 id="form-navbar">Navbar forms</h3>
+  <p>Use <code>form_for</code> inside a  <code>navbar</code> block for left-aligned and inline-block controls, optimized for a navbar. Setting the <code>:layout</code> option is not required.</p>
+  {% highlight rhtml %}
+<%= navbar do %>
+  <%= vertical do %>
+    <%= form_for User.new do |f| %>
+    <%= f.email_field :email %>
+      <%= f.submit 'Sign in' %>
+    <% end %>
+  <% end %>
+<% end %>
+  {% endhighlight %}
+  <p>generates the following HTML:</p>
+    <div class="bs-example">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" data-target="#navbar-collapse-4818" data-toggle="collapse" type="button">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <form role="form" class="navbar-form" id="new_user" action="/users/new" accept-charset="UTF-8" method="post">
+              <input name="utf8" type="hidden" value="✓">
+              <input type="hidden" name="authenticity_token" value="2FT47">
+              <div class="form-group">
+                <label class="sr-only" for="user_email">Email</label>
+                <input placeholder="Email" class="form-control" type="email" name="user[email]" id="user_email">
+              </div>
+              <input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+  {% highlight html %}
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-target="#navbar-collapse-4818" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <form role="form" class="navbar-form" id="new_user" action="/users/new" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="authenticity_token" value="2FT47">
+        <div class="form-group">
+          <label class="sr-only" for="user_email">Email</label>
+          <input placeholder="Email" class="form-control" type="email" name="user[email]" id="user_email">
+        </div>
+        <input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+      </form>
+    </div>
+  </div>
+</nav>
+
+
   {% endhighlight %}
 
   <h3 id="form-labels">Labels</h3>
