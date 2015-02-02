@@ -122,7 +122,7 @@ module Bh
       end
 
       def inline_form?
-        @options[:layout].to_s == 'inline'
+        ['inline', 'navbar'].include? @options[:layout].to_s
       end
 
       def horizontal_form?

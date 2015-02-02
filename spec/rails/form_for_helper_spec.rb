@@ -3,6 +3,7 @@ require 'bh/core_ext/rails/form_for_helper'
 include Bh::Rails::Helpers
 
 describe 'form_for' do
+  let(:bh) { RailsView.new }
   let(:protect_against_forgery?) { false }
   attr_accessor :output_buffer
   let(:form) { form_for(:object, options.merge(url: '/')) {} }
@@ -10,8 +11,13 @@ describe 'form_for' do
   describe 'without a :layout option' do
     let(:options) { {} }
 
-    specify 'does not apply Bootstrap attributes to the form' do
+    specify 'by default, does not apply Bootstrap attributes to the form' do
       expect(form).not_to include 'role="form"'
+    end
+
+    specify 'wrapped in navbar, applies Bootstrap attributes of a navbar form' do
+      bh.navbar { expect(form).to include 'role="form"' }
+      bh.navbar { expect(form).to include 'class="navbar-form"' }
     end
   end
 
