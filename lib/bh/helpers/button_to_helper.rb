@@ -9,6 +9,7 @@ module Bh
     # Only overrides the original method if called with any of the `:context`,
     # `:size` or `:layout` option, otherwise calls the original method.
     # @see http://getbootstrap.com/css/#buttons
+    # @see http://getbootstrap.com/components/#nav
     # @see http://getbootstrap.com/components/#navbar-buttons
     # @see http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-button_to
     # @see http://rubydoc.info/gems/padrino-helpers/Padrino/Helpers/FormHelpers#button_to-instance_method
@@ -47,10 +48,17 @@ module Bh
         button_to.append_form_class! 'navbar-form' if Bh::Stack.find(Bh::Navbar)
       end
 
-      if block_given? && button_to.accepts_block?
+      html = if block_given? && button_to.accepts_block?
         super button_to.url, button_to.attributes, &-> { button_to.content }
       else
         super button_to.content, button_to.url, button_to.attributes, &nil
+      end
+
+      if Bh::Stack.find(Bh::Nav)
+        container = Bh::Base.new(self) { html }
+        container.render_tag :li
+      else
+        html
       end
     end
   end

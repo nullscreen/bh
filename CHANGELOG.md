@@ -6,8 +6,9 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
-## 1.2.1 - unreleased
+## 1.3.0 - unreleased
 
+* [FEATURE] Extend `button_to` to be wrapped in <li> when inside a `nav`, just like `link_to`
 * [ENHANCEMENT] Bump Bootstrap version to 3.3.2
 * [ENHANCEMENT] Bump Font Awesome version to 4.3.0
 
