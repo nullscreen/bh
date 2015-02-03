@@ -21,8 +21,9 @@ module Bh
 
 
       def field_container(options = {}, &block)
+        offset = options.delete :offset
         if horizontal_form?
-          klass = [('col-sm-offset-3' if options[:offset]), 'col-sm-9']
+          klass = [('col-sm-offset-3' if offset), 'col-sm-9']
           content_tag :div, class: klass.compact.join(' '), &block
         else
           yield
