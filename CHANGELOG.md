@@ -8,10 +8,11 @@ For more information about changelogs, check
 
 ## 1.3.0 - unreleased
 
-* [ENHANCEMENT] Bootstrappify forms wrapped in `navbar`, setting their class to "navbar-form"
-* [BUGFIX] Match default placeholder with label content (therefore supporting localization)
-* [ENHANCEMENT] Add `:help` option to display a help block after most form fields
+* [FEATURE] Extend `form_for` to be wrapped in <li> when inside a `nav`, just like `link_to`
 * [FEATURE] Extend `button_to` to be wrapped in <li> when inside a `nav`, just like `link_to`
+* [BUGFIX] Match default placeholder with label content (therefore supporting localization)
+* [ENHANCEMENT] Bootstrappify forms wrapped in `navbar`, setting their class to "navbar-form"
+* [ENHANCEMENT] Add `:help` option to display a help block after most form fields
 * [ENHANCEMENT] Bump Bootstrap version to 3.3.2
 * [ENHANCEMENT] Bump Font Awesome version to 4.3.0
 
