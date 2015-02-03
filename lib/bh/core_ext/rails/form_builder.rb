@@ -12,6 +12,8 @@ require 'bh/core_ext/rails/form/submit_helper'
 module Bh
   # @api private
   class FormBuilder < ActionView::Helpers::FormBuilder
+    include ActionView::Helpers::SanitizeHelper
+    extend ActionView::Helpers::SanitizeHelper::ClassMethods
     include Form::CheckBoxHelper
     include Form::FieldHelper
     include Form::FieldsetHelper

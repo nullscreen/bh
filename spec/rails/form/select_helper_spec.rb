@@ -22,6 +22,15 @@ describe 'select' do
       it { expect(form).to include 'Given name</label>' }
     end
 
+    context 'not given a help option, does not display a help box' do
+      it { expect(form).not_to include 'help-block' }
+    end
+
+    context 'given a help option, displays a help box' do
+      let(:options) { {help: 'Please select an option'} }
+      it { expect(form).to include '<span class="help-block text-left">Please select an option</span>' }
+    end
+
     specify 'not given an error, does not apply has-error to the form group' do
       expect(form).not_to include 'has-error'
     end
@@ -58,6 +67,14 @@ describe 'select' do
     let(:layout) { :inline }
     specify 'applies form-group to the container, form-control to the input, sr-only to the label' do
       expect(form).to match %r{<div class="form-group"><label class="sr-only".+?>Name</label><select class="form-control"}
+    end
+
+    context 'given a help message' do
+      let(:options) { {help: 'Please select an option'} }
+
+      specify 'applies sr-only to the help message' do
+        expect(form).to include '<span class="help-block text-left sr-only">Please select an option</span>'
+      end
     end
 
     context 'given an error' do

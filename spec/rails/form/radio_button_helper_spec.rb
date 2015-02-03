@@ -22,6 +22,15 @@ describe 'radio_button' do
       it { expect(form).to include '> Jerry</label>' }
     end
 
+    context 'not given a help option, does not display a help box' do
+      it { expect(form).not_to include 'help-block' }
+    end
+
+    context 'given a help option, displays a help box' do
+      let(:options) { {help: 'Please select an option'} }
+      it { expect(form).to include '<span class="help-block text-left">Please select an option</span>' }
+    end
+
     specify 'not given an error, does not apply has-error to the form group' do
       expect(form).not_to include 'has-error'
     end
@@ -54,6 +63,14 @@ describe 'radio_button' do
     let(:layout) { :inline }
     specify 'applies radio to the container, and an inline label' do
       expect(form).to match %r{<div class="radio"><label><input.+? /> Jeremy</label></div>}
+    end
+
+    context 'given a help message' do
+      let(:options) { {help: 'Please select an option'} }
+
+      specify 'applies sr-only to the help message' do
+        expect(form).to include '<span class="help-block text-left sr-only">Please select an option</span>'
+      end
     end
 
     context 'given an error' do

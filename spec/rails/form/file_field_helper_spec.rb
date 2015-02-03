@@ -7,7 +7,21 @@ describe 'file_field' do
   let(:form) { form_for user, layout: layout, errors: errors, url: '/', &block }
   let(:user) { User.new }
   let(:errors) { {} }
-  let(:block) { Proc.new {|f| f.file_field :name, accept: 'text/html'} }
+  let(:block) { Proc.new {|f| f.file_field :name, options.merge(accept: 'text/html')} }
+  let(:options) { {} }
+
+  context 'given any layout' do
+    let(:layout) { :whatever }
+
+    context 'not given a help option, does not display a help box' do
+      it { expect(form).not_to include 'help-block' }
+    end
+
+    context 'given a help option, displays a help box' do
+      let(:options) { {help: 'Please upload a file'} }
+      it { expect(form).to include '<span class="help-block text-left">Please upload a file</span>' }
+    end
+  end
 
   describe 'given a basic layout' do
     let(:layout) { :basic }
@@ -39,6 +53,14 @@ describe 'file_field' do
 
     specify 'does not apply form-control to the input' do
       expect(form).not_to match 'form-control'
+    end
+
+    context 'given a help message' do
+      let(:options) { {help: 'Please select a file'} }
+
+      specify 'applies sr-only to the help message' do
+        expect(form).to include '<span class="help-block text-left sr-only">Please select a file</span>'
+      end
     end
 
     context 'given an error' do
