@@ -3,7 +3,9 @@
   <p class="lead">Use the <code>nav</code> helper to display Bootstrap-styled navs.</p>
 
   <h3 id="basic-navs">Basic navs</h3>
-  <p>Use <code>nav</code> without options to display the included links as a row of tabs.</p>
+  <p>Use <code>nav</code> without options to display the included links and forms as a row of tabs.</p>
+  <p>Note that links and forms are automatically wrapped in <code>&lt;li&gt;</code> tags if you use the helpers <code>link_to</code>, <code>button_to</code> or <code>form_for</code>.</p>
+  <p>Additionally, if any link matches the current URL, its <code>&lt;li&gt;</code> tag automatically gets the <code>active</code> class.</p>
   {% highlight rhtml %}
 <%= nav do %>
   <%= link_to 'Home', root_path %>
