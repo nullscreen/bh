@@ -6,7 +6,7 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
-## 1.3.0 - unreleased
+## 1.3.0 - 2014-02-02
 
 * [FEATURE] Extend `form_for` to be wrapped in <li> when inside a `nav`, just like `link_to`
 * [FEATURE] Extend `button_to` to be wrapped in <li> when inside a `nav`, just like `link_to`
