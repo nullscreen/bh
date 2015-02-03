@@ -106,14 +106,14 @@ module Bh
       # Bootstrap inline form unless the label is inserted within
       # the div itself.
       def label_and_field(container_class, method, options = {}, &block)
+        label = safe_join [' ' , options.delete(:label)]
         label_options = options.delete(:label_options) || {}
 
         label_and_field = @template.capture(&block)
-        label = options.delete(:label)
         if index = label_and_field =~ %r{</div>$}
-          label_and_field.insert index, " #{label}"
+          label_and_field.insert index, label
         else
-          label_and_field.concat " #{label}"
+          label_and_field.concat label
         end
         content_tag :div, class: container_class do
           content_tag :label, label_and_field, label_options
