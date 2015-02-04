@@ -6,7 +6,7 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
-## 1.3.1 - unreleased
+## 1.3.1 - 2014-02-03
 
 * [BUGFIX] Do not render the `:offset` option of the field helpers in the DOM
 * [BUGFIX] Do not render the `:label` option of the field helpers in the DOM
