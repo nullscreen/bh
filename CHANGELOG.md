@@ -6,6 +6,12 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 1.3.1 - unreleased
+
+* [BUGFIX] Do not render the `:offset` option of the field helpers in the DOM
+* [BUGFIX] Do not render the `:label` option of the field helpers in the DOM
+* [ENHANCEMENT] Add `:label_options` option to customize the wrapping label of a field
+
 ## 1.3.0 - 2014-02-02
 
 * [FEATURE] Extend `form_for` to be wrapped in <li> when inside a `nav`, just like `link_to`

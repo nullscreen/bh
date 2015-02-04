@@ -22,6 +22,11 @@ describe 'radio_button' do
       it { expect(form).to include '> Jerry</label>' }
     end
 
+    context 'given a label_options option, passes the options to the label' do
+      let(:options) { {label_options: {class: 'col-sm-6', data: {js: 2}}} }
+      it { expect(form).to match %r{<label class="col-sm-6" data-js="2"><input.+? /> Jeremy</label>} }
+    end
+
     context 'not given a help option, does not display a help box' do
       it { expect(form).not_to include 'help-block' }
     end
