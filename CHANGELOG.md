@@ -6,6 +6,10 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 1.3.2 - 2014-03-05
+
+* [BUGFIX] Respect the original behavior of Padrino/Rails when calling `link_to` with `nil` as the name
+
 ## 1.3.1 - 2014-02-03
 
 * [BUGFIX] Do not render the `:offset` option of the field helpers in the DOM
