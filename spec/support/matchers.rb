@@ -4,7 +4,10 @@ RSpec::Matchers.define :generate do |html|
       helper, options = helper.keys.first, helper.values.first
     end
 
-    if helper == :link_to || helper == :button_to
+    if helper == :link_to && options == :nil_name
+      @inline = bh.send helper, nil, '/'
+      @block = @inline
+    elsif helper == :link_to || helper == :button_to
       @inline = bh.send helper, *['content', '/', options].compact
       if bh.test_button_to_with_block
         @block = bh.send(helper, *['/', options].compact) { 'content' }
