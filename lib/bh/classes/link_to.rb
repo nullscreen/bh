@@ -17,6 +17,10 @@ module Bh
           request.path_info == @app.url_for(@url)
         end
       end
+
+      def content
+        super if @content
+      end
     end
   end
 end
