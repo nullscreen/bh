@@ -24,5 +24,6 @@ describe 'When used in Rails' do
   all_tests_pass_for 'the vertical helper'
 
   all_tests_pass_for 'the button_to helper (Rails)'
+  all_tests_pass_for 'the link_to helper (Rails)'
   all_tests_pass_for 'the link_to helper'
 end
