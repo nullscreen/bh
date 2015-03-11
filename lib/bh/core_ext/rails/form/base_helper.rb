@@ -11,7 +11,7 @@ module Bh
 
       def base_field(method, field_type, options = {}, &block)
         errors = (object.errors.get method if object) || {}
-        label = label_for method, errors, options
+        label = label_for method, errors, field_type, options
         field = field_container(options) do
           field_tags errors, field_type, options, &block
         end
@@ -35,7 +35,9 @@ module Bh
         help_text = options.delete(:help)
         field = @template.capture(&block)
         tags = [field_in_group(field, prefix, suffix)]
-        tags << error_icon_tag if show_error_icon?(field_type, errors, suffix)
+        if show_error_icon?(field_type, errors, suffix) && !basic_form?
+          tags << error_icon_tag
+        end
         if errors.any? && show_error_help?
           tags << help_tag(errors.to_sentence)
         elsif help_text
@@ -86,10 +88,18 @@ module Bh
         content_tag :span, help_text, class: klass.join(' ')
       end
 
-      def label_for(method, errors, options)
+      # Rails wraps the label in <div class='field_with_errors'> in case of
+      # error, which messes up the error icon in Bootstrap basic forms unless
+      # the icon is appended to the label itself, rather than at the end.
+      def label_for(method, errors, field_type, options)
         if options.delete(:use_label) { true }
-           args = [method, options.delete(:label), label_options(errors)]
-           label *args.compact
+          args = [method, options.delete(:label), label_options(errors)]
+          label(*args.compact).tap do |label|
+            error_icon = show_error_icon? field_type, errors, options[:suffix]
+            if (index = label =~ %r{</div>$}) && error_icon && basic_form?
+              label.insert index, error_icon_tag
+            end
+          end
         end
       end
 
