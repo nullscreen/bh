@@ -6,6 +6,10 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 1.3.3 - 2014-03-11
+
+* [BUGFIX] Correctly align the "X" icon at the right of the field in basic forms
+
 ## 1.3.2 - 2014-03-05
 
 * [BUGFIX] Respect the original behavior of Padrino/Rails when calling `link_to` with `nil` as the name
