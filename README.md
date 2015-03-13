@@ -44,7 +44,7 @@ The other ones are: `bootstrap_css`, `bootstrap_js`, `bootstrap_theme_css`,
 How to install
 ==============
 
-Bh is compatible with **Rails 3**, **Rails 4**, **Padrino** and **Middleman**.
+Bh is compatible with **Rails 3.2**, **Rails 4**, **Padrino** and **Middleman**.
 
 To include the Bh gem in your project:
 
