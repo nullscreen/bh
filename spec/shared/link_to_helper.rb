@@ -52,6 +52,12 @@ shared_examples_for 'the link wrapped in nav' do
       bh.nav { expect(:link_to).to generate html }
     end
   end
+
+  specify 'does not surround the link in <li> if no_container: true given' do
+    options = { no_container: true }
+    html = '<a href="/">content</a>'
+    bh.nav { expect(link_to: options).to generate html }
+  end
 end
 
 shared_examples_for 'the link wrapped in vertical' do
