@@ -515,6 +515,23 @@
 </form>
   {% endhighlight %}
 
+  <p>Note that fields inside <code>fields_for</code> submitted with invalid values are <strong>not</strong> automatically highlighted. The <code>:errors</code> options should be specified explicity so that BH recognizes the <code>:errors</code> options.</p>
+  {% highlight rhtml %}
+<%= f.fields_for :company, fields_set: false, errors: {icons: true, messages: true} do |company_form| %>
+  <%= company_form.text_field :name %>
+<% end %>
+  {% endhighlight %}
+  <p>However, error messages in the association attribute should still be displayed manually.</p>
+  {% highlight rhtml %}
+<% if @user.company.errors.any? %>
+  <ul class="errors">
+    <% @user.company.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+  {% endhighlight %}
+
   <h3 id="form-help">Help text</h3>
   <p>Use the <code>:help</code> option to display a help message after fields inside <em>bootstrapped</em> forms.</p>
   <p>Note that error messages will have precedence over help messages.</p>
