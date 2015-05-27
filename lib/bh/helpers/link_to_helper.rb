@@ -35,6 +35,11 @@ module Bh
     #         end
     #       end
     def link_to(*args, &block)
+      active = args.extract_options![:active]
+
+      # remove the unwanted active option
+      args.extract_options!.except![:active]
+
       link_to = Bh::LinkTo.new self, *args, &block
 
       link_to.append_class! :'alert-link' if Bh::Stack.find(Bh::AlertBox)
@@ -42,8 +47,6 @@ module Bh
       link_to.merge! role: :menuitem if Bh::Stack.find(Bh::Dropdown)
       link_to.merge! tabindex: -1 if Bh::Stack.find(Bh::Dropdown)
       html = super link_to.content, link_to.url, link_to.attributes, &nil
-
-      active = args.extract_options![:active]
 
       if Bh::Stack.find(Bh::Dropdown)
         container = Bh::Base.new(self) { html }
