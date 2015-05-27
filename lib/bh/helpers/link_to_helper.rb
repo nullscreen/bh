@@ -43,6 +43,8 @@ module Bh
       link_to.merge! tabindex: -1 if Bh::Stack.find(Bh::Dropdown)
       html = super link_to.content, link_to.url, link_to.attributes, &nil
 
+      active = args.extract_options![:active]
+
       if Bh::Stack.find(Bh::Dropdown)
         container = Bh::Base.new(self) { html }
         container.merge! role: :presentation
@@ -50,7 +52,7 @@ module Bh
       elsif Bh::Stack.find(Bh::Nav)
         container = Bh::Base.new(self) { html }
         container.append_class! :active if link_to.current_page? ||
-          @options[:active]
+          active
         container.render_tag :li
       else
         html
