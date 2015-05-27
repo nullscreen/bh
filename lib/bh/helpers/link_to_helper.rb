@@ -35,7 +35,7 @@ module Bh
     #         end
     #       end
     def link_to(*args, &block)
-      active = args.delete![:active]
+      active = args.extract_options!.delete![:active]
 
       link_to = Bh::LinkTo.new self, *args, &block
 
