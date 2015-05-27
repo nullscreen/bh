@@ -51,8 +51,7 @@ module Bh
         container.render_tag :li
       elsif Bh::Stack.find(Bh::Nav)
         container = Bh::Base.new(self) { html }
-        container.append_class! :active if link_to.current_page? ||
-          active
+        container.append_class! :active if link_to.current_page? || active
         container.render_tag :li
       else
         html
