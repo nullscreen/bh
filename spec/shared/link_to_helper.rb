@@ -5,6 +5,8 @@ shared_examples_for 'the link_to helper' do
   all_tests_pass_with 'the link wrapped in dropdown'
   all_tests_pass_with 'the link wrapped in nav'
   all_tests_pass_with 'the link wrapped in vertical'
+  all_tests_pass_with 'the link including unsafe Javascript'
+  all_tests_pass_with 'the link including safe HTML content'
 end
 
 #--
@@ -60,5 +62,23 @@ shared_examples_for 'the link wrapped in vertical' do
     bh.navbar(id: 'id') do
       bh.vertical { expect(:link_to).to generate html }
     end
+  end
+end
+
+shared_examples_for 'the link including unsafe Javascript' do
+  specify 'uses the original link_to helper which escapes the link' do
+    expect(link_to: :xss_script).not_to generate %r{<script>}
+    bh.alert_box { expect(link_to: :xss_script).not_to generate %r{<script>} }
+    bh.dropdown('') { expect(link_to: :xss_script).not_to generate %r{<script>} }
+    bh.nav { expect(link_to: :xss_script).not_to generate %r{<script>} }
+    bh.navbar(id: 'id') do
+      bh.vertical { expect(link_to: :xss_script).not_to generate %r{<script>} }
+    end
+  end
+end
+
+shared_examples_for 'the link including safe HTML content' do
+  specify 'does not escape the HTML content' do
+    expect(link_to: :safe_html).to generate %r{<hr />}
   end
 end

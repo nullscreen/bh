@@ -7,6 +7,12 @@ RSpec::Matchers.define :generate do |html|
     if helper == :link_to && options == :nil_name
       @inline = bh.send helper, nil, '/'
       @block = @inline
+    elsif helper == :link_to && options == :xss_script
+      @inline = bh.send helper, '<script>alert("xss")</script>', '/'
+      @block = bh.send(helper, '/') { '<script>alert("xss")</script>' }
+    elsif helper == :link_to && options == :safe_html
+      @inline = bh.send helper, bh.tag(:hr), '/'
+      @block = bh.send(helper, '/') { bh.tag(:hr) }
     elsif helper == :link_to || helper == :button_to
       @inline = bh.send helper, *['content', '/', options].compact
       if bh.test_button_to_with_block
