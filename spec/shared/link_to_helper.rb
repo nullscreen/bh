@@ -55,8 +55,10 @@ shared_examples_for 'the link wrapped in nav' do
 end
 
 shared_examples_for 'the link wrapped in vertical' do
-  specify 'surrounds the link in a <li> item' do
-    html = '<li><a href="/">content</a></li>'
-    bh.vertical { expect(:link_to).to generate html }
+  specify 'adds the "navbar-brand" class to the link' do
+    html = %r{^<a.+class="navbar-brand".*>content</a>$}
+    bh.navbar(id: 'id') do
+      bh.vertical { expect(:link_to).to generate html }
+    end
   end
 end
