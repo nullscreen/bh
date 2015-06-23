@@ -6,6 +6,18 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 1.3.4 - 2014-06-23
+
+* [BUGFIX] Security: don’t always assume that the content of `link_to` is safe
+
+Note that this might break your code if it relied on the wrong behavior of
+Bh, assuming that the content of `link_to` was always HTML safe.
+
+For instance, if your app has the following code to display an image with a
+link `link_to '<img src="logo.png">', '/'`, then the image will not display
+anymore, since Bh now correctly escapes the HTML content (as Rails and Padrino
+do). In this case, you should use `link_to image_tag('logo.png'), '/'` instead.
+
 ## 1.3.3 - 2014-03-11
 
 * [BUGFIX] Correctly align the "X" icon at the right of the field in basic forms

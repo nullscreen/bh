@@ -59,7 +59,7 @@ module Bh
         items = Array.wrap(@content).map do |item|
           item.is_a?(Base) ? item.content_tag(item.tag) : item
         end
-        safe_join items
+        items.all?(&:html_safe?) ? safe_join(items) : items.join
       end
 
       def content_tag(tag)
