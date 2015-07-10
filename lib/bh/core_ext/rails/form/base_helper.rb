@@ -75,7 +75,7 @@ module Bh
       def show_error_icon?(field_type, errors, suffix = nil)
         no_icon = %w(checkbox number_field radio_button select legend)
         hide = no_icon.include?(field_type.to_s)
-        errors.any? && @options.fetch(:errors, {}).fetch(:icons, true) && !hide && suffix.nil?
+        errors.any? && (@options.fetch(:errors) || {}).fetch(:icons, true) && !hide && suffix.nil?
       end
 
       def error_icon_tag
