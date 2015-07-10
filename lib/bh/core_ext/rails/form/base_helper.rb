@@ -131,7 +131,7 @@ module Bh
       end
 
       def show_error_help?
-        @options.fetch(:errors, {}).fetch(:messages, :inline).to_s == 'inline'
+        (@options.fetch(:errors) || {}).fetch(:messages, :inline).to_s == 'inline'
       end
 
       def inline_form?
