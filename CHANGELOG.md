@@ -6,7 +6,7 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
-## 1.3.4 - 2014-06-23
+## 1.3.4 - 2015-06-23
 
 * [BUGFIX] Security: don’t always assume that the content of `link_to` is safe
 
@@ -18,21 +18,21 @@ link `link_to '<img src="logo.png">', '/'`, then the image will not display
 anymore, since Bh now correctly escapes the HTML content (as Rails and Padrino
 do). In this case, you should use `link_to image_tag('logo.png'), '/'` instead.
 
-## 1.3.3 - 2014-03-11
+## 1.3.3 - 2015-03-11
 
 * [BUGFIX] Correctly align the "X" icon at the right of the field in basic forms
 
-## 1.3.2 - 2014-03-05
+## 1.3.2 - 2015-03-05
 
 * [BUGFIX] Respect the original behavior of Padrino/Rails when calling `link_to` with `nil` as the name
 
-## 1.3.1 - 2014-02-03
+## 1.3.1 - 2015-02-03
 
 * [BUGFIX] Do not render the `:offset` option of the field helpers in the DOM
 * [BUGFIX] Do not render the `:label` option of the field helpers in the DOM
 * [ENHANCEMENT] Add `:label_options` option to customize the wrapping label of a field
 
-## 1.3.0 - 2014-02-02
+## 1.3.0 - 2015-02-02
 
 * [FEATURE] Extend `form_for` to be wrapped in <li> when inside a `nav`, just like `link_to`
 * [FEATURE] Extend `button_to` to be wrapped in <li> when inside a `nav`, just like `link_to`
