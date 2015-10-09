@@ -48,7 +48,7 @@ Bh is compatible with **Rails 3.2**, **Rails 4**, **Padrino** and **Middleman**.
 
 To include the Bh gem in your project:
 
-1. Add `gem 'bh', '~> 1.2'` to the `Gemfile` file of your Rails, Padrino or Middleman project.
+1. Add `gem 'bh', '~> 1.3'` to the `Gemfile` file of your Rails, Padrino or Middleman project.
 2. *Only if you are using Middleman*: open `config.rb` and add `activate :bh`.
 3. *Only if you are using Padrino*: open `app.rb` and add `register Bh`.
 
