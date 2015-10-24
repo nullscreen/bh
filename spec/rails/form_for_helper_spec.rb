@@ -47,4 +47,28 @@ describe 'form_for' do
       expect(form).to include 'role="form"'
     end
   end
+
+  describe 'form_builder option' do
+    specify 'by default is true' do
+      expect(Bh.form_builder).to eq(true)
+    end
+
+    specify 'when true, uses FormBuilder' do
+      form_for(:object, options.merge(url: '/', layout: :wat)) do |f|
+        expect(f.is_a?(Bh::FormBuilder)).to eq(true)
+      end
+    end
+
+    specify 'when false, does not use FormBuilder' do
+      begin
+        Bh.form_builder = false
+        form_for(:object, options.merge(url: '/', layout: :wat)) do |f|
+          expect(f.is_a?(ActionView::Helpers::FormBuilder)).to eq(true)
+          expect(f.is_a?(Bh::FormBuilder)).to eq(false)
+        end
+      ensure
+        Bh.form_builder = true
+      end
+    end
+  end
 end

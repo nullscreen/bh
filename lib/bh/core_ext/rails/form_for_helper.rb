@@ -26,7 +26,7 @@ module Bh
         options[:html] ||= {}
         options[:html].merge! role: 'form'
         append_class! options[:html], class_for(options[:layout])
-        options.merge! builder: FormBuilder
+        options.merge! builder: FormBuilder if Bh.form_builder
       end
 
       def class_for(layout)
