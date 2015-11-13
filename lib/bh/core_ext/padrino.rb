@@ -13,7 +13,7 @@ module Bh
     module Padrino
       # Register Bh as a Padrino app.
       def registered(app)
-        app.include Bh::Helpers
+        app.send(:include, Bh::Helpers)
       end
     end
 
