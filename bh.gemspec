@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake',            '~> 10.3'
   spec.add_development_dependency 'yard',            '~> 0.8.7'
   spec.add_development_dependency 'coveralls',       '~> 0.7.1'
+  spec.add_development_dependency 'tins',            '~> 1.5.4'
   spec.add_development_dependency 'activemodel'      # versioned in gemfiles/
 
   # For spec/dummy

@@ -1,6 +1,7 @@
 language: ruby
 notifications:
   email: true
+sudo: false
 matrix:
   include:
   - rvm: 1.9.3
