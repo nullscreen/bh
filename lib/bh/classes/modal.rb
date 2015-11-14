@@ -29,6 +29,11 @@ module Bh
         Modal.dialog_sizes[@options[:size]]
       end
 
+      # @return [#to_s] the animation-related class to assign to the modal.
+      def animation_class
+        Modal.animation_class if @options.fetch :animated, true
+      end
+
       # @return [#to_s] the caption for the modal button.
       def caption
         @options.fetch(:button, {}).fetch :caption, title
@@ -54,6 +59,11 @@ module Bh
           klass[:sm]          = :'modal-sm'
           klass[:small]       = :'modal-sm'
         end
+      end
+
+      # @return [#to_s] the class that defines the modal's animation.
+      def self.animation_class
+        'fade'
       end
 
       def extract_content_from(*args, &block)
