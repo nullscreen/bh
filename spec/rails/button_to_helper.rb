@@ -9,7 +9,7 @@ end
 
 shared_examples_for 'no button_to options (Rails)' do
   specify 'uses the original button_to helper' do
-    html = %r{^<form action="/" class="button_to" method="post"><div><(input|button) type="submit"(>| value=")content(" />|</button>)</div></form>$}
+    html = %r{^<form(?:| action="/") class="button_to" method="post"(?:| action="/")>(?:|<div>)<(input|button) type="submit"(>| value=")content(" />|</button>)(?:|</div>)</form>$}
     expect(:button_to).to generate html
   end
 end
