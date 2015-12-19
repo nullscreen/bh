@@ -10,3 +10,6 @@ matrix:
       - gem update --system 2.4.8
   - rvm: 2.0.0
     gemfile: gemfiles/Gemfile.rails-4.x
+  - rvm: 2.2.4
+    gemfile: gemfiles/Gemfile.rails-5.x
+    env: ONLY_RAILS=true

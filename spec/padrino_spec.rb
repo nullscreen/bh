@@ -26,4 +26,4 @@ describe 'When used in Padrino or Middleman' do
   all_tests_pass_for 'the button_to helper (Padrino)'
   all_tests_pass_for 'the link_to helper (Padrino)'
   all_tests_pass_for 'the link_to helper'
-end
+end unless ENV['ONLY_RAILS']
