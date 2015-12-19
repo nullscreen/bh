@@ -10,7 +10,7 @@ module Bh
     private
 
       def base_field(method, field_type, options = {}, &block)
-        errors = (object.errors.get method if object) || {}
+        errors = (object.errors[method] if object) || {}
         label = label_for method, errors, field_type, options
         field = field_container(options) do
           field_tags errors, field_type, options, &block
