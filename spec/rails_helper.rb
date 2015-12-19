@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 class User
   require 'active_model'
 

@@ -10,7 +10,9 @@ SimpleCov.start
 require 'bh'
 
 Dir['./spec/shared/**/*.rb'].each {|f| require f}
-Dir['./spec/support/**/*.rb'].each {|f| require f}
+require './spec/support/matchers.rb'
+require './spec/support/padrino.rb' unless ENV['ONLY_RAILS']
+require './spec/support/rails.rb'
 
 RSpec.configure do |config|
   config.order = 'random'
