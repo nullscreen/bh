@@ -7,14 +7,14 @@ module Bh
       # @note if unspecified, the version should match the latest available
       #   version. If that's not the case, it's a bug and should be fixed.
       def self.bootstrap(options = {})
-        options[:version] ||= '3.3.2'
+        options[:version] ||= '3.3.6'
         cdn_asset options.merge(library: 'bootstrap')
       end
 
       # @note if unspecified, the version should match the latest available
       #   version. If that's not the case, it's a bug and should be fixed.
       def self.font_awesome(options = {})
-        options[:version] ||= '4.3.0'
+        options[:version] ||= '4.5.0'
         cdn_asset options.merge(library: 'font-awesome')
       end
 

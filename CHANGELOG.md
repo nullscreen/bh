@@ -6,6 +6,10 @@ For more information about changelogs, check
 [Keep a Changelog](http://keepachangelog.com) and
 [Vandamme](http://tech-angels.github.io/vandamme).
 
+## 1.3.6 - 2015-12-18
+
+* [ENHANCEMENT] Bump versions of asset libraries
+
 ## 1.3.5 - 2015-12-18
 
 * [ENHANCEMENT] Replace `errors.get(:field)` with `errors[:field]` since the former is deprecated in Rails 5.
