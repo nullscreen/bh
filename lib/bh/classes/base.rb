@@ -82,7 +82,7 @@ module Bh
         ''.html_safe.tap do |str|
           array.compact.each_with_index do |elem, i|
             str << delimiter if i > 0
-            str << elem
+            str << elem.to_s
           end
         end
       end
