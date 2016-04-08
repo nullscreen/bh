@@ -317,6 +317,35 @@
 </form>
   {% endhighlight %}
 
+  <p>Set the <code>:use_label</code> option <code>false</code> if you do not need a label.</p>
+  {% highlight rhtml %}
+<%= form_for User.new, layout: :basic do |f| %>
+  <%= f.email_field :email, use_label: false %>
+  <%= f.password_field :password, use_label: false %>
+<% end %>
+  {% endhighlight %}
+  <p>generates the following HTML:</p>
+    <div class="bs-example">
+      <form accept-charset="UTF-8" action="#" method="post" role="form" id="new_user" >
+        <div class="form-group">
+          <input class="form-control" id="user_email" name="user[email]" placeholder="Email" type="email">
+        </div>
+        <div class="form-group">
+          <input class="form-control" id="user_password" name="user[password]" placeholder="Password" type="password">
+        </div>
+      </form>
+    </div>
+  {% highlight html %}
+<form accept-charset="UTF-8" action="/users/new" method="post" role="form" id="new_user" >
+  <div class="form-group">
+    <input class="form-control" id="user_email" name="user[email]" placeholder="Email" type="email">
+  </div>
+  <div class="form-group">
+    <input class="form-control" id="user_password" name="user[password]" placeholder="Password" type="password">
+  </div>
+</form>
+  {% endhighlight %}
+
   <h3 id="form-placeholders">Placeholders</h3>
   <p>Field helpers inside <em>bootstrapped</em> forms are automatically displayed with their label as a placeholder.
     Use the <code>:placeholder</code> option if you need to customize the generated placeholder.</p>
