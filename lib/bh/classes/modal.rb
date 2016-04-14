@@ -34,6 +34,11 @@ module Bh
         @options.fetch(:button, {}).fetch :caption, title
       end
 
+      # @return [Boolean] whether to display button of the modal dialog.
+      def no_button
+        @options.fetch :no_button, false
+      end
+
       # @return [#to_s] the title to display on top of the modal dialog.
       def title
         @options.fetch :title, 'Modal'
