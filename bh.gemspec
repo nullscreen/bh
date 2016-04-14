@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   # For development / Code coverage / Documentation
   spec.add_development_dependency 'bundler',         '~> 1.1'
   spec.add_development_dependency 'rspec',           '~> 3.1'
-  spec.add_development_dependency 'rake',            '~> 10.3'
+  spec.add_development_dependency 'rake',            '~> 11.1'
   spec.add_development_dependency 'yard',            '~> 0.8.7'
   spec.add_development_dependency 'coveralls',       '~> 0.8.13'
   spec.add_development_dependency 'activemodel'      # versioned in gemfiles/

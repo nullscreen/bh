@@ -15,6 +15,7 @@ module Bh
     #     Using this option is equivalent to passing the body as an argument.
     #   @option options [#to_s] :size the size of the modal. Can be `:large`
     #     (alias `:lg`) or `:small` (alias `:sm`).
+    #   @option options [Boolean] :no_button (false) whether to display button
     #   @option options [Hash] :button the options for the toggle button.
     #     * :caption (#to_s) ('Modal') the caption of the toggle button.
     #     * :context (#to_s) (:default) the contextual alternative to apply to
@@ -37,13 +38,15 @@ module Bh
     #       end
     def modal(*args, &block)
       modal = Bh::Modal.new self, *args, &block
-      modal.extract! :button, :size, :body, :title, :id
+      modal.extract! :button, :size, :body, :no_button, :title, :id
 
       modal.extract_from :button, [:context, :size, :layout, :caption]
       modal.append_class_to! :button, :btn
       modal.append_class_to! :button, modal.button_context_class
       modal.append_class_to! :button, modal.button_size_class
       modal.merge! button: {caption: modal.caption}
+
+      modal.merge! no_button: modal.no_button
 
       modal.append_class_to! :div, :'modal-dialog'
       modal.append_class_to! :div, modal.dialog_size_class

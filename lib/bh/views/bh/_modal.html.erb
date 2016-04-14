@@ -1,4 +1,4 @@
-<button class="<%= button[:class] %>" data-toggle="modal" data-target="#<%= div[:id] %>"><%= button[:caption] %></button>
+<% unless no_button %><button class="<%= button[:class] %>" data-toggle="modal" data-target="#<%= div[:id] %>"><%= button[:caption] %></button><% end %>
 <div class="modal fade" id="<%= div[:id] %>" tabindex="-1" role="dialog" aria-labelledby="label-<%= div[:id] %>" aria-hidden="true">
   <div class="<%= div[:class] %>">
     <div class="modal-content">
