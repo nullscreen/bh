@@ -62,4 +62,15 @@ describe 'fields_for' do
       it { expect(form).to include '<div class="panel-heading">Your address</div>' }
     end
   end
+
+  context 'given a record object with validation error' do
+    before { user.errors.add :name, 'is required' }
+
+    let(:block) { Proc.new {|f| f.fields_for :other_user, user, options, &fields_block } }
+    let(:fields_block) { Proc.new {|f| f.text_field :name } }
+
+    specify 'shows error' do
+      expect(form).to include 'has-error'
+    end
+  end
 end
