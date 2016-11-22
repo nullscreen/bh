@@ -1,4 +1,5 @@
 shared_examples_for 'the alert_box helper' do
+  # based on https://getbootstrap.com/components/#alerts
   all_tests_pass_with 'no alert options'
   all_tests_pass_with 'extra alert options'
   all_tests_pass_with 'the :context alert option'
@@ -36,6 +37,11 @@ shared_examples_for 'the :dismissible alert option' do
   specify 'set to false, does not display a button to dismiss the alert' do
     html = '<div class="alert alert-info" role="alert">content</div>'
     expect(alert_box: {dismissible: false}).to generate html
+  end
+  
+  specify 'set to true, adds class alert-dismissible to the alert div' do
+    html = %r{<div class="alert alert-info alert-dismissible"}
+    expect(alert_box: {dismissible: true}).to generate html
   end
 
   specify 'set to true, displays a button to dismiss the alert' do
