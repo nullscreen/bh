@@ -54,6 +54,14 @@ shared_examples_for 'the link wrapped in nav' do
       bh.nav { expect(:link_to).to generate html }
     end
   end
+
+  describe 'if the link is given the active option' do
+    specify 'surrounds the link in a <li class="active"> item' do
+      options = { active: true }
+      html = '<li class="active"><a href="/">content</a></li>'
+      bh.nav { expect(link_to: options).to generate html }
+    end
+  end
 end
 
 shared_examples_for 'the link wrapped in vertical' do
