@@ -55,7 +55,7 @@ To include the Bh gem in your project:
 That’s all!
 From now on, you will be able to use any Bh helper in your views.
 
-A comprehensive guide to Bh helpers
+A comprehensive guide to Bootstrap Helpers
 ===================================
 
 All the helpers available in Bh are detailed on the [Bh homepage](http://fullscreen.github.io/bh):
