@@ -11,8 +11,8 @@ module Bh
           record_object, fields_options = nil, record_object
         end
 
-        fields_options[:layout] ||= @options[:layout]
-        fields_options[:errors] ||= @options[:errors]
+        fields_options[:layout] ||= @options[:layout] if @options.has_key?(:layout)
+        fields_options[:errors] ||= @options[:errors] if @options.has_key?(:errors)
         title = fields_options.delete(:title) { record_name.to_s.humanize }
         wrap_in_fieldset = fields_options.fetch :fieldset, true
         fields = super record_name, record_object, fields_options, &block
