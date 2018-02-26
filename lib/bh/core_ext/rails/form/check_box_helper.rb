@@ -19,15 +19,23 @@ module Bh
       def check_box_with_block_label(method, options = {}, &block)
         append_class! options, 'form-control' unless inline_form?
         append_class! options, 'checkbox' if horizontal_form?
-        options[:label] ||= method.to_s.humanize
+        options[:label] ||= default_label_for(method)
         base_field method, :checkbox, options, &block
       end
 
       def check_box_with_inline_label(method, options = {}, &block)
         options.merge! offset: true, use_label: false
-        options[:label] ||= method.to_s.humanize
+        options[:label] ||= default_label_for(method)
         base_field method, :checkbox, options do
           label_and_field 'checkbox', method, options, &block
+        end
+      end
+
+      def default_label_for(method)
+        if object.class.respond_to?(:human_attribute_name)
+          object.class.human_attribute_name(method)
+        else
+          method.to_s.humanize
         end
       end
     end

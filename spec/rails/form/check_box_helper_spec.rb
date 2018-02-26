@@ -108,5 +108,20 @@ describe 'check_box' do
         expect(form).not_to include 'form-control'
       end
     end
+
+    context 'given translated attribute name' do
+      let(:attr_name) { 'Your name' }
+      before do
+        I18n.backend.store_translations(:en, activemodel: { attributes: { user: { name: attr_name } } })
+      end
+
+      specify 'renders label with translated name' do
+        expect(form).to include(attr_name)
+      end
+
+      after do
+        I18n.backend.store_translations(:en, activemodel: nil)
+      end
+    end
   end
 end
