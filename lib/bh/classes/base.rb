@@ -44,7 +44,7 @@ module Bh
         file = File.expand_path "../../views/bh/_#{partial}.html.erb", __FILE__
         template = ERB.new(File.read file)
         assigns = OpenStruct.new attributes.merge(content: @content)
-        render template.result(assigns.instance_eval{ binding &nil }).html_safe
+        render template.result(assigns.instance_eval{ binding &nil })
       end
 
       def tag
@@ -59,7 +59,7 @@ module Bh
         items = Array.wrap(@content).map do |item|
           item.is_a?(Base) ? item.content_tag(item.tag) : item
         end
-        items.all?(&:html_safe?) ? safe_join(items) : items.join
+        safe_join(items)
       end
 
       def content_tag(tag)
@@ -78,8 +78,13 @@ module Bh
 
     private
 
-      def safe_join(array = [])
-        array.compact.join("\n").html_safe
+      def safe_join(array = [], delimiter = "\n")
+        ''.html_safe.tap do |str|
+          array.compact.each_with_index do |elem, i|
+            str << delimiter if i > 0
+            str << elem.to_s
+          end
+        end
       end
 
       def stack(&block)

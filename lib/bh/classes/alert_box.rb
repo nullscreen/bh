@@ -12,7 +12,7 @@ module Bh
       def dismissible_button
         if @options[:dismissible] || @options[:priority]
           path = '../../views/bh/_alert_dismiss_button.html'
-          File.read File.expand_path(path, __FILE__)
+          File.read(File.expand_path(path, __FILE__)).html_safe
         end
       end
 
