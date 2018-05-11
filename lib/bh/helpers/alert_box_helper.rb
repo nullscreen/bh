@@ -32,6 +32,7 @@ module Bh
 
       alert_box.append_class! :alert
       alert_box.append_class! alert_box.context_class
+      alert_box.append_class! alert_box.dismissible_class
       alert_box.merge! role: :alert
       alert_box.prepend_html! alert_box.dismissible_button
       alert_box.render_tag :div

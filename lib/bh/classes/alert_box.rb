@@ -7,6 +7,11 @@ module Bh
       def context_class
         AlertBox.contexts[@options.fetch :context, @options[:priority]]
       end
+    
+      # @return [#to_s] the css class which indicates this box is dimissible, to assign to the alert box.
+      def dismissible_class
+        'alert-dismissible' if @options[:dismissible]
+      end
 
       # @return [#to_s] the HTML to show a dismissible button for the alert box.
       def dismissible_button
