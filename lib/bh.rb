@@ -3,7 +3,9 @@ require 'active_support/core_ext'
 
 # Bootstrap Helpers
 module Bh
-  mattr_accessor :framework
+  mattr_accessor :framework, :form_builder
+
+  self.form_builder = true
 end
 
 # Always require every generic helper
