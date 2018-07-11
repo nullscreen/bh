@@ -47,7 +47,7 @@
         <!-- Try setting different :title, :size, :button or :context options -->
         <%= modal 'Do what you want!', button: {size: :small, context: :info} %>
 
-        <% modal title: 'Terms of service', size: :large, id: 'modal', button: {class: :en} do %>
+        <% modal title: 'Terms of service', size: :large, id: 'modal', button: {class: :en}, animated: false do %>
           <div class="modal-body">Please accept the Terms of service.</div>
           <div class="modal-footer"><button type="button" class="btn btn-primary">Accept</button></div>
         <% end %>

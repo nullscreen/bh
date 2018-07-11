@@ -24,6 +24,8 @@ module Bh
     #       (alias `:xs`), `:large` (alias `:lg`) or `:small` (alias `:sm`).
     #     * :layout (#to_s) if set to `:block`, span the button for the full
     #       width of the parent.
+    #   @option options [Boolean] :animated (true) option for disabling the
+    #   default modal animation.
     #   @example Display a simple modal toggled by a blue button.
     #       modal 'You clicked me!', title: 'Click me', button: {context: :info}
     # @overload modal(options = {}, &block)
@@ -37,7 +39,9 @@ module Bh
     #       end
     def modal(*args, &block)
       modal = Bh::Modal.new self, *args, &block
-      modal.extract! :button, :size, :body, :title, :id
+      modal.extract! :animated, :button, :size, :body, :title, :id
+
+      modal.append_class_to! :animation, modal.animation_class
 
       modal.extract_from :button, [:context, :size, :layout, :caption]
       modal.append_class_to! :button, :btn

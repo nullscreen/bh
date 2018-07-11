@@ -8,6 +8,7 @@ shared_examples_for 'the modal helper' do
   all_tests_pass_with 'the button: :context modal option'
   all_tests_pass_with 'the button: :size modal option'
   all_tests_pass_with 'the button: :class modal option'
+  all_tests_pass_with 'the animated: modal option'
 end
 
 #--
@@ -100,5 +101,17 @@ shared_examples_for 'the button: :class modal option' do
   specify 'appends the class to the modal button' do
     html = %r{<button class="important btn btn-default"}
     expect(modal: {button: {class: 'important'}}).to generate html
+  end
+end
+
+shared_examples_for 'the animated: modal option' do
+  specify 'set to true, keeps the class "fade"' do
+    html = %r{<div class="modal fade" id=}
+    expect(modal: {animated: true}).to generate html
+  end
+
+  specify 'set to false, removes the class "fade"' do
+    html = %r{<div class="modal.*" id=}
+    expect(modal: {animated: false}).to generate html
   end
 end
